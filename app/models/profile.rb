@@ -3,7 +3,7 @@ class Profile < ActiveRecord::Base
   has_many :pending_followers
   has_many :followings
   has_many :pending_followings
-  has_many :emission_profiles
+  has_many :emissions_profiles
   has_many :newsfeed_items
   has_many :posts
   has_many :started_habits
