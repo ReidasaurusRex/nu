@@ -1,0 +1,2 @@
+module DietProfilesHelper
+end

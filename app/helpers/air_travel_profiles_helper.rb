@@ -1,0 +1,2 @@
+module AirTravelProfilesHelper
+end

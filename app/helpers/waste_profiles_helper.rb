@@ -1,0 +1,2 @@
+module WasteProfilesHelper
+end
