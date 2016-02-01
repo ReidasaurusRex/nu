@@ -11,4 +11,5 @@ class Profile < ActiveRecord::Base
   has_many :started_challenges
   has_many :completed_challenges
   has_many :blocked_users
+  has_many :notifications
 end
