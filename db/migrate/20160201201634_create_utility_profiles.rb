@@ -5,7 +5,7 @@ class CreateUtilityProfiles < ActiveRecord::Migration
       t.boolean :known
       t.string :name
       t.string :input_type
-      t.real :input_amount
+      t.float :input_amount
       t.integer :sub_section_emissions
 
       t.timestamps null: false

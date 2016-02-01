@@ -5,7 +5,7 @@ class CreateWaterProfiles < ActiveRecord::Migration
       t.boolean :use
       t.boolean :known
       t.string :measurement_type
-      t.real :measurement_amount
+      t.float :measurement_amount
       t.integer :section_emissions
 
       t.timestamps null: false
