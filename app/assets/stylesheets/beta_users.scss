@@ -1,0 +1,34 @@
+// Place all the styles related to the betausers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-top > div, .inline-fields div {
+  display: inline-block;
+}
+
+.logo {
+  background: green;
+  height: 400px;
+  margin-left: 10%;
+  margin-right: 40px;
+  width: 400px;
+}
+
+.sign-up {
+  background: red;
+  position: relative;
+  height: 400px;
+  width: 400px;
+}
+
+.sign-up div:first-child {
+  position: relative;
+  text-align: center;
+}
+
+// .form-with-errors span {
+//   display: block;
+// }
+
+
+

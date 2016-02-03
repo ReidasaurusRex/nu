@@ -53,4 +53,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root 'beta_users#new'
+  post 'beta_users/create', as: 'create_beta_user'
+  get 'beta_users/thanks', as: 'thanks'
 end
