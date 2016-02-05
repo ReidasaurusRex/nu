@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   # //
 
   # // Search results
-  get 'search/results', as: 'search_results'
+  post 'search/results', as: 'search_results'
   # //
 
   # // User and settings paths
