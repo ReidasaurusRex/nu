@@ -4,31 +4,40 @@
 
 .main-top > div, .inline-fields div {
   display: inline-block;
+  vertical-align: top;
 }
 
 .logo {
   background: green;
-  height: 400px;
-  margin-left: 10%;
+  height: 500px;
+  margin-left: 8%;
   margin-right: 40px;
-  width: 400px;
+  width: 500px;
 }
 
 .sign-up {
   background: red;
-  position: relative;
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
 }
 
-.sign-up div:first-child {
+.sign-up h2:first-child {
   position: relative;
   text-align: center;
 }
 
-// .form-with-errors span {
-//   display: block;
-// }
+.form-with-errors span {
+  display: block;
+}
 
+.about {
+  margin-left: 24%;
+  max-width: 50%;
+  min-width: 200px;
+}
+
+.about h3:first-child {
+  text-align: center;
+}
 
 

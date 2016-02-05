@@ -13,7 +13,4 @@ class CompletedChallengesController < ApplicationController
 
   def update
   end
-
-  def destroy
-  end
 end
