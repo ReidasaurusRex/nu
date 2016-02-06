@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # get 'about/future', as: 'about_future'
   # # //
 
-  # # // Acess routes
+  # // Acess routes
   # get 'access/landing', as: 'landing'
   # post 'access/login', as: 'login'
   # delete 'access/logout', as: 'logout'
@@ -41,15 +41,15 @@ Rails.application.routes.draw do
 
   # # // Profile linked paths
   # resources :profiles, except: [:index, :destroy] do 
-  #   resources :pending_followers, :pending_followings, :followers, :followings, only: [:index, :create, :destroy]
-  #   resources :emissions_profiles, except: [:new, :update, :edit]
-  #   resources :completed_challenges, except: [:new, :destroy]
-  #   resources :completed_habits, only: [:index, :create, :show]
-  #   resources :started_challenges, :started_habits, except: [:new, :edit]
-  #   resources :notifications, only: [:index, :destroy]
-  #   resources :posts, except: [:index, :new]
+  #   # resources :pending_followers, :pending_followings, :followers, :followings, only: [:index, :create, :destroy]
+  #   # resources :emissions_profiles, except: [:new, :update, :edit]
+  #   # resources :completed_challenges, except: [:new, :destroy]
+  #   # resources :completed_habits, only: [:index, :create, :show]
+  #   # resources :started_challenges, :started_habits, except: [:new, :edit]
+  #   # resources :notifications, only: [:index, :destroy]
+  #   # resources :posts, except: [:index, :new]
   #   resources :newsfeed_items, only: [:index, :show]
-  #   resources :stats, only: :show
+    # resources :stats, only: :show
   # end
   # # //
 
