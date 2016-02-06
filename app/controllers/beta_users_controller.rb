@@ -20,6 +20,7 @@ class BetaUsersController < ApplicationController
     if @beta_user.save
       redirect_to action: :thanks
     else
+      flash.now[:error] = @beta_user.errors
       render :new
     end
   end
