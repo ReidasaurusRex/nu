@@ -1,26 +1,24 @@
-<div class="beta-landing-main">
+<div class="beta-page">
   <div class="main-top">
     <div class="logo"></div>
     <div class="sign-up">
-      <h2>Welcome to the fight.</h2>
+      <h2>We're glad you're here.</h2>
       <div class="sign-up-form">
         <%= form_for(@beta_user, url: create_beta_user_path) do |f| %>  
-        <div class="inline-fields">
-          <div class="form-with-errors">
+          <div class="form-with-errors inline-field">
             <%= f.text_field :first_name, class: "name-input", autofocus: true %>
             <span class="form-label"><%= f.label :first_name, "First Name" %></span>
           </div>
-          <div class="form-with-errors">
+          <div class="form-with-errors inline-field">
             <%= f.text_field :last_name, class: "name-input" %>
             <span class="form-label"><%= f.label :last_name, "Last Name" %></span>
           </div>
-        </div>
           <div class="form-with-errors">
             <%= f.text_field :email %>
             <span class="form-label"><%= f.label :email, "Email" %></span>
           </div>
         <div class="submit-button">
-          <%= f.submit "Sign Up" %>
+          <%= f.submit "Sign Up for Beta" %>
         </div>
         <% end %>
       </div>

@@ -1,0 +1,31 @@
+.beta-page .main-top {
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+.beta-page .main-top > div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.beta-page .logo {
+  background-image: url("nu_color.svg");
+  height: 450px;
+  width: 450px;
+}
+
+.beta-page .sign-up {
+  margin-left: 9%;
+  margin-top: 100px;
+}
+
+.beta-page .about {
+  line-height: 30px;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.beta-page .about > h3 {
+  border-bottom: 1px solid gray;
+}

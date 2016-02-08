@@ -1,0 +1,23 @@
+.form-with-errors {
+  margin-bottom: 18px;
+}
+
+input[type="text"] {
+  height: 25px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.form-with-errors .form-label {
+  display: block;
+  margin-left: 10px;
+}
+
+.inline-field {
+  display: inline-block;
+}
+
+.inline-field:nth-of-type(1) {
+  margin-right: 20px;
+}
