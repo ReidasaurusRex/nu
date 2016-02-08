@@ -12,4 +12,5 @@ class Profile < ActiveRecord::Base
   has_many :completed_challenges, dependent: :destroy
   has_many :blocked_users, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  belongs_to :user
 end
