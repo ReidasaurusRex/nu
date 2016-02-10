@@ -5,11 +5,11 @@
       <h4 class="flash-error"><%= flash[:error] %></h4>
     <% end %>
     <%= form_tag(login_path, method: :post) %>
-    <div class="form-with-errors">
+    <div class="text-form-with-errors">
       <%= text_field_tag(:email, params[:email]) %>
       <span class="form-label"><%= label_tag(:email) %></span>
     </div>
-    <div class="form-with-errors">
+    <div class="text-form-with-errors">
       <%= password_field_tag(:password, params[:password]) %>
       <span class="form-label"><%= label_tag(:password) %></span>
     </div>

@@ -1,4 +1,6 @@
 class Profile < ActiveRecord::Base
+  @@state_list = %w(ak al ar az ca co ct dc de fl ga hi ia id il in ks ky la ma md me mi mn mo ms mt nc nd ne nh nj nm nv ny oh ok or pa ri sc sd tn tx ut va vt wa wi wv wy)
+
   has_many :followers, dependent: :destroy
   has_many :pending_followers, dependent: :destroy
   has_many :followings, dependent: :destroy
@@ -13,4 +15,9 @@ class Profile < ActiveRecord::Base
   has_many :blocked_users, dependent: :destroy
   has_many :notifications, dependent: :destroy
   belongs_to :user
+
+  validates :first_name, presence: {message: " is required"}
+  validates :last_name, presence: {message: " is required"}
+  validates :state, inclusion: {in: @@state_list, 
+    message: " choose an abbr"}
 end

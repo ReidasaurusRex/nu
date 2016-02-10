@@ -1,17 +1,27 @@
-.form-with-errors {
+.text-form-with-errors, .select-form-with-errors {
   margin-bottom: 18px;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], textarea {
   font-size: 92%;
   font-style: italic;
-  height: 25px;
   margin-bottom: 3px;
   padding-left: 10px;
+  padding-right: 10px;
   width: 100%;
 }
 
-.form-with-errors .form-label {
+input[type="text"], input[type="password"] {
+  height: 25px;
+}
+
+textarea {
+  line-height: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.text-form-with-errors .form-label {
   margin-left: 10px;
   margin-top: 3px;
 }

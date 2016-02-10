@@ -2,21 +2,21 @@
   <h2>Join the fight!</h2>
   <%= form_for @user do |f|%>
   <div class="new-user-form">
-    <div class="form-with-errors">
+    <div class="text-form-with-errors">
       <%= f.text_field :email, autofocus: true %>
       <p class="form-label">
         <%= f.label :email %>
         <span class="error-message"><%= add_errors_if_any(@user, :email) %></span>
       </p>
     </div>
-    <div class="form-with-errors">
+    <div class="text-form-with-errors">
       <%= f.password_field :password %>
       <p class="form-label">
         <%= f.label :password %>
         <span class="error-message"><%= add_errors_if_any(@user, :password) %></span>
       </p>
     </div>
-    <div class="form-with-errors">
+    <div class="text-form-with-errors">
       <%= f.password_field :password_confirmation %>
       <p class="form-label">
         <%= f.label :password_confirmation %>
