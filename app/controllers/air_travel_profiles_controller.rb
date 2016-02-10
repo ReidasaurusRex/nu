@@ -1,5 +1,8 @@
 class AirTravelProfilesController < ApplicationController
+  before_action :get_air_travel_profile, except: [:new, :create]
+
   def new
+    @air_travel_profile = AirTravelProfile.new
   end
 
   def create
@@ -15,5 +18,10 @@ class AirTravelProfilesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def get_air_travel_profile
+    @air_travel_profile = AirTravelProfile.find(params[:id])
   end
 end

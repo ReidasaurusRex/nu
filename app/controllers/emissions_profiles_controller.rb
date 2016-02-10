@@ -1,4 +1,4 @@
-class EmissionsProfilesController < ApplicationController
+class EmissionsProfilesController < CompletedProfileController
   def index
   end
 
