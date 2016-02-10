@@ -1,2 +1,23 @@
-<h1>Access#landing</h1>
-<p>Find me in app/views/access/landing.html.erb</p>
+<div class="access-landing">
+  <div class="log-in-form">
+    <h3>Log In</h3>
+    <% if flash[:error] %>
+      <h4 class="flash-error"><%= flash[:error] %></h4>
+    <% end %>
+    <%= form_tag(login_path, method: :post) %>
+    <div class="form-with-errors">
+      <%= text_field_tag(:email, params[:email]) %>
+      <span class="form-label"><%= label_tag(:email) %></span>
+    </div>
+    <div class="form-with-errors">
+      <%= password_field_tag(:password, params[:password]) %>
+      <span class="form-label"><%= label_tag(:password) %></span>
+    </div>
+    <div class="submit-button">
+      <%= submit_tag "Log In" %>
+    </div>
+  </div>
+  <div class="sign-up-link">
+    <%= link_to "Sign Up!", new_user_path %>
+  </div>
+</div>

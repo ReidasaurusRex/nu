@@ -3,9 +3,11 @@ class AccessController < ApplicationController
   end
 
   def login
+    attempt_user_login(params[:email], params[:password])
   end
 
   def logout
+    logout_user
   end
 
   private
@@ -33,10 +35,16 @@ class AccessController < ApplicationController
   end
 
   def redirect_to_new_profile_or_feed(user)
-    if user.profile.complete
+    if user.profile
       redirect_to profile_newsfeed_items_path(user.profile.id)
     else
       redirect_to new_user_profile_path(user.id)
     end
+  end
+
+  def logout_user
+    session[:user_id] = nil
+    flash[:success] = "Aloha!"
+    redirect_to root_path
   end
 end

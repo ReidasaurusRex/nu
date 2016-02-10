@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
   # // Beta routes
-  root 'beta_users#new'
-  post 'beta_users/create', as: 'create_beta_user'
-  get 'beta_users/thanks', as: 'thanks'
+  # root 'beta_users#new'
+  # post 'beta_users/create', as: 'create_beta_user'
+  # get 'beta_users/thanks', as: 'thanks'
   # //
 
   # // Non beta routes
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # # //
 
   # // Acess routes
-  get 'access/landing', as: 'landing'
+  root 'access#landing'
   post 'access/login', as: 'login'
   delete 'access/logout', as: 'logout'
   # # //

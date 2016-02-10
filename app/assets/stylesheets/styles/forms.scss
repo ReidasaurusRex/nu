@@ -2,10 +2,12 @@
   margin-bottom: 18px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
+  font-size: 92%;
+  font-style: italic;
   height: 25px;
-  padding-left: 10px;
   margin-bottom: 5px;
+  padding-left: 10px;
   width: 100%;
 }
 

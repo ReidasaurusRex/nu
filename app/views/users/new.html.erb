@@ -1,2 +1,15 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="users-new">
+  <h2>Join the fight!</h2>
+  <%= form_for @user do |f|%>
+  <div class="new-user-form">
+    <div class="form-with-errors">
+      <%= f.text_field :email, autofocus: true %>
+      <span class="form-label"><%= f.label :email %></span>
+    </div>
+    <div class="form-with-errors">
+      <%= f.password_field :password %>
+      <span class="form-label"><%= f.label :password %></span>
+    </div>
+  </div>
+  <% end %>
+</div>
