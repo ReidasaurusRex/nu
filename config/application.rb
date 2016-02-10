@@ -30,6 +30,10 @@ module NuWorld
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    # Do not generate field with error proc
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
+        html_tag
+    }
     # Do not generate routes with controller generators
     config.generators do |g|
         g.skip_routes true

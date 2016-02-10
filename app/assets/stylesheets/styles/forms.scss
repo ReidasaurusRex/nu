@@ -6,14 +6,18 @@ input[type="text"], input[type="password"] {
   font-size: 92%;
   font-style: italic;
   height: 25px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   padding-left: 10px;
   width: 100%;
 }
 
 .form-with-errors .form-label {
-  display: block;
   margin-left: 10px;
+  margin-top: 3px;
+}
+
+.error-message {
+  color: red;
 }
 
 .inline-field {
