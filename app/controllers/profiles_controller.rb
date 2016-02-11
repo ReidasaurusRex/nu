@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :interests, :state)
+    params.require(:profile).permit(:first_name, :last_name, :interests, :state).merge(user_id: session[:user_id])
   end
 
   def create_profile(profile_params)

@@ -1,0 +1,9 @@
+<div class="top-nav">
+  <ul class="nav-items">
+    <li><%= link_to image_tag("nu_color.svg"), root_path %></li>  
+    <li><%= link_to "About", about_general_path %></li>
+    <% if @logged_in %>
+      <li><%= link_to "Logout", logout_path, method: :delete %></li>
+    <% end %>
+  </ul>
+</div>

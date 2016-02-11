@@ -1,4 +1,4 @@
-class NewsfeedItemsController < ApplicationController
+class NewsfeedItemsController < LoggedInController
   before_action :get_profile_from_profile_id
   def index
   end

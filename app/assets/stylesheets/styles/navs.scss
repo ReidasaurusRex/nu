@@ -1,0 +1,28 @@
+.top-nav {
+  border-bottom: 1px solid #CDECE9;
+  height: 80px;
+  width: 100%;
+}
+
+.top-nav li {
+  display: inline-block;
+}
+
+.top-nav li {
+  float: right;
+  font-size: 1.1em;
+  line-height: 80px;
+  padding-right: 20px;
+}
+
+.top-nav li:first-child {
+  float: left;
+  height: 60px;
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 60px;
+}
+
+.top-nav li:nth-child(2) {
+  padding-right: 5px;
+}

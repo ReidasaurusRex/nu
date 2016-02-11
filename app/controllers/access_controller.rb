@@ -1,4 +1,5 @@
 class AccessController < ApplicationController
+  before_action :redirect_if_logged_in, only: :landing
   def landing
   end
 
@@ -17,9 +18,9 @@ class AccessController < ApplicationController
       if found_user
         authorized_user = found_user.authenticate(password)
         if authorized_user
-          session[:user_id] = authorized_user.user_id
+          session[:user_id] = authorized_user.id
           flash[:success] = "Welcome back!"
-          redirect_to_new_profile_or_feed(authorized_user)
+          redirect_to_new_profile_or_stats(authorized_user)
         else
           flash.now[:error] = "Incorrect email or password"
           render :landing
@@ -34,9 +35,9 @@ class AccessController < ApplicationController
     end
   end
 
-  def redirect_to_new_profile_or_feed(user)
+  def redirect_to_new_profile_or_stats(user)
     if user.profile
-      redirect_to profile_newsfeed_items_path(user.profile.id)
+      redirect_to profile_stat_path(user.profile.id)
     else
       redirect_to new_user_profile_path(user.id)
     end
@@ -46,5 +47,12 @@ class AccessController < ApplicationController
     session[:user_id] = nil
     flash[:success] = "Aloha!"
     redirect_to root_path
+  end
+
+  def redirect_if_logged_in
+    user = User.find(session[:user_id]) if session[:user_id]
+    if user
+      redirect_to_new_profile_or_stats(user)
+    end
   end
 end
