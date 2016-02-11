@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     resources :notifications, only: [:index, :destroy]
     resources :posts, except: [:index, :new]
     resources :newsfeed_items, only: [:index, :show]
-    resources :stats, only: :show
+    resources :stats, only: :index
     resources :blocked_users, only: [:index, :create, :destroy]
   end
   # # //
