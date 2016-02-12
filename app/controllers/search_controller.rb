@@ -17,8 +17,9 @@ class SearchController < ApplicationController
     results[:habits] = find_habits(query)
     # results[:challenges] = find_challenges(query)
     results[:profiles] = find_profiles(query).keep_if do |prof|
-      !results[:followers].include?(prof) || !results[:followings].include?(prof)
+      !results[:followers].include?(prof) && !results[:followings].include?(prof)
     end
+    binding.pry
     return results
   end
 

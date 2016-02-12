@@ -24,4 +24,8 @@ class Profile < ActiveRecord::Base
   validates :last_name, presence: {message: " is required"}
   validates :state, inclusion: {in: @@state_list, 
     message: " choose an abbr"}
+
+  def full_name 
+    return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
 end

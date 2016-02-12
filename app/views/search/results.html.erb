@@ -1,4 +1,52 @@
-<% binding.pry %>
+<div class="search-results">
 <h1>Search results for <%= @query %></h1>
-<% unless @results %>
-<% end %>
+
+  <% unless @results[:followers].empty? %>
+    <div class="results-section">
+      <h2>Followers</h2>
+      <% @results[:followers].each do |follower| %>
+        <div class="profile-summary">
+          <h3><%= follower.full_name %></h3>
+          <h3><%= link_to("View profile", profile_path(follower))  %></h3>
+        </div> <!-- profile-summary -->
+      <% end %> <!-- followers each -->
+    </div> <!-- results-section -->
+  <% end %> <!-- followers empty check -->
+
+  <% unless @results[:followings].empty? %>
+    <div class="results-section">
+      <h2>Followings</h2>
+      <% @results[:followings].each do |following| %>
+        <div class="profile-summary">
+          <h3><%= following.full_name %></h3>
+          <h3><%= link_to("View profile", profile_path(following))  %></h3>
+        </div> <!-- profile-summary -->
+      <% end %> <!-- followings each -->
+    </div> <!-- results-section -->
+  <% end %> <!-- followings empty check -->
+
+  <% unless @results[:habits].empty? %>
+    <div class="results-section">
+      <h2>Habits</h2>
+      <% @results[:habits].each do |habit| %>
+        <div class="profile-summary">
+          <h3><%= habit.title %></h3>
+          <h4><%= habit.caption %></h4>
+          <h3><%= link_to("View habit", profile_habit_path(profile_id: @profile.id, id: habit.id))  %></h3>
+        </div> <!-- profile-summary -->
+      <% end %> <!-- habits each -->
+    </div> <!-- results-section -->
+  <% end %> <!-- habits empty check -->
+
+  <% unless @results[:profiles].empty? %>
+    <div class="results-section">
+      <h2>Profiles</h2>
+      <% @results[:profiles].each do |profile| %>
+        <div class="profile-summary">
+          <h3><%= profile.full_name %></h3>
+          <h3><%= link_to("View profile", profile_path(profile))  %></h3>
+        </div> <!-- profile-summary -->
+      <% end %> <!-- profiles each -->
+    </div> <!-- results-section -->
+  <% end %> <!-- profiles empty check -->
+</div> <!-- search-results -->
