@@ -1,13 +1,14 @@
 class SearchController < ApplicationController
-  before_action :get_user
+  before_action :get_profile
 
   def results
     @query = params[:query]
+    @results = get_results(params[:query])
   end
 
   private
-  def get_user
-    @user = User.find(session[:user_id])
+  def get_profile
+    @profile = User.find(session[:user_id]).profile
   end
   def get_results(query)
     results = {}
@@ -19,22 +20,22 @@ class SearchController < ApplicationController
 
   def find_followers(query)
     followers = []
-    @user.followers.where(first_name: query).each{|follower| followers.push(follower)}
-    @user.followers.where(last_name: query).each{|follower| followers.push(follower)}
+    @profile.followers.where(first_name: query).each{|follower| followers.push(follower)}
+    @profile.followers.where(last_name: query).each{|follower| followers.push(follower)}
     query.split.each do |word|
-      @user.followers.where(first_name: word).each{|follower| followers.push(follower)}
-      @user.followers.where(last_name: word).each{|follower| followers.push(follower)}
+      @profile.followers.where(first_name: word).each{|follower| followers.push(follower)}
+      @profile.followers.where(last_name: word).each{|follower| followers.push(follower)}
     end
     return followers.uniq
   end
 
   def find_followings(query)
     followings = []
-    @user.followings.where(first_name: query).each{|following| followings.push(following)}
-    @user.followings.where(last_name: query).each{|following| followings.push(following)}
+    @profile.followings.where(first_name: query).each{|following| followings.push(following)}
+    @profile.followings.where(last_name: query).each{|following| followings.push(following)}
     query.split.each do |word|
-      @user.followings.where(first_name: word).each{|following| followings.push(following)}
-      @user.followings.where(last_name: word).each{|following| followings.push(following)}
+      @profile.followings.where(first_name: word).each{|following| followings.push(following)}
+      @profile.followings.where(last_name: word).each{|following| followings.push(following)}
     end
     return followings.uniq
 
@@ -45,9 +46,22 @@ class SearchController < ApplicationController
     results_habits = []
     habits = Habit.all
     habits.map{|habit| habit.title == query}.each{|habit| results_habits.push(habit)}
+    habits.map{|habit| habit.caption.include?(query)}.each{|habit| results_habits.push(habit)}
+    query.split.each do |word|
+      habits.map{|habit| habit.title == word}.each{|habit| results_habits.push(habit)}
+      habits.map{|habit| habit.caption.include?(word)}.each{|habit| results_habits.push(habit)}
+    end
+    return results_habit.uniq
   end
 
   def find_challenges(query)
-    challenges = []
+    results_challenges = []
+    challenges = Challenges.all
+    challenges.map{|habit| habit.title == query}.each{|habit| results_challenges.push(habit)}
+    challenges.map{|habit| habit.caption.include?(query)}.each{|habit| results_challenges.push(habit)}
+    query.split.each do |word|
+      challenges.map{|habit| habit.title == word}.each{|habit| results_challenges.push(habit)}
+      challenges.map{|habit| habit.caption.include?(word)}.each{|habit| results_challenges.push(habit)}
+    end
   end
 end
