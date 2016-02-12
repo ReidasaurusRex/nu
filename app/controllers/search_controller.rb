@@ -19,7 +19,6 @@ class SearchController < ApplicationController
     results[:profiles] = find_profiles(query).keep_if do |prof|
       !results[:followers].include?(prof) && !results[:followings].include?(prof)
     end
-    binding.pry
     return results
   end
 

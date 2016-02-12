@@ -42,10 +42,11 @@ Rails.application.routes.draw do
   # # // Profile linked paths
   resources :profiles, except: [:index, :destroy] do 
     resources :pending_followers, :pending_followings, :followers, :followings, only: [:index, :create, :destroy]
-    resources :emissions_profiles, except: [:new, :update, :edit, :create]
-    post 'emissions_profiles/create', as: 'create_emissions_profile'
+    resources :emissions_profiles, except: [:new, :update, :edit]
+    # post 'emissions_profiles/create', as: 'create_emissions_profile'
     resources :completed_challenges, except: [:new, :destroy]
     resources :completed_habits, only: [:index, :create, :show]
+    resources :habits, only: [:index, :show]
     resources :started_challenges, :started_habits, except: [:new, :edit]
     resources :notifications, only: [:index, :destroy]
     resources :posts, except: [:index, :new]

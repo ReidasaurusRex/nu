@@ -1,10 +1,15 @@
 <div class="top-nav">
   <ul class="nav-items">
-    <li><%= link_to image_tag("nu_color.svg"), root_path %></li>  
-    <li><%= link_to "About", about_general_path %></li>
+    <% if session[:user_id] %>
+      <li class="left-side"><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></li>
+      <li class="left-side"><%= link_to "Stats", profile_stats_path(@user.profile) %></li>
+      <li class="left-side"><%= link_to "Habits", profile_habits_path(@user.profile) %></li>
+    <% end %>
+    <li class="home-logo"><%= link_to image_tag("nu_color.svg"), root_path %></li>  
+    <li class="right-side"><%= link_to "About", about_general_path %></li>
     <% if @logged_in %>
-      <li><%= link_to "Logout", logout_path, method: :delete %></li>
-      <li> <!-- Search form -->
+      <li class="right-side"><%= link_to "Logout", logout_path, method: :delete %></li>
+      <li class="right-side"> <!-- Search form -->
         <div id="search-form">
         <%= form_tag(search_path, method: :post) do %>
           <div id="search-input"><%= text_field_tag(:query, params[:query]) %></div>

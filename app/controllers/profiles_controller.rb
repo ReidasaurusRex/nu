@@ -1,4 +1,6 @@
-class ProfilesController < ApplicationController
+class ProfilesController < LoggedInController
+  before_action :get_profile, except: [:new, :create]
+
   def new
     @profile = Profile.new
   end
@@ -14,9 +16,14 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    update_profile(profile_params)
   end
 
   private
+  def get_profile
+    @profile = Profile.find(params[:id])
+  end
+
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :interests, :state).merge(user_id: session[:user_id])
   end
@@ -28,6 +35,15 @@ class ProfilesController < ApplicationController
       redirect_to profile_create_emissions_profile_path(@profile)
     else
       render :new
+    end
+  end
+
+  def update_profile(profile_params)
+    if @profile.update(profile_params)
+      flash[:success] = "Thanks!"
+      redirect_to profile_path(@profile)
+    else
+      render :edit
     end
   end
 end

@@ -9,20 +9,25 @@
 }
 
 .top-nav li {
-  float: right;
   font-size: 1.1em;
   line-height: 80px;
   padding-right: 20px;
 }
 
-.top-nav li:first-child {
-  float: left;
-  height: 60px;
-  margin-left: 5px;
-  margin-top: 10px;
-  width: 60px;
+.top-nav .right-side {
+  float: right;
 }
 
-.top-nav li:nth-child(2) {
-  padding-right: 5px;
+.top-nav .left-side {
+  float: left;
+}
+
+.top-nav li:first-child {
+  margin-left: 10px;
+}
+.top-nav .home-logo {
+  height: 60px;
+  margin-left: 32%;
+  margin-top: 10px;
+  width: 60px;
 }

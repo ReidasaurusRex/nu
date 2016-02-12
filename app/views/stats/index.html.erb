@@ -1,2 +1,6 @@
-<h1>Stats#index</h1>
-<p>Find me in app/views/stats/index.html.erb</p>
+<div class="stats-index">
+  <h1>Your Emissions Stats</h1>
+  <% if @profile.emissions_profiles.empty? %>
+    <h3>Looks like you haven't calculated your emissions yet! <%= link_to("Take our test!", profile_emissions_profiles_path(profile_id: @profile.id), method: :post) %></h3>
+  <% end %>
+</div>

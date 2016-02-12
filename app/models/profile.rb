@@ -28,4 +28,8 @@ class Profile < ActiveRecord::Base
   def full_name 
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
+
+  def start_date
+    return self.created_at.strftime("%B, %Y")
+  end
 end
