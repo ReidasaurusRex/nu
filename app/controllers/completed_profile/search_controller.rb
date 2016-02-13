@@ -1,4 +1,4 @@
-class SearchController < ApplicationController
+class CompletedProfile::SearchController < CompletedProfileController
   before_action :get_profile
 
   def results

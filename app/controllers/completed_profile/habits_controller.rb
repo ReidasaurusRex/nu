@@ -1,4 +1,4 @@
-class HabitsController < LoggedInController
+class CompletedProfile::HabitsController < CompletedProfileController
   before_action :get_profile_from_profile_id
   before_action :get_started_habits
   before_action :get_completed_habits

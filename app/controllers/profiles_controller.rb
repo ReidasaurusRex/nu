@@ -1,4 +1,4 @@
-class LoggedIn::ProfilesController < LoggedInController
+class ProfilesController < LoggedInController
   before_action :get_profile, except: [:new, :create]
 
   def new

@@ -1,4 +1,4 @@
-class VehicleProfileController < ApplicationController
+class CalculatorComponent::VehicleProfileController < CalculatorComponentsController
   def new
   end
 

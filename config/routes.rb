@@ -34,15 +34,13 @@ Rails.application.routes.draw do
 
   # # // User and settings paths
   resources :users, except: :index do 
-    scope module: 'logged_in' do
-      resources :profiles, except: [:index, :destroy]
-      resources :privacy_settings, only: [:edit, :update]
-    end
+    resources :profiles, except: [:index, :destroy]
+    resources :privacy_settings, only: [:edit, :update], module: 'completed_profile'
   end
   # # //
 
   # # // Profile linked paths
-  resources :profiles, except: [:index, :destroy], module: 'logged_in' do 
+  resources :profiles, except: [:index, :destroy] do
     resources :pending_followers, :pending_followings, :followers, :followings, only: [:index, :create, :destroy]
     resources :emissions_profiles, except: [:new, :update, :edit]
     # post 'emissions_profiles/create', as: 'create_emissions_profile'

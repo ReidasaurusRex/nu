@@ -1,4 +1,4 @@
-class DietProfilesController < ApplicationController
+class CalculatorComponent::WaterProfilesController < CalculatorComponentsController
   before_action :get_emissions_profile_from_emissions_profile_id
   def new
   end

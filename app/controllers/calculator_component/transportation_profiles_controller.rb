@@ -1,4 +1,4 @@
-class TransportationProfilesController < ApplicationController
+class CalculatorComponent::TransportationProfilesController < CalculatorComponentsController
   before_action :get_emissions_profile_from_emissions_profile_id
   def create
   end

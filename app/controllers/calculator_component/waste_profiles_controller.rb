@@ -1,5 +1,8 @@
-class HomeEnergyProfilesController < ApplicationController
+class CalculatorComponent::WasteProfilesController < CalculatorComponentsController
   before_action :get_emissions_profile_from_emissions_profile_id
+  def new
+  end
+
   def create
   end
 

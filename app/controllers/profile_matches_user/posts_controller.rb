@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class ProfileMatchesUser::PostsController < ProfileMatchesUserController
   before_action :get_profile_from_profile_id
   def create
   end

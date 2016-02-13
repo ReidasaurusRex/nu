@@ -3,9 +3,9 @@ class CompletedProfileController < LoggedInController
 
   protected
   def ensure_completed_profile
-    user = User.find(session[:user_id])
-    unless user.profile
-      redirect_to about_general_path
+    unless @user.profile
+      flash[:error] = "Please complete your profile"
+      redirect_to new_user_profile_path(@user)
     end
   end
 

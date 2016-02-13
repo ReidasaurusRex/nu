@@ -1,4 +1,4 @@
-class AirTravelProfilesController < ApplicationController
+class CalculatorComponent::AirTravelProfilesController < CalculatorComponentsController
   before_action :get_air_travel_profile, except: [:new, :create]
 
   def new
