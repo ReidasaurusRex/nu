@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   # # //
 
   # # // Search results
-  post 'search/results', as: 'search'
+  
   # # //
 
   # # // User and settings paths
@@ -41,34 +41,47 @@ Rails.application.routes.draw do
 
   # # // Profile linked paths
   resources :profiles, except: [:index, :destroy] do
-    resources :pending_followers, :pending_followings, :followers, :followings, only: [:index, :create, :destroy]
-    resources :emissions_profiles, except: [:new, :update, :edit]
-    # post 'emissions_profiles/create', as: 'create_emissions_profile'
-    resources :completed_challenges, except: [:new, :destroy]
-    resources :completed_habits, only: [:index, :create, :show]
-    resources :habits, only: [:index, :show]
-    resources :started_challenges, :started_habits, except: [:new, :edit]
-    resources :notifications, only: [:index, :destroy]
-    resources :posts, except: [:index, :new]
-    resources :newsfeed_items, only: [:index, :show]
-    resources :stats, only: :index
-    resources :blocked_users, only: [:index, :create, :destroy]
+    scope module: 'completed_profile' do 
+      post 'search/results', as: 'search'
+      resources :habits, only: [:index, :show]
+      resources :challenges, only: [:index, :show]
+      resources :notifications, only: [:index, :destroy]
+      resources :stats, only: :index
+    end
+
+    scope module: 'profile_matches_user' do 
+      resources :pending_follows, :pending_subscriptions, :follows, :subscriptions, only: [:index, :create, :destroy]
+      resources :completed_challenges, except: [:new, :destroy]
+      resources :completed_habits, only: [:index, :create, :show]
+      resources :started_challenges, :started_habits, except: [:new, :edit]
+      resources :posts, except: [:index, :new]
+      resources :newsfeed_items, only: [:index, :show] 
+      resources :blocked_users, only: [:index, :create, :destroy]
+    end
+    
+    # # // Carbon calculator routes    
+    resources :emissions_profiles, except: [:new, :update, :edit], module: 'completed_profile' do
+      scope module: 'calculator_component' do 
+        resources :diet_profiles, :waste_profiles, :water_profiles, except: :index
+        resources :transportation_profiles, :home_energy_profiles, except: [:index, :new]    
+      end
+    end
+
+    scope module: 'calculator_component' do 
+      resources :transportation_profiles, except: [:index, :new] do
+        resources :vehicle_profiles, :public_transportation_profiles, :air_travel_profiles, except: :index
+      end
+
+      resources :home_energy_profiles, except: [:index, :new] do 
+        resources :utility_profiles, except: [:index, :new, :show]
+      end
+    end
+    # # //
   end
   # # //
 
-  # # // Carbon calculator routes
-  resources :emissions_profiles, except: [:new, :update, :edit] do 
-    resources :diet_profiles, :waste_profiles, :water_profiles, except: :index
-    resources :transportation_profiles, :home_energy_profiles, except: [:index, :new]
-  end
 
-  resources :transportation_profiles, except: [:index, :new] do
-    resources :vehicle_profiles, :public_transportation_profiles, :air_travel_profiles, except: :index
-  end
-
-  resources :home_energy_profiles, except: [:index, :new] do 
-    resources :utility_profiles, except: [:index, :new, :show]
-  end
+  
   # # //
 
 
