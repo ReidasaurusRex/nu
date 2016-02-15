@@ -1,6 +1,7 @@
 class AccessController < ApplicationController
   before_action :redirect_if_logged_in, only: :landing
   def landing
+    flash.keep
   end
 
   def login

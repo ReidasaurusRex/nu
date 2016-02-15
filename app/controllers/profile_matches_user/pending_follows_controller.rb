@@ -15,7 +15,7 @@ class ProfileMatchesUser::PendingFollowsController < ProfileMatchesUserControlle
     @pending_followers = @profile.pending_followers
   end
 
-  def add_pending_follow
+  def create_pending_follow
 
   end
 end
