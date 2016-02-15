@@ -1,0 +1,13 @@
+<div class="pending-follows-index">
+  <h1>Hopeful Followers!</h1>
+  <h2><%= flash[:success] %> <%= flash[:error] %></h2>
+  <% @pending_follows.each do |pfollower| %>
+    <div class="profile-summary">
+      <h3><%= pfollower.full_name %></h3>
+      <h3>
+        <%= link_to("View profile", profile_path(pfollower.id)) %>
+        <%= button_to("Let follow", profile_follows_path(@profile), method: :post, params: {follower_id: pfollower.id})%>
+        </h3>
+    </div>
+  <% end %>
+</div>
