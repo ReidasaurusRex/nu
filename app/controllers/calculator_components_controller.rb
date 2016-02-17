@@ -1,6 +1,7 @@
 class CalculatorComponentsController < LoggedInController
   before_action :get_emissions_profile
   before_action :ensure_emissions_profile_belongs_to_user
+  layout :calculator
 
   protected
   def get_emissions_profile
