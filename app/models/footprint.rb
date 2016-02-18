@@ -1,4 +1,4 @@
-class EmissionsProfile < ActiveRecord::Base
+class Footprint < ActiveRecord::Base
   belongs_to :profile 
   has_one :water_profile, dependent: :destroy
   has_one :diet_profile, dependent: :destroy

@@ -9,7 +9,7 @@ class Profile < ActiveRecord::Base
   has_many :followings, through: :subscriptions, dependent: :destroy
   has_many :pending_subscriptions
   has_many :pending_followings, through: :pending_subscriptions, dependent: :destroy
-  has_many :emissions_profiles, dependent: :destroy
+  has_many :footprints, dependent: :destroy
   has_many :newsfeed_items, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :started_habits, dependent: :destroy

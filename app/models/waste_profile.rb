@@ -1,3 +1,3 @@
 class WasteProfile < ActiveRecord::Base
-  belongs_to :emissions_profile
+  belongs_to :footprint
 end

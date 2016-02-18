@@ -2,9 +2,7 @@
   <h1>Welcome to Nu.world!</h1>
   <div class="log-in-form">
     <h3>Log In</h3>
-    <% if flash[:error] %>
-      <h4 class="flash-error"><%= flash[:error] %></h4>
-    <% end %>
+    
     <%= form_tag(login_path, method: :post) %>
     <div class="text-form-with-errors">
       <%= text_field_tag(:email, params[:email]) %>
@@ -14,6 +12,9 @@
       <%= password_field_tag(:password, params[:password]) %>
       <span class="form-label"><%= label_tag(:password) %></span>
     </div>
+    <% if flash[:error] %>
+      <h4 class="flash-error"><%= flash[:error] %></h4>
+    <% end %>
     <div class="submit-button">
       <%= submit_tag "Log In" %>
     </div>

@@ -60,10 +60,10 @@ Rails.application.routes.draw do
     end
     
     # # // Carbon calculator routes    
-    resources :emissions_profiles, except: [:new, :update, :edit], module: 'profile_matches_user' do
+    resources :footprints, except: [:new, :update, :edit], module: 'profile_matches_user' do
       scope module: 'calculator_component' do 
         resources :diet_profiles, :waste_profiles, :water_profiles, except: :index
-        resources :transportation_profiles, :home_energy_profiles, except: [:index, :new]    
+        resources :transportation_profiles, :home_energy_profiles, except: [:index, :new, :edit]    
       end
     end
 
@@ -71,7 +71,6 @@ Rails.application.routes.draw do
       resources :transportation_profiles, except: [:index, :new] do
         resources :vehicle_profiles, :public_transportation_profiles, :air_travel_profiles, except: :index
       end
-
       resources :home_energy_profiles, except: [:index, :new] do 
         resources :utility_profiles, except: [:index, :new, :show]
       end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212074434) do
+ActiveRecord::Schema.define(version: 20160218164903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,14 +74,21 @@ ActiveRecord::Schema.define(version: 20160212074434) do
   end
 
   create_table "diet_profiles", force: :cascade do |t|
-    t.integer  "emissions_profile_id"
+    t.integer  "footprint_id"
     t.string   "diet_type"
     t.integer  "section_emissions"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  create_table "emissions_profiles", force: :cascade do |t|
+  create_table "follows", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "footprints", force: :cascade do |t|
     t.integer  "profile_id"
     t.boolean  "completed"
     t.integer  "total_emissions"
@@ -92,13 +99,6 @@ ActiveRecord::Schema.define(version: 20160212074434) do
     t.integer  "home_energy_emissions"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-  end
-
-  create_table "follows", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "follower_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "habits", force: :cascade do |t|
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20160212074434) do
   end
 
   create_table "home_energy_profiles", force: :cascade do |t|
-    t.integer  "emissions_profile_id"
+    t.integer  "footprint_id"
     t.boolean  "completed"
     t.integer  "fuel_oil_emissions"
     t.integer  "propane_emissions"
@@ -233,14 +233,14 @@ ActiveRecord::Schema.define(version: 20160212074434) do
   end
 
   create_table "transportation_profiles", force: :cascade do |t|
-    t.integer  "emissions_profile_id"
+    t.integer  "footprint_id"
     t.boolean  "completed"
     t.integer  "vehicle_emissions"
     t.integer  "public_emissions"
     t.integer  "air_emissions"
     t.integer  "section_emissions"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -275,26 +275,26 @@ ActiveRecord::Schema.define(version: 20160212074434) do
   end
 
   create_table "waste_profiles", force: :cascade do |t|
-    t.integer  "emissions_profile_id"
+    t.integer  "footprint_id"
     t.boolean  "glass"
     t.boolean  "metal"
     t.boolean  "plastic"
     t.boolean  "newspaper"
     t.boolean  "magazines"
     t.integer  "section_emissions"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "water_profiles", force: :cascade do |t|
-    t.integer  "emissions_profile_id"
+    t.integer  "footprint_id"
     t.boolean  "use"
     t.boolean  "known"
     t.string   "measurement_type"
     t.float    "measurement_amount"
     t.integer  "section_emissions"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
 end
