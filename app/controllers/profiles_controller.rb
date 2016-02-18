@@ -32,7 +32,7 @@ class ProfilesController < LoggedInController
     @profile = Profile.new(profile_params)
     if @profile.save
       flash[:success] = "Cool! Now, let's look at your carbon footprint!"
-      redirect_to profile_create_emissions_profile_path(@profile)
+      redirect_to profile_create_footprint_path(@profile)
     else
       render :new
     end

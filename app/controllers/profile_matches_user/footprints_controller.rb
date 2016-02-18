@@ -1,9 +1,11 @@
 class ProfileMatchesUser::FootprintsController < ProfileMatchesUserController
+  before_action :get_footprint, only: [:show, :destroy]
+
   def index
   end
 
   def create
-    create_emissions_profile
+    create_footprint
   end
 
   def show
@@ -15,6 +17,10 @@ class ProfileMatchesUser::FootprintsController < ProfileMatchesUserController
   private
   def create_footprint
     footprint = @profile.footprints.create
-    redirect_to new_profile_emissions_profile_diet_profile_path(profile_id: @profile.id, emissions_profile_id: emissions_profile.id)
+    redirect_to new_profile_footprint_diet_profile_path(profile_id: @profile.id, footprint_id: footprint.id)
+  end
+
+  def get_footprint
+    @footprint = Footprint.find(params[:id])
   end
 end

@@ -1,5 +1,6 @@
 class CalculatorComponent::WasteProfilesController < CalculatorComponentsController
-  before_action :get_emissions_profile_from_emissions_profile_id
+  before_action :get_footprint
+  
   def new
   end
 
