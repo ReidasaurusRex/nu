@@ -1,2 +1,2 @@
-module EmissionsProfilesHelper
+module FootprintsHelper
 end
