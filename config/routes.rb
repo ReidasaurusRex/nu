@@ -67,12 +67,14 @@ Rails.application.routes.draw do
       end
     end
 
-    scope module: 'calculator_component' do 
-      resources :transportation_profiles, except: [:index, :new] do
-        resources :vehicle_profiles, :public_transportation_profiles, :air_travel_profiles, except: :index
-      end
-      resources :home_energy_profiles, except: [:index, :new] do 
-        resources :utility_profiles, except: [:index, :new, :show]
+    scope module: 'profile_matches_user' do
+      scope module: 'calculator_component' do 
+        resources :transportation_profiles, except: [:index, :new] do
+          resources :vehicle_profiles, :public_transportation_profiles, :air_travel_profiles, except: :index
+        end
+        resources :home_energy_profiles, except: [:index, :new] do 
+          resources :utility_profiles, except: [:index, :new, :show]
+        end
       end
     end
     # # //

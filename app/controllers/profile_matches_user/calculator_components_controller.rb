@@ -1,4 +1,4 @@
-class CalculatorComponentsController < CompletedProfileController
+class ProfileMatchesUser::CalculatorComponentsController < CompletedProfileController
   before_action :get_emissions_profile
   before_action :ensure_emissions_profile_belongs_to_user
   layout :calculator
