@@ -9,4 +9,7 @@ class CompletedProfileController < LoggedInController
     end
   end
 
+  def get_profile_from_profile_id
+    @profile = Profile.find(params[:profile_id])
+  end
 end
