@@ -5,7 +5,7 @@
     
     <%= form_tag(login_path, method: :post) %>
     <div class="text-form-with-errors">
-      <%= text_field_tag(:email, params[:email]) %>
+      <%= text_field_tag(:email, params[:email], autofocus: true) %>
       <span class="form-label"><%= label_tag(:email) %></span>
     </div>
     <div class="text-form-with-errors">
