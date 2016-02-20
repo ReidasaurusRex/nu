@@ -1,35 +1,24 @@
 <div class="beta-page">
-  <div class="main-top">
-    <div class="logo"></div>
-    <div class="sign-up">
-      <h2>We're glad you're here.</h2>
-      <div class="sign-up-form">
-        <%= form_for(@beta_user, url: create_beta_user_path) do |f| %>  
-          <div class="text-form-with-errors inline-field">
-            <%= f.text_field :first_name, class: "name-input", autofocus: true %>
-            <span class="form-label"><%= f.label :first_name, "First Name" %></span>
-          </div>
-          <div class="text-form-with-errors inline-field">
-            <%= f.text_field :last_name, class: "name-input" %>
-            <span class="form-label"><%= f.label :last_name, "Last Name" %></span>
-          </div>
-          <div class="text-form-with-errors">
-            <%= f.text_field :email %>
-            <span class="form-label"><%= f.label :email, "Email" %></span>
-          </div>
-        <div class="submit-button">
-          <%= f.submit "Sign Up for Beta" %>
+  <div class="sign-up">
+    <h2>Welcome to the fight.</h2>
+    <div class="sign-up-form">
+      <%= form_for(@beta_user, url: create_beta_user_path) do |f| %>  
+        <div class="text-form-with-errors inline-field">
+          <%= f.text_field :first_name, class: "name-input", autofocus: true %>
+          <span class="form-label"><%= f.label :first_name, "First Name" %></span>
         </div>
-        <% end %>
+        <div class="text-form-with-errors inline-field">
+          <%= f.text_field :last_name, class: "name-input" %>
+          <span class="form-label"><%= f.label :last_name, "Last Name" %></span>
+        </div>
+        <div class="text-form-with-errors">
+          <%= f.text_field :email %>
+          <span class="form-label"><%= f.label :email, "Email" %></span>
+        </div>
+      <div class="submit-button">
+        <%= f.submit "Sign Up for Beta" %>
       </div>
+      <% end %>
     </div>
-  </div>
-  <div class="about">
-    <h3 class="beta-header">About</h3>
-    <p>
-      Gentrify gochujang cronut normcore fixie, brooklyn pabst lo-fi shoreditch authentic retro. Messenger bag tote bag green juice, meditation seitan keytar master cleanse cornhole waistcoat occupy forage man bun pickled paleo brooklyn. Fanny pack occupy truffaut irony, listicle four loko narwhal ennui artisan kickstarter. Green juice hammock brooklyn, chambray sriracha beard knausgaard aesthetic sartorial pug tousled blog lumbersexual bicycle rights microdosing. Etsy wayfarers selvage, leggings seitan cliche cray hella irony mlkshk letterpress chartreuse twee cold-pressed. Aesthetic man braid bespoke etsy fixie portland. Marfa affogato readymade, etsy small batch whatever trust fund knausgaard health goth schlitz.
-
-      Tilde tattooed venmo, pour-over craft beer flannel franzen celiac. 90's street art master cleanse fanny pack. You probably haven't heard of them narwhal slow-carb, forage selvage street art artisan biodiesel brooklyn raw denim. Single-origin coffee messenger bag skateboard, brooklyn art party small batch umami williamsburg plaid pabst mixtape meh wolf stumptown. Chambray cliche etsy beard irony pickled. Truffaut pickled iPhone waistcoat organic crucifix. Ugh schlitz gluten-free poutine tacos.
-    </p>
   </div>
 </div>

@@ -1,8 +1,16 @@
 <div class="beta-page">
-<h1>We're glad you're here</h1>
-<%= image_tag("nu_color_logo.png", alt: "Welcome to Nu", class: "beta-logo") %>
-<div class="about">
-  <h2>About Nu.world</h2>
-  <p>SOME SHTUFF</p>
-</div>  
+  <h1>We're glad you're here</h1>
+  <%= image_tag("nu_color_logo.svg", alt: "Welcome to Nu", class: "beta-logo") %>
+  <div class="about">
+    <h2 class="header">About</h2>
+    <p>
+      Gentrify gochujang cronut normcore fixie, brooklyn pabst lo-fi shoreditch authentic retro. Messenger bag tote bag green juice, meditation seitan keytar master cleanse cornhole waistcoat occupy forage man bun pickled paleo brooklyn. Fanny pack occupy truffaut irony, listicle four loko narwhal ennui artisan kickstarter. Green juice hammock brooklyn, chambray sriracha beard knausgaard aesthetic sartorial pug tousled blog lumbersexual bicycle rights microdosing. Etsy wayfarers selvage, leggings seitan cliche cray hella irony mlkshk letterpress chartreuse twee cold-pressed. Aesthetic man braid bespoke etsy fixie portland. Marfa affogato readymade, etsy small batch whatever trust fund knausgaard health goth schlitz.
+
+      Tilde tattooed venmo, pour-over craft beer flannel franzen celiac. 90's street art master cleanse fanny pack. You probably haven't heard of them narwhal slow-carb, forage selvage street art artisan biodiesel brooklyn raw denim. Single-origin coffee messenger bag skateboard, brooklyn art party small batch umami williamsburg plaid pabst mixtape meh wolf stumptown. Chambray cliche etsy beard irony pickled. Truffaut pickled iPhone waistcoat organic crucifix. Ugh schlitz gluten-free poutine tacos.
+    </p>
+  </div>
+  <div class="beta-signup-link">
+    <h3>Want to be a part of it?</h3>
+    <h3 class="beta-link"><%= link_to "Sign up for beta!",new_beta_user_path %></h3>
+  </div>  
 </div>
