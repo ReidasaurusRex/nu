@@ -57,18 +57,22 @@ Rails.application.routes.draw do
       resources :posts, except: [:index, :new]
       resources :newsfeed_items, only: [:index, :show] 
       resources :blocked_users, only: [:index, :create, :destroy]
+      resources :footprints, except: [:new, :update, :edit]
     end
-    
-    # # // Profile footprint routes    
-    resources :footprints, except: [:new, :update, :edit], module: 'profile_matches_user' do
-      scope module: 'calculator_component' do 
-        resources :diet_profiles, :waste_profiles, :water_profiles, except: :index
-        resources :transportation_profiles, :home_energy_profiles, except: [:index, :new, :edit]    
-      end
-    end
-    # # //
   end
   # # //
+
+  # # // Shallow footprint routes    
+  resources :footprints, except: [:new, :update, :edit], module: 'profile_matches_user' do
+    scope module: 'calculator_component' do 
+      resources :diet_profiles, :waste_profiles, :water_profiles, except: :index
+      resources :transportation_profiles, :home_energy_profiles, except: [:index, :new, :edit]    
+    end
+  end
+    # # //
+  
+
+
 
   # # // Footprint component routes
   scope module: 'profile_matches_user' do

@@ -1,4 +1,4 @@
-class ProfileMatchesUser::FootprintsController < ProfileMatchesUserController
+class ProfileMatchesUser::FootprintsController < CompletedProfileController
   before_action :get_footprint, only: [:show, :destroy]
 
   def index
@@ -22,5 +22,13 @@ class ProfileMatchesUser::FootprintsController < ProfileMatchesUserController
 
   def get_footprint
     @footprint = Footprint.find(params[:id])
+  end
+
+  def check_that_footprint_is_users
+    profile = @user.profile
+    unless profile.footprints.include?(@footprint)
+      flash[:error] = "Unauthorized"
+      redirect_to root_path
+    end 
   end
 end

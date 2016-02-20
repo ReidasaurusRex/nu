@@ -1,5 +1,7 @@
 class ProfileMatchesUser::CalculatorComponent::DietProfilesController < ProfileMatchesUser::CalculatorComponentsController
+
   def new
+    @diet = DietProfile.new
   end
 
   def create
