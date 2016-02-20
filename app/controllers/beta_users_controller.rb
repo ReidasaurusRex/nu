@@ -1,4 +1,6 @@
 class BetaUsersController < ApplicationController
+  layout "beta"
+
   def landing
   end
 
