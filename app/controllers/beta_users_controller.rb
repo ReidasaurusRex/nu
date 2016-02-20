@@ -1,4 +1,7 @@
 class BetaUsersController < ApplicationController
+  def landing
+  end
+
   def new
     @beta_user = BetaUser.new
   end
