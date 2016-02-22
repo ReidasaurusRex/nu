@@ -17,7 +17,7 @@ class BetaUsersController < ApplicationController
 
   private
   def beta_user_params
-    params.require(:beta_user).permit(:first_name, :last_name, :email)
+    params.require(:beta_user).permit(:first_name, :last_name, :email, :explanation, :communicate)
   end
 
   def create_user(beta_user_params)

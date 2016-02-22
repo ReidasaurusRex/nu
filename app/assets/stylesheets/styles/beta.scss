@@ -10,13 +10,7 @@
   width: 450px;
 }
 
-// .beta-page .sign-up {
-//   margin-left: 9%;
-//   margin-top: 100px;
-// }
-
 .beta-page .about, .beta-thanks {
-  line-height: 30px;
   margin: 0 auto;
   margin-bottom: 20px; 
   max-width: 600px;
@@ -33,6 +27,25 @@
 
 .beta-signup-link h3:first-child {
   display: inline-block;
+}
+
+.beta-page .beta-sign-up {
+  margin-left: 30%;
+  margin-top: 10%;
+  text-align: left;
+}
+
+.beta-sign-up h2:first-child {
+  margin-bottom: 40px;
+}
+
+.beta-page p {
+  line-height: 30px;
+}
+
+.beta-page .submit-button {
+  margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 // .beta-thanks {
