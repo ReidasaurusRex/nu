@@ -13,14 +13,14 @@
 .beta-page .about, .beta-thanks {
   margin: 0 auto;
   margin-bottom: 20px; 
-  max-width: 600px;
+  max-width: 550px;
 }
 
 .beta-page .header {
   margin-bottom: 25px;
 }
 
-.beta-page .header, .beta-signup-link h3:first-child {
+.beta-page .beta-header, .beta-signup-link h3:first-child {
   border-bottom: 1px solid gray;
   padding-bottom: 5px;
 }
@@ -40,7 +40,7 @@
 }
 
 .beta-page p {
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .beta-page .submit-button {
@@ -48,6 +48,12 @@
   margin-top: 20px;
 }
 
-// .beta-thanks {
-//   margin-top: 10%;
-// }
+.beta-page .about p, .beta-thanks p {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.beta-thanks .align-right {
+  margin-right: 100px;
+  text-align: right;
+}

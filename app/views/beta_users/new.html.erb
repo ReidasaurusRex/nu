@@ -1,9 +1,7 @@
 <div class="beta-page">
   <div class="beta-sign-up">
-    <h2>Welcome to the fight.</h2>
-
     <div class="beta-sign-up-form">
-    <%= form_for(@beta_user, url: create_beta_user_path) do |f| %>  
+    <%= form_for(@beta_user, url: create_beta_user_path) do |f| %><h2 class="beta-header">Welcome to the movement</h2>  
 
         <div class="text-form-with-errors inline-field">
           <%= f.text_field :first_name, class: "name-input", autofocus: true %>
