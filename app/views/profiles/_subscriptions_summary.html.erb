@@ -1,0 +1,16 @@
+<h2>People who you follow</h2>
+<% unless subscriptions.empty? %>
+  
+  <% for subscription in subscriptions do %>
+    <div class="profile-summary">
+      <h3><%= subscription.following.full_name %></h3>
+      <h3><%= link_to("View profile", user_profile_path(user_id: user.id, id: subscription.following.id)) %></h3>
+      <h4><%= link_to("Unfollow", profile_subscription_path(profile_id: @user.profile.id, id: subscription.id), method: :delete, data: {confirm: "Unfollow #{subscription.following.first_name}?"}) %></h4>
+    </div>
+  <% end %>
+
+<% else %>
+  
+  <h3>You currently are not following anyone</h3>
+
+<% end %>

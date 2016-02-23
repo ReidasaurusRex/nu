@@ -9,6 +9,7 @@ class ProfileMatchesUser::FollowsController < ProfileMatchesUserController
   end
 
   def destroy
+    delete_follow
   end
 
   private
@@ -26,6 +27,29 @@ class ProfileMatchesUser::FollowsController < ProfileMatchesUserController
       redirect_to :back
     else
       flash[:error] = "Error adding follower"
+      redirect_to :back
+    end
+  end
+
+  def delete_follow
+    @follow = Follow.find(params[:id])
+    if @profile.follows.include?(@follow)
+      delete_follower_subscription
+      @follow.destroy
+      flash[:success] = "Removed follower"
+      redirect_to :back
+    else
+      flash[:error] = "Couldn't remove follower"
+      redirect_to :back
+    end
+  end
+
+  def delete_follower_subscription
+    subscription = @follow.follower.subscriptions.find_by_following_id(@profile.id)
+    if subscription
+      subscription.destroy
+    else
+      flash[:error] = "Couldn't remove follower"
       redirect_to :back
     end
   end

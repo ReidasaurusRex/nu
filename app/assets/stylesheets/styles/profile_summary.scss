@@ -1,13 +1,17 @@
 .profile-summary {
-  background: #CDECE9;
+  border: 1px solid #CDECE9;
   display: inline-block;
   margin-right: 20px;
   margin-bottom: 20px;
   width: 300px;
 }
 
-.profile-summary h3 {
+.profile-summary h3, .profile-summary h4 {
   margin-left: 10px;
+}
+
+.profile-summary h4:last-child {
+  margin-bottom: 10px;
 }
 
 .profile-summary input[type="submit"] {

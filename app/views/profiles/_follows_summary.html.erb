@@ -1,0 +1,16 @@
+<h2>People who follow you</h2>
+<% unless follows.empty? %>
+  
+  <% for follow in follows do %>
+    <div class="profile-summary">
+      <h3><%= follow.follower.full_name %></h3>
+      <h3><%= link_to("View profile", user_profile_path(user_id: user.id, id: follow.follower.id)) %></h3>
+      <h4><%= link_to("Remove follower", profile_follow_path(profile_id: @user.profile.id, id: follow.id), method: :delete, data: {confirm: "Remove #{follow.follower.first_name} from followers?"}) %></h4>
+    </div>
+  <% end %>
+
+<% else %>
+  
+  <h3>You currently have no followers</h3>
+
+<% end %>
