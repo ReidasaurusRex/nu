@@ -1,0 +1,15 @@
+<h2>People who you follow</h2>
+<% unless followings.empty? %>
+  
+  <% for following in followings do %>
+    <div class="profile-summary">
+      <h3><%= following.full_name %></h3>
+      <h3><%= link_to "View profile", user_profile_path(user_id: user.id, id: follower.id) %></h3>
+    </div>
+  <% end %>
+
+<% else %>
+  
+  <h3>You currently are not following anyone</h3>
+
+<% end %>
