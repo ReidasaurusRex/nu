@@ -28,7 +28,7 @@
         <%= f.label :state %>
         <span class="error-message"><%= add_errors_if_any(@profile, :state) %></span>
       </p>
-      <%= f.select(:state, options_for_select(state_list)) %>
+      <%= f.select(:state, options_for_select(state_list, selected: @profile.state)) %>
     </div>
     <div class="submit-form">
       <%= f.submit "Create profile" %>

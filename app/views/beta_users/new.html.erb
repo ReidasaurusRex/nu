@@ -30,7 +30,7 @@
         <div class="select-form-with-errors">
           <p class="form-label"><%= f.label :communicate, "On a scale of one to ten, how likely are you to communicate with us about bugs, give feedback, and express features you enjoy or would like to see?" %></p>
           <p class="error-message"><%= add_errors_if_any(@beta_user, :communicate) %></p>
-          <%= f.select(:communicate, options_for_select([*1..10]), {prompt: "Select"}) %>
+          <%= f.select(:communicate, options_for_select([*1..10], selected: @beta_user.communicate), {prompt: "Select"}) %>
         </div>
 
         <div class="text-form-with-errros">
@@ -40,7 +40,7 @@
         </div>
 
       <div class="submit-button">
-        <%= f.submit "Sign Up for Beta" %>
+        <%= f.submit "Get in there" %>
       </div>
 
     <% end %>
