@@ -1,17 +1,24 @@
-.top-nav {
-  border-bottom: 1px solid #CDECE9;
+.top-nav { 
   height: 80px;
   width: 100%;
 }
 
-.top-nav li {
+.nav-bar li {
   display: inline-block;
 }
 
-.top-nav li {
+.nav-bar li {
   font-size: 1.1em;
   line-height: 80px;
   padding-right: 20px;
+}
+
+.nav-bar li:first-child {
+  margin-left: 10px;
+}
+
+.top-nav {
+  border-bottom: 1px solid #CDECE9;
 }
 
 .top-nav .right-side {
@@ -22,12 +29,13 @@
   float: left;
 }
 
-.top-nav li:first-child {
-  margin-left: 10px;
-}
 .top-nav .home-logo {
   height: 60px;
   margin-left: 32%;
   margin-top: 10px;
   width: 60px;
+}
+
+.calculator-sections-nav {
+  border-bottom: 1px solid #ECE57F;
 }

@@ -1,4 +1,4 @@
-<div class="top-nav">
+<div class="nav-bar top-nav">
   <ul class="nav-items">
     <% if session[:user_id] %>
       <li class="left-side"><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></li>

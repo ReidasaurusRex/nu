@@ -11,7 +11,8 @@
 </head>
 <body>
 
-  <%= render "nav_bars/top_nav" %>
+  <%= render partial: "nav_bars/top_nav" %>
+  <%= render partial: "nav_bars/calculator_overview", locals: {footprint: @footprint} %>
   <h4 class="calculator-message"><%= flash[:calculator_message] %></h4>
   <%= yield %>
 
