@@ -1,7 +1,6 @@
 class ProfileMatchesUser::PendingFollowsController < ProfileMatchesUserController
-  before_action :get_pending_follows, only: :index
-
   def index
+    @pending_follows = @profile.pending_follows
   end
 
   def create
@@ -11,11 +10,11 @@ class ProfileMatchesUser::PendingFollowsController < ProfileMatchesUserControlle
   end
 
   private
-  def get_pending_followers
-    @pending_followers = @profile.pending_followers
+  def pending_follow_params
+    params.require(:pending_follow).permit(:profile_id, :pending_follower_id)
   end
 
-  def create_pending_follow
-
+  def create_pending_follow(params)
+    
   end
 end

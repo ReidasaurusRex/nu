@@ -1,4 +1,6 @@
 <div class="profile-show">
+<h3><%= flash[:success] %></h3>
+<h3><%= flash[:error] %></h3>
 
   <h1><%= @profile.full_name %></h1>
   <h3>Active since <%= @profile.start_date %></h3>

@@ -9,6 +9,7 @@ class ProfileMatchesUser::SubscriptionsController < ProfileMatchesUserController
   end
 
   def destroy
+    binding.pry
     delete_subscription
   end
 

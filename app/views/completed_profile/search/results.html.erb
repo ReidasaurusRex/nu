@@ -1,5 +1,7 @@
 <div class="search-results">
 <h1>Search results for <%= @query %></h1>
+<h3><%= flash[:error] %></h3>
+<h3><%= flash[:success] %></h3>
 
   <% unless @results[:followers].empty? %>
     <div class="results-section">
@@ -45,6 +47,7 @@
         <div class="profile-summary">
           <h3><%= profile.full_name %></h3>
           <h3><%= link_to("View profile", profile_path(profile))  %></h3>
+          <h4><%= follow_link(@profile, profile) %></h4>
         </div> <!-- profile-summary -->
       <% end %> <!-- profiles each -->
     </div> <!-- results-section -->
