@@ -1,4 +1,4 @@
-class ProfileMatchesUser::FootprintsController < CompletedProfileController
+class ProfileMatchesUser::FootprintsController < ProfileMatchesUserController
   before_action :get_footprint, only: [:show, :destroy]
 
   def index
@@ -17,7 +17,8 @@ class ProfileMatchesUser::FootprintsController < CompletedProfileController
   private
   def create_footprint
     footprint = @profile.footprints.create
-    redirect_to new_profile_footprint_diet_profile_path(profile_id: @profile.id, footprint_id: footprint.id)
+    binding.pry
+    redirect_to new_footprint_diet_profile_path(footprint)
   end
 
   def get_footprint
