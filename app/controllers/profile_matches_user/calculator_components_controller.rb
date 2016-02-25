@@ -13,4 +13,8 @@ class ProfileMatchesUser::CalculatorComponentsController < CompletedProfileContr
       redirect_to root_path
     end
   end
+
+  def next_component_path
+    
+  end 
 end

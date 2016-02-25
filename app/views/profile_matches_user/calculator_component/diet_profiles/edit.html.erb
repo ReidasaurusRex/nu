@@ -1,2 +1,36 @@
-<h1>DietProfiles#edit</h1>
-<p>Find me in app/views/diet_profiles/edit.html.erb</p>
+<div class="diets-edit">
+  <%= form_for(@diet_profile, url: footprint_diet_profile_path(
+  footprint_id: @footprint.id, id: @diet_profile.id), method: :put) do |f| %>
+  <div class="diet-form">
+    <h2>What term best describes your diet?</h2>
+    <p class="error-message"><span class="error-message"><%= add_errors_if_any(@diet_profile, :diet_type) %></span></p>
+    <div class="radio-button-form">
+      <%= f.radio_button :diet_type, :typical %>
+      <%= f.label :diet_type, 'Average' %>
+    </div>
+    <div class="radio-button-form">
+      <%= f.radio_button :diet_type, :meat_heavy %>
+      <%= f.label :diet_type, 'Meat heavy' %>
+    </div>
+    <div class="radio-button-form">
+      <%= f.radio_button :diet_type, :no_beef %>
+      <%= f.label :diet_type, 'No beef' %>
+    </div>
+    <div class="radio-button-form">
+      <%= f.radio_button :diet_type, :pescatarian %>
+      <%= f.label :diet_type, 'Pescatarian' %>
+    </div>
+    <div class="radio-button-form">
+      <%= f.radio_button :diet_type, :vegetarian %>
+      <%= f.label :diet_type, 'Vegetarian' %>
+    </div>
+    <div class="radio-button-form">
+      <%= f.radio_button :diet_type, :vegan %>
+      <%= f.label :diet_type, 'Vegan' %>
+    </div>
+    <div class="submit-form">
+      <%= f.submit 'Next question' %>
+    </div>
+  </div>
+  <% end %>
+</div>

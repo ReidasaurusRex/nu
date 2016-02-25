@@ -1,11 +1,9 @@
 <div class="diets-new">
-  <%= form_for(@diet, url: footprint_diet_profiles_path(
-  footprint_id: @footprint.id)) do |f| %>
-  <div class="new-diet-form">
-    <h2>
-      What term best describes your diet?
-      <span class="error-message"><%= add_errors_if_any(@diet, :diet_type) %></span>
-    </h2>
+  <%= form_for(@diet_profile, url: footprint_diet_profiles_path(
+  footprint_id: @footprint.id), method: :post) do |f| %>
+  <div class="diet-form">
+    <h2>What term best describes your diet?</h2>
+    <p class="error-message"><span class="error-message"><%= add_errors_if_any(@diet_profile, :diet_type) %></span></p>
     <div class="radio-button-form">
       <%= f.radio_button :diet_type, :typical %>
       <%= f.label :diet_type, 'Average' %>
