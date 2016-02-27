@@ -17,7 +17,6 @@ class ProfileMatchesUser::FootprintsController < ProfileMatchesUserController
   private
   def create_footprint
     footprint = @profile.footprints.create
-    binding.pry
     redirect_to new_footprint_diet_profile_path(footprint)
   end
 
