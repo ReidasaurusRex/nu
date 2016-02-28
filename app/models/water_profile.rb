@@ -14,7 +14,6 @@ class WaterProfile < ActiveRecord::Base
   
   def state_conversion_factor
     state = self.footprint.profile.state
-    binding.pry
     state_with_conversion = @@state_conversion_list.select{|ary| ary[0] == state}[0]
     return state_with_conversion[1]
   end

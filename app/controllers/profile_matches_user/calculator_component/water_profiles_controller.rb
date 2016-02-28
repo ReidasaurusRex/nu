@@ -38,7 +38,7 @@ class ProfileMatchesUser::CalculatorComponent::WaterProfilesController < Profile
       @water_profile.update(section_emissions: emissions)
       @footprint.update(water_emissions: emissions)
       @footprint.check_for_completion
-      flash[:calculator_message] = "Water emissions: #{emissions} CO2e"
+      flash[:calculator_message] = "Water emissions: #{emissions}lbs CO2e"
       redirect_to new_footprint_waste_profile_path(@footprint)
     else
       render :new
@@ -51,7 +51,7 @@ class ProfileMatchesUser::CalculatorComponent::WaterProfilesController < Profile
       @water_profile.update(section_emissions: emissions)
       @footprint.update(water_emissions: emissions)
       @footprint.check_for_completion
-      flash[:calculator_message] = "Water emissions: #{emissions} CO2e"
+      flash[:calculator_message] = "Water emissions: #{emissions}lbs CO2e"
       redirect_to profile_footprint_path(profile_id: @footprint.profile.id, id: @footprint.id)
     else
       render :edit
