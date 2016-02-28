@@ -1,2 +1,63 @@
-<h1>WaterProfiles#edit</h1>
-<p>Find me in app/views/water_profiles/edit.html.erb</p>
+<div class="waters-edit">
+  <%= form_for(@water_profile, url: footprint_water_profile_path(footprint_id: @footprint.id, id: @water_profile.id), method: :put) do |f| %>
+  <div class="water-form">
+    
+    <div class="question-and-response">
+      
+      <p class="form-question">Do you use water at your residence?</p>
+      <p class="error-message"><%= add_errors_if_any(@water_profile, :use) %></p>
+      
+      <ul class="radio-button-list inline-list">
+        <li>
+          <%= f.radio_button :use, "1", {checked: true} %>
+          <%= f.label :use, "Yes" %>
+        </li>
+        <li>
+          <%= f.radio_button :use, "0" %>
+          <%= f.label :use, "No" %>
+        </li>
+      </ul>
+
+    </div> <!-- question-and-response -->
+    
+    <div class="question-and-response">
+      
+      <p class="form-question">If yes, do you know the amount?</p>
+      <p class="error-message"><%= add_errors_if_any(@water_profile, :known) %></p>
+      
+      <ul class="radio-button-list inline-list">
+        <li>
+          <%= f.radio_button :known, "1", {checked: true} %>
+          <%= f.label :known, "Yes" %>
+        </li>
+        <li>
+          <%= f.radio_button :known, "0" %>
+          <%= f.label :known, "No" %>
+        </li>
+      </ul>
+
+    </div> <!-- question-and-response -->
+    
+    <div class="question-and-response">
+      
+      <p class="form-question">What is the amount, in what units?</p>
+      <p class="error-message">
+        <%= add_errors_if_any(@water_profile, :measurement_amount) %>
+        <%= add_errors_if_any(@water_profile, :measurement_type) %>
+      </p>
+
+      <div class="text-field-with-unit">
+        <%= f.text_field :measurement_amount %>
+        <%= f.select :measurement_type, [['gallons', 'gallons'], ['hundred cubic feet', '100cf']] %>
+      </div> <!-- text-field-with-unit -->
+
+    </div> <!-- question-and-response -->
+
+    <div class="submit-form">
+      <%= f.submit 'Next question' %>
+    </div>
+
+  </div> <!-- water-form -->
+  <% end %>
+
+</div>

@@ -38,7 +38,7 @@ class ProfileMatchesUser::CalculatorComponent::DietProfilesController < ProfileM
       @diet_profile.update(section_emissions: emissions)
       @footprint.update(diet_emissions: emissions)
       @footprint.check_for_completion
-      flash[:calculator_message] = "Diet emissions: #{emissions}"
+      flash[:calculator_message] = "Diet emissions: #{emissions} CO2e"
       redirect_to new_footprint_water_profile_path(@footprint)
     else
       render :new
@@ -51,7 +51,7 @@ class ProfileMatchesUser::CalculatorComponent::DietProfilesController < ProfileM
       @diet_profile.update(section_emissions: emissions)
       @footprint.update(diet_emissions: emissions)
       @footprint.check_for_completion
-      flash[:calculator_message] = "Diet emissions: #{emissions}"
+      flash[:calculator_message] = "Diet emissions: #{emissions} CO2e"
       redirect_to new_footprint_water_profile_path(@footprint)
     else
       render :edit
