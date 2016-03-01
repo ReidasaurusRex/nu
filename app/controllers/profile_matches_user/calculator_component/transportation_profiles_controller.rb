@@ -1,4 +1,5 @@
 class ProfileMatchesUser::CalculatorComponent::TransportationProfilesController < ProfileMatchesUser::CalculatorComponentsController
+  before_action :get_footprint
   before_action :get_transportation_profile, except: :create
 
   def create

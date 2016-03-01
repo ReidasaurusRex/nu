@@ -1,4 +1,6 @@
 class ProfileMatchesUser::CalculatorComponent::HomeEnergyProfilesController < ProfileMatchesUser::CalculatorComponentsController
+  before_action :get_footprint
+
   def create
   end
 
