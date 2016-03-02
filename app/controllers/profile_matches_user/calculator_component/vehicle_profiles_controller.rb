@@ -18,6 +18,7 @@ class ProfileMatchesUser::CalculatorComponent::VehicleProfilesController < Profi
   end
 
   def update
+    update_vehicle_profile(vehicle_profile_params)
   end
 
   def destroy
@@ -52,6 +53,20 @@ class ProfileMatchesUser::CalculatorComponent::VehicleProfilesController < Profi
       redirect_to new_transportation_profile_public_transportation_profile_path(transportation_profile_id: @transportation_profile.id)
     else
       render :new
+    end
+  end
+
+  def update_vehicle_profile(params)
+    if @vehicle_profile.update(params)
+      emissions = @vehicle_profile.calculate_emissions
+      @vehicle_profile.update(sub_section_emissions: emissions)
+      @transportation_profile.update(vehicle_emissions: emissions)
+      @transportation_profile.check_for_completion
+      @transportation_profile.calculate_emissions
+      flash[:calculator_message] = "Vehicle emissions: #{emissions}lbs CO2e"
+      redirect_to new_transportation_profile_public_transportation_profile_path(transportation_profile_id: @transportation_profile.id)
+    else
+      render :edit
     end
   end
 end
