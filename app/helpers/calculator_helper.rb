@@ -23,9 +23,23 @@ module CalculatorHelper
     end
   end
 
-  def transportation_link
+  def transportation_link(footprint)
+    unless footprint.transportation_profile
+      return link_to("Transportation", footprint_create_transportation_profile_path(footprint_id: footprint.id))
+    else
+      transportation = footprint.transportation_profile
+      if !transportation.vehicle_emissions
+        return link_to("Transportation", new_transportation_profile_vehicle_profile_path(transportation_profile_id: transportation.id))
+      elsif !transportation.public_emissions
+        return link_to("Transportation", new_transportation_profile_public_transportation_profile_path(transportation_profile_id: transportation.id))
+      elsif !transportation.air_emissions
+        return link_to("Transportation", new_transportation_profile_air_travel_profile_path(transportation_profile_id: transportation.id))
+      else
+        return link_to("Transportation", footprint_transportation_profile_path(footprint_id: footprint.id, id: transportation.id))
+      end
+    end
   end
 
-  def home_energy_link
+  def home_energy_link(footprint)
   end
 end
