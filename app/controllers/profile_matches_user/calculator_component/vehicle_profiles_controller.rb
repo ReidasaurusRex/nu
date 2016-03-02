@@ -4,6 +4,7 @@ class ProfileMatchesUser::CalculatorComponent::VehicleProfilesController < Profi
   before_action :get_vehicle_profile, except: [:new, :create]
 
   def new
+    @vehicle_profile = VehicleProfile.new
   end
 
   def create

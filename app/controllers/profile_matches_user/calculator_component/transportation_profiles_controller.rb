@@ -24,7 +24,6 @@ class ProfileMatchesUser::CalculatorComponent::TransportationProfilesController 
   end
 
   def create_transportation_profile
-    binding.pry
     trans_prof = TransportationProfile.new(footprint_id: @footprint.id)
     if trans_prof.save
       redirect_to new_transportation_profile_vehicle_profile_path(transportation_profile_id: trans_prof.id)
