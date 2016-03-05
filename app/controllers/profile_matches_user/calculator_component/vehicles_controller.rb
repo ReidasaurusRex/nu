@@ -1,14 +1,14 @@
-class ProfileMatchesUser::CalculatorComponent::VehicleProfilesController < ProfileMatchesUser::CalculatorComponentsController
-  before_action :get_transportation_profile
+class ProfileMatchesUser::CalculatorComponent::VehiclesController < ProfileMatchesUser::CalculatorComponentsController
+  before_action :get_transportation
   before_action :get_transportation_footprint
-  before_action :get_vehicle_profile, except: [:new, :create]
+  before_action :get_vehicle, except: [:new, :create]
 
   def new
-    @vehicle_profile = VehicleProfile.new
+    @vehicle = Vehicle.new
   end
 
   def create
-    create_vehicle_profile(vehicle_profile_params)
+    create_vehicle(vehicle_params)
   end
 
   def show
@@ -18,53 +18,53 @@ class ProfileMatchesUser::CalculatorComponent::VehicleProfilesController < Profi
   end
 
   def update
-    update_vehicle_profile(vehicle_profile_params)
+    update_vehicle(vehicle_params)
   end
 
   def destroy
   end
 
   private
-  def get_transportation_profile
-    @transportation_profile = TransportationProfile.find(params[:transportation_profile_id])
+  def get_transportation
+    @transportation = Transportation.find(params[:transportation_id])
   end
 
   def get_transportation_footprint
-    @footprint = @transportation_profile.footprint
+    @footprint = @transportation.footprint
   end
 
-  def get_vehicle_profile
-    @vehicle_profile = VehicleProfile.find(params[:id])
+  def get_vehicle
+    @vehicle = Vehicle.find(params[:id])
   end
 
-  def vehicle_profile_params
-    params.fetch(:vehicle_profile, {}).permit(:have, :vehicle_type, :fuel_type, :mmonth, :mpg).merge(transportation_profile_id: @transportation_profile.id)
+  def vehicle_params
+    params.fetch(:vehicle, {}).permit(:have, :vehicle_type, :fuel_type, :mmonth, :mpg).merge(transportation_id: @transportation.id)
   end
 
-  def create_vehicle_profile(params)
-    @vehicle_profile = VehicleProfile.new(params)
-    if @vehicle_profile.save
-      emissions = @vehicle_profile.calculate_emissions
-      @vehicle_profile.update(sub_section_emissions: emissions)
-      @transportation_profile.update(vehicle_emissions: emissions)
-      @transportation_profile.check_for_completion
-      @transportation_profile.calculate_emissions
+  def create_vehicle(params)
+    @vehicle = Vehicle.new(params)
+    if @vehicle.save
+      emissions = @vehicle.calculate_emissions
+      @vehicle.update(sub_section_emissions: emissions)
+      @transportation.update(vehicle_emissions: emissions)
+      @transportation.check_for_completion
+      @transportation.calculate_emissions
       flash[:calculator_message] = "Vehicle emissions: #{emissions}lbs CO2e"
-      redirect_to new_transportation_profile_public_transportation_profile_path(transportation_profile_id: @transportation_profile.id)
+      redirect_to new_transportation_public_transportation_path(transportation_id: @transportation.id)
     else
       render :new
     end
   end
 
-  def update_vehicle_profile(params)
-    if @vehicle_profile.update(params)
-      emissions = @vehicle_profile.calculate_emissions
-      @vehicle_profile.update(sub_section_emissions: emissions)
-      @transportation_profile.update(vehicle_emissions: emissions)
-      @transportation_profile.check_for_completion
-      @transportation_profile.calculate_emissions
+  def update_vehicle(params)
+    if @vehicle.update(params)
+      emissions = @vehicle.calculate_emissions
+      @vehicle.update(sub_section_emissions: emissions)
+      @transportation.update(vehicle_emissions: emissions)
+      @transportation.check_for_completion
+      @transportation.calculate_emissions
       flash[:calculator_message] = "Vehicle emissions: #{emissions}lbs CO2e"
-      redirect_to new_transportation_profile_public_transportation_profile_path(transportation_profile_id: @transportation_profile.id)
+      redirect_to new_transportation_public_transportation_path(transportation_id: @transportation.id)
     else
       render :edit
     end
