@@ -1,9 +1,9 @@
-class ProfileMatchesUser::CalculatorComponent::TransportationProfilesController < ProfileMatchesUser::CalculatorComponentsController
+class ProfileMatchesUser::CalculatorComponent::TransportationsController < ProfileMatchesUser::CalculatorComponentsController
   before_action :get_footprint
-  before_action :get_transportation_profile, except: :create
+  before_action :get_transportation, except: :create
 
   def create
-    create_transportation_profile
+    create_transportation
   end
 
   def show
@@ -19,14 +19,14 @@ class ProfileMatchesUser::CalculatorComponent::TransportationProfilesController 
   end
 
   private
-  def get_transportation_profile
-    @transportation_profile = TransportationProfile.find(params[:id])
+  def get_transportation
+    @transportation = Transportation.find(params[:id])
   end
 
-  def create_transportation_profile
-    trans_prof = TransportationProfile.new(footprint_id: @footprint.id)
-    if trans_prof.save
-      redirect_to new_transportation_profile_vehicle_profile_path(transportation_profile_id: trans_prof.id)
+  def create_transportation
+    transportation = Transportation.new(footprint_id: @footprint.id)
+    if transportation.save
+      redirect_to new_transportation_vehicle_path(transportation_id: transportation.id)
     else
       flash[:error] = "Something went wrong"
       redirect_to root_path
