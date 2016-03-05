@@ -18,9 +18,9 @@ class Vehicle < ActiveRecord::Base
       ie = 0.163 * self.mmonth
       unless has_electricity?(self.fuel_type)
         gmonth = (self.mmonth / self.mpg)
-        return ie + (gmonth * fuel_conversion(self.fuel_type))
+        return (ie + (gmonth * fuel_conversion(self.fuel_type))).to_i
       else
-        return ie + (self.mmonth * fuel_conversion(self.fuel_type))
+        return (ie + (self.mmonth * fuel_conversion(self.fuel_type))).to_i
       end
     else
       return 0

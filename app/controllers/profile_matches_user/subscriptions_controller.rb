@@ -9,7 +9,6 @@ class ProfileMatchesUser::SubscriptionsController < ProfileMatchesUserController
   end
 
   def destroy
-    binding.pry
     delete_subscription
   end
 
@@ -20,7 +19,7 @@ class ProfileMatchesUser::SubscriptionsController < ProfileMatchesUserController
 
   # def create_follow
   #   pending_follower_array = @profile.pending_follows.select{|pfollow| pfollow.pending_follower_id == params[:follower_id].to_i}
-  #   binding.pry
+
   #   unless pending_follower_array.empty?
   #     @profile.follows.create(follower_id: params[:follower_id])
   #     pending_follower_array.each{|pfollow| pfollow.destroy}

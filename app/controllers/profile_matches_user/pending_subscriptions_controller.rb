@@ -4,7 +4,6 @@ class ProfileMatchesUser::PendingSubscriptionsController < ProfileMatchesUserCon
   end
 
   def create
-    binding.pry
     create_pending_subscription(pending_subscription_params)
   end
 
