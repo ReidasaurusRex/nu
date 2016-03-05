@@ -1,4 +1,4 @@
-class WaterProfile < ActiveRecord::Base
+class Water < ActiveRecord::Base
   belongs_to :footprint
 
   validates :use, inclusion: {in: [true, false], 

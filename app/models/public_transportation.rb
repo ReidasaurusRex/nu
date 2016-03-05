@@ -1,5 +1,5 @@
-class PublicTransportationProfile < ActiveRecord::Base
-  belongs_to :transportation_profile
+class PublicTransportation < ActiveRecord::Base
+  belongs_to :transportation
 
   @@public_transportation_types = [:metro, :commuter, :inter_city, :bus, :taxi]
   validates :use, inclusion: {in: [true, false],

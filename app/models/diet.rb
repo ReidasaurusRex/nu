@@ -1,4 +1,4 @@
-class DietProfile < ActiveRecord::Base
+class Diet < ActiveRecord::Base
   belongs_to :footprint
 
   validates :diet_type, inclusion: {in: %w(typical meat_heavy no_beef pescatarian vegetarian vegan), 

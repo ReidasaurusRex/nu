@@ -1,8 +1,8 @@
-class TransportationProfile < ActiveRecord::Base
+class Transportation < ActiveRecord::Base
   belongs_to :footprint
-  has_one :vehicle_profile, dependent: :destroy
-  has_one :public_transportation_profile, dependent: :destroy
-  has_one :air_profile, dependent: :destroy
+  has_one :vehicle, dependent: :destroy
+  has_one :public_transportation, dependent: :destroy
+  has_one :air_travel, dependent: :destroy
 
   def check_for_completion
     if self.vehicle_emissions && self.public_emissions && self.air_emissions

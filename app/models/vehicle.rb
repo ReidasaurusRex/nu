@@ -1,5 +1,5 @@
-class VehicleProfile < ActiveRecord::Base
-  belongs_to :transportation_profile
+class Vehicle < ActiveRecord::Base
+  belongs_to :transportation
 
   @@vehicle_types = ['car', 'truck', 'motorcycle']
   @@fuel_types = ['gasoline', 'diesel', 'b100', 'b20', 'hybrid', 'pi_hybrid', 'electric']

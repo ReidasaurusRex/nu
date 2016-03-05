@@ -1,4 +1,4 @@
-class WasteProfile < ActiveRecord::Base
+class Waste < ActiveRecord::Base
   belongs_to :footprint
 
   @@recyclables = [:glass, :metal, :plastic, :newspaper, :magazines]

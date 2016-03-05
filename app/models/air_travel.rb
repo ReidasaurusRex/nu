@@ -1,3 +1,3 @@
-class AirTravelProfile < ActiveRecord::Base
-  belongs_to :transportation_profile
+class AirTravel < ActiveRecord::Base
+  belongs_to :transportation
 end

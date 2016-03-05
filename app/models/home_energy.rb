@@ -1,4 +1,4 @@
-class HomeEnergyProfile < ActiveRecord::Base
+class HomeEnergy < ActiveRecord::Base
   belongs_to :footprint
-  has_many :utility_profiles, dependent: :destroy
+  has_many :utilities, dependent: :destroy
 end
