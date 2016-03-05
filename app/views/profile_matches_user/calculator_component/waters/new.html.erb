@@ -1,11 +1,11 @@
 <div class="waters-new">
-  <%= form_for(@water_profile, url: footprint_water_profiles_path(footprint_id: @footprint.id), method: :post) do |f| %>
+  <%= form_for(@water, url: footprint_waters_path(footprint_id: @footprint.id), method: :post) do |f| %>
   <div class="water-form">
     
     <div class="question-and-response">
       
       <p class="form-question">Do you use water at your residence?</p>
-      <p class="error-message"><%= add_errors_if_any(@water_profile, :use) %></p>
+      <p class="error-message"><%= add_errors_if_any(@water, :use) %></p>
       
       <ul class="radio-button-list inline-list">
         <li>
@@ -23,7 +23,7 @@
     <div class="question-and-response">
       
       <p class="form-question">If yes, do you know the amount?</p>
-      <p class="error-message"><%= add_errors_if_any(@water_profile, :known) %></p>
+      <p class="error-message"><%= add_errors_if_any(@water, :known) %></p>
       
       <ul class="radio-button-list inline-list">
         <li>
@@ -42,8 +42,8 @@
       
       <p class="form-question">What is the amount, in what units?</p>
       <p class="error-message">
-        <%= add_errors_if_any(@water_profile, :measurement_amount) %>
-        <%= add_errors_if_any(@water_profile, :measurement_type) %>
+        <%= add_errors_if_any(@water, :measurement_amount) %>
+        <%= add_errors_if_any(@water, :measurement_type) %>
       </p>
 
       <div class="text-field-with-unit">

@@ -63,10 +63,10 @@ Rails.application.routes.draw do
   # // Shallow footprint routes    
   resources :footprints, except: [:new, :update, :edit], module: 'profile_matches_user' do
     scope module: 'calculator_component' do 
-      resources :diet_profiles, :waste_profiles, :water_profiles, except: :index
-      resources :transportation_profiles, :home_energy_profiles, only: [:show, :update, :destroy]    
-      get 'transportation_profiles', to: 'transportation_profiles#create', as: 'create_transportation_profile'
-      get 'home_energy_profiles', to: 'home_energy_profiles#create', as: 'create_home_energy_profile'
+      resources :diets, :wastes, :waters, except: :index
+      resources :transportations, :home_energies, only: [:show, :update, :destroy]    
+      get 'transportations', to: 'transportations#create', as: 'create_transportation'
+      get 'home_energies', to: 'home_energies#create', as: 'create_home_energy'
     end
   end
   # // shallow footprint
@@ -77,11 +77,11 @@ Rails.application.routes.draw do
   # // Footprint component routes
   scope module: 'profile_matches_user' do
     scope module: 'calculator_component' do 
-      resources :transportation_profiles, except: [:index, :new] do
-        resources :vehicle_profiles, :public_transportation_profiles, :air_travel_profiles, except: :index
+      resources :transportations, except: [:index, :new] do
+        resources :vehicles, :public_transportations, :air_travel_profiles, except: :index
       end
-      resources :home_energy_profiles, except: [:index, :new] do 
-        resources :utility_profiles, except: [:index, :new, :show]
+      resources :home_energies, except: [:index, :new] do 
+        resources :utilities, except: [:index, :new, :show]
       end
     end
   end

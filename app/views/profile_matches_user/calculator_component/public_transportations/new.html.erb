@@ -1,11 +1,11 @@
 <div class="public-transportation-profiles-new">
   <h2>Assess public transportation</h2>
-  <%= form_for(@public_transportation_profile, url: transportation_profile_public_transportation_profiles_path(transportation_profile_id: @transportation_profile.id), method: :post) do |f| %>
+  <%= form_for(@public_transportation, url: transportation_public_transportations_path(transportation_id: @transportation.id), method: :post) do |f| %>
   <div class="new-public-transportation-form">
     
     <div class="question-and-response">
       <p class="form-question">Do you use public transportation?</p>
-      <p class="error-message"><%= add_errors_if_any(@public_transportation_profile, :use) %></p>
+      <p class="error-message"><%= add_errors_if_any(@public_transportation, :use) %></p>
       <ul class="radio-button-list inline-list">
         <li>
           <%= f.radio_button :use, "1", {checked: true} %>
@@ -24,7 +24,7 @@
       <%= f.text_field :metro, {value: "0"} %>
       <p class="form-label">
       <%= f.label :metro %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation_profile, :metro) %></span>
+      <span class="error-message"><%= add_errors_if_any(@public_transportation, :metro) %></span>
       </p>
     </div>
 
@@ -32,7 +32,7 @@
       <%= f.text_field :commuter, {value: "0"} %>
       <p class="form-label">
       <%= f.label :commuter %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation_profile, :commuter) %></span>
+      <span class="error-message"><%= add_errors_if_any(@public_transportation, :commuter) %></span>
       </p>
     </div>
 
@@ -40,7 +40,7 @@
       <%= f.text_field :inter_city, {value: "0"} %>
       <p class="form-label">
       <%= f.label :inter_city %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation_profile, :inter_city) %></span>
+      <span class="error-message"><%= add_errors_if_any(@public_transportation, :inter_city) %></span>
       </p>
     </div>
 
@@ -48,7 +48,7 @@
       <%= f.text_field :bus, {value: "0"} %>
       <p class="form-label">
       <%= f.label :bus %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation_profile, :bus) %></span>
+      <span class="error-message"><%= add_errors_if_any(@public_transportation, :bus) %></span>
       </p>
     </div>
 
@@ -56,7 +56,7 @@
       <%= f.text_field :taxi, {value: "0"} %>
       <p class="form-label">
       <%= f.label :taxi %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation_profile, :taxi) %></span>
+      <span class="error-message"><%= add_errors_if_any(@public_transportation, :taxi) %></span>
       </p>
     </div>
 
