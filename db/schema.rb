@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221153952) do
+ActiveRecord::Schema.define(version: 20160305150843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "air_travel_profiles", force: :cascade do |t|
-    t.integer  "transportation_profile_id"
+  create_table "air_travels", force: :cascade do |t|
+    t.integer  "transportation_id"
     t.integer  "d_economy"
     t.integer  "d_business"
     t.integer  "i_economy"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20160221153952) do
     t.integer  "i_business"
     t.integer  "i_first"
     t.integer  "sub_section_emissions"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "beta_users", force: :cascade do |t|
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20160221153952) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "diet_profiles", force: :cascade do |t|
+  create_table "diets", force: :cascade do |t|
     t.integer  "footprint_id"
     t.string   "diet_type"
     t.integer  "section_emissions"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20160221153952) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "home_energy_profiles", force: :cascade do |t|
+  create_table "home_energies", force: :cascade do |t|
     t.integer  "footprint_id"
     t.boolean  "completed"
     t.integer  "fuel_oil_emissions"
@@ -196,8 +196,8 @@ ActiveRecord::Schema.define(version: 20160221153952) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "public_transportation_profiles", force: :cascade do |t|
-    t.integer  "transportation_profile_id"
+  create_table "public_transportations", force: :cascade do |t|
+    t.integer  "transportation_id"
     t.boolean  "use"
     t.integer  "metro"
     t.integer  "commuter"
@@ -205,8 +205,8 @@ ActiveRecord::Schema.define(version: 20160221153952) do
     t.integer  "bus"
     t.integer  "taxi"
     t.integer  "sub_section_emissions"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "started_challenges", force: :cascade do |t|
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 20160221153952) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "transportation_profiles", force: :cascade do |t|
+  create_table "transportations", force: :cascade do |t|
     t.integer  "footprint_id"
     t.boolean  "completed"
     t.integer  "vehicle_emissions"
@@ -252,30 +252,30 @@ ActiveRecord::Schema.define(version: 20160221153952) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "utility_profiles", force: :cascade do |t|
-    t.integer  "home_energy_profile_id"
+  create_table "utilities", force: :cascade do |t|
+    t.integer  "home_energy_id"
     t.boolean  "known"
     t.string   "name"
     t.string   "input_type"
     t.float    "input_amount"
     t.integer  "sub_section_emissions"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
-  create_table "vehicle_profiles", force: :cascade do |t|
-    t.integer  "transportation_profile_id"
+  create_table "vehicles", force: :cascade do |t|
+    t.integer  "transportation_id"
     t.boolean  "have"
     t.string   "vehicle_type"
     t.string   "fuel_type"
     t.integer  "mmonth"
     t.integer  "mpg"
     t.integer  "sub_section_emissions"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
-  create_table "waste_profiles", force: :cascade do |t|
+  create_table "wastes", force: :cascade do |t|
     t.integer  "footprint_id"
     t.boolean  "glass"
     t.boolean  "metal"
@@ -287,7 +287,7 @@ ActiveRecord::Schema.define(version: 20160221153952) do
     t.datetime "updated_at",        null: false
   end
 
-  create_table "water_profiles", force: :cascade do |t|
+  create_table "waters", force: :cascade do |t|
     t.integer  "footprint_id"
     t.boolean  "use"
     t.boolean  "known"
