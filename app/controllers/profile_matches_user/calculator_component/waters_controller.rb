@@ -1,14 +1,14 @@
-class ProfileMatchesUser::CalculatorComponent::WaterProfilesController < ProfileMatchesUser::CalculatorComponentsController
+class ProfileMatchesUser::CalculatorComponent::WatersController < ProfileMatchesUser::CalculatorComponentsController
   before_action :get_footprint
-  before_action :get_water_profile, except: [:new, :create]
+  before_action :get_water, except: [:new, :create]
   before_action :ensure_footprint_belongs_to_user
 
   def new
-    @water_profile = WaterProfile.new
+    @water = Water.new
   end
 
   def create
-    create_water_profile(water_profile_params)
+    create_water(water_params)
   end
 
   def show
@@ -18,39 +18,39 @@ class ProfileMatchesUser::CalculatorComponent::WaterProfilesController < Profile
   end
 
   def update
-    update_water_profile(water_profile_params)
+    update_water(water_params)
   end
 
   def destroy
   end
 
   private
-  def get_water_profile
-    @water_profile = WaterProfile.find(params[:id])
+  def get_water
+    @water = Water.find(params[:id])
   end
 
-  def water_profile_params
-    params.require(:water_profile).permit(:use, :known, :measurement_amount, :measurement_type).merge(footprint_id: @footprint.id)
+  def water_params
+    params.require(:water).permit(:use, :known, :measurement_amount, :measurement_type).merge(footprint_id: @footprint.id)
   end
 
-  def create_water_profile(params)
-    @water_profile = WaterProfile.new(params)
-    if @water_profile.save
-      emissions = @water_profile.calculate_emissions
-      @water_profile.update(section_emissions: emissions)
+  def create_water(params)
+    @water = Water.new(params)
+    if @water.save
+      emissions = @water.calculate_emissions
+      @water.update(section_emissions: emissions)
       @footprint.update(water_emissions: emissions)
       @footprint.check_for_completion
       flash[:calculator_message] = "Water emissions: #{emissions}lbs CO2e"
-      redirect_to new_footprint_waste_profile_path(@footprint)
+      redirect_to new_footprint_waste_path(@footprint)
     else
       render :new
     end
   end
 
-  def update_water_profile(params)
-    if @water_profile.update(params)
-      emissions = @water_profile.calculate_emissions
-      @water_profile.update(section_emissions: emissions)
+  def update_water(params)
+    if @water.update(params)
+      emissions = @water.calculate_emissions
+      @water.update(section_emissions: emissions)
       @footprint.update(water_emissions: emissions)
       @footprint.check_for_completion
       flash[:calculator_message] = "Water emissions: #{emissions}lbs CO2e"
