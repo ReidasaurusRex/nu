@@ -3,7 +3,7 @@
     <% if session[:user_id] %>
       <li class="left-side"><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></li>
       <li class="left-side"><%= link_to "Stats", profile_stats_path(@user.profile) %></li>
-      <li class="left-side"><%= link_to "Challenges", profile_challenges_path(@user.profile) %></li>
+      <li class="left-side"><%= link_to "Challenges", profile_profile_challenges_path(@user.profile) %></li>
     <% end %>
     <li class="home-logo"><%= link_to image_tag("nu_color_logo.svg"), root_path %></li>  
     <li class="right-side"><%= link_to "About", about_general_path %></li>
