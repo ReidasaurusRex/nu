@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305150843) do
+ActiveRecord::Schema.define(version: 20160307044853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,23 +52,6 @@ ActiveRecord::Schema.define(version: 20160305150843) do
     t.string   "caption"
     t.string   "description"
     t.string   "points"
-    t.integer  "progress_category_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "completed_challenges", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "challenge_id"
-    t.integer  "progress_category_id"
-    t.string   "completion_entry"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "completed_habits", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "habit_id"
     t.integer  "progress_category_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
@@ -179,6 +162,25 @@ ActiveRecord::Schema.define(version: 20160305150843) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "profile_challenges", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "challenge_id"
+    t.integer  "progress_category_id"
+    t.string   "completion_entry"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.boolean  "completed"
+  end
+
+  create_table "profile_habits", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "habit_id"
+    t.integer  "progress_category_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.boolean  "completed"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "first_name"
@@ -207,23 +209,6 @@ ActiveRecord::Schema.define(version: 20160305150843) do
     t.integer  "sub_section_emissions"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-  end
-
-  create_table "started_challenges", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "challenge_id"
-    t.integer  "progress_category_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "started_habits", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "habit_id"
-    t.integer  "progress_category_id"
-    t.integer  "check_ins"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
