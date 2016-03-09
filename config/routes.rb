@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
   
-  # // Beta routes
-  # root 'beta_users#landing'
-  # get 'beta_users/new', as: 'new_beta_user'
-  # post 'beta_users/create', as: 'create_beta_user'
-  # get 'beta_users/thanks', as: 'thanks'
-  # // beta
-
-  # // Non beta routes
-
   # // About routes
   get 'about/general', as: 'about_general'
   get 'about/philosophy', as: 'about_philosophy'
@@ -86,8 +77,5 @@ Rails.application.routes.draw do
     end
   end
   # // footprint component
-
-  # // non beta
-
 
 end
