@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     scope module: 'completed_profile' do 
       post 'search/results', as: 'search'
       resources :habits, only: [:index, :show]
-      resources :challenges, only: [:index, :show]
+      resources :profile_challenges, except: [:new, :destroy]
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index
     end
