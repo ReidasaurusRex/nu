@@ -33,16 +33,13 @@ Rails.application.routes.draw do
     scope module: 'completed_profile' do 
       post 'search/results', as: 'search'
       resources :habits, only: [:index, :show]
-      resources :profile_challenges, except: [:new, :destroy]
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index
     end
 
     scope module: 'profile_matches_user' do 
       resources :pending_follows, :pending_subscriptions, :follows, :subscriptions, only: [:index, :create, :destroy]
-      resources :completed_challenges, except: [:new, :destroy]
-      resources :completed_habits, only: [:index, :create, :show]
-      resources :started_challenges, :started_habits, except: [:new, :edit]
+      resources :profile_habits, :profile_challenges, except: [:new, :destroy]
       resources :posts, except: [:index, :new]
       resources :newsfeed_items, only: [:index, :show] 
       resources :blocked_users, only: [:index, :create, :destroy]
