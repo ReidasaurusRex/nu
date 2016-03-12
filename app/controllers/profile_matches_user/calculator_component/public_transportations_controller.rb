@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CalculatorComponent::PublicTransportationsController < ProfileMatchesUser::CalculatorComponentsController
+class ProfileMatchesUser::CalculatorComponent::PublicTransportationsController < CalculatorComponentsController
   before_action :get_transportation
   before_action :get_transportation_footprint
   before_action :get_public_transportation, except: [:new, :create]
