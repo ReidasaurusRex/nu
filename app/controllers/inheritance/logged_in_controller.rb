@@ -1,4 +1,4 @@
-class LoggedInController < ApplicationController
+class Inheritance::LoggedInController < ApplicationController
   before_action :ensure_logged_in
   before_action :get_user
 

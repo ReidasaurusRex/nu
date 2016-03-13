@@ -1,4 +1,4 @@
-class ProfileMatchesUser::PendingFollowsController < ProfileMatchesUserController
+class ProfileMatchesUser::PendingFollowsController < Inheritance::ProfileMatchesUserController
   def index
     @pending_follows = @profile.pending_follows
   end

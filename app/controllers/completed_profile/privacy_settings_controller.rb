@@ -1,4 +1,4 @@
-class CompletedProfile::PrivacySettingsController < CompletedProfileController
+class CompletedProfile::PrivacySettingsController < Inheritance::CompletedProfileController
   def edit
   end
 

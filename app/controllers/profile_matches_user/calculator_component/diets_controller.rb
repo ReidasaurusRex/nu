@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CalculatorComponent::DietsController < CalculatorComponentsController
+class ProfileMatchesUser::CalculatorComponent::DietsController < Inheritance::CalculatorComponentsController
   before_action :get_footprint
   before_action :get_diet, except: [:new, :create]
   before_action :ensure_footprint_belongs_to_user

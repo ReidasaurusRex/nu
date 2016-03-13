@@ -1,4 +1,4 @@
-class ProfileMatchesUser::FollowsController < ProfileMatchesUserController
+class ProfileMatchesUser::FollowsController < Inheritance::ProfileMatchesUserController
   before_action :get_followers, only: :index
 
   def index

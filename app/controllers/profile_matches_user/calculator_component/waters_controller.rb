@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CalculatorComponent::WatersController < CalculatorComponentsController
+class ProfileMatchesUser::CalculatorComponent::WatersController < Inheritance::CalculatorComponentsController
   before_action :get_footprint
   before_action :get_water, except: [:new, :create]
   before_action :ensure_footprint_belongs_to_user

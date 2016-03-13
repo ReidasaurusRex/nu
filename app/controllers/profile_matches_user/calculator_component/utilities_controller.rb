@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CalculatorComponent::UtilitiesController < CalculatorComponentsController
+class ProfileMatchesUser::CalculatorComponent::UtilitiesController < Inheritance::CalculatorComponentsController
   def create
   end
 

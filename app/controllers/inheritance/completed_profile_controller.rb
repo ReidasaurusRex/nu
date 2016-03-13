@@ -1,4 +1,4 @@
-class CompletedProfileController < LoggedInController
+class Inheritance::CompletedProfileController < Inheritance::LoggedInController
   before_action :ensure_completed_profile
 
   protected

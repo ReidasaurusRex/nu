@@ -1,4 +1,4 @@
-class ProfileMatchesUserController < CompletedProfileController
+class Inheritance::ProfileMatchesUserController < Inheritance::CompletedProfileController
   before_action :get_profile
   before_action :ensure_user_owns_profile
 

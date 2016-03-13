@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CalculatorComponentsController < CompletedProfileController
+class Inheritance::CalculatorComponentsController < Inheritance::CompletedProfileController
   layout "calculator"
 
   protected

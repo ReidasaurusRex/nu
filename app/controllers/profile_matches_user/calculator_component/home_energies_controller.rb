@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CalculatorComponent::HomeEnergiesController < CalculatorComponentsController
+class ProfileMatchesUser::CalculatorComponent::HomeEnergiesController < Inheritance::CalculatorComponentsController
   before_action :get_footprint
 
   def create
