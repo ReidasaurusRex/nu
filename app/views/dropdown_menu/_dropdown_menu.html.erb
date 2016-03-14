@@ -1,6 +1,6 @@
 <ul>
 
-  <li><%= "User id: #{user.id}" %></li>
+  <%= profile_or_user_summary(user) %>
   <li>Settings</li>
   <li><%= link_to "About", about_general_path %></li>
   <li>Help</li>

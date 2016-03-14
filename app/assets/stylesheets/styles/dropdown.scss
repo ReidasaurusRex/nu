@@ -1,0 +1,43 @@
+.dropdown-menu {
+  border-right: 1px solid $nu-blue;
+  border-left: 1px solid $nu-blue;
+  display: none;
+  float: right;
+  margin-right: -370px;
+  right: 0;
+  width: 200px;
+}
+
+.dropdown-menu li {
+  border-bottom: 1px solid $nu-blue;
+  border-collapse: true;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.dropdown-menu .profile-menu-summary {
+  height: 105px;
+}
+
+.dropdown-menu .profile-menu-summary li {
+  border: none;
+  height: 25px;
+  line-height: 25px;
+}
+
+.dropdown-menu .profile-menu-summary li:first-child {
+  margin-top: 30px;
+}
+
+.dropdown-menu .profile-menu-summary li:last-child {
+  margin-bottom: 15px;
+}
+
+.dropdown-menu .user-menu-summary {
+  height: 80px;
+}
+
+.expanded-menu {
+  display: block;
+}

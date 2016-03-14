@@ -18,7 +18,7 @@
 }
 
 .top-nav {
-  border-bottom: 1px solid #CDECE9;
+  border-bottom: 1px solid $nu-blue;
 }
 
 .top-nav .home-logo {
@@ -31,14 +31,4 @@
 .calculator-sections-nav {
   border-bottom: 1px solid #ECE57F;
   width: 100%;
-}
-
-.drop-down-menu {
-  display: none;
-  float: right;
-  width: 100px;
-}
-
-.expanded-menu {
-  display: block;
 }

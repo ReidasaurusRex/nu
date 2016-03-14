@@ -12,9 +12,11 @@
 </head>
 <body>
 
-  <%= render "nav_bars/top_nav" %>
+  <%= render partial: "nav_bars/top_nav" %>
   <h2><%= flash[:error] %></h2>
-  <%= yield %>
+  <div class="main-body">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
   <ul class="nav-items">
     
     <!-- left side -->
-    <% if session[:user_id] %>
+    <% if @completed_profile %>
       <li class="left-side"><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></li>
       <li class="left-side"><%= link_to "Stats", profile_stats_path(@user.profile) %></li>
       <li class="left-side"><%= link_to "Challenges", profile_profile_challenges_path(@user.profile) %></li>
@@ -12,7 +12,7 @@
 
     <!-- right side -->
     <% if @logged_in %>
-      <li class="drop-down-menu-button right-side"><%= button_tag "Menu" %></li>
+      <li class="dropdown-menu-button right-side"><%= button_tag "Menu" %></li>
       <li class="right-side"> <!-- Search form -->
         <div id="search-form">
         <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
@@ -25,8 +25,9 @@
 
   </ul> <!-- nav-items -->
 </div> <!-- nav-bar top-nav -->
+
 <% if @logged_in %>
-<div class="drop-down-menu">
-  <%= render partial: "nav_bars/drop_down_menu", locals: {user: @user} %>
+<div class="dropdown-menu">
+  <%= render partial: "dropdown_menu/dropdown_menu", locals: {user: @user} %>
 </div>
 <% end %>
