@@ -35,4 +35,10 @@
 
 .drop-down-menu {
   display: none;
+  float: right;
+  width: 100px;
+}
+
+.expanded-menu {
+  display: block;
 }

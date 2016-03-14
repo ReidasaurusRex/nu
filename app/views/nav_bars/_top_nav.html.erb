@@ -12,9 +12,7 @@
 
     <!-- right side -->
     <% if @logged_in %>
-      <li class="drop-down-menu"><%= render partial: "nav_bars/drop_down_menu", locals: {user_id: @user.id} %></li>
-      <li class="drop-down-menu-button"><%= button_tag "Menu" %></li>
-      <li class="right-side"><%= link_to "Logout", logout_path, method: :delete %></li>
+      <li class="drop-down-menu-button right-side"><%= button_tag "Menu" %></li>
       <li class="right-side"> <!-- Search form -->
         <div id="search-form">
         <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
@@ -27,3 +25,8 @@
 
   </ul> <!-- nav-items -->
 </div> <!-- nav-bar top-nav -->
+<% if @logged_in %>
+<div class="drop-down-menu">
+  <%= render partial: "nav_bars/drop_down_menu", locals: {user: @user} %>
+</div>
+<% end %>
