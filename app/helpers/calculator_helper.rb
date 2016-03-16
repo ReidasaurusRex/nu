@@ -33,7 +33,7 @@ module CalculatorHelper
       elsif !transportation.public_emissions
         return link_to("Transportation", new_transportation_public_transportation_path(transportation_id: transportation.id))
       elsif !transportation.air_emissions
-        return link_to("Transportation", new_transportation_air_travel_profile_path(transportation_id: transportation.id))
+        return link_to("Transportation", new_transportation_air_travel_path(transportation_id: transportation.id))
       else
         return link_to("Transportation", footprint_transportation_path(footprint_id: footprint.id, id: transportation.id))
       end

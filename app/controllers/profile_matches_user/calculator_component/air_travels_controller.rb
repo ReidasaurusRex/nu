@@ -8,6 +8,8 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
   end
 
   def create
+    binding.pry
+    create_air_travel(air_travel_params)
   end
 
   def show
@@ -17,6 +19,7 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
   end
 
   def update
+    update_air_travel(air_travel_params)
   end
 
   def destroy
@@ -38,4 +41,33 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
   def air_travel_params
     params.fetch(:air_travel, {}).permit(:d_economy, :d_business, :i_economy, :i_premium_economy, :i_business, :i_first).merge(transportation_id: @transportation.id)
   end 
+
+  def create_air_travel(params)
+    @air_travel = AirTravel.new(params)
+    if @air_travel.save
+      emissions = @air_travel.calculate_emissions
+      @air_travel.update(sub_section_emissions: emissions)
+      @transportation.update(air_emissions: emissions)
+      @transportation.check_for_completion
+      @transportation.calculate_emissions
+      flash[:calculator_message] = "Air travel emissions: #{emissions}lbs CO2e"
+      redirect_to footprint_create_home_energy_path(footprint_id: @footprint.id)
+    else
+      render :new
+    end
+  end
+
+  def update_air_travel(params)
+    if @air_travel.update(params)
+    emissions = @air_travel.calculate_emissions
+    @air_travel.update(sub_section_emissions: emissions)
+    @transportation.update(air_emissions: emissions)
+    @transportation.check_for_completion
+    @transportation.calculate_emissions
+    flash[:calculator_message] = "Air travel emissions: #{emissions}lbs CO2e"
+    redirect_to footprint_create_home_energy_path(footprint_id: @footprint.id)
+    else
+      render :edit
+    end
+  end
 end
