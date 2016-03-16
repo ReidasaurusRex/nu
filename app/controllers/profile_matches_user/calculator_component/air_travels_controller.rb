@@ -51,7 +51,7 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
       @transportation.check_for_completion
       @transportation.calculate_emissions
       flash[:calculator_message] = "Air travel emissions: #{emissions}lbs CO2e"
-      redirect_to footprint_create_home_energy_path(footprint_id: @footprint.id)
+      redirect_to new_footprint_home_energy_path(@footprint)
     else
       render :new
     end
@@ -65,7 +65,7 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
     @transportation.check_for_completion
     @transportation.calculate_emissions
     flash[:calculator_message] = "Air travel emissions: #{emissions}lbs CO2e"
-    redirect_to footprint_create_home_energy_path(footprint_id: @footprint.id)
+    redirect_to new_footprint_home_energy_path(@footprint)
     else
       render :edit
     end

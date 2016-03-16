@@ -26,6 +26,7 @@ textarea {
 
 .submit-form {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .text-form-with-errors .form-label {
@@ -50,7 +51,7 @@ select {
   margin-top: 10px;
 }
 
-.radio-button-list li {
+.radio-button-list li, .check-list li {
   margin-bottom: 25px;
   margin-left: 10px;
 }

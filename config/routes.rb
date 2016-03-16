@@ -52,9 +52,9 @@ Rails.application.routes.draw do
   resources :footprints, except: [:new, :update, :edit], module: 'profile_matches_user' do
     scope module: 'calculator_component' do 
       resources :diets, :wastes, :waters, except: :index
-      resources :transportations, :home_energies, only: [:show, :update, :destroy]    
+      resources :transportations, only: [:show, :update, :destroy]    
+      resources :home_energies, except: :index
       get 'transportations', to: 'transportations#create', as: 'create_transportation'
-      get 'home_energies', to: 'home_energies#create', as: 'create_home_energy'
     end
   end
   # // shallow footprint
