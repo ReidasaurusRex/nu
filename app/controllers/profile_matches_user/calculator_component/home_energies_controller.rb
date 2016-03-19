@@ -7,7 +7,7 @@ class ProfileMatchesUser::CalculatorComponent::HomeEnergiesController < Inherita
   end
 
   def create
-    binding.pry
+    create_home_energy(utility_list_params)
   end
 
   def show
@@ -29,5 +29,11 @@ class ProfileMatchesUser::CalculatorComponent::HomeEnergiesController < Inherita
 
   def utility_list_params
     params.fetch(:utilities, {}).permit(:natural_gas, :fuel_oil, :propane, :electricity)
+  end
+
+  def create_home_energy(utilities)
+    @home_energy = HomeEnergy.create(footprint_id: @footprint.id)
+    @home_energy.create_utilities(utilities)
+    redirect_to home_energy_utilities_path(home_energy_id: @home_energy.id)
   end
 end

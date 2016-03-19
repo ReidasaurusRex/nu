@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   
   # // About routes
   get 'about/general', as: 'about_general'
@@ -69,7 +69,8 @@ Rails.application.routes.draw do
         resources :vehicles, :public_transportations, :air_travels, except: :index
       end
       resources :home_energies, except: [:index, :new] do 
-        resources :utilities, except: [:index, :new, :show]
+        get 'utilities', to: 'utilities#index', as: 'utilities'
+        post 'utilities', to: 'utilities#update', as: 'update_utilities'
       end
     end
   end

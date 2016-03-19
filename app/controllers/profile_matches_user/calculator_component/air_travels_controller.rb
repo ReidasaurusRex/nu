@@ -8,7 +8,6 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
   end
 
   def create
-    binding.pry
     create_air_travel(air_travel_params)
   end
 

@@ -1,0 +1,48 @@
+<div class="utilities-index">
+  <h1>Utilities</h1>
+  <h3 class="return-link"><%= link_to "Add or drop utilities", edit_footprint_home_energy_path(footprint_id: @footprint.id, id: @home_energy.id) %></h3>
+  
+  <%= form_tag(url: home_energy_update_utilities_path(footprint_id: @footprint.id), method: :put) do %>
+    <% @utilities.each do |utility| %>
+
+      <div class="utility-form-overview">
+      <h2><%= utility.smart_name.capitalize %></h2>
+        <%= fields_for "utilities[]", utility do |uf| %>
+          
+          <div class="question-and-response">
+            <p class="form-question">Do you know how much <%= utility.smart_name %> you use?</p>
+            <p class="error-message"><%= add_errors_if_any(utility, :known) %></p>
+
+            <ul class="radio-button-list inline-list">
+              <li>
+                <%= uf.radio_button :known, "1", {checked: true} %>
+                <%= uf.label :known, "Yes" %>
+              </li>
+              <li>
+                <%= uf.radio_button :known, "0" %>
+                <%= uf.label :known, "No" %>
+              </li>
+            </ul>
+          </div>
+
+          <div class="question-and-response">
+            <p class="form-question">What is the amount, in what units?</p>
+            <p class="error-message">
+              <%= add_errors_if_any(utility, :input_type) %>
+              <%= add_errors_if_any(utility, :input_amount) %>
+            </p>
+
+            <div class="text-field-with-unit">
+              <%= uf.text_field :input_amount %>
+              <%= uf.select :input_type, measurement_options(utility) %>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    <% end %>
+    <div class="submit-form">
+      <%= submit_tag "Assess utilities" %>
+    </div>
+  <% end %>
+</div>
