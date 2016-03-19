@@ -22,4 +22,17 @@ class ProfileMatchesUser::CalculatorComponent::UtilitiesController < Inheritance
   def get_utilities
     @utilities = @home_energy.utilities
   end
+
+  # def utilities_params  waiting on stack overflow
+  #   params.require(:utilities[]).permit(:known, :input_amount, :input_type)
+  # end
+
+  def update_utilities
+    @utilities.each do |utility|
+      utility_params = params[:utilities].select{|key, value| key == utility.id}
+      utility.update(utility_params)
+      emissions = utility.calculate_emissions
+      utility.udpate(sub_section_emissions: emissions)
+    end
+  end
 end
