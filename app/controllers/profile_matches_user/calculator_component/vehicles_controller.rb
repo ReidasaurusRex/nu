@@ -50,7 +50,7 @@ class ProfileMatchesUser::CalculatorComponent::VehiclesController < Inheritance:
       @transportation.check_for_completion
       @transportation.calculate_emissions
       flash[:calculator_message] = "Vehicle emissions: #{emissions}lbs CO2e"
-      redirect_to new_transportation_public_transportation_path(transportation_id: @transportation.id)
+      redirect_to next_component_path(@vehicle)
     else
       render :new
     end
@@ -64,7 +64,7 @@ class ProfileMatchesUser::CalculatorComponent::VehiclesController < Inheritance:
       @transportation.check_for_completion
       @transportation.calculate_emissions
       flash[:calculator_message] = "Vehicle emissions: #{emissions}lbs CO2e"
-      redirect_to new_transportation_public_transportation_path(transportation_id: @transportation.id)
+      redirect_to next_component_path(@vehicle)
     else
       render :edit
     end

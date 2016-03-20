@@ -18,7 +18,7 @@ class ProfileMatchesUser::FootprintsController < Inheritance::ProfileMatchesUser
   private
   def create_footprint
     footprint = @profile.footprints.create
-    redirect_to new_footprint_home_energy_path(footprint)
+    redirect_to new_footprint_diet_path(footprint)
   end
 
   def get_footprint

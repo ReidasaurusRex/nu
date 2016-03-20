@@ -7,7 +7,7 @@ class ProfileMatchesUser::CalculatorComponent::UtilitiesController < Inheritance
   end
 
   def update
-    binding.pry
+    update_utilities
   end
 
   private
@@ -29,10 +29,21 @@ class ProfileMatchesUser::CalculatorComponent::UtilitiesController < Inheritance
 
   def update_utilities
     @utilities.each do |utility|
-      utility_params = params[:utilities].select{|key, value| key == utility.id}
-      utility.update(utility_params)
+      utility_params = params[:utilities].select{|key, value| key == utility.id.to_s}["#{utility.id}"]
+      utility.update(utility_params.permit(:known, :input_amount, :input_type))
+      binding.pry
+    end
+    if @utilities.all?{|utility| utility.valid?(:update)}
+      home_energy_emissions = 0
+      @utilities.each do |utility|
       emissions = utility.calculate_emissions
-      utility.udpate(sub_section_emissions: emissions)
+      utility.update(sub_section_emissions: emissions)
+      home_energy_emissions += emissions
+      end
+      flash[:calculator_message] = "Home energy emissions: #{home_energy_emissions}lbs of CO2e"
+      redirect_to next_component_path(@utilities.sample)
+    else
+      render :index
     end
   end
 end

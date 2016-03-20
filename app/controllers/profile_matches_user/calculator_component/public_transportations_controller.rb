@@ -49,7 +49,7 @@ class ProfileMatchesUser::CalculatorComponent::PublicTransportationsController <
       @transportation.check_for_completion
       @transportation.calculate_emissions
       flash[:calculator_message] = "Public transportation emissions: #{emissions}lbs CO2e"
-      redirect_to new_transportation_air_travel_path(transportation_id: @transportation.id)
+      redirect_to next_component_path(@public_transportation)
     else
       render :new
     end

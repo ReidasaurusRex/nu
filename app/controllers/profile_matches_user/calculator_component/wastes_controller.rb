@@ -40,7 +40,7 @@ class ProfileMatchesUser::CalculatorComponent::WastesController < Inheritance::C
       @footprint.update(waste_emissions: emissions)
       @footprint.check_for_completion
       flash[:calculator_message] = "Waste emissions: #{emissions}lbs of CO2e"
-      redirect_to footprint_create_transportation_path(footprint_id: @footprint.id)
+      redirect_to next_component_path(@waste)
     else
       render :new
     end

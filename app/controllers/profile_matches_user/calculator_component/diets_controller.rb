@@ -41,7 +41,7 @@ class ProfileMatchesUser::CalculatorComponent::DietsController < Inheritance::Ca
       @footprint.update(diet_emissions: emissions)
       @footprint.check_for_completion
       flash[:calculator_message] = "Diet emissions: #{emissions}lbs CO2e"
-      redirect_to new_footprint_water_path(@footprint)
+      redirect_to next_component_path(@diet)
     else
       render :new
     end
@@ -54,7 +54,7 @@ class ProfileMatchesUser::CalculatorComponent::DietsController < Inheritance::Ca
       @footprint.update(diet_emissions: emissions)
       @footprint.check_for_completion
       flash[:calculator_message] = "Diet emissions: #{emissions}lbs CO2e"
-      redirect_to new_footprint_water_path(@footprint)
+      redirect_to next_component_path(@diet)
     else
       render :edit
     end
