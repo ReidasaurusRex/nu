@@ -11,4 +11,16 @@ class Footprint < ActiveRecord::Base
       self.completed = true
     end
   end
+
+  def friendly_creation_date
+    return self.created_at.strftime("%B %d, %Y")
+  end
+
+  def emissions_or_pending
+    if self.total_emissions
+      return self.total_emissions
+    else
+      return "Pending"
+    end
+  end
 end
