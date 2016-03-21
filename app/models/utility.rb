@@ -1,7 +1,7 @@
 class Utility < ActiveRecord::Base
   belongs_to :home_energy
 
-  validates :known, inclusion: {in: ["1", "0"], 
+  validates :known, inclusion: {in: [true, false], 
     message: "Please select yes or no"}, on: :update
   validates :input_amount, numericality: {message: "Please enter a number"}, if: :known
   validate :proper_utility_amount_types, if: :known
@@ -29,29 +29,29 @@ class Utility < ActiveRecord::Base
     case self.name
     when 'natural_gas'
       if self.known
-        return (self.input_amount * 11.7) if self.input_type == 'therms'
-        return (self.input_amount * 12.03) if self.input_type == '100cft'
-        return (self.input_amount * 10.93) if self.input_type == 'dollars'
+        return (self.input_amount * 11.7).to_i if self.input_type == 'therms'
+        return (self.input_amount * 12.03).to_i if self.input_type == '100cft'
+        return (self.input_amount * 10.93).to_i if self.input_type == 'dollars'
       else
         return 256
       end
     when 'fuel_oil'
       if self.known
-        return (self.input_amount * 22.61) if self.input_type == 'gallons'
-        return (self.input_amount * 6.31) if self.input_type == 'dollars'
+        return (self.input_amount * 22.61).to_i if self.input_type == 'gallons'
+        return (self.input_amount * 6.31).to_i if self.input_type == 'dollars'
       else
         return 405
       end
     when 'propane'
       if self.known
-        return (self.input_amount * 12.43) if self.input_type == 'gallons'
-        return (self.input_amount * 4.38) if self.input_type == 'dollars'
+        return (self.input_amount * 12.43).to_i if self.input_type == 'gallons'
+        return (self.input_amount * 4.38).to_i if self.input_type == 'dollars'
       else
         return 187
       end
     when 'electricity'
       if self.known
-        return (self.input_amount * self.state_conversion_factor)
+        return (self.input_amount * self.state_conversion_factor).to_i
       else
         return 455
       end

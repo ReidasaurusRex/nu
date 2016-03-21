@@ -2,6 +2,8 @@ class ProfileMatchesUser::FootprintsController < Inheritance::ProfileMatchesUser
   before_action :get_footprint, only: [:show, :destroy]
   before_action :ensure_footprint_belongs_to_user, except: [:index, :create]
 
+  layout "calculator"
+
   def index
   end
 
@@ -25,7 +27,7 @@ class ProfileMatchesUser::FootprintsController < Inheritance::ProfileMatchesUser
     @footprint = Footprint.find(params[:id])
   end
 
-  def check_that_footprint_is_users
+  def ensure_footprint_belongs_to_user
     profile = @user.profile
     unless profile.footprints.include?(@footprint)
       flash[:error] = "Unauthorized"

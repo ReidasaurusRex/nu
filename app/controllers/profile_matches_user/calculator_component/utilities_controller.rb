@@ -23,15 +23,10 @@ class ProfileMatchesUser::CalculatorComponent::UtilitiesController < Inheritance
     @utilities = @home_energy.utilities
   end
 
-  # def utilities_params  waiting on stack overflow
-  #   params.require(:utilities[]).permit(:known, :input_amount, :input_type)
-  # end
-
   def update_utilities
     @utilities.each do |utility|
       utility_params = params[:utilities].select{|key, value| key == utility.id.to_s}["#{utility.id}"]
       utility.update(utility_params.permit(:known, :input_amount, :input_type))
-      binding.pry
     end
     if @utilities.all?{|utility| utility.valid?(:update)}
       home_energy_emissions = 0
