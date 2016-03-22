@@ -41,5 +41,10 @@ module CalculatorHelper
   end
 
   def home_energy_link(footprint)
+    unless footprint.home_energy
+      return link_to("Energy", new_footprint_home_energy_path(footprint_id: footprint.id))
+    else
+      return link_to("Energy", footprint_home_energy_path(footprint_id: footprint.id, id: footprint.home_energy.id))
+    end
   end
 end

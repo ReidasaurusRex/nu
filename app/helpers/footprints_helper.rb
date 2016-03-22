@@ -3,40 +3,57 @@ module FootprintsHelper
     case section
     when "diet"
       if @footprint.diet
-        render partial: "footprints/footprint_section_summary", locals: {section: @footprint.diet}
+        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.diet, footprint: @footprint}
       else
         return "<h3>#{link_to('Assess diet', new_footprint_diet_path(footprint_id: @footprint.id))}</h3>".html_safe
       end
     when "water"
       if @footprint.water
-        render partial: "footprints/footprint_section_summary", locals: {section: @footprint.water}
+        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.water, footprint: @footprint}
       else
         return "<h3>#{link_to('Assess water', new_footprint_water_path(footprint_id: @footprint.id))}</h3>".html_safe
       end
     when "waste"
       if @footprint.waste
-        render partial: "footprints/footprint_section_summary", locals: {section: @footprint.waste}
+        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.waste, footprint: @footprint}
       else
         return "<h3>#{link_to('Assess waste', new_footprint_waste_path(footprint_id: @footprint.id))}</h3>".html_safe
       end
     when "transportation"
       if @footprint.transportation
-        render partial: "footprints/footprint_transportation_summary", locals: {transportation: @footprint.transportation}
+        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.transportation, footprint: @footprint}
       else
         return "<h3>#{proper_transportation_link(@footprint, @footprint.transportation)}</h3>".html_safe
       end
     when "home_energy"
       if @footprint.home_energy
-        render partial: "footprints/footprint_home_energy_summary", locals: {home_energy: @footprint.home_energy}
+        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.home_energy, footprint: @footprint}
       else
         return "<h3>#{proper_home_energy_link(@footprint, @footprint.home_energy)}"
       end
     end
   end
 
-  def percent_of_total(footprint, section_emissions)
+  def percent_of_total(section, footprint)
     if footprint.completed
-      return "<h3>Percent of total emissions: #{((section_emissions/footprint.total_emissions)*100).to_i}%</h3>".html_safe
+      return ((section.section_emissions.to_f/footprint.total_emissions.to_f)*100).to_i
+    else
+      return "pending"
+    end
+  end
+
+  def section_link_path(section, footprint)
+    case section.class.name
+    when "Diet"
+      return link_to("View details", footprint_diet_path(footprint_id: footprint.id, id: section.id))
+    when "Waste"
+      return link_to("View details", footprint_waste_path(footprint_id: footprint.id, id: section.id))
+    when "Water"
+      return link_to("View details", footprint_water_path(footprint_id: footprint.id, id: section.id))
+    when "Transportation"
+      return link_to("View details", footprint_transportation_path(footprint_id: footprint.id, id: section.id))
+    when "HomeEnergy"
+      return link_to("View details", footprint_home_energy_path(footprint_id: footprint.id, id: section.id))
     end
   end
 end

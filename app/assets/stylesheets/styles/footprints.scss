@@ -1,3 +1,7 @@
+.footprints-show {
+  margin-bottom: 50px;
+}
+
 .footprints-show h1:first-child {
   margin-bottom: 3px;
 }
@@ -10,4 +14,40 @@
 .footprints-show .total-emissions span {
   display: inline-block;
   font-size: 0.8em;
+}
+
+.footprints-show .section-overview {
+  border: 1px solid $nu-green;
+  display: inline-block;
+  height: 200px;
+  margin-right: 30px; 
+  margin-top: 30px;
+  padding: 10px;
+  width: 354px;
+}
+
+.footprints-show .percent-comparisons {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.footprints-show .percent-comparisons th {
+  border-bottom: 1px solid $nu-red;
+  margin-bottom: 15px;
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+  text-align: center;
+}
+
+.footprints-show .percent-comparisons td {
+  text-align: center;
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+  padding-top: 15px;
+  vertical-align: middle;
+}
+
+.footprints-show .percent-comparisons th:first-child, .footprints-show .percent-comparisons td:first-child {
+  border-right: 1px solid $nu-red;
+  padding-left: 0;
 }

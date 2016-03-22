@@ -1,0 +1,12 @@
+<h3 class="section-emissions">Emissions: <span><%= section.section_emissions %>lbs CO2e</span></h3>
+<table class="percent-comparisons">
+  <tr>
+    <th>Percent national average</th>
+    <th>Percent total footprint</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= percent_of_total(section, footprint) %></td>
+  </tr>
+</table>
+<h4><%= section_link_path(section, footprint) %></h4>
