@@ -19,4 +19,12 @@ class Transportation < ActiveRecord::Base
     end
     self.update(section_emissions: emissions)
   end
+
+  def emissions_overview
+    if self.section_emissions
+      return self.section_emissions
+    else
+      return "Pending"
+    end
+  end
 end

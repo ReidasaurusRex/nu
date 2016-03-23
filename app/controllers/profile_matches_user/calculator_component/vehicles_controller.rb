@@ -11,9 +11,6 @@ class ProfileMatchesUser::CalculatorComponent::VehiclesController < Inheritance:
     create_vehicle(vehicle_params)
   end
 
-  def show
-  end
-
   def edit
   end
 

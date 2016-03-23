@@ -11,9 +11,6 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
     create_air_travel(air_travel_params)
   end
 
-  def show
-  end
-
   def edit
   end
 

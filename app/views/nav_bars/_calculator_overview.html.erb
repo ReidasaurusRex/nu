@@ -1,5 +1,6 @@
 <div class="nav-bar calculator-sections-nav">
   <ul class="nav-items">
+    <li><%= link_to "Overview", profile_footprint_path(profile_id: footprint.profile.id, id: footprint.id) %></li>
     <li><%= diet_link(footprint) %></li>
     <li><%= water_link(footprint) %></li>
     <li><%= waste_link(footprint) %></li>

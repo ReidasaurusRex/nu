@@ -1,2 +1,9 @@
-<h1>DietProfiles#show</h1>
-<p>Find me in app/views/diets/show.html.erb</p>
+<div class="calculator-component diets-show">
+  <h1>Diet Overview <span><%= @footprint.friendly_creation_date %></span></h1>
+  
+  <h2>Emissions: <span><%= @diet.section_emissions %>lbs of CO2e</span></h2>
+
+  <h2>Type: <span><%= @diet.diet_type %></span></h2>
+
+  <h3><%= link_to "Edit diet", edit_footprint_diet_path(footprint_id: @footprint.id, id:@diet.id) %></h3>
+</div>

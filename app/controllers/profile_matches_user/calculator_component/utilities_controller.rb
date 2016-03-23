@@ -35,6 +35,7 @@ class ProfileMatchesUser::CalculatorComponent::UtilitiesController < Inheritance
       utility.update(sub_section_emissions: emissions)
       home_energy_emissions += emissions
       end
+      @home_energy.update(section_emissions: home_energy_emissions)
       flash[:calculator_message] = "Home energy emissions: #{home_energy_emissions}lbs of CO2e"
       redirect_to next_component_path(@utilities.sample)
     else

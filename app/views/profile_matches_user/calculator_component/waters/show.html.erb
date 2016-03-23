@@ -1,2 +1,9 @@
-<h1>WaterProfiles#show</h1>
-<p>Find me in app/views/waters/show.html.erb</p>
+<div class="calculator-component waters-show">
+  <h1>Water Overview <span><%= @footprint.friendly_creation_date %></span></h1>
+
+  <h2>Emissions: <span><%= @water.section_emissions %>lbs of CO2e</span></h2>
+
+  <h2>Usage: <span><%= @water.usage_overview %></span></h2>
+
+  <h3><%= link_to "Edit water use", edit_footprint_water_path(footprint_id: @footprint.id, id: @water.id) %></h3>
+</div>

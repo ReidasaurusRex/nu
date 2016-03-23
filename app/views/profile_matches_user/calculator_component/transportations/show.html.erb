@@ -1,2 +1,15 @@
-<h1>TransportationProfiles#show</h1>
-<p>Find me in app/views/transportations/show.html.erb</p>
+<div class="calculator-component transportations-show">
+  <h1>Transportation Overview <span><%= @footprint.friendly_creation_date %></span></h1>
+
+  <h2>Emissions: <span><%= @transportation.emissions_overview %>lbs CO2e</span></h2>
+
+  <div class="transportation-component">
+    <h2>Vehicle Overview</h2>
+  </div>
+  <div class="transportation-component">
+    <h2>Public Transportation Overview</h2>
+  </div>
+  <div class="transportation-component">
+    <h2>Air Travel Overview</h2>
+  </div>
+</div>

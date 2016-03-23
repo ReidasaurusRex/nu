@@ -34,4 +34,16 @@ class Water < ActiveRecord::Base
       return 0
     end
   end
+
+  def usage_overview
+    if self.use
+      if self.known
+        return "#{self.measurement_amount} #{self.measurement_type}"
+      else
+        return "Average"
+      end
+    else
+      return "None"
+    end
+  end
 end

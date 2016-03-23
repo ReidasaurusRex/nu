@@ -11,9 +11,6 @@ class ProfileMatchesUser::CalculatorComponent::PublicTransportationsController <
     create_public_transportation(public_transportation_params)
   end
 
-  def show
-  end
-
   def edit
   end
 

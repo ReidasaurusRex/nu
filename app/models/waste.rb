@@ -17,4 +17,15 @@ class Waste < ActiveRecord::Base
     return emissions
   end
 
+  def recycled_list
+    recycle_options = ["glass", "metal", "plastic", "newspaper", "magazines"]
+    recycled = []
+    recycle_options.each do |item| 
+      if self[item]
+        recycled.push(item)
+      end
+    end
+    return recycled.join(" ")
+  end
+
 end

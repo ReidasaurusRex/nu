@@ -66,7 +66,7 @@
   scope module: 'profile_matches_user' do
     scope module: 'calculator_component' do 
       resources :transportations, except: [:index, :new] do
-        resources :vehicles, :public_transportations, :air_travels, except: :index
+        resources :vehicles, :public_transportations, :air_travels, except: [:index, :show]
       end
       resources :home_energies, except: [:index, :new] do 
         get 'utilities', to: 'utilities#index', as: 'utilities'
