@@ -1,0 +1,17 @@
+<h2>Air Travel</h2>
+<% if air_travel %>
+  <table>
+    <tr>
+      <td>Emissions:</td>
+      <td><%= air_travel.sub_section_emissions %>lbs CO2e</td>
+    </tr>
+    <tr>
+      <td>Percentage:</td>
+      <td><%= air_travel.percent_of_transportation %></td>
+    </tr>
+  </table>
+  <h4><%= link_to("Edit air travel", edit_transportation_air_travel_path(transportation_id: air_travel.transportation.id, id: air_travel.id))  %></h4>
+<% else %>
+  <h3>Unassessed</h3>
+  <h4><%= link_to("Assess air travel", new_transportation_air_travel_path(transportation_id: air_travel.id)) %></h4>
+<% end %>

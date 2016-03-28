@@ -6,10 +6,14 @@
   <div class="transportation-component">
     <%= render partial: "profile_matches_user/calculator_component/transportations/vehicle_section_summary", locals: {vehicle: @transportation.vehicle} %>
   </div>
+
   <div class="transportation-component">
-    <%= render partial "profile_matches_user/calculator_component/transportations/public_transportation_section_summary", locals: {public_transportation: @transportation.public_transportation} %>
+    <%= render partial: "profile_matches_user/calculator_component/transportations/public_transportation_section_summary", locals: {public_transportation: @transportation.public_transportation} %>
   </div>
+
   <div class="transportation-component">
     <%= render partial: "profile_matches_user/calculator_component/transportations/air_travel_section_summary", locals: {air_travel: @transportation.air_travel} %>
   </div>
-</div>
+
+  <h3><%= link_to("Back to overview", profile_footprint_path(profile_id: @footprint.profile.id, id: @footprint.id)) %></h3>
+</div> <!-- transportations-show -->

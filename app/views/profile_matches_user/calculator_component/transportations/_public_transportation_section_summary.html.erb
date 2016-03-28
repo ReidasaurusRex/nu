@@ -1,0 +1,17 @@
+<h2>Public Transportation</h2>
+<% if public_transportation %>
+  <table>
+    <tr>
+      <td>Emissions:</td>
+      <td><%= public_transportation.sub_section_emissions %>lbs CO2e</td>
+    </tr>
+    <tr>
+      <td>Percentage:</td>
+      <td><%= public_transportation.percent_of_transportation %></td>
+    </tr>
+  </table>
+  <h4><%= link_to("Edit public transportation", edit_transportation_public_transportation_path(transportation_id: public_transportation.transportation.id, id: public_transportation.id))  %></h4>
+<% else %>
+  <h3>Unassessed</h3>
+  <h4><%= link_to("Assess public transportation", new_transportation_public_transportation_path(transportation_id: public_transportation.id)) %></h4>
+<% end %>

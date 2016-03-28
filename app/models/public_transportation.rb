@@ -20,4 +20,13 @@ class PublicTransportation < ActiveRecord::Base
     end
     return emissions.to_i
   end
+
+  def percent_of_transportation
+    if self.sub_section_emissions && self.transportation.section_emissions
+      percentage = ((self.sub_section_emissions.to_f / self.transportation.section_emissions.to_f) * 100).to_i
+      return "#{percentage}% of transportation emissions"
+    else
+      return "Pending"
+    end
+  end
 end

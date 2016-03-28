@@ -1,0 +1,17 @@
+<h2>Vehicle Overview</h2>
+<% if vehicle %>
+  <table>
+    <tr>
+      <td>Emissions:</td>
+      <td><%= vehicle.sub_section_emissions %>lbs CO2e</td>
+    </tr>
+    <tr>
+      <td>Percentage:</td>
+      <td><%= vehicle.percent_of_transportation %></td>
+    </tr>
+  </table>
+  <h4><%= link_to("Edit vehicle", edit_transportation_vehicle_path(transportation_id: vehicle.transportation.id, id: vehicle.id)) %></h4>
+<% else %>
+  <h3>Unassessed</h3>
+  <h4><%= link_to("Assess vehicle", new_transportation_vehicle_path(transportation_id: vehicle.transportation.id)) %></h4>
+<% end %>

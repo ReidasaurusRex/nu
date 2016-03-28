@@ -3,7 +3,7 @@
   
   <h2>Emissions: <span><%= @diet.section_emissions %>lbs of CO2e</span></h2>
 
-  <h2>Type: <span><%= @diet.diet_type %></span></h2>
+  <h2>Type: <span><%= @diet.diet_type.capitalize %></span></h2>
 
   <h3><%= link_to "Edit diet", edit_footprint_diet_path(footprint_id: @footprint.id, id:@diet.id) %></h3>
 </div>
