@@ -1,2 +1,14 @@
-<h1>HomeEnergyProfiles#show</h1>
-<p>Find me in app/views/home_energies/show.html.erb</p>
+<div class="calculator-component home-energies-show">
+  <h1>Home Energy Overview <span><%= @footprint.friendly_creation_date %></span></h1>
+
+  <h2>Emissions: <span><%= @home_energy.emissions_overview %></span></h2>
+
+  <% @home_energy.utilities.each do |utility| %>
+    
+    <div class="sub-section-overview">
+      <%= render partial: "profile_matches_user/calculator_component/utilities/utility_summary", locals: {utility: utility} %>
+    </div>
+
+  <% end %>
+  <h3><%= link_to("Back to overview", profile_footprint_path(profile_id: @footprint.profile.id, id: @footprint.id)) %></h3>
+</div> <!-- home-energies-show -->

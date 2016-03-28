@@ -1,7 +1,7 @@
 <div class="calculator-component diets-show">
   <h1>Diet Overview <span><%= @footprint.friendly_creation_date %></span></h1>
   
-  <h2>Emissions: <span><%= @diet.section_emissions %>lbs of CO2e</span></h2>
+  <h2>Emissions: <span><%= @diet.emissions_overview %></span></h2>
 
   <h2>Type: <span><%= @diet.diet_type.capitalize %></span></h2>
 

@@ -22,7 +22,7 @@ class Transportation < ActiveRecord::Base
 
   def emissions_overview
     if self.section_emissions
-      return self.section_emissions
+      return "#{self.section_emissions}lbs CO2e"
     else
       return "Pending"
     end

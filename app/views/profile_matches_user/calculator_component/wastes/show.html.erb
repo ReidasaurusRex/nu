@@ -4,7 +4,7 @@
   <h2 class="recycled-list">Reycled items:</h2>
   <h4><%= @waste.recycled_list %></h4>
 
-  <h2>Emissions: <span><%= @waste.section_emissions %>lbs of CO2e</span></h2>
+  <h2>Emissions: <span><%= @waste.emissions_overview %></span></h2>
 
   <h3><%= link_to "Edit waste", edit_footprint_waste_path(footprint_id: @footprint.id, id: @waste.id) %></h3>
 </div>

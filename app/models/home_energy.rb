@@ -19,4 +19,12 @@ class HomeEnergy < ActiveRecord::Base
       end
     end
   end
+
+  def emissions_overview
+    if self.section_emissions
+      return "#{self.section_emissions}lbs CO2e"
+    else
+      return "Pending"
+    end
+  end
 end

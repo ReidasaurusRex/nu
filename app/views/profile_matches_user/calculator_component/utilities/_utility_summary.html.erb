@@ -1,0 +1,17 @@
+<h2><%= utility.smart_name.split.map(&:capitalize).join(' ') %></h2>
+<% if utility.sub_section_emissions %>
+  <table>
+    <tr>
+      <td>Emissions:</td>
+      <td><%= utility.sub_section_emissions %>lbs CO2e</td>
+    </tr>
+    <tr>
+      <td>Percentage:</td>
+      <td><%= utility.percent_of_home_energy %></td>
+    </tr>
+  </table>
+  <h4><%= link_to("Edit utilities", home_energy_utilities_path(home_energy_id: utility.home_energy.id)) %></h4>
+<% else %>
+  <h3>Unassessed</h3>
+  <h4><%= link_to("Assess utilities", home_energy_utilities_path(home_energy_id: utility.home_energy.id)) %></h4>
+<% end %>

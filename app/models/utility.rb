@@ -71,4 +71,12 @@ class Utility < ActiveRecord::Base
     end
   end
 
+  def percent_of_home_energy
+    if self.sub_section_emissions && self.home_energy.section_emissions
+      percentage = ((self.sub_section_emissions.to_f / self.home_energy.section_emissions.to_f) * 100).to_i
+      return "#{percentage}% of home energy emissions"
+    else
+      return "Pending"
+    end
+  end
 end
