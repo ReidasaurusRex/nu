@@ -32,6 +32,5 @@ class HomeEnergy < ActiveRecord::Base
     self.update(section_emissions: emissions)
     self.footprint.update(home_energy_emissions: emissions)
     self.footprint.update_total_if_complete
-    binding.pry
   end
 end

@@ -20,7 +20,7 @@ class Footprint < ActiveRecord::Base
 
   def emissions_or_pending
     if self.total_emissions
-      return self.total_emissions
+      return "#{self.total_emissions}lbs CO2e"
     else
       return "Pending"
     end
