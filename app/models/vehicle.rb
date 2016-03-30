@@ -18,9 +18,9 @@ class Vehicle < ActiveRecord::Base
       ie = 0.163 * self.mmonth
       unless has_electricity?(self.fuel_type)
         gmonth = (self.mmonth / self.mpg)
-        return (ie + (gmonth * fuel_conversion(self.fuel_type))).to_i
+        return (ie + (gmonth * fuel_conversion(self.fuel_type))).round
       else
-        return (ie + (self.mmonth * fuel_conversion(self.fuel_type))).to_i
+        return (ie + (self.mmonth * fuel_conversion(self.fuel_type))).round
       end
     else
       return 0
@@ -56,7 +56,7 @@ class Vehicle < ActiveRecord::Base
 
   def percent_of_transportation
     if self.sub_section_emissions && self.transportation.section_emissions
-      percentage = ((self.sub_section_emissions.to_f / self.transportation.section_emissions.to_f) * 100).to_i
+      percentage = ((self.sub_section_emissions.to_f / self.transportation.section_emissions.to_f) * 100).round
       return "#{percentage}% of transportation emissions"
     else
       return "Pending"

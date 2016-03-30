@@ -26,7 +26,7 @@ class Water < ActiveRecord::Base
         else
           amount = self.measurement_amount * 748
         end
-        return (amount * 0.045 * self.state_conversion_factor).to_i
+        return (amount * 0.045 * self.state_conversion_factor).round
       else
         return 16
       end

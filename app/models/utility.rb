@@ -29,29 +29,29 @@ class Utility < ActiveRecord::Base
     case self.name
     when 'natural_gas'
       if self.known
-        return (self.input_amount * 11.7).to_i if self.input_type == 'therms'
-        return (self.input_amount * 12.03).to_i if self.input_type == '100cft'
-        return (self.input_amount * 10.93).to_i if self.input_type == 'dollars'
+        return (self.input_amount * 11.7).round if self.input_type == 'therms'
+        return (self.input_amount * 12.03).round if self.input_type == '100cft'
+        return (self.input_amount * 10.93).round if self.input_type == 'dollars'
       else
         return 256
       end
     when 'fuel_oil'
       if self.known
-        return (self.input_amount * 22.61).to_i if self.input_type == 'gallons'
-        return (self.input_amount * 6.31).to_i if self.input_type == 'dollars'
+        return (self.input_amount * 22.61).round if self.input_type == 'gallons'
+        return (self.input_amount * 6.31).round if self.input_type == 'dollars'
       else
         return 405
       end
     when 'propane'
       if self.known
-        return (self.input_amount * 12.43).to_i if self.input_type == 'gallons'
-        return (self.input_amount * 4.38).to_i if self.input_type == 'dollars'
+        return (self.input_amount * 12.43).round if self.input_type == 'gallons'
+        return (self.input_amount * 4.38).round if self.input_type == 'dollars'
       else
         return 187
       end
     when 'electricity'
       if self.known
-        return (self.input_amount * self.state_conversion_factor).to_i
+        return (self.input_amount * self.state_conversion_factor).round
       else
         return 455
       end
@@ -73,7 +73,7 @@ class Utility < ActiveRecord::Base
 
   def percent_of_home_energy
     if self.sub_section_emissions && self.home_energy.section_emissions
-      percentage = ((self.sub_section_emissions.to_f / self.home_energy.section_emissions.to_f) * 100).to_i
+      percentage = ((self.sub_section_emissions.to_f / self.home_energy.section_emissions.to_f) * 100).round
       return "#{percentage}% of home energy emissions"
     else
       return "Pending"

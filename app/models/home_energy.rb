@@ -27,4 +27,11 @@ class HomeEnergy < ActiveRecord::Base
       return "Pending"
     end
   end
+
+  def update_emissions(emissions)
+    self.update(section_emissions: emissions)
+    self.footprint.update(home_energy_emissions: emissions)
+    self.footprint.update_total_if_complete
+    binding.pry
+  end
 end

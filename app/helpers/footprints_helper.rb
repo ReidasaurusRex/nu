@@ -35,8 +35,8 @@ module FootprintsHelper
   end
 
   def percent_of_total(section, footprint)
-    if footprint.completed
-      return ((section.section_emissions.to_f/footprint.total_emissions.to_f)*100).to_i
+    if footprint.complete?
+      return ((section.section_emissions.to_f/footprint.total_emissions.to_f)*100).round
     else
       return "pending"
     end

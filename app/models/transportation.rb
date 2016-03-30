@@ -4,20 +4,26 @@ class Transportation < ActiveRecord::Base
   has_one :public_transportation, dependent: :destroy
   has_one :air_travel, dependent: :destroy
 
-  def check_for_completion
+  def complete?
     if self.vehicle_emissions && self.public_emissions && self.air_emissions
-      self.update(completed: true)
+      return true
+    else
+      return false
     end
   end
 
-  def calculate_emissions
-    emissions = 0
-    [self.public_emissions, self.air_emissions, self.vehicle_emissions].each do |subsection|
-      if subsection.is_a? Integer
-        emissions += subsection
+  def update_emissions
+    if self.complete?
+      emissions = 0
+      [self.public_emissions, self.air_emissions, self.vehicle_emissions].each do |subsection|
+        if subsection.is_a? Integer
+          emissions += subsection
+        end
       end
+      self.update(section_emissions: emissions)
+      self.footprint.update(transportation_emissions: emissions)
+      self.footprint.update_total_if_complete
     end
-    self.update(section_emissions: emissions)
   end
 
   def emissions_overview

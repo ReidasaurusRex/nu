@@ -31,11 +31,11 @@ class ProfileMatchesUser::CalculatorComponent::UtilitiesController < Inheritance
     if @utilities.all?{|utility| utility.valid?(:update)}
       home_energy_emissions = 0
       @utilities.each do |utility|
-      emissions = utility.calculate_emissions
-      utility.update(sub_section_emissions: emissions)
-      home_energy_emissions += emissions
+        emissions = utility.calculate_emissions
+        utility.update(sub_section_emissions: emissions)
+        home_energy_emissions += emissions
       end
-      @home_energy.update(section_emissions: home_energy_emissions)
+      @home_energy.update_emissions(home_energy_emissions)
       flash[:calculator_message] = "Home energy emissions: #{home_energy_emissions}lbs of CO2e"
       redirect_to next_component_path(@utilities.sample)
     else

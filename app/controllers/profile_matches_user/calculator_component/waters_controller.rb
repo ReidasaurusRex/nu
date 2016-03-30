@@ -39,7 +39,7 @@ class ProfileMatchesUser::CalculatorComponent::WatersController < Inheritance::C
       emissions = @water.calculate_emissions
       @water.update(section_emissions: emissions)
       @footprint.update(water_emissions: emissions)
-      @footprint.check_for_completion
+      @footprint.update_total_if_complete
       flash[:calculator_message] = "Water emissions: #{emissions}lbs CO2e"
       redirect_to next_component_path(@water)
     else

@@ -6,9 +6,11 @@ class Footprint < ActiveRecord::Base
   has_one :transportation, dependent: :destroy
   has_one :home_energy, dependent: :destroy
 
-  def check_for_completion
-    if self.total_emissions &&  self.water_emissions && self.diet_emissions && self.transportation_emissions && self.waste_emissions && self.home_energy_emissions
-      self.completed = true
+  def complete?
+    if self.water_emissions && self.diet_emissions && self.transportation_emissions && self.waste_emissions && self.home_energy_emissions
+      return true
+    else
+      return false
     end
   end
 
@@ -21,6 +23,18 @@ class Footprint < ActiveRecord::Base
       return self.total_emissions
     else
       return "Pending"
+    end
+  end
+
+  def update_total_if_complete
+    if self.complete?
+      emissions = 0
+      [self.diet_emissions, 
+      self.water_emissions, 
+      self.waste_emissions, 
+      self.transportation_emissions, 
+      self.home_energy_emissions].each{|section| emissions += section}
+      self.update(total_emissions: emissions)
     end
   end
 end

@@ -44,8 +44,7 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
       emissions = @air_travel.calculate_emissions
       @air_travel.update(sub_section_emissions: emissions)
       @transportation.update(air_emissions: emissions)
-      @transportation.check_for_completion
-      @transportation.calculate_emissions
+      @transportation.update_emissions
       flash[:calculator_message] = "Air travel emissions: #{emissions}lbs CO2e"
       redirect_to next_component_path(@air_travel)
     else
@@ -58,8 +57,7 @@ class ProfileMatchesUser::CalculatorComponent::AirTravelsController < Inheritanc
     emissions = @air_travel.calculate_emissions
     @air_travel.update(sub_section_emissions: emissions)
     @transportation.update(air_emissions: emissions)
-    @transportation.check_for_completion
-    @transportation.calculate_emissions
+    @transportation.update_emissions
     flash[:calculator_message] = "Air travel emissions: #{emissions}lbs CO2e"
     redirect_to next_component_path(@air_travel)
     else

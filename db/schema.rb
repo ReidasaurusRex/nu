@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309153942) do
+ActiveRecord::Schema.define(version: 20160330154323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20160309153942) do
 
   create_table "footprints", force: :cascade do |t|
     t.integer  "profile_id"
-    t.boolean  "completed"
     t.integer  "total_emissions"
     t.integer  "water_emissions"
     t.integer  "diet_emissions"
@@ -90,7 +89,6 @@ ActiveRecord::Schema.define(version: 20160309153942) do
 
   create_table "home_energies", force: :cascade do |t|
     t.integer  "footprint_id"
-    t.boolean  "completed"
     t.integer  "fuel_oil_emissions"
     t.integer  "propane_emissions"
     t.integer  "natural_gas_emissions"
@@ -209,7 +207,6 @@ ActiveRecord::Schema.define(version: 20160309153942) do
 
   create_table "transportations", force: :cascade do |t|
     t.integer  "footprint_id"
-    t.boolean  "completed"
     t.integer  "vehicle_emissions"
     t.integer  "public_emissions"
     t.integer  "air_emissions"

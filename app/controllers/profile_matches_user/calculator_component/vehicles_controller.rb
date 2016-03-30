@@ -44,8 +44,7 @@ class ProfileMatchesUser::CalculatorComponent::VehiclesController < Inheritance:
       emissions = @vehicle.calculate_emissions
       @vehicle.update(sub_section_emissions: emissions)
       @transportation.update(vehicle_emissions: emissions)
-      @transportation.check_for_completion
-      @transportation.calculate_emissions
+      @transportation.update_emissions
       flash[:calculator_message] = "Vehicle emissions: #{emissions}lbs CO2e"
       redirect_to next_component_path(@vehicle)
     else
@@ -58,8 +57,7 @@ class ProfileMatchesUser::CalculatorComponent::VehiclesController < Inheritance:
       emissions = @vehicle.calculate_emissions
       @vehicle.update(sub_section_emissions: emissions)
       @transportation.update(vehicle_emissions: emissions)
-      @transportation.check_for_completion
-      @transportation.calculate_emissions
+      @transportation.update_emissions
       flash[:calculator_message] = "Vehicle emissions: #{emissions}lbs CO2e"
       redirect_to next_component_path(@vehicle)
     else

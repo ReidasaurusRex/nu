@@ -12,6 +12,7 @@ class ProfileMatchesUser::FootprintsController < Inheritance::ProfileMatchesUser
   end
 
   def show
+    binding.pry
   end
 
   def destroy
