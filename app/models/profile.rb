@@ -13,7 +13,9 @@ class Profile < ActiveRecord::Base
   has_many :newsfeed_items, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :profile_habits, dependent: :destroy
+  has_many :habits, through: :profile_habits
   has_many :profile_challenges, dependent: :destroy
+  has_many :challenges, through: :profile_challenges
   has_many :blocked_users, dependent: :destroy
   has_many :notifications, dependent: :destroy
   belongs_to :user

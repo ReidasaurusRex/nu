@@ -1,2 +1,34 @@
-<h1>CompletedChallenges#index</h1>
-<p>Find me in app/views/completed_challenges/index.html.erb</p>
+<div class="profile-challenges-index">
+  <h1>Improve yo shit</h1>
+  <div class="challenges"></div>
+  <div class="habits">
+
+    <div class="started-habits">
+      <h2>Habits in progress</h2>
+      <% if @habits[:started].empty? %>
+        <h4>You're not working on any habits</h4>
+      <% else %>
+        <%= render partial: "profile_matches_user/profile_habits/started_habits_list", locals: {habits: @habits[:started]} %>
+      <% end %>
+    </div>
+
+    <div class="new-habits">
+      <h2>Habits to start</h2>
+      <% if @habits[:new].empty? %>
+        <h4>You're not working on any habits</h4>
+      <% else %>
+        <%= render partial: "profile_matches_user/profile_habits/new_habits_list", locals: {habits: @habits[:new]} %>
+      <% end %>
+    </div>
+
+    <div class="completed-habits">
+      <h2>Completed habits</h2>
+      <% if @habits[:completed].empty? %>
+        <h4>You're not working on any habits</h4>
+      <% else %>
+        <%= render partial: "profile_matches_user/profile_habits/completed_habits_list", locals: {habits: @habits[:completed]} %>
+      <% end %>
+    </div>
+
+  </div> <!-- habits -->
+</div>
