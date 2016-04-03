@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CompletedHabitsController < Inheritance::ProfileMatchesUserController
+class ProfileMatchesUser::ProfileHabitsController < Inheritance::ProfileMatchesUserController
   before_action :get_profile_from_profile_id
   def index
   end

@@ -1,9 +1,9 @@
 <ul>
   <% profile_habits.each do |profile_habit| %>
     <li>
-      <h3><%= profile_habit.habit.title %></h3>  
-      <h4><%= profile_habit.habit.caption %></h4>
-      <h4><%= link_to "View habit", profile_profile_habit_path(profile_id: profile.id, id: profile_habit.id) %></h4>
+      <h3 class="improvement-title"><%= profile_habit.habit.title %></h3>  
+      <h4 class="improvement-caption"><%= profile_habit.habit.caption %></h4>
+      <h4 class="improvement-link"><%= link_to "View habit", profile_profile_habit_path(profile_id: profile.id, id: profile_habit.id) %></h4>
     </li>
   <% end %>
 </ul>
