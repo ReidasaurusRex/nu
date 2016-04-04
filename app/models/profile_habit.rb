@@ -5,5 +5,9 @@ class ProfileHabit < ActiveRecord::Base
 
   def completion_date
     return self.updated_at.strftime("%B %e, %Y")
-  end 
+  end
+
+  def start_date
+    return self.created_at.strftime("%B %e, %Y")
+  end
 end

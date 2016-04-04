@@ -15,7 +15,7 @@
     <div class="new-habits">
       <h2>Habits to start</h2>
       <% if @unstarted_habits.empty? %>
-        <h4>You're not working on any habits</h4>
+        <h4>No more habits left to start!</h4>
       <% else %>
         <%= render partial: "profile_matches_user/profile_habits/unstarted_habits_list", locals: {habits: @unstarted_habits, profile: @profile} %>
       <% end %>
@@ -24,7 +24,7 @@
     <div class="completed-habits">
       <h2>Completed habits</h2>
       <% if @profile_habits[:completed].empty? %>
-        <h4>You're not working on any habits</h4>
+        <h4>You haven't completed any habits yet</h4>
       <% else %>
         <%= render partial: "profile_matches_user/profile_habits/completed_habits_list", locals: {profile_habits: @profile_habits[:completed], profile: @profile} %>
       <% end %>
