@@ -23,13 +23,13 @@ module FootprintsHelper
       if @footprint.transportation
         render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.transportation, footprint: @footprint}
       else
-        return "<h3>#{proper_transportation_link(@footprint, @footprint.transportation)}</h3>".html_safe
+        return "<h3>#{link_to 'Assess transportation', footprint_create_transportation_path(footprint_id: @footprint.id)}</h3>".html_safe
       end
     when "home_energy"
       if @footprint.home_energy
         render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.home_energy, footprint: @footprint}
       else
-        return "<h3>#{proper_home_energy_link(@footprint, @footprint.home_energy)}"
+        return "<h3>#{link_to 'Assess home energy', new_footprint_home_energy_path(footprint_id: @footprint.id)}</h3>".html_safe
       end
     end
   end

@@ -1,0 +1,9 @@
+<div class="stats-footprint-summary footprint-overview">
+  <h2>Footprint summary for <%= footprint.friendly_creation_date %></h2>
+  <h3>Total emissions: <span><%= emissions_statement(footprint, index) %></span></h3>
+  <% if index == 0 && !footprint.complete? %>
+    <h4><%= link_to "Finish footprint", profile_footprint_path(profile_id: footprint.profile.id, id: footprint.id) %></h4>  
+  <% else %>
+    <h4><%= link_to "View details", profile_footprint_path(profile_id: footprint.profile.id, id: footprint.id) %></h4>
+  <% end %>
+</div> <!-- footprint-overview -->
