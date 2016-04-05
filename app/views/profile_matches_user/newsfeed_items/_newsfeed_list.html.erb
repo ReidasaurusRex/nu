@@ -1,0 +1,15 @@
+<% newsfeed_items.each do |feed_item| %>
+  <div class="newsfeed-item">
+    
+    <div class="newsfeed-header">
+      <h3><%= feed_item.source.full_name %></h3>
+      <h5><%= feed_item.time_since_creation %></h5>
+      <h3><%= feed_item.header %></h3>
+    </div>
+    
+    <div class="newsfeed-content">
+      <p><%= feed_item.content %></p>
+    </div>
+
+  </div> <!-- newsfeed-item -->
+<% end %>
