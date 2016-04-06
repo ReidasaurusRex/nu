@@ -1,5 +1,12 @@
 <div class="newsfeed-index">
   <h1>Your Feed</h1>
+
+  <% if @profile == @user.profile %>
+    <div class="new-newsfeed-item">
+      <%= render partial: "profile_matches_user/newsfeed_items/new_newsfeed_item_form", locals: {item: @newsfeed_item, profile: @profile} %>
+    </div>
+  <% end %> <!-- user profile check -->
+
   <% if @newsfeed_items.empty? %>
     <h2>Looks like your feed is empty!</h3>
   <% else %>

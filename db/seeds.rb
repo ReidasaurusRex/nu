@@ -13,6 +13,7 @@ jprof.follows.create(follower_id: sprof.id)
 jprof.pending_follows.create(pending_follower_id: rprof.id)
 
 jprof.subscriptions.create(following_id: sprof.id)
+jprof.subscriptions.create(following_id: rprof.id)
 jprof.pending_subscriptions.create(pending_following_id: kprof.id)
 
 kprof.follows.create(follower_id: rprof.id)
@@ -21,15 +22,18 @@ kprof.pending_follows.create(pending_follower_id: jprof.id)
 
 kprof.subscriptions.create(following_id: jprof.id)
 kprof.subscriptions.create(following_id: sprof.id)
+kprof.subscriptions.create(following_id: rprof.id)
 
 sprof.follows.create(follower_id: kprof.id)
 sprof.pending_follows.create(pending_follower_id: rprof.id)
 
 sprof.subscriptions.create(following_id: jprof.id)
 sprof.subscriptions.create(following_id: kprof.id)
-sprof.pending_subscriptions.create(pending_following_id: rprof.id)
+sprof.subscriptions.create(following_id: rprof.id)
 
-rprof.pending_follows.create(pending_follower_id: sprof.id)
+rprof.follows.create(follower_id: jprof.id)
+rprof.follows.create(follower_id: kprof.id)
+rprof.follows.create(follower_id: sprof.id)
 
 rprof.subscriptions.create(following_id: kprof.id)
 rprof.pending_subscriptions.create(pending_following_id: jprof.id)
