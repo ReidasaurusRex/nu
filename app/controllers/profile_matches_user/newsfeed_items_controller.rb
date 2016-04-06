@@ -4,6 +4,18 @@ class ProfileMatchesUser::NewsfeedItemsController < Inheritance::ProfileMatchesU
     @newsfeed_items = @profile.newsfeed_items
   end
 
+  def create
+  end
+
   def show
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 end

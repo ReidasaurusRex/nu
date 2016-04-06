@@ -1,3 +1,5 @@
 .newsfeed-item {
-  box-shadow: inset 10px 10px $nu-red;
+  box-shadow: -4px 4px 14px $nu-red, 4px -4px 14px $nu-green;
+  margin-bottom: 20px;
+  padding: 10px;
 }
