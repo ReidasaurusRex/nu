@@ -1,6 +1,8 @@
 <div class="habits-show">
+
   <h1><%= @habit.title %></h1>
   <h2><%= @habit.caption %></h2>
-  <h3><%= @habit.description %> %></h3>
-  <h4><%= link_to "Start habit", profile_profile_habits_path(profile_id: @profile.id, profile_habit: {habit_id: @habit.id, profile_id: @profile.id}), method: :post %></h4>
+  <h3><%= @habit.description %></h3>
+  <h4><%= link_to "Start habit", profile_profile_habits_path(profile_id: @profile.id, profile_habit: {habit_id: @habit.id, profile_id: @profile.id, progress_category: @habit.progress_category}), method: :post %></h4>
+
 </div>

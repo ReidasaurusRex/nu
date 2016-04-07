@@ -1,7 +1,7 @@
 <ul>
   <% profile_habits.each do |profile_habit| %>
-    <li>
-      <h3 class="improvement-title"><%= profile_habit.habit.title %></h3>  
+    <li class="improvement-overview">
+      <h3 class="improvement-title"><%= profile_habit.habit.title %> <span><%= profile_habit.progress_category %></span></h3>  
       <h4 class="improvement-caption"><%= profile_habit.habit.caption %></h4>
       <h4 class="improvement-link"><%= link_to "View habit", profile_profile_habit_path(profile_id: profile.id, id: profile_habit.id) %></h4>
     </li>

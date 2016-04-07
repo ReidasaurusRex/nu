@@ -39,11 +39,11 @@ rprof.subscriptions.create(following_id: kprof.id)
 rprof.pending_subscriptions.create(pending_following_id: jprof.id)
 
 habits = Habit.create([
-  {title: "Cold Showerer", caption: "Shower smart. Save energy and invigorate your skin by showering with cold water", description: "Showering with cold water can save you some shit", points: 25}, 
-  {title: "Cyclist", caption: "Screw your car", description: "By biking everywhere, you can be a boss", points: 40}, 
-  {title: "Produce purchaser", caption: "Buy produce at the store to reduce packaging", description: "You can reduce your trash by a metric fuck ton if you opt for produce over preprocessed foods", points: 20}, 
-  {title: "Line Dryer", caption: "Hang clothes on the line to dry. Save energy", description: "Utilizing a clothes line to dry your laundry can save you x, y, and even Z amount of energy", points: 23}, 
-  {title: "Meatless weekdays", caption: "Cut meat out of your diet except for the weekend", description: "Only eating meat on the weekend can reduce the diet portion of your carbon footprint by 40%", points: 35}
+  {title: "Cold Showerer", caption: "Shower smart. Save energy and invigorate your skin by showering with cold water", description: "Showering with cold water can save you some shit", points: 25, progress_category: "Home Energy"}, 
+  {title: "Cyclist", caption: "Screw your car", description: "By biking everywhere, you can be a boss", points: 40, progress_category: "Transportation"}, 
+  {title: "Produce purchaser", caption: "Buy produce at the store to reduce packaging", description: "You can reduce your trash by a metric fuck ton if you opt for produce over preprocessed foods", points: 20, progress_category: "Diet"}, 
+  {title: "Line Dryer", caption: "Hang clothes on the line to dry. Save energy", description: "Utilizing a clothes line to dry your laundry can save you x, y, and even Z amount of energy", points: 23, progress_category: "Home Energy"}, 
+  {title: "Meatless weekdays", caption: "Cut meat out of your diet except for the weekend", description: "Only eating meat on the weekend can reduce the diet portion of your carbon footprint by 40%", points: 35, progress_category: "Diet"}
   ])
 
 rprof.profile_habits.create(habit_id: habits[0].id, completed: true)

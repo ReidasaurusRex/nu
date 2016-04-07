@@ -1,5 +1,6 @@
 <div class="profile-habits-show">
-  <h1><%= @habit.title %></h1>
+  <h1><%= @habit.title %> <span><%= flash[:success] %></span></h1>
   <h2><%= @habit.caption %></h2>
   <h3>You started this habit on <%= @profile_habit.start_date %></h3>
+  <h4><%= link_to "Back to habits", profile_profile_challenges_path(profile_id: @profile.id) %></h4>
 </div>
