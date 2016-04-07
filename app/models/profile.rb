@@ -31,4 +31,10 @@ class Profile < ActiveRecord::Base
   def start_date
     return self.created_at.strftime("%B, %Y")
   end
+
+  def post_to_followers(header, content)
+    self.followers.each do |follower|
+      follower.newsfeed_items.create(source_id: self.id, header: header, content: content)
+    end
+  end
 end

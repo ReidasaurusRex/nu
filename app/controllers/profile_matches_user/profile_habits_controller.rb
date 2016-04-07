@@ -1,12 +1,11 @@
 class ProfileMatchesUser::ProfileHabitsController < Inheritance::ProfileMatchesUserController
   before_action :get_profile_from_profile_id
-  before_action :get_profile_habit, except: :index
-  before_action :get_habit, except: :index
+  before_action :get_profile_habit, except: [:index, :create]
+  before_action :get_habit, except: [:index, :create]
   def index
   end
 
   def create
-    binding.pry
     create_profile_habit(profile_habit_params)
   end
 
@@ -30,10 +29,14 @@ class ProfileMatchesUser::ProfileHabitsController < Inheritance::ProfileMatchesU
   end
 
   def create_profile_habit(params)
+    binding.pry
     @profile_habit = ProfileHabit.new(params)
     if @profile_habit.save
-      @profile.update(completed: false)
-      flash[:success] = "You started #{@profile_habit.habit.title}!"
+      habit = @profile_habit.habit
+      @profile_habit.update(completed: false)
+      @profile.newsfeed_items.create(source_id: @profile.id, title: "started habit #{habit.title}")
+      @profile.post_to
+      flash[:success] = "You started #{habit.title}!"
       redirect_to profile_profile_habit_path(profile_id: @profile.id, id: @profile_habit.id)
     else
       flash[:error] = "Something went wrong"
