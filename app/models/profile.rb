@@ -42,9 +42,15 @@ class Profile < ActiveRecord::Base
     return self.created_at.strftime("%B, %Y")
   end
 
+  def add_default_settings
+    PrivacySetting.create(profile_id: self.id, display_location: "me", display_stats: "public", display_feed: "followers")
+    SharingSetting.create(profile_id: self.id, improvements: true, follow: true, footprint: true)
+  end
+
   def post_to_followers(header, content)
     self.followers.each do |follower|
       follower.newsfeed_items.create(source_id: self.id, header: header, content: content)
     end
   end
+
 end

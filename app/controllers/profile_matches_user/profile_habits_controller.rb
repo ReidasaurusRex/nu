@@ -30,13 +30,12 @@ class ProfileMatchesUser::ProfileHabitsController < Inheritance::ProfileMatchesU
   end
 
   def create_profile_habit(params)
-    binding.pry
     @profile_habit = ProfileHabit.new(params)
     if @profile_habit.save
       habit = @profile_habit.habit
       @profile_habit.update(completed: false)
       @profile.newsfeed_items.create(source_id: @profile.id, header: "Started Habit: #{habit.title}", content: "#{@profile.first_name} is working on their #{@profile_habit.progress_category.downcase} through the #{habit.title.downcase} habit!")
-      @profile.post_to_followers("Started Habit: #{habit.title}", "#{@profile.first_name} is working on their #{@profile_habit.progress_category.downcase} through the #{habit.title.downcase} habit!")
+      @profile.post_to_followers("Started Habit: #{habit.title}", "#{@profile.first_name} is working on their #{@profile_habit.progress_category.downcase} through the #{habit.title.downcase} habit!") if @profile.sharing_setting.improvements
       flash[:success] = "good luck, have fun!"
       redirect_to profile_profile_habit_path(profile_id: @profile.id, id: @profile_habit.id)
     else
