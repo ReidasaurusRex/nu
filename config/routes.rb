@@ -43,7 +43,7 @@
       resources :newsfeed_items, except: :new
       resources :blocked_users, only: [:index, :create, :destroy]
       resources :footprints, except: [:new, :update, :edit]
-      resrouces :settings, only: :index
+      resources :settings, only: :index
       resources :sharing_settings, only: [:edit, :update]
     end
   end
