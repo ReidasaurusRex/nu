@@ -24,7 +24,6 @@
   # // User and settings routes
   resources :users, except: :index do 
     resources :profiles, except: [:index, :destroy]
-    resources :privacy_settings, only: [:edit, :update], module: 'completed_profile'
   end
   # // user and settings 
 
@@ -44,7 +43,7 @@
       resources :blocked_users, only: [:index, :create, :destroy]
       resources :footprints, except: [:new, :update, :edit]
       resources :settings, only: :index
-      resources :sharing_settings, only: [:edit, :update]
+      resources :sharing_settings, :privacy_settings, only: [:edit, :update]
     end
   end
   # // profile linked

@@ -14,3 +14,30 @@
 .settings-section .section-description {
   border-bottom: 1px solid $nu-green;
 }
+
+.settings-section a {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.settings-index .settings-overview-table {
+  width: 100%;
+}
+
+.settings-overview-table tr:first-child {}
+
+.settings-overview-table td {
+  padding-top: 15px;
+}
+
+.settings-overview-table td:first-child {
+  padding-right: 30px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.settings-overview-table td:last-child {
+  padding-right: 10px;
+  text-align: right;
+}
+
