@@ -17,6 +17,7 @@ class Profile < ActiveRecord::Base
   has_many :challenges, through: :profile_challenges
   has_many :blocked_users, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_one :sharing_setting, dependent: :destroy
   belongs_to :user
 
   validates :first_name, presence: {message: " is required"}
