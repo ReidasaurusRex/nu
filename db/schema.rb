@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408155338) do
+ActiveRecord::Schema.define(version: 20160411174836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,15 +144,6 @@ ActiveRecord::Schema.define(version: 20160408155338) do
     t.integer  "profile_id"
     t.integer  "challenge_id"
     t.string   "completion_entry"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.boolean  "completed"
-    t.string   "progress_category"
-  end
-
-  create_table "profile_habits", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "habit_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.boolean  "completed"

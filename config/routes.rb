@@ -38,7 +38,7 @@
 
     scope module: 'profile_matches_user' do 
       resources :pending_follows, :pending_subscriptions, :follows, :subscriptions, only: [:index, :create, :destroy]
-      resources :profile_habits, :profile_challenges, except: [:new, :destroy]
+      resources :profile_challenges, except: [:new, :destroy]
       resources :newsfeed_items, except: :new
       resources :blocked_users, only: [:index, :create, :destroy]
       resources :footprints, except: [:new, :update, :edit]

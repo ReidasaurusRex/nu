@@ -12,9 +12,7 @@ class Profile < ActiveRecord::Base
   has_many :pending_followings, through: :pending_subscriptions
   has_many :newsfeed_items, dependent: :destroy
 
-  # Improvement relations
-  has_many :profile_habits, dependent: :destroy
-  has_many :habits, through: :profile_habits
+  # Challenge relations
   has_many :profile_challenges, dependent: :destroy
   has_many :challenges, through: :profile_challenges
 
