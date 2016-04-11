@@ -41,13 +41,14 @@ rprof.follows.create(follower_id: sprof.id)
 rprof.subscriptions.create(following_id: kprof.id)
 rprof.pending_subscriptions.create(pending_following_id: jprof.id)
 
-habits = Habit.create([
-  {title: "Cold Showerer", caption: "Shower smart. Save energy and invigorate your skin by showering with cold water", description: "Showering with cold water can save you some shit", points: 25, progress_category: "Home Energy"}, 
-  {title: "Cyclist", caption: "Screw your car", description: "By biking everywhere, you can be a boss", points: 40, progress_category: "Transportation"}, 
-  {title: "Produce purchaser", caption: "Buy produce at the store to reduce packaging", description: "You can reduce your trash by a metric fuck ton if you opt for produce over preprocessed foods", points: 20, progress_category: "Diet"}, 
-  {title: "Line Dryer", caption: "Hang clothes on the line to dry. Save energy", description: "Utilizing a clothes line to dry your laundry can save you x, y, and even Z amount of energy", points: 23, progress_category: "Home Energy"}, 
-  {title: "Meatless weekdays", caption: "Cut meat out of your diet except for the weekend", description: "Only eating meat on the weekend can reduce the diet portion of your carbon footprint by 40%", points: 35, progress_category: "Diet"}
+challenges = Habit.create([
+  {title: "Water Ghost", caption: "Use as little water as possible for a week", description: "You need about 2.5 liters of water a day to stay healthy. How close can you get your total daily water use to that number? Cut down on shower times (or showers, eek!), hand washing times, dishwashing water, and everything else to cut down your water usage for a week.", points: 25, progress_category: "Water"}, 
+  {title: "Natural Transporter", caption: "Screw your car. Use your legs for a week", description: "How little can you use your car this week? Public transportation is alright, but to really reap the benefits of a lowered footprint and better health, use what your momma gave ya. Ride a bike or take a walk anytime you need to get somewhere this week.", points: 40, progress_category: "Transportation"}, 
+  {title: "Produce purchaser", caption: "Buy produce at the store to reduce packaging this month.", description: "You can reduce your trash by a metric fuck ton if you opt for produce over preprocessed foods. Your planet, and your body, will thank you this month.", points: 20, progress_category: "Waste"}, 
+  {title: "Line Dryer", caption: "Hang clothes on the line to dry this month to save energy.", description: "Utilizing a clothes line to dry your laundry can save you x, y, and even Z amount of energy. Your clothes will look better, feel softer, and last longer. Try it for a month, but we bet you'll be hooked for longer.", points: 23, progress_category: "Home Energy"}, 
+  {title: "Vegan Sampler", caption: "Not a vegan? Try it for two months and see how you do!", description: "It's a real hole in the bowl that the hardest part of being vegan is the first month. You don't see the benefits, your tastebuds still crave that sweet, sweet excess, and you haven't got in the habit of any new recipes. Thank goodness we're pushing you to do two months, then!", points: 35, progress_category: "Diet"}
   ])
 
-rprof.profile_habits.create(habit_id: habits[0].id, completed: true)
-rprof.profile_habits.create(habit_id: habits[1].id, completed: true)
+rprof.profile_challenges.create(challenge_id: challenges[0].id, completed: true)
+rprof.profile_challenges.create(challenge_id: challenges[4].id, completed: true)
+rprof.profile_challenges.create(challenge_id: challenges[3].id, completed: false)
