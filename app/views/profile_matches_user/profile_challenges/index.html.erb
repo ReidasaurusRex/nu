@@ -1,34 +1,34 @@
 <div class="profile-challenges-index">
   <h1>Improve yo shit</h1>
-  <div class="challenges"></div>
-  <div class="habits">
+  <% binding.pry %>
+  <div class="challenges">
 
-    <div class="started-habits">
-      <h2>Habits in progress</h2>
-      <% if @profile_habits[:started].empty? %>
-        <h4>You're not working on any habits</h4>
+    <div class="started-challenges">
+      <h2>Challenges in progress</h2>
+      <% if @profile_challenges[:started].empty? %>
+        <h4>You're not working on any challenges</h4>
       <% else %>
-        <%= render partial: "profile_matches_user/profile_habits/started_habits_list", locals: {profile_habits: @profile_habits[:started], profile: @profile} %>
+        <%= render partial: "profile_matches_user/profile_challenges/started_challenges_list", locals: {profile_challenges: @profile_challenges[:started], profile: @profile} %>
       <% end %>
     </div>
 
-    <div class="new-habits">
-      <h2>Habits to start</h2>
-      <% if @unstarted_habits.empty? %>
-        <h4>No more habits left to start!</h4>
+    <div class="new-challenges">
+      <h2>Challenges to start</h2>
+      <% if @unstarted_challenges.empty? %>
+        <h4>No more challenges left to start!</h4>
       <% else %>
-        <%= render partial: "profile_matches_user/profile_habits/unstarted_habits_list", locals: {habits: @unstarted_habits, profile: @profile} %>
+        <%= render partial: "profile_matches_user/profile_challenges/unstarted_challenges_list", locals: {challenges: @unstarted_challenges, profile: @profile} %>
       <% end %>
     </div>
 
-    <div class="completed-habits">
-      <h2>Completed habits</h2>
-      <% if @profile_habits[:completed].empty? %>
-        <h4>You haven't completed any habits yet</h4>
+    <div class="completed-challenges">
+      <h2>Completed challenges</h2>
+      <% if @profile_challenges[:completed].empty? %>
+        <h4>You haven't completed any challenges yet</h4>
       <% else %>
-        <%= render partial: "profile_matches_user/profile_habits/completed_habits_list", locals: {profile_habits: @profile_habits[:completed], profile: @profile} %>
+        <%= render partial: "profile_matches_user/profile_challenges/completed_challenges_list", locals: {profile_challenges: @profile_challenges[:completed], profile: @profile} %>
       <% end %>
     </div>
 
-  </div> <!-- habits -->
+  </div> <!-- challenges -->
 </div>

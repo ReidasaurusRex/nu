@@ -1,0 +1,7 @@
+<% profile_challenges.each do |profile_challenge| %>
+  <div class="challenge-overview started-challenge">
+    <h2><%= profile_challenge.challenge.title %></h2>
+    <h3><%= profile_challenge.challenge.caption %></h3>
+    <h4><%= link_to "View challenge", profile_profile_challenge_path(profile_id: profile.id, id: profile_challenge.id) %></h4>
+  </div>
+<% end %>

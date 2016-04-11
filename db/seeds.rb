@@ -41,7 +41,7 @@ rprof.follows.create(follower_id: sprof.id)
 rprof.subscriptions.create(following_id: kprof.id)
 rprof.pending_subscriptions.create(pending_following_id: jprof.id)
 
-challenges = Habit.create([
+challenges = Challenge.create([
   {title: "Water Ghost", caption: "Use as little water as possible for a week", description: "You need about 2.5 liters of water a day to stay healthy. How close can you get your total daily water use to that number? Cut down on shower times (or showers, eek!), hand washing times, dishwashing water, and everything else to cut down your water usage for a week.", points: 25, progress_category: "Water"}, 
   {title: "Natural Transporter", caption: "Screw your car. Use your legs for a week", description: "How little can you use your car this week? Public transportation is alright, but to really reap the benefits of a lowered footprint and better health, use what your momma gave ya. Ride a bike or take a walk anytime you need to get somewhere this week.", points: 40, progress_category: "Transportation"}, 
   {title: "Produce purchaser", caption: "Buy produce at the store to reduce packaging this month.", description: "You can reduce your trash by a metric fuck ton if you opt for produce over preprocessed foods. Your planet, and your body, will thank you this month.", points: 20, progress_category: "Waste"}, 
