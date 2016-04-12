@@ -22,7 +22,7 @@ class ProfileMatchesUser::ProfileChallengesController < Inheritance::ProfileMatc
     @profile_challenges = Hash.new
     @profile_challenges[:started] = @profile.profile_challenges.where(completed: false)
     @profile_challenges[:completed] = @profile.profile_challenges.where(completed: true)
-    return @profile_habits    
+    return @profile_challenges    
   end
 
   def get_unstarted_challenges
@@ -33,4 +33,18 @@ class ProfileMatchesUser::ProfileChallengesController < Inheritance::ProfileMatc
     params.require(:profile_challenge).permit(:challenge_id, :progress_category).merge(profile_id: @profile.id)
   end
 
+  def create_profile_challenge(params)
+    @profile_challenge = ProfileChallenge.new(params)
+    if @profile_challenge.save
+      challenge = @profile_challenge.challenge
+      @profile_challenge.update(completed: false)
+      @profile.newsfeed_items.create(source_id: @profile.id, header: "Started Challenge: #{challenge.title.capitalize}", content: "#{@profile.first_name.capitalize} is working on their #{@profile_challenge.progress_category} through the #{challenge.title} challenge!")
+      @profile.post_to_followers("Started Challenge: #{challenge.title.capitalize}", "#{@profile.first_name.capitalize} is working on their #{@profile_challenge.progress_category} through the #{challenge.title} challenge!") if @profile.sharing_setting.improvements
+      flash[:success] = "good luck!"
+      redirect_to profile_profile_challenge_path(profile_id: @profile.id, id: @profile_challenge.id)
+    else
+      flash[:error] = "Something went wrong"
+      redirect_to :back
+    end
+  end
 end
