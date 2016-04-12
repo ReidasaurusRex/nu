@@ -1,2 +1,6 @@
-<h1>CompletedChallenges#show</h1>
-<p>Find me in app/views/completed_challenges/show.html.erb</p>
+<div class="profile-challenges-show challenges-show">
+  <h1><%= @profile_challenge.challenge.title %> <span><%= @profile_challenge.start_date %></span></h1>
+  <h2><%= @profile_challenge.challenge.caption %></h2>
+  <p><%= @profile_challenge.challenge.description %></p>
+  <h4><%= link_to "Back to challenges", profile_profile_challenges_path(profile_id: @profile.id) %></h4>
+</div>

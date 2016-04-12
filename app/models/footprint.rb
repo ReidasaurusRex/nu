@@ -37,4 +37,11 @@ class Footprint < ActiveRecord::Base
       self.update(total_emissions: emissions)
     end
   end
+
+  def post_if_first_completion(prior_complete)
+    if !prior_complete && self.complete?
+      profile = self.profile
+      profile.post_to_followers("Completed an emissions assessment", "#{profile.first_name.capitalize} checked out their carbon footprint, and it's at #{self.total_emissions}lbs of CO2e!")
+    end
+  end
 end

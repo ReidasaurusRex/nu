@@ -19,8 +19,8 @@
 }
 
 .profile-challenges-index .challenges > div {
-  box-shadow: -4px 4px 14px $nu-red, 4px -4px 14px $nu-green;
-  padding: 10px;
+  box-shadow: -4px 2px 2px $nu-red, 4px -2px 2px $nu-green;
+  padding: 15px;
 }
 
 .challenge-overview span {
@@ -32,4 +32,10 @@
   color: $nu-blue;
   font-size: 0.7em;
   margin-right: 10px;
+}
+
+.challenges-show h1 span {
+  color: $faded-gray;
+  font-size: 0.6em;
+  padding-left: 30px;
 }
