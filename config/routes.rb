@@ -31,13 +31,13 @@
   resources :profiles, except: [:index, :destroy] do
     scope module: 'completed_profile' do 
       post 'search/results', as: 'search'
-      resources :challenges, only: [:index, :show]
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index
     end
 
     scope module: 'profile_matches_user' do 
       resources :pending_follows, :pending_subscriptions, :follows, :subscriptions, only: [:index, :create, :destroy]
+      resources :challenges, only: [:index, :show]
       resources :profile_challenges, except: [:new, :destroy]
       resources :newsfeed_items, except: :new
       resources :blocked_users, only: [:index, :create, :destroy]

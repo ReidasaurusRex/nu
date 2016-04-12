@@ -1,0 +1,8 @@
+<div class="challenges-show">
+  <h1><%= @challenge.title.capitalize %></h1>
+  <h2><%= @challenge.caption %></h2>
+  <p><%= @challenge.description %></p>
+  <h4>
+    <%= link_to "Start challenge", profile_profile_challenges_path(profile_id: @profile.id) %>
+  </h4>
+</div>
