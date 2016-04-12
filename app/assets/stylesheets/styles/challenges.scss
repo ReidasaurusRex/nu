@@ -18,6 +18,11 @@
   margin-top: 10px;
 }
 
+.profile-challenges-index .challenges > div {
+  box-shadow: -4px 4px 14px $nu-red, 4px -4px 14px $nu-green;
+  padding: 10px;
+}
+
 .challenge-overview span {
   color: $nu-blue;
   margin-left: 15px;

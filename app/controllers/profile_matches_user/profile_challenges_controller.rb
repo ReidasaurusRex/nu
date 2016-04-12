@@ -29,4 +29,8 @@ class ProfileMatchesUser::ProfileChallengesController < Inheritance::ProfileMatc
     @unstarted_challenges = Challenge.all - @profile.challenges
   end
 
+  def profile_challenge_params
+    params.require(:profile_challenge).permit(:challenge_id, :progress_category).merge(profile_id: @profile.id)
+  end
+
 end
