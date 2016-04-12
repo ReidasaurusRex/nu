@@ -21,8 +21,10 @@ class Transportation < ActiveRecord::Base
         end
       end
       self.update(section_emissions: emissions)
+      prior_footprint_completion = self.footprint.complete?
       self.footprint.update(transportation_emissions: emissions)
       self.footprint.update_total_if_complete
+      self.footprint.post_if_first_completion(prior_footprint_completion)
     end
   end
 

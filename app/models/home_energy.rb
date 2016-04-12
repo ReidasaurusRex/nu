@@ -30,7 +30,9 @@ class HomeEnergy < ActiveRecord::Base
 
   def update_emissions(emissions)
     self.update(section_emissions: emissions)
+    prior_footprint_completion = self.footprint.complete?
     self.footprint.update(home_energy_emissions: emissions)
     self.footprint.update_total_if_complete
+    self.footprint.post_if_first_completion(prior_footprint_completion)
   end
 end
