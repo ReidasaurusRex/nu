@@ -36,10 +36,12 @@ class ProfileMatchesUser::CalculatorComponent::DietsController < Inheritance::Ca
   def create_diet(params)
     @diet = Diet.new(params)
     if @diet.save
+      footprint_prior_completion = @footprint.complete?
       emissions = @diet.calculate_emissions
       @diet.update(section_emissions: emissions)
       @footprint.update(diet_emissions: emissions)
       @footprint.update_total_if_complete(emissions)
+      @footprint.post_if_first_completion(footprint_prior_completion)
       flash[:calculator_message] = "Diet emissions: #{emissions}lbs CO2e"
       redirect_to next_component_path(@diet)
     else
