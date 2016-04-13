@@ -29,13 +29,10 @@
 
   # // Profile linked routes
   resources :profiles, except: [:index, :destroy] do
-    scope module: 'completed_profile' do 
+    scope module: 'profile' do 
       post 'search/results', as: 'search'
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index
-    end
-
-    scope module: 'profile_matches_user' do 
       resources :pending_follows, :pending_subscriptions, :follows, :subscriptions, only: [:index, :create, :destroy]
       resources :challenges, only: [:index, :show]
       resources :profile_challenges, except: [:new, :destroy]
@@ -49,8 +46,8 @@
   # // profile linked
 
   # // Shallow footprint routes    
-  resources :footprints, except: [:new, :update, :edit], module: 'profile_matches_user' do
-    scope module: 'calculator_component' do 
+  resources :footprints, except: [:new, :update, :edit], module: 'profile' do
+    scope module: 'footprint' do 
       resources :diets, :wastes, :waters, except: :index
       resources :transportations, only: [:show, :update, :destroy]    
       resources :home_energies, except: :index
@@ -63,8 +60,8 @@
 
 
   # // Footprint component routes
-  scope module: 'profile_matches_user' do
-    scope module: 'calculator_component' do 
+  scope module: 'profile' do
+    scope module: 'footprint' do 
       resources :transportations, except: [:index, :new] do
         resources :vehicles, :public_transportations, :air_travels, except: [:index, :show]
       end

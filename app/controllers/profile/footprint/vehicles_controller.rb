@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CalculatorComponent::VehiclesController < Inheritance::CalculatorComponentsController
+class Profile::CalculatorComponent::VehiclesController < Inheritance::CalculatorComponentsController
   before_action :get_transportation
   before_action :get_transportation_footprint
   before_action :get_vehicle, except: [:new, :create]

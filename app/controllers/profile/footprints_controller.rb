@@ -1,4 +1,4 @@
-class ProfileMatchesUser::FootprintsController < Inheritance::ProfileMatchesUserController
+class Profile::FootprintsController < Inheritance::ProfileMatchesUserController
   before_action :get_footprint, only: [:show, :destroy]
   before_action :ensure_footprint_belongs_to_user, except: [:index, :create]
 

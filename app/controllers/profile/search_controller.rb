@@ -1,4 +1,4 @@
-class CompletedProfile::SearchController < Inheritance::CompletedProfileController
+class Profile::SearchController < Inheritance::CompletedProfileController
   before_action :get_profile
 
   def results

@@ -1,4 +1,4 @@
-class ProfileMatchesUser::CalculatorComponent::UtilitiesController < Inheritance::CalculatorComponentsController
+class Profile::CalculatorComponent::UtilitiesController < Inheritance::CalculatorComponentsController
   before_action :get_home_energy
   before_action :get_footprint
   before_action :get_utilities

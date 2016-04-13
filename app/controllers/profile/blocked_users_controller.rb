@@ -1,4 +1,4 @@
-class ProfileMatchesUser::BlockedUsersController < Inheritance::ProfileMatchesUserController
+class Profile::BlockedUsersController < Inheritance::ProfileMatchesUserController
   before_action :get_profile_from_profile_id
   before_action :get_blocked_users, only: :index
   before_action :get_blocked_user, only: :destroy

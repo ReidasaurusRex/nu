@@ -1,4 +1,4 @@
-class ProfileMatchesUser::GeneralSettingsController < Inheritance::ProfileMatchesUserController
+class Profile::GeneralSettingsController < Inheritance::ProfileMatchesUserController
   
   def index
     get_settings

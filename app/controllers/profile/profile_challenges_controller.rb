@@ -1,4 +1,4 @@
-class ProfileMatchesUser::ProfileChallengesController < Inheritance::ProfileMatchesUserController
+class Profile::ProfileChallengesController < Inheritance::ProfileMatchesUserController
   before_action :get_profile_from_profile_id
   before_action :get_profile_challenges, only: :index
   before_action :get_unstarted_challenges, only: :index

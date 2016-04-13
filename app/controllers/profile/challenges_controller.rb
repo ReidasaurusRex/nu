@@ -1,4 +1,4 @@
-class ProfileMatchesUser::ChallengesController < Inheritance::ProfileMatchesUserController
+class Profile::ChallengesController < Inheritance::ProfileMatchesUserController
   before_action :get_challenge, only: :show
   before_action :ensure_profile_without_challenge, only: :show
   
