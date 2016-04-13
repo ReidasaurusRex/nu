@@ -29,6 +29,7 @@
 
   # // Profile linked routes
   resources :profiles, except: [:index, :destroy] do
+    
     scope module: 'profile' do 
       post 'search/results', as: 'search'
       resources :notifications, only: [:index, :destroy]
@@ -42,23 +43,27 @@
       scope module: 'settings' do 
         resources :general_settings, only: :index
         resources :sharing_settings, :privacy_settings, only: [:edit, :update]
-      end
+      end # settings module
 
       scope module: 'follow_system' do
        resources :pending_follows, :pending_subscriptions,only: [:index, :create, :destroy]
        resources :follows, :subscriptions, only: [:index, :create, :destroy]
-    end
+      end # follow_system module
+
+    end # profile module
   end
   # // profile linked
 
   # // Shallow footprint routes    
   resources :footprints, except: [:new, :update, :edit], module: 'profile' do
+    
     scope module: 'footprint' do 
       resources :diets, :wastes, :waters, except: :index
       resources :transportations, only: [:show, :update, :destroy]    
       resources :home_energies, except: :index
       get 'transportations', to: 'transportations#create', as: 'create_transportation'
-    end
+    end # footprint module
+
   end
   # // shallow footprint
   
@@ -67,6 +72,7 @@
 
   # // Footprint component routes
   scope module: 'profile' do
+
     scope module: 'footprint' do 
       resources :transportations, except: [:index, :new] do
         resources :vehicles, :public_transportations, :air_travels, except: [:index, :show]
@@ -75,8 +81,9 @@
         get 'utilities', to: 'utilities#index', as: 'utilities'
         post 'utilities', to: 'utilities#update', as: 'update_utilities'
       end
-    end
-  end
+    end # footprint module
+
+  end # profile module
   # // footprint component
 
 end
