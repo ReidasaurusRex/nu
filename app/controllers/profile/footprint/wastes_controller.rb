@@ -1,4 +1,4 @@
-class Profile::CalculatorComponent::WastesController < Inheritance::CalculatorComponentsController
+class Profile::Footprint::WastesController < Inheritance::CalculatorComponentsController
   before_action :get_footprint
   before_action :get_waste, except: [:new, :create]
   before_action :ensure_footprint_belongs_to_user

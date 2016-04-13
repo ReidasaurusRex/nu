@@ -39,8 +39,11 @@
       resources :newsfeed_items, except: :new
       resources :blocked_users, only: [:index, :create, :destroy]
       resources :footprints, except: [:new, :update, :edit]
-      resources :settings, only: :index
-      resources :sharing_settings, :privacy_settings, only: [:edit, :update]
+
+      scope module: 'setting' do 
+        resources :general_settings, only: :index
+        resources :sharing_settings, :privacy_settings, only: [:edit, :update]
+      end
     end
   end
   # // profile linked

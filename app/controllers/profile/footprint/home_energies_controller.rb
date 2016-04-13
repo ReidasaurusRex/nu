@@ -1,4 +1,4 @@
-class Profile::CalculatorComponent::HomeEnergiesController < Inheritance::CalculatorComponentsController
+class Profile::Footprint::HomeEnergiesController < Inheritance::CalculatorComponentsController
   before_action :get_footprint
   before_action :get_home_energy, except: [:new, :create]
 
