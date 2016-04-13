@@ -4,15 +4,15 @@
   <h2>Emissions: <span><%= @transportation.emissions_overview %></span></h2>
 
   <div class="sub-section-overview">
-    <%= render partial: "profile_matches_user/calculator_component/transportations/vehicle_section_summary", locals: {vehicle: @transportation.vehicle} %>
+    <%= render partial: "profiles/footprints/transportations/vehicle_section_summary", locals: {vehicle: @transportation.vehicle} %>
   </div>
 
   <div class="sub-section-overview">
-    <%= render partial: "profile_matches_user/calculator_component/transportations/public_transportation_section_summary", locals: {public_transportation: @transportation.public_transportation} %>
+    <%= render partial: "profiles/footprints/transportations/public_transportation_section_summary", locals: {public_transportation: @transportation.public_transportation} %>
   </div>
 
   <div class="sub-section-overview">
-    <%= render partial: "profile_matches_user/calculator_component/transportations/air_travel_section_summary", locals: {air_travel: @transportation.air_travel} %>
+    <%= render partial: "profiles/footprints/transportations/air_travel_section_summary", locals: {air_travel: @transportation.air_travel} %>
   </div>
 
   <h3><%= link_to("Back to overview", profile_footprint_path(profile_id: @footprint.profile.id, id: @footprint.id)) %></h3>

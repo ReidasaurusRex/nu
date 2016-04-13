@@ -3,31 +3,31 @@ module FootprintsHelper
     case section
     when "diet"
       if @footprint.diet
-        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.diet, footprint: @footprint}
+        render partial: "profiles/footprints/footprint_section_summary", locals: {section: @footprint.diet, footprint: @footprint}
       else
         return "<h3>#{link_to('Assess diet', new_footprint_diet_path(footprint_id: @footprint.id))}</h3>".html_safe
       end
     when "water"
       if @footprint.water
-        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.water, footprint: @footprint}
+        render partial: "profiles/footprints/footprint_section_summary", locals: {section: @footprint.water, footprint: @footprint}
       else
         return "<h3>#{link_to('Assess water', new_footprint_water_path(footprint_id: @footprint.id))}</h3>".html_safe
       end
     when "waste"
       if @footprint.waste
-        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.waste, footprint: @footprint}
+        render partial: "profiles/footprints/footprint_section_summary", locals: {section: @footprint.waste, footprint: @footprint}
       else
         return "<h3>#{link_to('Assess waste', new_footprint_waste_path(footprint_id: @footprint.id))}</h3>".html_safe
       end
     when "transportation"
       if @footprint.transportation
-        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.transportation, footprint: @footprint}
+        render partial: "profiles/footprints/footprint_section_summary", locals: {section: @footprint.transportation, footprint: @footprint}
       else
         return "<h3>#{link_to 'Assess transportation', footprint_create_transportation_path(footprint_id: @footprint.id)}</h3>".html_safe
       end
     when "home_energy"
       if @footprint.home_energy
-        render partial: "profile_matches_user/footprints/footprint_section_summary", locals: {section: @footprint.home_energy, footprint: @footprint}
+        render partial: "profiles/footprints/footprint_section_summary", locals: {section: @footprint.home_energy, footprint: @footprint}
       else
         return "<h3>#{link_to 'Assess home energy', new_footprint_home_energy_path(footprint_id: @footprint.id)}</h3>".html_safe
       end

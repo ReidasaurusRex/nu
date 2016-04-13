@@ -5,7 +5,7 @@
   <% else %>
     <h2>Recent footprint results</h2>
     <% @footprints.last(3).reverse.each_with_index do |footprint, index| %>
-      <%= render partial: "completed_profile/stats/stat_footprint_summary", locals: {footprint: footprint, index: index} %>
+      <%= render partial: "profiles/stats/stat_footprint_summary", locals: {footprint: footprint, index: index} %>
     <% end %>
     <h3><%= link_to("Begin new emissions test", profile_footprints_path(profile_id: @profile.id), method: :post) %></h3>
   <% end %>

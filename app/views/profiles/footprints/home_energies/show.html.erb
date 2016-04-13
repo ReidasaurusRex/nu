@@ -6,7 +6,7 @@
   <% @home_energy.utilities.each do |utility| %>
     
     <div class="sub-section-overview">
-      <%= render partial: "profile_matches_user/calculator_component/utilities/utility_summary", locals: {utility: utility} %>
+      <%= render partial: "profiles/footprints/utilities/utility_summary", locals: {utility: utility} %>
     </div>
 
   <% end %>

@@ -7,7 +7,7 @@
       <% if @profile_challenges[:started].empty? %>
         <h4>You're not working on any challenges</h4>
       <% else %>
-        <%= render partial: "profile_matches_user/profile_challenges/started_challenges_list", locals: {profile_challenges: @profile_challenges[:started], profile: @profile} %>
+        <%= render partial: "profiles/profile_challenges/started_challenges_list", locals: {profile_challenges: @profile_challenges[:started], profile: @profile} %>
       <% end %>
     </div>
 
@@ -16,7 +16,7 @@
       <% if @unstarted_challenges.empty? %>
         <h4>No more challenges left to start!</h4>
       <% else %>
-        <%= render partial: "profile_matches_user/profile_challenges/unstarted_challenges_list", locals: {challenges: @unstarted_challenges, profile: @profile} %>
+        <%= render partial: "profiles/profile_challenges/unstarted_challenges_list", locals: {challenges: @unstarted_challenges, profile: @profile} %>
       <% end %>
     </div>
 
@@ -25,7 +25,7 @@
       <% if @profile_challenges[:completed].empty? %>
         <h4>You haven't completed any challenges yet</h4>
       <% else %>
-        <%= render partial: "profile_matches_user/profile_challenges/completed_challenges_list", locals: {profile_challenges: @profile_challenges[:completed], profile: @profile} %>
+        <%= render partial: "profiles/profile_challenges/completed_challenges_list", locals: {profile_challenges: @profile_challenges[:completed], profile: @profile} %>
       <% end %>
     </div>
 
