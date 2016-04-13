@@ -1,4 +1,4 @@
-class Profile::PendingSubscriptionsController < Inheritance::ProfileMatchesUserController
+class Profile::FollowSystem::PendingSubscriptionsController < Inheritance::ProfileMatchesUserController
   def index
     @pending_subscriptions = @profile.pending_subscriptions
   end

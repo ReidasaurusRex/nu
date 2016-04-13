@@ -1,4 +1,4 @@
-class Profile::SubscriptionsController < Inheritance::ProfileMatchesUserController
+class Profile::FollowSystem::SubscriptionsController < Inheritance::ProfileMatchesUserController
   # before_action :get_followers, only: :index
 
   def index
