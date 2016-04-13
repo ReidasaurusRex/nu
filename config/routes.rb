@@ -55,9 +55,9 @@
   # // profile linked
 
   # // Shallow footprint routes    
-  resources :footprints, except: [:new, :update, :edit], module: 'profile' do
+  resources :footprints, except: [:new, :update, :edit], module: 'profiles' do
     
-    scope module: 'footprint' do 
+    scope module: 'footprints' do 
       resources :diets, :wastes, :waters, except: :index
       resources :transportations, only: [:show, :update, :destroy]    
       resources :home_energies, except: :index
@@ -71,9 +71,9 @@
 
 
   # // Footprint component routes
-  scope module: 'profile' do
+  scope module: 'profiles' do
 
-    scope module: 'footprint' do 
+    scope module: 'footprints' do 
       resources :transportations, except: [:index, :new] do
         resources :vehicles, :public_transportations, :air_travels, except: [:index, :show]
       end
