@@ -30,7 +30,7 @@
   # // Profile linked routes
   resources :profiles, except: [:index, :destroy] do
     
-    scope module: 'profile' do 
+    scope module: 'profiles' do 
       post 'search/results', as: 'search'
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index

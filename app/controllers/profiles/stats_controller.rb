@@ -1,4 +1,4 @@
-class Profile::StatsController < Inheritance::CompletedProfileController
+class Profiles::StatsController < Inheritance::CompletedProfileController
   before_action :get_profile_from_profile_id
   
   def index

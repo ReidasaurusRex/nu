@@ -1,4 +1,4 @@
-class Profile::NewsfeedItemsController < Inheritance::ProfileMatchesUserController
+class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserController
   before_action :get_profile_from_profile_id
   before_action :get_newsfeed_item, except: [:index, :create]
 

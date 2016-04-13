@@ -1,4 +1,4 @@
-class Profile::Settings::SharingSettingsController < Inheritance::ProfileMatchesUserController
+class Profiles::Settings::SharingSettingsController < Inheritance::ProfileMatchesUserController
   def edit
   end
 

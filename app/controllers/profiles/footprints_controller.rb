@@ -1,10 +1,11 @@
-class Profile::FootprintsController < Inheritance::ProfileMatchesUserController
+class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
   layout "calculator", except: :index
 
   before_action :get_footprint, only: [:show, :destroy]
   before_action :ensure_footprint_belongs_to_user, except: [:index, :create]
 
   def index
+    binding.pry
   end
 
   def create

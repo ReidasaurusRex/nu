@@ -1,5 +1,5 @@
 class Footprint < ActiveRecord::Base
-  belongs_to :profile 
+  belongs_to :profile
   has_one :water, dependent: :destroy
   has_one :diet, dependent: :destroy
   has_one :waste, dependent: :destroy

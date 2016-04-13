@@ -1,4 +1,4 @@
-class Profile::Footprint::VehiclesController < Inheritance::CalculatorComponentsController
+class Profiles::Footprints::VehiclesController < Inheritance::CalculatorComponentsController
   before_action :get_transportation
   before_action :get_transportation_footprint
   before_action :get_vehicle, except: [:new, :create]
