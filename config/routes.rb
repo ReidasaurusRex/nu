@@ -33,17 +33,20 @@
       post 'search/results', as: 'search'
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index
-      resources :pending_follows, :pending_subscriptions, :follows, :subscriptions, only: [:index, :create, :destroy]
       resources :challenges, only: [:index, :show]
       resources :profile_challenges, except: [:new, :destroy]
       resources :newsfeed_items, except: :new
       resources :blocked_users, only: [:index, :create, :destroy]
       resources :footprints, except: [:new, :update, :edit]
 
-      scope module: 'setting' do 
+      scope module: 'settings' do 
         resources :general_settings, only: :index
         resources :sharing_settings, :privacy_settings, only: [:edit, :update]
       end
+
+      scope module: 'follow_system' do
+       resources :pending_follows, :pending_subscriptions,only: [:index, :create, :destroy]
+       resources :follows, :subscriptions, only: [:index, :create, :destroy]
     end
   end
   # // profile linked
