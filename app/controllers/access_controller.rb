@@ -38,7 +38,7 @@ class AccessController < ApplicationController
 
   def redirect_to_new_profile_or_stats(user)
     if user.profile
-      redirect_to profile_stats_path(user.profile.id)
+      redirect_to profile_newsfeed_items_path(user.profile.id)
     else
       redirect_to new_user_profile_path(user.id)
     end

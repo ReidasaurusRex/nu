@@ -32,7 +32,7 @@ class Profile < ActiveRecord::Base
   validates :state, inclusion: {in: @@state_list, 
     message: " choose an abbr"}
 
-  def full_name 
+  def full_name
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
@@ -49,6 +49,12 @@ class Profile < ActiveRecord::Base
     self.followers.each do |follower|
       follower.newsfeed_items.create(source_id: self.id, header: header, content: content)
     end
+  end
+
+  def average_footprint_emissions
+    finished_footprints = self.footprints.to_a.keep_if{|footprint| footprint.total_emissions} 
+    emissions = finished_footprints.map{|footprint| footprint.total_emissions}
+    return (emissions.reduce(:+) / emissions.length)
   end
 
 end

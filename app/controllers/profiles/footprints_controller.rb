@@ -5,6 +5,7 @@ class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
   before_action :ensure_footprint_belongs_to_user, except: [:index, :create]
 
   def index
+    @footprints = @profile.footprints
   end
 
   def create
