@@ -1,2 +1,25 @@
-<h1>Site#sitemap</h1>
-<p>Find me in app/views/site/sitemap.html.erb</p>
+<div class="site-page sitemap">
+  <h1>Sitemap</h1>
+  <h2>Know where you're going? Find it here</h2>
+  <ol class="sitemap-sections">
+      <li>
+        <%= link_to "Profile", user_profile_path(user_id: @user.id, id: @profile.id) %>
+        <ul class="sitemap-subsections">
+          <li><%= link_to "Challenges", profile_profile_challenges_path(@profile) %></li>
+          <li><%= link_to "Emissions", profile_footprints_path(@profile) %></li>
+          <li><%= link_to "Newsfeed", profile_newsfeed_items_path(@profile) %></li>
+          <li>
+            <%= link_to "Settings", profile_general_settings_path(@profile) %>
+            <ul class="sitemap-subsections">
+              <li><%= link_to "Privacy", edit_profile_privacy_setting_path(profile_id: @profile.id, id: @profile.privacy_setting.id) %></li>
+              <li><%= link_to "Sharing", edit_profile_sharing_setting_path(profile_id: @profile, id: @profile.sharing_setting.id) %></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><%= link_to "About", about_general_path %></li>
+      <li><%= link_to "Help", profile_site_help_path(@profile) %></li>
+      <li><%= link_to "Terms & Conditions", profile_site_terms_path(@profile) %></li>
+      <li><%= link_to "Logout", logout_path, method: :delete  %></li>
+  </ol>
+</div>
