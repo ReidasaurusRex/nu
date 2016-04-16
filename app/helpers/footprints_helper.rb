@@ -56,4 +56,14 @@ module FootprintsHelper
       return link_to("View details", footprint_home_energy_path(footprint_id: footprint.id, id: section.id))
     end
   end
+
+  def emissions_statement(footprint, index)
+    if footprint.complete? 
+      return "#{footprint.total_emissions}lbs CO2e"
+    elsif index == 0
+      return "Pending"
+    else
+      return "Incomplete"
+    end
+  end
 end
