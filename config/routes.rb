@@ -14,13 +14,6 @@
   delete 'access/logout', as: 'logout'
   # // access
 
-  # // Site routes
-  get 'site/help', as: 'site_help'
-  get 'site/terms', as: 'site_terms'
-  get 'site/sitemap', as: 'sitemap'
-  # // site
-
-
   # // User and settings routes
   resources :users, except: :index do 
     resources :profiles, except: [:index, :destroy]
@@ -31,6 +24,9 @@
   resources :profiles, except: [:index, :destroy] do
     
     scope module: 'profiles' do 
+      get 'site/help', as: 'site_help'
+      get 'site/terms', as: 'site_terms'
+      get 'site/sitemap', as: 'sitemap'
       post 'search/results', as: 'search'
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index
