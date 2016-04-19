@@ -1,13 +1,18 @@
 <div class="footprints-index">
-  <h1>Your Emissions Stats</h1>
+  
   <% if @footprints.empty? %>
-    <h3>Looks like you haven't calculated your emissions yet! <%= link_to("Take our test!", profile_footprints_path(profile_id: @profile.id), method: :post) %></h3>
+  
+    <h3>Let's get started! <%= link_to("Figure out your carbon footprint!", profile_footprints_path(profile_id: @profile.id), method: :post) %></h3>
+  
   <% else %>
+
+    <h1>Your Emissions Stats</h1>
     <h2>Recent footprint results</h2>
     <h3 class="average-footprint">Average footprint <span><%= @profile.average_footprint_emissions %>lbs CO2e</span></h3>
     <% @footprints.last(3).reverse.each_with_index do |footprint, index| %>
       <%= render partial: "profiles/footprints/index_summary", locals: {footprint: footprint, index: index} %>
     <% end %>
     <h3><%= link_to("Begin new emissions test", profile_footprints_path(profile_id: @profile.id), method: :post) %></h3>
+    
   <% end %>
 </div>

@@ -33,7 +33,7 @@ class ProfilesController < Inheritance::LoggedInController
     @profile = Profile.new(profile_params)
     if @profile.save
       @profile.add_default_settings
-      redirect_to new_profile_footprint_path(@profile)
+      redirect_to profile_footprints_path(@profile)
     else
       render :new
     end
