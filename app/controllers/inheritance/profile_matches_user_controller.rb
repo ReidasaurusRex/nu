@@ -9,7 +9,7 @@ class Inheritance::ProfileMatchesUserController < Inheritance::CompletedProfileC
 
   def ensure_user_owns_profile
     unless @profile == @user.profile
-      flash[:error] = "Unauthorized"
+      flash[:error] = "Profile doesn't match user profile"
       redirect_to root_path
     end
   end

@@ -2,16 +2,16 @@
   <ul class="nav-items">
     
     <!-- left side -->
-    <% if @completed_profile %>
+    <% if @profile && !@new_profile %>
       <li class="left-side"><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></li>
       <li class="left-side"><%= link_to "Emissions", profile_footprints_path(@user.profile) %></li>
       <li class="left-side"><%= link_to "Challenges", profile_profile_challenges_path(@user.profile) %></li>
-    <% end %> <!-- if user_id -->
+    <% end %>
 
     <li class="home-logo"><%= link_to image_tag("nu_color_logo.svg"), root_path %></li>  
 
     <!-- right side -->
-    <% if @logged_in %>
+    <% if @profile && !@new_profile %>
       <li class="dropdown-menu-button right-side"><%= button_tag "Menu" %></li>
       <li class="right-side"> <!-- Search form -->
         <div id="search-form">
@@ -26,7 +26,7 @@
   </ul> <!-- nav-items -->
 </div> <!-- nav-bar top-nav -->
 
-<% if @logged_in %>
+<% if @profile && !@new_profile %>
 <div class="dropdown-menu">
   <%= render partial: "dropdown_menu/dropdown_menu", locals: {user: @user} %>
 </div>

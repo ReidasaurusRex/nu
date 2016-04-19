@@ -8,7 +8,12 @@ class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
     @footprints = @profile.footprints
   end
 
+  def new
+
+  end
+
   def create
+    binding.pry
     create_footprint
   end
 

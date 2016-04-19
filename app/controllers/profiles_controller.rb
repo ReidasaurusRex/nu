@@ -3,6 +3,7 @@ class ProfilesController < Inheritance::LoggedInController
 
   def new
     @profile = Profile.new
+    @new_profile = true
   end
 
   def create
@@ -32,8 +33,7 @@ class ProfilesController < Inheritance::LoggedInController
     @profile = Profile.new(profile_params)
     if @profile.save
       @profile.add_default_settings
-      flash[:success] = "Cool! Now, let's look at your carbon footprint!"
-      redirect_to profile_create_footprint_path(@profile)
+      redirect_to new_profile_footprint_path(@profile)
     else
       render :new
     end
