@@ -1,11 +1,8 @@
 class Inheritance::ProfileMatchesUserController < Inheritance::CompletedProfileController
-  before_action :get_profile
+  before_action :get_profile_from_profile_id
   before_action :ensure_user_owns_profile
 
   protected
-  def get_profile
-    @profile = Profile.find(params[:profile_id])
-  end
 
   def ensure_user_owns_profile
     unless @profile == @user.profile

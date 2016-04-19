@@ -53,8 +53,13 @@ class Profile < ActiveRecord::Base
 
   def average_footprint_emissions
     finished_footprints = self.footprints.to_a.keep_if{|footprint| footprint.total_emissions} 
-    emissions = finished_footprints.map{|footprint| footprint.total_emissions}
-    return (emissions.reduce(:+) / emissions.length)
+    unless finished_footprints.empty?
+      emissions = finished_footprints.map{|footprint| footprint.total_emissions}
+      binding.pry
+      return "#{(emissions.reduce(:+) / emissions.length)}lbs of CO2e"
+    else
+      return "Pending"
+    end
   end
 
 end
