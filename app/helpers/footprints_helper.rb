@@ -66,4 +66,13 @@ module FootprintsHelper
       return "Incomplete"
     end
   end
+
+  def percent_of_share(footprint)
+    if footprint.complete? 
+      percent = (footprint.total_emissions.to_f / 1980) * 100
+      return "#{percent.to_i}%"
+    else
+      return "Pending"
+    end
+  end
 end
