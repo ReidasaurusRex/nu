@@ -12,12 +12,12 @@ class Inheritance::CalculatorComponentsController < Inheritance::CompletedProfil
     @profile = @user.profile
   end
   
-  def ensure_footprint_belongs_to_user
-    unless @user.profile.footprints.include?(@footprint)
-      flash[:error] = "Unauthorized"
-      redirect_to root_path
-    end
-  end
+  # def ensure_footprint_belongs_to_user
+  #   unless @user.profile.footprints.include?(@footprint)
+  #     flash[:error] = "Unauthorized"
+  #     redirect_to root_path
+  #   end
+  # end
 
   def next_component_path(current_section)
     if current_section.has_attribute?(:transportation_id)
