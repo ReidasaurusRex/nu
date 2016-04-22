@@ -75,4 +75,13 @@ module FootprintsHelper
       return "Pending"
     end
   end
+
+  def percent_of_average(footprint)
+    if footprint.complete?
+      percent = (footprint.total_emissions.to_f / 3100) * 100
+      return "#{percent.to_i}%"
+    else
+      return "Pending"
+    end
+  end
 end

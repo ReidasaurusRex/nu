@@ -55,7 +55,6 @@ class Profile < ActiveRecord::Base
     finished_footprints = self.footprints.to_a.keep_if{|footprint| footprint.total_emissions} 
     unless finished_footprints.empty?
       emissions = finished_footprints.map{|footprint| footprint.total_emissions}
-      binding.pry
       return "#{(emissions.reduce(:+) / emissions.length)}lbs of CO2e"
     else
       return "Pending"

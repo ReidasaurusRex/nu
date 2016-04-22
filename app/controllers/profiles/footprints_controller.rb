@@ -9,7 +9,6 @@ class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
   end
 
   def create
-    binding.pry
     create_footprint
   end
 
