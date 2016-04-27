@@ -10,6 +10,7 @@
       </td> <!-- nav-section -->
     <% end %>
 
+    <!-- center -->
     <td class="nav-section">
       <div class="home-logo"><%= link_to image_tag("nu_color_logo.svg"), root_path %></div>
     </td> <!-- nav-section -->
@@ -31,6 +32,7 @@
   </tr> <!-- nav-items -->
 </table> <!-- nav-bar top-nav -->
 
+<!-- dropdown menu -->
 <% if @profile && !@new_profile %>
 <div class="dropdown-menu">
   <%= render partial: "dropdown_menu/dropdown_menu", locals: {user: @user} %>
