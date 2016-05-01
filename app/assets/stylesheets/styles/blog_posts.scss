@@ -1,7 +1,20 @@
-.blog-posts li h3 {
+.blog-posts {
+  margin-top: 40px;
+}
+
+.blog-posts li {
   margin-bottom: 40px;
 }
 
-.blog-posts li p {
+.blog-post {
+  max-width: 800px;
+}
+
+.blog-post h4 {
+  margin-bottom: 40px;
+  margin-left: 25px
+}
+
+.blog-post p {
   margin-bottom: 25px;
 }

@@ -1,0 +1,9 @@
+<div class="blog-posts-show blog-post">
+  <h2><%= @blog_post.title %></h2>
+  <h3><%= @blog_post.description %></h3>
+  <h4>Scribbled by <%= @author.first_name.capitalize %></h4>
+  
+  <% @blog_post.parsed_body.each do |paragraph| %>
+    <p><%= paragraph %></p>
+  <% end %>
+</div>

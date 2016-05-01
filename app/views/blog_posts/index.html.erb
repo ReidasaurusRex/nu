@@ -1,12 +1,11 @@
-<div class="blog-posts-index">
+<div class="blog-posts-index blog">
+  <h1>Blog Posts and Stuff</h1>
   <ul class="blog-posts">
     <% @blog_posts.each do |post| %>
-    <li>
+    <li class="blog-post">
       <h2><%= post.title %></h2>
       <h3><%= post.description %></h3>
-      <% post.parsed_body.each do |paragraph| %>
-        <p><%= paragraph %></p>
-      <% end %>
+      <%= link_to "Check it out", blog_post_path(post) %>
     </li>
     <% end %>
   </ul>
