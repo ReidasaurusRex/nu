@@ -8,6 +8,10 @@
   get 'about/future', as: 'about_future'
   # // about
 
+  # // Blog routes
+    resources :blog_posts, only: [:index, :show]
+  # // blog
+
   # // Access routes
   root 'access#landing'
   post 'access/login', as: 'login'
