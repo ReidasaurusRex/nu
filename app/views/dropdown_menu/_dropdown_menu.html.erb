@@ -8,7 +8,7 @@
   <li><%= link_to "Help", profile_site_help_path(profile_id: @profile.id) %></li>
   <li><%= link_to "Terms & Conditions", profile_site_terms_path(profile_id: @profile.id) %></li>
   <li><%= link_to "Sitemap", profile_sitemap_path(profile_id: @profile.id) %></li>
-  <li>Feedback</li>
+  <li><%= link_to "Feedback", new_feedback_path %></li>
   <li><%= link_to "Logout", logout_path, method: :delete %></li>
 
 </ul>
