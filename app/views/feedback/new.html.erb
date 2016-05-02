@@ -1,2 +1,26 @@
-<h1>Feedback#new</h1>
-<p>Find me in app/views/feedback/new.html.erb</p>
+<div class="feedback-new">
+  <h1>Tell us what's up!</h1>
+  <h3>Have a comment, critique, suggestion, or anything else? Let us know!</h3>
+  <%= form_tag(create_feedback_path, method: :post) do %>
+    
+    <div class="text-form-with-errors">
+      <%= text_field_tag(:email) %>
+      <p class="form-label"><%= label_tag(:email) %></p>
+    </div>
+    
+    <div class="text-form-with-errors">
+      <%= text_field_tag(:subject) %>
+      <p class="form-label"><%= label_tag(:subject) %></p>
+    </div>
+
+    <div class="text-form-with-errors">
+      <%= text_area_tag(:body) %>
+      <p class="form-label"><%= label_tag(:feedback) %></p>
+    </div>
+
+    <div class="submit-form">
+      <%= submit_tag("Holler!") %>
+    </div>
+
+  <% end %>
+</div>

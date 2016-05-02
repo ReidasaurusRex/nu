@@ -12,6 +12,12 @@
     resources :blog_posts, only: [:index, :show]
   # // blog
 
+  # // Feedback routes
+    get 'feedback/new', as: 'new_feedback'
+    post 'feedback/create', as: 'create_feedback'
+    get 'feedback/thanks', as: 'feedback_thanks'
+  # // feedback
+
   # // Access routes
   root 'access#landing'
   post 'access/login', as: 'login'

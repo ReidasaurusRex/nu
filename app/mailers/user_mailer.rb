@@ -1,4 +1,4 @@
-class Mailers::UserMailer < ApplicationMailer
+class UserMailer < ApplicationMailer
   default from: "allofus@nu.world"
 
   def welcome_email(user)
