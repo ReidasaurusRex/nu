@@ -11,6 +11,9 @@
     <td class="nav-section">
       <div><%= link_to "About", about_general_path %></div>
       <div><%= link_to "Feedback", new_feedback_path %></div>
+      <% if session[:user_id] %>
+        <div><%= link_to("Logout", logout_path, method: :delete) %></div>
+      <% end %>
     </td>
     <!-- right -->
   </tr>
