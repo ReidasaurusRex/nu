@@ -1,29 +1,32 @@
-<table class="nav-bar top-nav">
+<table class="nav-bar top-nav full-top">
   <tr class="nav-items">
     
-    <!-- left side -->
-      <td class="nav-section">
-        <div><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></div>
-        <div><%= link_to "Emissions", profile_footprints_path(@user.profile) %></div>
-        <div><%= link_to "Challenges", profile_profile_challenges_path(@user.profile) %></div>
-      </td> <!-- nav-section -->
+    <!-- left -->
+    <td class="nav-section">
+      <div><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></div>
+      <div><%= link_to "Emissions", profile_footprints_path(@user.profile) %></div>
+      <div><%= link_to "Challenges", profile_profile_challenges_path(@user.profile) %></div>
+    </td> 
+    <!-- left -->
 
     <!-- center -->
     <td class="nav-section">
       <div id="home-logo"><%= link_to image_tag("nu_color_logo.svg"), root_path %></div>
-    </td> <!-- nav-section -->
+    </td>
+    <!-- center -->
 
-    <!-- right side -->
-      <td class="nav-section">
-        <div id="search-form">
-        <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
-          <div id="search-input"><%= text_field_tag(:query, params[:query]) %></div>
-          <div id="search-submit"><%= submit_tag("Search") %></div>
-        <% end %> 
-        </div>  <!-- search-form -->
-        
-        <div class="dropdown-menu-button right-side"><%= button_tag "Menu" %></div>
-      </td> <!-- nav-section -->
+    <!-- right -->
+    <td class="nav-section">
+      <div id="search-form">
+      <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
+        <div id="search-input"><%= text_field_tag(:query, params[:query]) %></div>
+        <div id="search-submit"><%= submit_tag("Search") %></div>
+      <% end %> 
+      </div>  <!-- search-form -->
+      
+      <div class="dropdown-menu-button right-side"><%= button_tag "Menu" %></div>
+    </td>
+    <!-- right -->
 
   </tr> <!-- nav-items -->
 </table> <!-- nav-bar top-nav -->
