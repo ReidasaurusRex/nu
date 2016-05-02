@@ -2,13 +2,11 @@
   <tr class="nav-items">
     
     <!-- left side -->
-    <% if @profile && !@new_profile %>
       <td class="nav-section">
         <div><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></div>
         <div><%= link_to "Emissions", profile_footprints_path(@user.profile) %></div>
         <div><%= link_to "Challenges", profile_profile_challenges_path(@user.profile) %></div>
       </td> <!-- nav-section -->
-    <% end %>
 
     <!-- center -->
     <td class="nav-section">
@@ -16,7 +14,6 @@
     </td> <!-- nav-section -->
 
     <!-- right side -->
-    <% if @profile && !@new_profile %>
       <td class="nav-section">
         <div id="search-form">
         <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
@@ -27,14 +24,11 @@
         
         <div class="dropdown-menu-button right-side"><%= button_tag "Menu" %></div>
       </td> <!-- nav-section -->
-    <% end %> <!-- if logged in -->
 
   </tr> <!-- nav-items -->
 </table> <!-- nav-bar top-nav -->
 
 <!-- dropdown menu -->
-<% if @profile && !@new_profile %>
 <div class="dropdown-menu">
   <%= render partial: "dropdown_menu/dropdown_menu", locals: {user: @user} %>
 </div>
-<% end %>

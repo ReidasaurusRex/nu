@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <%= render partial: "nav_bars/top_nav" %>
+  <%= proper_top_nav %>
   <%= render partial: "nav_bars/calculator_overview", locals: {footprint: @footprint} %>
   <%= yield %>
 
