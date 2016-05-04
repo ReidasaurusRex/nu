@@ -3,9 +3,9 @@
     
     <!-- left -->
     <td class="nav-section">
-      <div><%= link_to "Feed", profile_newsfeed_items_path(@user.profile) %></div>
-      <div><%= link_to "Emissions", profile_footprints_path(@user.profile) %></div>
-      <div><%= link_to "Challenges", profile_profile_challenges_path(@user.profile) %></div>
+      <div><%= link_to "<i class='fa fa-list fa-lg'></i>Feed".html_safe, profile_newsfeed_items_path(@user.profile) %></div>
+      <div><%= link_to "<i class='fa fa-signal fa-lg'></i>Emissions".html_safe, profile_footprints_path(@user.profile) %></div>
+      <div><%= link_to "<i class='fa fa-trophy fa-lg'></i>Challenges".html_safe, profile_profile_challenges_path(@user.profile) %></div>
     </td> 
     <!-- left -->
 
@@ -19,12 +19,12 @@
     <td class="nav-section">
       <div id="search-form">
       <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
-        <div id="search-input"><%= text_field_tag(:query, params[:query]) %></div>
-        <div id="search-submit"><%= submit_tag("Search") %></div>
+        <div id="search-input"><%= text_field_tag(:query, params[:query], placeholder: "Search...") %></div>
+        <div id="search-submit"><%= button_tag("<i class='fa fa-search fa-lg'></i>".html_safe) %></div>
       <% end %> 
       </div>  <!-- search-form -->
       
-      <div class="dropdown-menu-button right-side"><%= button_tag "Menu" %></div>
+      <div class="dropdown-menu-button right-side"><%= button_tag "<i class='fa fa-user fa-2x'></i><i class='fa fa-caret-down fa-lg'></i>".html_safe %></div>
     </td>
     <!-- right -->
 

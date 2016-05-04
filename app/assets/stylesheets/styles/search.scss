@@ -1,19 +1,34 @@
-// #search-form {
-//   margin-left: -20px;
-//   background: red;
-// }
+#search-form {
+  border: 2px solid #8F8F8F;
+  border-radius: 45px;
+  height: 45px;
+  line-height: 45px;
+  margin-top: 15px;
+  width: 300px;
+}
 
 #search-form div {
   display: inline-block;
 }
 
 #search-input {
-  width: 200px;
+  margin-left: 10px;
+  width: 180px;
+}
+
+#search-input input {
+  border: none;
 }
 
 #search-submit {
-  line-height: 80px;
-  margin-bottom: 5px;
   margin-left: 30px;
-  
+}
+
+#search-submit button {
+  background: none;
+  border: none;
+}
+
+#search-submit button i {
+  color: #8F8F8F;
 }
