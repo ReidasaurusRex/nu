@@ -28,6 +28,8 @@ gem 'pry-rails'
 gem 'bcrypt', '~> 3.1.7'
 # Using figaro for ENV configuration
 gem 'figaro'
+# Using font-awesome
+gem 'font-awesome-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
