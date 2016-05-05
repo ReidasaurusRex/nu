@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 # Using font-awesome
 gem 'font-awesome-rails'
+# Using uploadcare for image handling
+gem 'uploadcare-rails', "~> 1.0"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
