@@ -1,5 +1,6 @@
 class Inheritance::CompletedProfileController < Inheritance::LoggedInController
-  # before_action :ensure_completed_profile
+  before_action :get_profile
+  before_action :get_notifications
 
   protected
   # def ensure_completed_profile
@@ -9,7 +10,13 @@ class Inheritance::CompletedProfileController < Inheritance::LoggedInController
   #   end
   # end
 
-  def get_profile_from_profile_id
-    @profile = Profile.find(params[:profile_id])
+  def get_profile
+    @profile = @user.profile
   end
+
+  def get_notifications
+    @notifications = @profile.notifications
+  end
+
+
 end

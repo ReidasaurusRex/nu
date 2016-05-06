@@ -1,5 +1,5 @@
 class Inheritance::ProfileMatchesUserController < Inheritance::CompletedProfileController
-  before_action :get_profile_from_profile_id
+  # before_action :get_profile_from_profile_id
   # before_action :ensure_user_owns_profile
 
   protected
