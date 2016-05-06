@@ -1,0 +1,16 @@
+<ul>
+  
+  <% if profile.notifications.empty? %>
+    <li>
+      <p>No notifications!</p>
+    </li>
+  <% else %>
+    <% profile.notifications.last(5).each do |notification| %>
+      <li>
+        <p><%= notification.text %></p>
+        <p><%= link_to "View", notification.link %></p>
+      </li>
+    <% end %>
+  <% end %>
+  
+</ul>
