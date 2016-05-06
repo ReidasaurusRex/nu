@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501210302) do
+ActiveRecord::Schema.define(version: 20160506153810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,11 +119,12 @@ ActiveRecord::Schema.define(version: 20160501210302) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "profile_id"
-    t.integer  "source_id"
     t.boolean  "unseen"
-    t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
+    t.string   "text"
+    t.string   "link"
   end
 
   create_table "pending_follows", force: :cascade do |t|
@@ -164,9 +165,10 @@ ActiveRecord::Schema.define(version: 20160501210302) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "interests"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "state"
+    t.string   "profile_pic"
   end
 
   create_table "public_transportations", force: :cascade do |t|
