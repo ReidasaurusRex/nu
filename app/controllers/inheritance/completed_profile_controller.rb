@@ -15,7 +15,6 @@ class Inheritance::CompletedProfileController < Inheritance::LoggedInController
   end
 
   def get_notifications
-    binding.pry
     @notifications = @profile.notifications
   end
 
