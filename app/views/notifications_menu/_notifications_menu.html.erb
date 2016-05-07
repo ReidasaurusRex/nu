@@ -5,13 +5,13 @@
   </li>
   <% if profile.notifications.empty? %>
     <li>
-      <p>No notifications!</p>
+      No notifications!
     </li>
   <% else %>
-    <% profile.notifications.last(5).each do |notification| %>
+    <% profile.notifications.last(5).reverse.each do |notification| %>
       <li>
-        <p><%= notification.text %></p>
-        <p><%= link_to "View", notification.link %></p>
+          <%= notification.text %>
+          <%= link_to "View", notification.link, class: "notification-link" %>
       </li>
     <% end %>
   <% end %>

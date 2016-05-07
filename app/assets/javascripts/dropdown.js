@@ -1,10 +1,10 @@
-var ready = function() {
+function ready() {
   $('.profile-dropdown-menu-button').click(toggleProfileMenu);
   $('.notifications-menu-button').click(toggleNotificationsMenu);
   $('body').click(hideDropdownMenuOnOtherClick);
-};
+}
 $(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).on('page:load', ready); // turbolinks friendly
 
 function toggleProfileMenu(event) {
   $('.notifications-list').removeClass('expanded-menu');

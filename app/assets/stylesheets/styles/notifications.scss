@@ -8,15 +8,21 @@
 
 .notifications-list ul li {
   background-color: #FCFCFC;
-  height: 80px;
-  line-height: 40px;
+  color: #8F8F8F;
+  height: 60px;
+  line-height: 60px;
 }
 
 .notifications-list ul .notifications-title-item {
   background-color: white;
   height: 40px;
+  line-height: 40px;
 }
 
 .notifications-list ul .notifications-title-item span {
   font-size: 0.7em;
+}
+
+.notifications-list .notification-link {
+  display: none;
 }
