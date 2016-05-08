@@ -1,0 +1,17 @@
+<% if notifications.empty? %>
+    <li>
+      No notifications!
+    </li>
+  <% else %>
+    <% notifications.last(4).reverse.each do |notification| %>
+      <li>
+          <%= notification.text %>
+          <%= link_to "View", notification.link, class: "notification-link" %>
+      </li>
+    <% end %>
+    <% if notifications.length > 4 %>
+      <li>
+        <%= link_to "View all", profile_notifications_path(profile_id: profile.id) %>
+      </li>
+    <% end %>
+  <% end %>

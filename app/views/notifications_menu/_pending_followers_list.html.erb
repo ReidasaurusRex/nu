@@ -1,0 +1,16 @@
+<% if pending_followers.empty? %>
+    <li>
+      No pending followers!
+    </li>
+  <% else %>
+    <% pending_followers.last(4).reverse.each do |pending_follower| %>
+      <li>
+          <%= pending_follower.full_name %>
+      </li>
+    <% end %>
+    <% if pending_followers.length > 4 %>
+      <li>
+        <%= link_to "View all", profile_pending_follows_path(profile_id: profile.id) %>
+      </li>
+    <% end %>
+  <% end %>

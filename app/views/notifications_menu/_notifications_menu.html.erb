@@ -1,19 +1,11 @@
 <ul>
-  <li class="notifications-title-item">
+  <li class="notifications-section-title">
     Notifications
     <span class="right-side"><%= link_to "Settings", profile_general_settings_path(profile_id: profile.id) %></span>
   </li>
-  <% if profile.notifications.empty? %>
-    <li>
-      No notifications!
-    </li>
-  <% else %>
-    <% profile.notifications.last(5).reverse.each do |notification| %>
-      <li>
-          <%= notification.text %>
-          <%= link_to "View", notification.link, class: "notification-link" %>
-      </li>
-    <% end %>
-  <% end %>
-  
+  <%= render partial: "notifications_menu/notifications_list", locals: {notifications: profile.notifications, profile: profile} %>
+  <li class="notifications-section-title">
+    Pending Followers
+  </li>
+  <%= render partial: "notifications_menu/pending_followers_list.html.erb", locals: {pending_followers: profile.pending_followers, profile: profile} %>  
 </ul>
