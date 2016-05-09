@@ -13,7 +13,7 @@
 <body>
 
   <%= proper_top_nav %>
-  <h2><%= flash[:error] %></h2>
+  <h2><%= flash[:error] %> <%= flash[:success] %> <%= flash[:alert] %></h2>
   <div class="main-body">
     <%= yield %>
   </div>
