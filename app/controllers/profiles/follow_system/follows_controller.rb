@@ -23,10 +23,10 @@ class Profiles::FollowSystem::FollowsController < Inheritance::ProfileMatchesUse
       @profile.follows.create(follower_id: params[:follower_id])
       pending_follow.destroy
       flash[:success] = "Added follower!"
-      redirect_to :back
+      redirect_to root_path
     else
       flash[:error] = "Error adding follower"
-      redirect_to :back
+      redirect_to root_path
     end
   end
 
