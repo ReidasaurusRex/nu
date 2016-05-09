@@ -9,6 +9,7 @@
       <% @results[:followers].each do |follower| %>
         <div class="profile-summary">
           <h3><%= follower.full_name %></h3>
+          <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @profile, target_profile: follower} %>
           <h3><%= link_to("View profile", profile_path(follower))  %></h3>
         </div> <!-- profile-summary -->
       <% end %> <!-- followers each -->
@@ -21,6 +22,7 @@
       <% @results[:followings].each do |following| %>
         <div class="profile-summary">
           <h3><%= following.full_name %></h3>
+          <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @profile, target_profile: following} %>
           <h3><%= link_to("View profile", profile_path(following))  %></h3>
         </div> <!-- profile-summary -->
       <% end %> <!-- followings each -->
@@ -45,6 +47,7 @@
       <h2>Profiles</h2>
       <% @results[:profiles].each do |profile| %>
         <div class="profile-summary">
+        <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @profile, target_profile: profile} %>
           <h3><%= profile.full_name %></h3>
           <h3><%= link_to("View profile", profile_path(profile))  %></h3>
           <h4><%= follow_link(@profile, profile) %></h4>

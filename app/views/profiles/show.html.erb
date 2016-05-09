@@ -7,9 +7,7 @@
   <% if @profile == @user.profile %>
     <h4><%= link_to "Edit Profile", edit_profile_path(@profile) %></h4>
   <% else %>
-    <div class="follow-subscribe-summary">
-      <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @user.profile, target_profile: @profile} %>
-    </div>
+    <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @user.profile, target_profile: @profile} %>
   <% end %>
 
   <div class="profile-interests">
