@@ -18,5 +18,9 @@ class Inheritance::CompletedProfileController < Inheritance::LoggedInController
     @notifications = @profile.notifications
   end
 
+  def get_pending_follows
+    @pending_follows = @profile.pending_follows
+  end
+
 
 end

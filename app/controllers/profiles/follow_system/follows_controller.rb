@@ -18,10 +18,10 @@ class Profiles::FollowSystem::FollowsController < Inheritance::ProfileMatchesUse
   end
 
   def create_follow
-    pending_follower_array = @profile.pending_follows.select{|pfollow| pfollow.pending_follower_id == params[:follower_id].to_i}
-    unless pending_follower_array.empty?
+    pending_follow = @profile.pending_follows.select{|pfollow| pfollow.pending_follower_id == params[:follower_id].to_i}[0]
+    if pending_follow
       @profile.follows.create(follower_id: params[:follower_id])
-      pending_follower_array.each{|pfollow| pfollow.destroy}
+      pending_follow.destroy
       flash[:success] = "Added follower!"
       redirect_to :back
     else

@@ -1,16 +1,16 @@
 <% if notifications.empty? %>
-    <li>
+    <li class="notification-list-item">
       No notifications!
     </li>
   <% else %>
     <% notifications.last(4).reverse.each do |notification| %>
-      <li>
+      <li class="notification-list-item">
           <%= notification.text %>
           <%= link_to "View", notification.link, class: "notification-link" %>
       </li>
     <% end %>
     <% if notifications.length > 4 %>
-      <li>
+      <li class="notification-list-item">
         <%= link_to "View all", profile_notifications_path(profile_id: profile.id) %>
       </li>
     <% end %>
