@@ -38,7 +38,7 @@ class Profiles::FollowSystem::FollowsController < Inheritance::ProfileMatchesUse
       flash[:success] = "Removed follower"
       redirect_to :back
     else
-      flash[:error] = "Couldn't remove follower"
+      flash[:error] = "Something went wrong"
       redirect_to :back
     end
   end
