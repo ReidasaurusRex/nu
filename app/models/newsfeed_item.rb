@@ -1,6 +1,7 @@
 class NewsfeedItem < ActiveRecord::Base
   belongs_to :profile
   belongs_to :source, class_name: "Profile"
+  has_many :likes
 
   def time_since_creation
     time_array = [[3153600 ,"year"], [2592000, "month"], [86400, "day"], [3600, "hour"], [60, "min"], [1, "sec"]]
