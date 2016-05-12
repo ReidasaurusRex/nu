@@ -172,10 +172,9 @@ ActiveRecord::Schema.define(version: 20160512160453) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "interests"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "state"
-    t.string   "profile_pic"
   end
 
   create_table "public_transportations", force: :cascade do |t|
