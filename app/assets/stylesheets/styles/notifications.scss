@@ -1,0 +1,28 @@
+.notifications-menu-button button {
+  font-size: 90%;
+}
+
+.notifications-menu-button button:hover {
+  color: #8B8B8B;
+}
+
+.notifications-list ul li {
+  background-color: #F7F7F7;
+  color: #8F8F8F;
+  height: 60px;
+  line-height: 60px;
+}
+
+.notifications-list ul .notifications-section-title {
+  background-color: white;
+  height: 40px;
+  line-height: 40px;
+}
+
+.notifications-list ul .notifications-section-title span {
+  font-size: 0.7em;
+}
+
+.notifications-list .notification-link {
+  display: none;
+}

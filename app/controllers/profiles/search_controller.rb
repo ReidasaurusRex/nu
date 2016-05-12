@@ -1,5 +1,4 @@
 class Profiles::SearchController < Inheritance::CompletedProfileController
-  before_action :get_profile
 
   def results
     @query = params[:query]
@@ -7,9 +6,6 @@ class Profiles::SearchController < Inheritance::CompletedProfileController
   end
 
   private
-  def get_profile
-    @profile = User.find(session[:user_id]).profile
-  end
   def get_results(query)
     results = {}
     results[:followers] = find_followers(query)

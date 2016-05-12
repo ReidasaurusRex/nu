@@ -52,7 +52,7 @@
       end # settings module
 
       scope module: 'follow_system' do
-       resources :pending_follows, :pending_subscriptions,only: [:index, :create, :destroy]
+       resources :pending_follows, :pending_subscriptions, only: [:index, :create, :destroy]
        resources :follows, :subscriptions, only: [:index, :create, :destroy]
       end # follow_system module
 
