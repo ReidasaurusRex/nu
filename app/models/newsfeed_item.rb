@@ -32,4 +32,8 @@ class NewsfeedItem < ActiveRecord::Base
       return self.source.full_name
     end
   end
+
+  def belongs_to_profile?(profile)
+    return self.profile == profile
+  end
 end

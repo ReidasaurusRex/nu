@@ -11,7 +11,9 @@ module LikesHelper
 
   def like_number(newsfeed_item)
     unless newsfeed_item.likes.empty?
-      return newsfeed_item.likes.length
+      response = "#{newsfeed_item.likes.length} like"
+      response << "s" if newsfeed_item.likes.length > 1
+      return response
     else
       return ""
     end

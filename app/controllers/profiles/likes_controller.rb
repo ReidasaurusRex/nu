@@ -7,17 +7,16 @@ class Profiles::LikesController < Inheritance::CompletedProfileController
   end
 
   def create
-    binding.pry
+    create_like
   end
 
   def destroy
-    @like = Like.find(params[:id])
-    binding.pry
+    destroy_like
   end
 
   private
   def get_newsfeed_item
-    @newfeed_item = NewsfeedItem.find(params[:newsfeed_item_id])
+    @newsfeed_item = NewsfeedItem.find(params[:newsfeed_item_id])
   end
 
   def get_profile_from_user
@@ -33,5 +32,12 @@ class Profiles::LikesController < Inheritance::CompletedProfileController
       flash[:error] = "Something went wrong"
       redirect_to profile_newsfeed_items_path(profile_id: @profile.id)
     end
+  end
+
+  def destroy_like
+    @like = Like.find(params[:id])
+    @like.destroy
+    flash[:success] = "Unliked it!"
+    redirect_to profile_newsfeed_items_path(profile_id: @profile.id)
   end
 end

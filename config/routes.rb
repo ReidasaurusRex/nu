@@ -73,6 +73,11 @@
   end
   # // shallow footprint
   
+  # // Newsfeed routes
+  resources :newsfeed_items, only: :show, module: 'profiles' do 
+    resources :likes, only: [:index, :create, :destroy]
+  end
+  # // newsfeed 
 
 
 
