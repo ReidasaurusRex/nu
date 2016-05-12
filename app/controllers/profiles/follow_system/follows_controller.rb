@@ -23,10 +23,10 @@ class Profiles::FollowSystem::FollowsController < Inheritance::ProfileMatchesUse
       @profile.follows.create(follower_id: params[:follower_id])
       pending_follower_array.each{|pfollow| pfollow.destroy}
       flash[:success] = "Added follower!"
-      redirect_to :back
+      redirect_to root_path
     else
       flash[:error] = "Error adding follower"
-      redirect_to :back
+      redirect_to root_path
     end
   end
 
@@ -36,10 +36,10 @@ class Profiles::FollowSystem::FollowsController < Inheritance::ProfileMatchesUse
       delete_follower_subscription
       @follow.destroy
       flash[:success] = "Removed follower"
-      redirect_to :back
+      redirect_to root_path
     else
       flash[:error] = "Something went wrong"
-      redirect_to :back
+      redirect_to root_path
     end
   end
 
