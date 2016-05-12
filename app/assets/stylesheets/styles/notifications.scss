@@ -26,3 +26,7 @@
 .notifications-list .notification-link {
   display: none;
 }
+
+.notifications-list .notification-list-item:hover {
+  cursor: pointer;
+}

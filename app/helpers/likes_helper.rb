@@ -1,7 +1,7 @@
 module LikesHelper
   def like_button(newsfeed_item)
     likes_profile_ids = newsfeed_item.likes.pluck(:profile_id)
-    if likes_profile_ids.include?(newsfeed_item.profile.id)
+    if likes_profile_ids.include?(newsfeed_item.source.id)
       profile_like = newsfeed_item.likes.where(profile_id: newsfeed_item.profile.id)[0]
       return link_to("<i class='fa fa-thumbs-up liked'></i>".html_safe, newsfeed_item_like_path(newsfeed_item_id: newsfeed_item.id, id: profile_like.id), method: :delete)
     else
