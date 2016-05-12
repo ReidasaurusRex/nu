@@ -7,11 +7,12 @@ class Profiles::LikesController < Inheritance::CompletedProfileController
   end
 
   def create
-
+    binding.pry
   end
 
   def destroy
     @like = Like.find(params[:id])
+    binding.pry
   end
 
   private

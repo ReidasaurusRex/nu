@@ -11,5 +11,9 @@
       <p><%= feed_item.content %></p>
     </div>
 
+    <div class="likes-overview">
+      <%= like_button(feed_item) %> <span class="like-number"><%= like_number(feed_item) %></span>
+    </div>
+
   </div> <!-- newsfeed-item -->
 <% end %>
