@@ -60,4 +60,10 @@ class Profile < ActiveRecord::Base
     end
   end
 
+  def notify_followers(text, link)
+    @profile.followers.each do |follower|
+      follower.notifications.create(text: text, link: link)
+    end
+  end
+
 end

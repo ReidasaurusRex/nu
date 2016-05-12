@@ -32,7 +32,7 @@ class Profiles::FollowSystem::SubscriptionsController < Inheritance::ProfileMatc
   # end
 
   def delete_subscription
-    @subscription = subscription.find(params[:id])
+    @subscription = Subscription.find(params[:id])
     if @profile.subscriptions.include?(@subscription)
       delete_subscription_follow
       @subscription.destroy
