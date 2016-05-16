@@ -1,6 +1,7 @@
 class NewsfeedItem < ActiveRecord::Base
   has_many :newsfeed_item_profiles, dependent: :destroy
   has_many :profiles, through: :newsfeed_item_profiles
+  has_many :comments, dependent: :destroy
   belongs_to :source, class_name: "Profile"
   has_many :likes
 
