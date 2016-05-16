@@ -76,6 +76,7 @@
   # // Newsfeed routes
   resources :newsfeed_items, only: :show, module: 'profiles' do 
     resources :likes, only: [:index, :create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   # // newsfeed 
 
