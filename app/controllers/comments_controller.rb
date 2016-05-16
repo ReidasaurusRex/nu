@@ -20,6 +20,7 @@ class Profiles::CommentsController < Inheritance::CompletedProfileController
 
   def create_comment(params)
     @comment = Comment.new(params)
+    binding.pry
     if @comment.save
       flash[:success] = "Commented!"
     else
@@ -30,6 +31,7 @@ class Profiles::CommentsController < Inheritance::CompletedProfileController
 
   def destroy_comment
     @comment = Comment.find(params[:id])
+    binding.pry
     if @comment.profile = @profile
       @comment.destroy
       flash[:success] = "Removed comment"
