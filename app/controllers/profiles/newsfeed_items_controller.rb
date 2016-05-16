@@ -34,8 +34,8 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   def create_newsfeed_item(params)
     @newsfeed_item = NewsfeedItem.new(params)
     if @newsfeed_item.save
-      @newsfeed_item.update(profile_id: @profile.id)
-      @profile.followers.each{|follower| follower.newsfeed_items.create(params)}
+      NewsfeedItemProfile.create(profile_id: @profile.id, newsfeed_item_id: @newsfeed_item.id)
+      @profile.followers.each{|follower| NewsfeedItemProfile.create(profile_id: follower.id, newsfeed_item_id: @newsfeed_item.id)}
       redirect_to profile_newsfeed_items_path(profile_id: @profile.id)
     else
       render :index

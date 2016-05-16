@@ -26,8 +26,8 @@ class NewsfeedItem < ActiveRecord::Base
     end
   end
 
-  def source_name_or_you
-    if self.profile_id == self.source_id
+  def source_name_or_you(profile)
+    if self.source == profile
       return "You"
     else
       return self.source.full_name
