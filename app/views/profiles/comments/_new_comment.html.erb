@@ -1,0 +1,4 @@
+<%= form_for(Comment.new, url: newsfeed_item_comments_path(newsfeed_item.id), method: :post) do |f| %>
+  <%= f.text_area(:text, rows: 3, placeholder: "Write a comment...") %>
+  <%= f.submit "Comment" %>
+<% end %>
