@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Profiles::CommentsController < Inheritance::CompletedProfileController
   def create
   end
 
