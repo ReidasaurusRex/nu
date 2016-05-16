@@ -10,7 +10,8 @@ class Profile < ActiveRecord::Base
   has_many :followings, through: :subscriptions
   has_many :pending_subscriptions, dependent: :destroy
   has_many :pending_followings, through: :pending_subscriptions
-  has_many :newsfeed_items, dependent: :destroy
+  has_many :newsfeed_item_profiles, dependent: :destroy
+  has_many :newsfeed_items, through: :newsfeed_item_profiles
 
   # Challenge relations
   has_many :profile_challenges, dependent: :destroy
