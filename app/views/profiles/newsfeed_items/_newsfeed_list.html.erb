@@ -15,5 +15,9 @@
       <%= like_button(feed_item, profile) %> <span class="like-number"><%= like_number(feed_item) %></span>
     </div>
 
+    <div class="comments-overview">
+      <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>
+    </div>
+
   </div> <!-- newsfeed-item -->
 <% end %>
