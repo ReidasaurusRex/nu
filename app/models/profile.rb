@@ -46,6 +46,10 @@ class Profile < ActiveRecord::Base
     SharingSetting.create(profile_id: self.id, improvements: true, follow: true, footprint: true)
   end
 
+  def add_point_overview
+    PointOverview.create(profile_id: self.id, total: 0, diet: 0, waste: 0, water: 0, transportation: 0, home_energy: 0)
+  end
+
   def post_to_followers(header, content)
     self.followers.each do |follower|
       follower.newsfeed_items.create(source_id: self.id, header: header, content: content)
