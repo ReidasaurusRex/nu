@@ -25,6 +25,7 @@ class Profile < ActiveRecord::Base
   has_many :footprints, dependent: :destroy
   has_many :blocked_users, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_one :point_overview, dependent: :destroy
 
   @@state_list = %w(ak al ar az ca co ct dc de fl ga hi ia id il in ks ky la ma md me mi mn mo ms mt nc nd ne nh nj nm nv ny oh ok or pa ri sc sd tn tx ut va vt wa wi wv wy)
   validates :first_name, presence: {message: " is required"}
