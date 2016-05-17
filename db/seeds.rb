@@ -10,6 +10,7 @@ rprof = Profile.create(user_id: reid.id, first_name: "Reid", last_name: "Lewis",
 
 profiles = [jprof, kprof, sprof, rprof]
 profiles.each{|prof| prof.add_default_settings}
+profiles.each{|prof| prof.add_point_overview}
 
 jprof.follows.create(follower_id: kprof.id)
 jprof.follows.create(follower_id: sprof.id)
