@@ -1,3 +1,28 @@
 .comment-list .comment > div {
   display: inline-block;
 }
+
+.comment-list li {
+  border-top: 1px solid $faded-gray;
+}
+
+.comment-list .comment {
+  height: 40px;
+  line-height: 40px;
+  padding: 5px;
+}
+
+.comment-list .comment .comment-profile {
+  border-right: 1px solid $faded-gray;
+  padding-right: 5px;
+}
+
+.comment-list .comment .comment-text {
+  padding-left: 15px;
+}
+
+.comment-list .new-comment {
+  padding-left: 20px;
+  padding-right: 5px;
+  padding-top: 15px;
+}

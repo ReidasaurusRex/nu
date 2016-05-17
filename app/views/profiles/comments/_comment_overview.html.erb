@@ -1,6 +1,13 @@
 <div class="comment-profile">
   <%= comment.profile.full_name %>
 </div>
+
 <div class="comment-text">
-  <%= comment.text %>  
+  <%= comment.text %>
 </div>
+
+<% if comment.profile == profile %>
+  <div class="destroy-comment right-side">
+    <%= link_to("<i class='fa fa-times'></i>".html_safe, newsfeed_item_comment_path(newsfeed_item_id: comment.newsfeed_item.id, id: comment.id), method: :delete) %>
+  </div>  
+<% end %>
