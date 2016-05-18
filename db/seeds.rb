@@ -70,8 +70,8 @@ rprof.profile_started_challenges.create([
   ])
 
 rprof.profile_started_challenges[0].started_challenge_updates.create([
-  {challenge_id: challenges[0], difficulty: 1, update_number: 1},
-  {challenge_id: challenges[0], difficulty: 1, update_number: 2}
+  {challenge_id: challenges[0].id, difficulty: 1, update_number: 1},
+  {challenge_id: challenges[0].id, difficulty: 1, update_number: 2}
   ])
 
 rprof.profile_started_challenges[1].started_challenge_updates.create([
