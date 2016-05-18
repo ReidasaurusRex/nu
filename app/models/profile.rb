@@ -52,7 +52,7 @@ class Profile < ActiveRecord::Base
   end
 
   def add_point_overview
-    PointOverview.create(profile_id: self.id, total: 0, diet: 0, waste: 0, water: 0, transportation: 0, home_energy: 0)
+    PointOverview.create(profile_id: self.id, total: 0, diet: 0, waste: 0, water: 0, transportation: 0, home_energy: 0, social: 0)
   end
 
   def post_to_followers(header, content)
