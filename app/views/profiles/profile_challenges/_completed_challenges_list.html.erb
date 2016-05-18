@@ -1,9 +1,0 @@
-<ul class="challenge-list">
-<% profile_challenges.each do |profile_challenge| %>
-  <li class="challenge-overview started-challenge">
-    <h2 class="challenge-title"><%= profile_challenge.challenge.title %></h2>
-    <h3 class="challenge-caption"><%= profile_challenge.challenge.caption %></h3>
-    <h4><%= link_to "View challenge", profile_profile_challenge_path(profile_id: profile.id, id: profile_challenge.id), class: "challenge-link" %></h4>
-  </li>
-<% end %>
-</ul>
