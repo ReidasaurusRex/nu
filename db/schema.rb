@@ -184,6 +184,13 @@ ActiveRecord::Schema.define(version: 20160518152606) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "profile_started_challenges", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "challenge_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "first_name"
@@ -212,13 +219,6 @@ ActiveRecord::Schema.define(version: 20160518152606) do
     t.boolean  "improvements"
     t.boolean  "follow"
     t.boolean  "footprint"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "started_challenges", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "challenge_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

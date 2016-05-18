@@ -63,6 +63,11 @@ challenges = Challenge.create([
   {title: "Stinky Backyard Pile", caption: "Compost all organic waste for a month", description: "Throwing food away means it's in the waaste management system, which means someone has to expel a lot of energy to take care of it. It's easier for everyone if you just use your organic waste to compost. Then, you can use the compost to fuel that new garden you've wanted to make for so long! By the way, this challenge says \"for a month\" mostly for the sake of simplicity. Feel free to keep it going. You'll love it.", difficulty: 3, points: 18, progress_category: "waste"}
   ])
 
+rprof.profile_started_challenges.create([
+  {challenge_id: challenges[0].id},
+  {challenge_id: challenges[3].id}
+  ])
+
 rprof.footprints.create([
   {total_emissions: 5000, water_emissions: 100, diet_emissions: 685, transportation_emissions: 3561, waste_emissions: 100, home_energy_emissions: 554},
   {total_emissions: 4000, water_emissions: 1000, diet_emissions: 868, transportation_emissions: 1200, waste_emissions: 132, home_energy_emissions: 800},

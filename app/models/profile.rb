@@ -14,8 +14,8 @@ class Profile < ActiveRecord::Base
   has_many :newsfeed_items, through: :newsfeed_item_profiles
 
   # Challenge relations
-  has_many :profile_challenges, dependent: :destroy
-  has_many :started_challenges, through: :profile_started_challenges, class_name: "Challenge"
+  has_many :profile_started_challenges, dependent: :destroy
+  has_many :started_challenges, through: :profile_started_challenges, source: :challenge
 
   # Setting relations
   has_one :privacy_setting, dependent: :destroy
