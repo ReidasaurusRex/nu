@@ -80,6 +80,10 @@ rprof.profile_started_challenges[1].started_challenge_updates.create([
   {challenge_id: challenges[3].id, difficulty: 1, update_number: 3}
   ])
 
+rprof.profile_completed_challenges.create([
+  {challenge_id: challenges[-1].id, entry: "Just lashed together some logs, then started throwing my food in there", average_difficulty: 2.2},
+  {challenge_id: challenges[-10].id, entry: "I\'m all about traveling around Flagstaff! There\'s just so much to see!", average_difficulty: 1}])
+
 
 rprof.footprints.create([
   {total_emissions: 5000, water_emissions: 100, diet_emissions: 685, transportation_emissions: 3561, waste_emissions: 100, home_energy_emissions: 554},
