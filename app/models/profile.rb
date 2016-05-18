@@ -33,6 +33,9 @@ class Profile < ActiveRecord::Base
   validates :state, inclusion: {in: @@state_list, 
     message: " choose an abbr"}
 
+  after_create :add_default_settings
+  after_create :add_point_overview
+
   def full_name
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end

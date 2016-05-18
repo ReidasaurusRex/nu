@@ -8,10 +8,6 @@ kprof = Profile.create(user_id: kendra.id, first_name: "Kendra", last_name: "Bla
 sprof = Profile.create(user_id: steven.id, first_name: "Steven", last_name: "Nagie", state: "ut", interests: "Saving the planet")
 rprof = Profile.create(user_id: reid.id, first_name: "Reid", last_name: "Lewis", state: "az", interests: "Saving the planet. And riding my bike")
 
-profiles = [jprof, kprof, sprof, rprof]
-profiles.each{|prof| prof.add_default_settings}
-profiles.each{|prof| prof.add_point_overview}
-
 jprof.follows.create(follower_id: kprof.id)
 jprof.follows.create(follower_id: sprof.id)
 jprof.pending_follows.create(pending_follower_id: rprof.id)

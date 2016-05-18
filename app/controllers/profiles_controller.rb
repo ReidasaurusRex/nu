@@ -32,8 +32,6 @@ class ProfilesController < Inheritance::LoggedInController
   def create_profile(profile_params)
     @profile = Profile.new(profile_params)
     if @profile.save
-      @profile.add_default_settings
-      @profile.add_point_overview
       redirect_to profile_footprints_path(@profile)
     else
       render :new
