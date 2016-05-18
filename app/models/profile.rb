@@ -15,7 +15,7 @@ class Profile < ActiveRecord::Base
 
   # Challenge relations
   has_many :profile_challenges, dependent: :destroy
-  has_many :challenges, through: :profile_challenges
+  has_many :started_challenges, through: :profile_started_challenges, class_name: "Challenge"
 
   # Setting relations
   has_one :privacy_setting, dependent: :destroy
