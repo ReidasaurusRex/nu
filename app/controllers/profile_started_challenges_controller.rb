@@ -1,4 +1,4 @@
-class Profiles::Challenges::ProfileStartedChallengesController < ApplicationController
+class Profiles::Challenges::ProfileStartedChallengesController < Inheritance::ProfileMatchesUserController
   def index
   end
 

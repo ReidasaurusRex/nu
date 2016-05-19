@@ -1,4 +1,4 @@
-class Profiles::Challenges::StartedChallengeUpdatesController < ApplicationController
+class Profiles::Challenges::StartedChallengeUpdatesController < Inheritance::ProfileMatchesUserController
   def new
   end
 
