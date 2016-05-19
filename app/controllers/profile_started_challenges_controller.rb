@@ -1,4 +1,4 @@
-class ProfileStartedChallengesController < ApplicationController
+class Profiles::Challenges::ProfileStartedChallengesController < ApplicationController
   def index
   end
 
