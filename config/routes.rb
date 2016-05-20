@@ -31,7 +31,7 @@
   # user and settings 
 
   # Profile linked routes
-  resources :profiles do  
+  resources :profiles, except: [:index, :destroy] do  
     scope module: 'profiles' do 
       get 'site/help', as: 'site_help'
       get 'site/terms', as: 'site_terms'
@@ -60,7 +60,7 @@
   # profile linked
 
   # Shallow footprint routes    
-  resources :footprints, module: 'profiles' do 
+  resources :footprints, except: [:new, :update, :edit], module: 'profiles' do 
     scope module: 'footprints' do 
       resources :diets, :wastes, :waters, except: :index
       resources :transportations, only: [:show, :update, :destroy]    
@@ -71,7 +71,7 @@
   # shallow footprint
   
   # Newsfeed routes
-  resources :newsfeed_items, module: 'profiles' do 
+  resources :newsfeed_items, except: :new, module: 'profiles' do 
     resources :likes, only: [:index, :create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
@@ -80,10 +80,10 @@
   # Footprint component routes
   scope module: 'profiles' do
     scope module: 'footprints' do 
-      resources :transportations do
+      resources :transportations, only: [:show, :update, :destroy] do
         resources :vehicles, :public_transportations, :air_travels, except: [:index, :show]
       end
-      resources :home_energies do 
+      resources :home_energies, except: :index do 
         get 'utilities', to: 'utilities#index', as: 'utilities'
         post 'utilities', to: 'utilities#update', as: 'update_utilities'
       end
@@ -94,7 +94,7 @@
   # Started challenge updates routes
   scope module: 'profiles' do 
     scope module: 'challenges' do
-      resources :profile_started_challenges do 
+      resources :profile_started_challenges, only: [:index, :create, :show] do 
         resources :started_challenge_updates, only: [:new, :create]
       end
     end # challenges module
