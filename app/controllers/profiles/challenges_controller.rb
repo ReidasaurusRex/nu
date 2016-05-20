@@ -1,4 +1,5 @@
 class Profiles::ChallengesController < Inheritance::ProfileMatchesUserController
+  before_action :get_available_challenges, only: :index
   before_action :get_challenge, only: :show
   before_action :ensure_profile_without_challenge, only: :show
   
@@ -9,6 +10,9 @@ class Profiles::ChallengesController < Inheritance::ProfileMatchesUserController
   end
   
   private
+  def get_available_challenges
+    @challenges = Challenge.all - @profile.started_challenges - @profile.completed_challenges
+  end
   def get_challenge
     @challenge = Challenge.find(params[:id])
   end
