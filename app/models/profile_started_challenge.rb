@@ -4,6 +4,7 @@ class ProfileStartedChallenge < ActiveRecord::Base
 
   has_many :started_challenge_updates
 
+
   after_create :add_points_for_starting_challenge
 
   def add_points_for_starting_challenge
