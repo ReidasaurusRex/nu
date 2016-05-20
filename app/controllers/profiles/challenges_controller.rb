@@ -13,6 +13,7 @@ class Profiles::ChallengesController < Inheritance::ProfileMatchesUserController
   def get_available_challenges
     @challenges = Challenge.all - @profile.started_challenges - @profile.completed_challenges
   end
+  
   def get_challenge
     @challenge = Challenge.find(params[:id])
   end

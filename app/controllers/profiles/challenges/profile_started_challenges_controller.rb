@@ -3,6 +3,7 @@ class Profiles::Challenges::ProfileStartedChallengesController < Inheritance::Pr
   end
 
   def create
+    binding.pry
   end
 
   def show

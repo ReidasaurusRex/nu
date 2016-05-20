@@ -1,26 +1,28 @@
-.profile-challenges-index h1:first-child {
+.challenges-index h1:first-child {
   margin-bottom: 45px;
 }
 
-.profile-challenges-index .challenges > div {
+.challenges-index .challenges > div {
   margin-bottom: 45px;
 }
 
-.profile-challenges-index ul {
+.challenges-index ul {
   margin-left: 20px;
 }
 
-.profile-challenges-index li .challenge-title {
+.challenges-index li {
+  box-shadow: -4px 2px 2px $nu-green, 4px -2px 2px $nu-green;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 450px;
+}
+
+.challenges-index li .challenge-title {
   margin-bottom: 5px;
 }
 
-.profile-challenges-index li .challenge-link {
+.challenges-index li .challenge-link {
   margin-top: 10px;
-}
-
-.profile-challenges-index .challenges > div {
-  box-shadow: -4px 2px 2px $nu-red, 4px -2px 2px $nu-green;
-  padding: 15px;
 }
 
 .challenge-overview span {
