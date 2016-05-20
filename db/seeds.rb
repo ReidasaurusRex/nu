@@ -64,9 +64,9 @@ challenges = Challenge.create([
   ])
 
 rprof.profile_started_challenges.create([
-  {challenge_id: challenges[0].id},
-  {challenge_id: challenges[3].id},
-  {challenge_id: challenges[-2].id}
+  {challenge_id: challenges[0].id, progress_category: challenges[0].progress_category},
+  {challenge_id: challenges[3].id, progress_category: challenges[3].progress_category},
+  {challenge_id: challenges[-2].id, progress_category: challenges[-1].progress_category}
   ])
 
 rprof.profile_started_challenges[0].started_challenge_updates.create([
@@ -81,8 +81,8 @@ rprof.profile_started_challenges[1].started_challenge_updates.create([
   ])
 
 rprof.profile_completed_challenges.create([
-  {challenge_id: challenges[-1].id, entry: "Just lashed together some logs, then started throwing my food in there", average_difficulty: 2.2},
-  {challenge_id: challenges[-10].id, entry: "I\'m all about traveling around Flagstaff! There\'s just so much to see!", average_difficulty: 1}])
+  {challenge_id: challenges[-1].id, progress_category: challenges[-1].progress_category, entry: "Just lashed together some logs, then started throwing my food in there", average_difficulty: 2.2},
+  {challenge_id: challenges[-10].id, progress_category: challenges[-10].progress_category, entry: "I\'m all about traveling around Flagstaff! There\'s just so much to see!", average_difficulty: 1}])
 
 
 rprof.footprints.create([
