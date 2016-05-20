@@ -5,7 +5,7 @@
       <li>
         <%= link_to "Profile", user_profile_path(user_id: @user.id, id: @profile.id) %>
         <ul class="sitemap-subsections">
-          <li><%= link_to "Challenges", profile_profile_challenges_path(@profile) %></li>
+          <li><%= link_to "Challenges", profile_challenges_path(@profile) %></li>
           <li><%= link_to "Emissions", profile_footprints_path(@profile) %></li>
           <li><%= link_to "Newsfeed", profile_newsfeed_items_path(@profile) %></li>
           <li>
