@@ -1,38 +1,37 @@
   Rails.application.routes.draw do
   
-  # // About routes
+  # About routes
   get 'about/general', as: 'about_general'
   get 'about/philosophy', as: 'about_philosophy'
   get 'about/privacy', as: 'about_privacy'
   get 'about/data', as: 'about_data'
   get 'about/future', as: 'about_future'
-  # // about
+  # about
 
-  # // Blog routes
-    resources :blog_posts, only: [:index, :show]
-  # // blog
+  # Blog routes
+  resources :blog_posts, only: [:index, :show]
+  # blog
 
-  # // Feedback routes
-    get 'feedback/new', as: 'new_feedback'
-    post 'feedback/create', as: 'create_feedback'
-    get 'feedback/thanks', as: 'feedback_thanks'
-  # // feedback
+  # Feedback routes
+  get 'feedback/new', as: 'new_feedback'
+  post 'feedback/create', as: 'create_feedback'
+  get 'feedback/thanks', as: 'feedback_thanks'
+# feedback
 
-  # // Access routes
+  # Access routes
   root 'access#landing'
   post 'access/login', as: 'login'
   delete 'access/logout', as: 'logout'
-  # // access
+  # access
 
-  # // User and settings routes
+  # User and settings routes
   resources :users, except: :index do 
     resources :profiles, except: [:index, :destroy]
   end
-  # // user and settings 
+  # user and settings 
 
-  # // Profile linked routes
-  resources :profiles, except: [:index, :destroy] do
-    
+  # Profile linked routes
+  resources :profiles do  
     scope module: 'profiles' do 
       get 'site/help', as: 'site_help'
       get 'site/terms', as: 'site_terms'
@@ -41,61 +40,64 @@
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index
       resources :challenges, only: [:index, :show]
-      resources :profile_challenges, except: [:new, :destroy]
       resources :newsfeed_items, except: :new
       resources :blocked_users, only: [:index, :create, :destroy]
       resources :footprints, except: [:new, :update, :edit]
-
       scope module: 'settings' do 
         resources :general_settings, only: :index
         resources :sharing_settings, :privacy_settings, only: [:edit, :update]
       end # settings module
-
       scope module: 'follow_system' do
        resources :pending_follows, :pending_subscriptions, only: [:index, :create, :destroy]
        resources :follows, :subscriptions, only: [:index, :create, :destroy]
       end # follow_system module
-
+      scope module: 'challenges' do 
+        resources :profile_started_challenges, only: [:index, :create, :show]
+        resources :profile_completed_challenges, except: :destroy
+      end
     end # profile module
   end
-  # // profile linked
+  # profile linked
 
-  # // Shallow footprint routes    
-  resources :footprints, except: [:new, :update, :edit], module: 'profiles' do
-    
+  # Shallow footprint routes    
+  resources :footprints, module: 'profiles' do 
     scope module: 'footprints' do 
       resources :diets, :wastes, :waters, except: :index
       resources :transportations, only: [:show, :update, :destroy]    
       resources :home_energies, except: :index
       get 'transportations', to: 'transportations#create', as: 'create_transportation'
     end # footprint module
-
   end
-  # // shallow footprint
+  # shallow footprint
   
-  # // Newsfeed routes
-  resources :newsfeed_items, only: :show, module: 'profiles' do 
+  # Newsfeed routes
+  resources :newsfeed_items, module: 'profiles' do 
     resources :likes, only: [:index, :create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
-  # // newsfeed 
+  # newsfeed 
 
-
-
-  # // Footprint component routes
+  # Footprint component routes
   scope module: 'profiles' do
-
     scope module: 'footprints' do 
-      resources :transportations, except: [:index, :new] do
+      resources :transportations do
         resources :vehicles, :public_transportations, :air_travels, except: [:index, :show]
       end
-      resources :home_energies, except: [:index, :new] do 
+      resources :home_energies do 
         get 'utilities', to: 'utilities#index', as: 'utilities'
         post 'utilities', to: 'utilities#update', as: 'update_utilities'
       end
     end # footprint module
-
   end # profile module
-  # // footprint component
+  # footprint component
 
+  # Started challenge updates routes
+  scope module: 'profiles' do 
+    scope module: 'challenges' do
+      resources :profile_started_challenges do 
+        resources :started_challenge_updates, only: [:new, :create]
+      end
+    end # challenges module
+  end # profiles module
+  # started challenge updates
 end
