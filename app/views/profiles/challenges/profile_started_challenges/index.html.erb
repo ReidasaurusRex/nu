@@ -1,2 +1,9 @@
-<h1>ProfileStartedChallenges#index</h1>
-<p>Find me in app/views/profile_started_challenges/index.html.erb</p>
+<div class="started-challenges started-challenges-index">
+  <%= link_to "<i class='fa fa-plus'></i>Start a new challenge".html_safe, profile_challenges_path(@profile.id), class: "new-challenge-link" %>
+  <div class="current-challenges">
+    <h2>Current Challenges</h2>
+    <ul class="current-challenges-list">
+      <%= render partial: "profiles/challenges/profile_started_challenges/current_challenges_list", locals: {profile_started_challenges: @profile_started_challenges, profile: @profile} %>
+    </ul>
+  </div>
+</div>

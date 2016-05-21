@@ -5,6 +5,7 @@ class StartedChallengeUpdate < ActiveRecord::Base
   after_create :add_points_for_updating_challenge
 
   def add_points_for_updating_challenge
-    self.profile_started_challenge.profile.point_overview.add_points(1, self.challenge.progress_category)
+    _self = self
+    self.profile_started_challenge.profile.point_overview.add_points(1, _self.challenge.progress_category)
   end
 end
