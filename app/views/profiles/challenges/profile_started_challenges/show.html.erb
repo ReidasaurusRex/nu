@@ -1,6 +1,6 @@
 <div class="profile-started-challenges profile-started-challenges-show">
   <h2><%= @profile_started_challenge.challenge.title %> <span>Started <%= @profile_started_challenge.start_date %></span></h2>
-  <h3><%= @profile_started_challenge.challenge.caption %> <span><%= @profile_started_challenge.challenge.points %></span></h3>
+  <h3><%= @profile_started_challenge.challenge.caption %> <span>+<%= @profile_started_challenge.challenge.points %></span></h3>
   <ul class="check-in-list inline-list">
     <% @profile_started_challenge.started_challenge_updates.each do |update| %>
     <li>Checkin <%= update.update_number %>: <%= update.difficulty %></li>
