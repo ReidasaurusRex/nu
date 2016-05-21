@@ -24,7 +24,7 @@ class Transportation < ActiveRecord::Base
       prior_footprint_completion = self.footprint.complete?
       self.footprint.update(transportation_emissions: emissions)
       self.footprint.update_total_if_complete
-      self.footprint.post_if_first_completion(prior_footprint_completion)
+      self.footprint.post_and_score_if_first_completion(prior_footprint_completion)
     end
   end
 

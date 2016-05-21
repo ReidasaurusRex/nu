@@ -41,7 +41,7 @@ class Profiles::Footprints::DietsController < Inheritance::CalculatorComponentsC
       @diet.update(section_emissions: emissions)
       @footprint.update(diet_emissions: emissions)
       @footprint.update_total_if_complete
-      @footprint.post_if_first_completion(prior_footprint_completion)
+      @footprint.post_and_score_if_first_completion(prior_footprint_completion)
       flash[:calculator_message] = "Diet emissions: #{emissions}lbs CO2e"
       redirect_to next_component_path(@diet)
     else
