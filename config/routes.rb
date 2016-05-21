@@ -53,7 +53,7 @@
       end # follow_system module
       scope module: 'challenges' do 
         resources :profile_started_challenges, only: [:index, :create, :show]
-        resources :profile_completed_challenges, except: [:new, :destroy]
+        resources :profile_completed_challenges, except: [:new, :create, :destroy]
       end
     end # profile module
   end
@@ -95,7 +95,7 @@
   scope module: 'profiles' do 
     scope module: 'challenges' do
       resources :profile_started_challenges, only: [:index, :create, :show] do 
-        resources :profile_completed_challenges, only: :new
+        resources :profile_completed_challenges, only: [:new, :create]
         resources :started_challenge_updates, only: [:new, :create]
       end
     end # challenges module

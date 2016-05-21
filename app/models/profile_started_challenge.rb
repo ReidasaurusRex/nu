@@ -10,4 +10,10 @@ class ProfileStartedChallenge < ActiveRecord::Base
   def add_points_for_starting_challenge
     self.profile.point_overview.add_points(2, self.challenge.progress_category)
   end
+
+  def average_difficulty
+    total_difficulty = self.started_challenge_updates.pluck(:difficulty).reduce(:+)
+    binding.pry
+    return (total_difficulty.to_f / self.started_challenge_updates.length).round(1)
+  end
 end
