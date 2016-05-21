@@ -1,2 +1,26 @@
-<h1>StartedChallengeUpdates#new</h1>
-<p>Find me in app/views/started_challenge_updates/new.html.erb</p>
+<div class="started-challenge-updates started-challenge-updates-new">
+  <h2><%= @profile_started_challenge.challenge.title %> <span>How's this going?</span></h2>
+  <%= form_for(@started_challenge_update, url: profile_started_challenge_started_challenge_updates_path(@profile_started_challenge.id), method: :post) do |f| %>
+    <ul class="radio-button-list inline-list">
+      <li>
+        <%= f.radio_button :difficulty, "1" %>
+        <%= f.label :difficulty, "Killin' it" %>
+      </li>
+      <li>
+        <%= f.radio_button :difficulty, "2" %>
+        <%= f.label :difficulty, "Working on it." %>
+      </li>
+      <li>
+        <%= f.radio_button :difficulty, "3" %>
+        <%= f.label :difficulty, "Not as well as I'd like" %>
+      </li>
+      <li>
+        <%= f.radio_button :difficulty, "4" %>
+        <%= f.label :difficulty, "Help me!" %>
+      </li>
+      <li class="submit-form">
+        <%= f.submit %>
+      </li>
+    </ul>
+  <% end %>
+</div>
