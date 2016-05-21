@@ -1,2 +1,11 @@
-<h1>ProfileStartedChallenges#show</h1>
-<p>Find me in app/views/profile_started_challenges/show.html.erb</p>
+<div class="profile-started-challenges profile-started-challenges-show">
+  <h2><%= @profile_started_challenge.challenge.title %> <span>Started <%= @profile_started_challenge.start_date %></span></h2>
+  <h3><%= @profile_started_challenge.challenge.caption %> <span><%= @profile_started_challenge.challenge.points %></span></h3>
+  <ul class="check-in-list inline-list">
+    <% @profile_started_challenge.started_challenge_updates.each do |update| %>
+    <li>Checkin <%= update.update_number %>: <%= update.difficulty %></li>
+    <% end %>
+  </ul>
+  <p><%= @profile_started_challenge.challenge.description %></p>
+  <h4><%= challenge_complete_or_check_in_link(@profile_started_challenge) %> <%= link_to "Back to challenges", profile_profile_started_challenges_path(profile_id: @profile.id) %></h4>
+</div>

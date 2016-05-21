@@ -15,4 +15,8 @@ class ProfileStartedChallenge < ActiveRecord::Base
     total_difficulty = self.started_challenge_updates.pluck(:difficulty).reduce(:+)
     return (total_difficulty.to_f / self.started_challenge_updates.length).round(1)
   end
+
+  def start_date
+    self.created_at.strftime("%B %d, %Y")
+  end
 end

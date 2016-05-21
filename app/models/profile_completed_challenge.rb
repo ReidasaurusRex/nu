@@ -7,4 +7,8 @@ class ProfileCompletedChallenge < ActiveRecord::Base
   def add_points_for_completing_challenge
     self.profile.point_overview.add_points(self.challenge.points, self.challenge.progress_category)
   end
+
+  def completion_date
+    self.created_at.strftime("%B %d, %Y")
+  end
 end
