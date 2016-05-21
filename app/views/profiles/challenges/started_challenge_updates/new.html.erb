@@ -1,5 +1,6 @@
 <div class="started-challenge-updates started-challenge-updates-new">
   <h2><%= @profile_started_challenge.challenge.title %> <span>How's this going?</span></h2>
+
   <%= form_for(@started_challenge_update, url: profile_started_challenge_started_challenge_updates_path(@profile_started_challenge.id), method: :post) do |f| %>
     <ul class="radio-button-list inline-list">
       <li>
@@ -23,4 +24,5 @@
       </li>
     </ul>
   <% end %>
+  
 </div>

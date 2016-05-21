@@ -1,2 +1,9 @@
-<h1>ProfileCompletedChallenges#new</h1>
-<p>Find me in app/views/profile_completed_challenges/new.html.erb</p>
+<div class="profile-completed-challenges profile-completed-challenges-new">
+  <h2><% @profile_completed_challenge.challenge.title %></h2>
+    <%= form_for(@profile_completed_challenge, url: profile_profile_completed_challenges_path(@profile.id), method: :post) do |f| %>
+    <%= f.text_area :entry, rows: 3 %>
+    <%= f.hidden_field :challenge_id, value: @profile_completed_challenge.challenge_id %>
+    <%= f.hidden_field :progress_category, value: @profile_completed_challenge.progress_category %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
