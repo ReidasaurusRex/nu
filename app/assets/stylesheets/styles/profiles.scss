@@ -25,6 +25,10 @@
   vertical-align: top;
 }
 
+.profile-overview .profile-pic-with-link {
+  text-align: center;
+}
+
 .profile-overview .profile-pic {
   background: #D8DFE6;
   height: 200px;
@@ -48,6 +52,20 @@
   color: $faded-gray;
   font-size: 0.9em;
 }
+
 .profile-overview .social-summary-and-interests {
   margin-left: 100px;
+}
+
+.feed-summary {
+  width: 40%;
+}
+
+.feed-summary .new-newsfeed-item, .feed-summary .newsfeed-item {
+  box-shadow: 5px 5px 5px $nu-red;
+  padding: 15px;
+}
+
+.feed-summary .newsfeed-item {
+  margin-top: 20px;
 }

@@ -1,5 +1,4 @@
 <div class="profile-show">
-<% binding.pry %>
   <div class="profile-overview">
     <%= render partial: "profiles/profile_overview", locals: {profile: @profile, user_profile: @user.profile} %>
   </div>
@@ -13,6 +12,10 @@
     <div class="profile-relation following-summary">
       <%=  render partial: "subscriptions_summary", locals: {subscriptions: @profile.subscriptions, user: @user} %>
     </div> <!-- profile-relation following-summary -->
+
+    <div class="feed-summary">
+      <%= render partial: "feed_summary", locals: {profile: @profile} %>
+    </div>
   
   <% else %>
 
