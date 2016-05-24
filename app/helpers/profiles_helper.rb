@@ -44,4 +44,12 @@ module ProfilesHelper
       return link_to("Follow", profile_pending_subscriptions_path(profile_id: user_profile.id, pending_subscription: {profile_id: user_profile.id, pending_following_id: target_profile.id}), method: :post).html_safe
     end 
   end
+
+  def edit_follow_unfollow_link(profile, user_profile)
+    if profile == user_profile
+      return link_to("Edit profile", edit_profile_path(user_profile))
+    else
+      following_pending_or_not_link(user_profile, profile)
+    end
+  end
 end

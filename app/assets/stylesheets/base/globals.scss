@@ -1,8 +1,11 @@
 body {
+  background-color: #E7EEF6;
   color: #464646;
   font-family: sans-serif;
-  margin-left: 2%;
-  margin-right: 2%;
+}
+
+body > div, body > table, body > .main-body {
+  background-color: white;
 }
 
 h1 {

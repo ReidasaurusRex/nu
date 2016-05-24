@@ -1,0 +1,16 @@
+<div class="image-name-points">
+  <div class="profile-pic-with-link">
+    <div class="profile-pic"></div>
+    <h4><%= edit_follow_unfollow_link(profile, user_profile) %></h4>
+  </div>
+  <div class="name-and-points">
+    <h2><%= profile.full_name %></h2>
+    <h2><%= profile.point_overview.total %>pts</h2>
+  </div>
+</div>
+
+<div class="interests">
+  <h2>Interests</h2>
+  <p><%= profile.interests %></p>
+</div>
+

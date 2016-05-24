@@ -1,9 +1,5 @@
-.profile-show h1:first-child {
-  margin-bottom: 8px;
-}
-
 .profile-show > a, .profile-show > div {
-  margin-top: 30px;
+  // margin-top: 30px;
 }
 
 .follow-subscribe-summary td {
@@ -13,4 +9,37 @@
 
 .follow-subscribe-summary td:first-child {
   border-right: 1px solid black;
+}
+
+.profile-overview > div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.profile-overview .image-name-points {
+  height: 250px;
+}
+
+.profile-overview .image-name-points > div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.profile-overview .profile-pic {
+  background: #D8DFE6;
+  height: 200px;
+  margin-bottom: 15px;
+  width: 200px;
+}
+
+.name-and-points, .interests  {
+  margin-top: 50px;
+}
+
+.image-name-points .name-and-points {
+  padding-left: 20px;
+}
+
+.profile-overview .interests {
+  margin-left: 100px;
 }
