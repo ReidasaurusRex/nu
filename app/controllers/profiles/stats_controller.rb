@@ -1,4 +1,4 @@
-class StatsController < ApplicationController
+class Profiles::StatsController < Inheritance::ProfileMatchesUserController
   def index
   end
 end
