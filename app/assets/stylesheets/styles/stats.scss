@@ -49,3 +49,22 @@
   margin: 10px;
   min-width: 100px;
 }
+
+.point-breakdown > div {
+  display: inline-block;
+  width: 49%;
+}
+
+.point-breakdown .point-overview-numbers {
+  margin-left: 400px;
+  text-align: left;
+}
+
+.point-breakdown .point-overview-numbers li {
+  margin-top: 20px;
+}
+
+.point-overview-numbers li span {
+  color: $faded-gray;
+  padding-left: 25px;
+}
