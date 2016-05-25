@@ -1,4 +1,5 @@
 <div class="stats-index">
+  
   <div class="calculator-and-leaderboard left-side">
     <div class="calculator-reminder">
       <%= render partial: "profiles/stats/calculator_reminder", locals: {profile: @profile} %>
@@ -8,7 +9,7 @@
     </div>
   </div>
 
-  <div class="emissions-overviews right-side">
+  <div class="emissions-points-overview right-side">
     <div class="us-allotment">
       <%= render partial: "profiles/stats/us_allotment", locals: {profile: @profile} %>
     </div>
@@ -16,13 +17,14 @@
       <div class="worlds-used">
         <%= render partial: "profiles/stats/worlds_used", locals: {profile: @profile} %>
       </div>
-      <div class="emissions-sections">
+      <div class="emissions-sections right-side">
         <%= render partial: "profiles/stats/emissions_sections", locals: {profile: @profile} %>
       </div>
     </div>
+    <div class="point-breakdown">
+     <%= render partial: "profiles/stats/point_breakdown", locals: {profile: @profile} %>
+    </div>
   </div>
 
-  <div class="point-breakdown right-side">
-    <%= render partial: "profiles/stats/point_breakdown", locals: {profile: @profile} %>
-  </div>
+  
 </div>
