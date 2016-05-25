@@ -46,4 +46,8 @@ class Footprint < ActiveRecord::Base
       profile.post_to_followers("Completed an emissions assessment", "#{profile.first_name.capitalize} checked out their carbon footprint, and it's at #{self.total_emissions}lbs of CO2e!")
     end
   end
+
+  def percent_of_us_allotment
+    return ((self.total_emissions.to_f / 1980) * 100).round
+  end
 end
