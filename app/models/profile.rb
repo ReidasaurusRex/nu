@@ -81,4 +81,10 @@ class Profile < ActiveRecord::Base
     overviews = PointOverview.order(category => :desc)
     return overviews.index{|overview| overview.profile_id == self.id} + 1
   end
+
+  def last_finished_footprint
+    finished_footprints = self.footprints.select{|footprint| footprint.total_emissions}
+    return finished_footprints.last unless finished_footprints.empty?
+    return false
+  end
 end

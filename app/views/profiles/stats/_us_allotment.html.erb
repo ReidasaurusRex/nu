@@ -1,1 +1,6 @@
 <h2>US Allotment</h2>
+<% if profile.footprints.empty? || profile.last_finished_footprint == false %>
+  <h3>Pending</h3>
+<% else %>
+  <h3>Last assessment: <%= profile.last_finished_footprint.percent_of_us_allotment %>%</h3>
+<% end %>
