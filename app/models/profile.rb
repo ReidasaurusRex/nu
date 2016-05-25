@@ -77,4 +77,8 @@ class Profile < ActiveRecord::Base
     end
   end
 
+  def current_place(category=:total)
+    overviews = PointOverview.order(category => :desc)
+    return overviews.index{|overview| overview.profile_id == self.id} + 1
+  end
 end
