@@ -1,1 +1,28 @@
-<h2>Emissions Section</h2>
+<h2>CO2e</h2>
+<% if profile.footprints.empty? || profile.last_finished_footprint == false %>
+  <h3>Pending</h3>
+<% else %>
+  <h3>Total: <%= profile.last_finished_footprint.total_emissions %></h3>
+  <div class="footprint-sections">
+    <div>
+      <h4><%= profile.last_finished_footprint.water_emissions %></h4>
+      <h4>Water</h4>
+    </div>
+    <div>
+      <h4><%= profile.last_finished_footprint.waste_emissions %></h4>
+      <h4>Waste</h4>
+    </div>
+    <div>
+      <h4><%= profile.last_finished_footprint.diet_emissions %></h4>
+      <h4>Diet</h4>
+    </div>
+    <div>
+      <h4><%= profile.last_finished_footprint.transportation_emissions %></h4>
+      <h4>Transportation</h4>
+    </div>
+    <div>
+      <h4><%= profile.last_finished_footprint.home_energy_emissions %></h4>
+      <h4>Energy</h4>
+    </div>
+  </div> <!-- footprint-sections -->
+<% end %>
