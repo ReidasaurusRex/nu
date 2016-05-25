@@ -1,2 +1,28 @@
 <div class="stats-index">
+  <div class="calculator-and-leaderboard left-side">
+    <div class="calculator-reminder">
+      <%= render partial: "profiles/stats/calculator_reminder", locals: {profile: @profile} %>
+    </div>
+    <div class="leaderboard-overview">
+      <%= render partial: "profiles/stats/leaderboard_overview", locals: {profile: @profile} %>
+    </div>
+  </div>
+
+  <div class="emissions-overviews right-side">
+    <div class="us-allotment">
+      <%= render partial: "profiles/stats/us_allotment", locals: {profile: @profile} %>
+    </div>
+    <div class="worlds-and-sections">
+      <div class="worlds-used">
+        <%= render partial: "profiles/stats/worlds_used", locals: {profile: @profile} %>
+      </div>
+      <div class="emissions-sections">
+        <%= render partial: "profiles/stats/emissions_sections", locals: {profile: @profile} %>
+      </div>
+    </div>
+  </div>
+
+  <div class="point-breakdown right-side">
+    <%= render partial: "profiles/stats/point_breakdown", locals: {profile: @profile} %>
+  </div>
 </div>
