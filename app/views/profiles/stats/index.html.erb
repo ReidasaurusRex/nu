@@ -13,13 +13,8 @@
     <div class="us-allotment">
       <%= render partial: "profiles/stats/us_allotment", locals: {profile: @profile} %>
     </div>
-    <div class="worlds-and-sections">
-      <div class="worlds-used">
-        <%= render partial: "profiles/stats/worlds_used", locals: {profile: @profile} %>
-      </div>
-      <div class="co2e-overview right-side">
-        <%= render partial: "profiles/stats/emissions_sections", locals: {profile: @profile} %>
-      </div>
+    <div class="co2e-overview">
+      <%= render partial: "profiles/stats/emissions_sections", locals: {profile: @profile} %>
     </div>
     <div class="point-breakdown">
      <%= render partial: "profiles/stats/point_breakdown", locals: {profile: @profile} %>

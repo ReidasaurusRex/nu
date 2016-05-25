@@ -1,6 +1,0 @@
-<h2>Worlds Used</h2>
-<% if profile.footprints.empty? || profile.last_finished_footprint == false %>
-  <h3>Pending</h3>
-<% else %>
-  <h3>Last assessment: <%= profile.last_finished_footprint.number_of_worlds_used %></h3>
-<% end %>

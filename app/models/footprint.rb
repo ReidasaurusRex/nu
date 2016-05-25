@@ -50,8 +50,4 @@ class Footprint < ActiveRecord::Base
   def percent_of_us_allotment
     return ((self.total_emissions.to_f / 1980) * 100).round
   end
-
-  def number_of_worlds_used
-    return (self.total_emissions.to_f / 94.2).round(1)
-  end
 end
