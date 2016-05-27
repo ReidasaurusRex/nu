@@ -51,12 +51,14 @@
 }
 
 .point-breakdown > div {
-  display: inline-block;
+  display: inline-block; 
+  height: 340px;
   width: 49%;
+  vertical-align: top;
 }
 
-.point-breakdown .point-overview-numbers {
-  margin-left: 400px;
+.point-breakdown .point-overview-numbers ul {
+  margin-left: 40px;
   text-align: left;
 }
 

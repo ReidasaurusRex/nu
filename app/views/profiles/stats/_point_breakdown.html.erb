@@ -1,5 +1,7 @@
 <h2>Point Breakdown</h2>
-<div class="point-overview-graph"></div>
+<%= content_tag "div", id: "point-overview-graph", data: {point_overview: profile.point_overview.graph_data} do  %>
+  Loading points...
+<% end %>
 <div class="point-overview-numbers">
 <h3>Total: <%= profile.point_overview.total %>pts</h3>
   <ul class="point-categories">
