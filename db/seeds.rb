@@ -86,12 +86,12 @@ rprof.profile_completed_challenges.create([
 
 
 rprof.footprints.create([
-  {total_emissions: 5000, water_emissions: 100, diet_emissions: 685, transportation_emissions: 3561, waste_emissions: 100, home_energy_emissions: 554},
-  {total_emissions: 4000, water_emissions: 1000, diet_emissions: 868, transportation_emissions: 1200, waste_emissions: 132, home_energy_emissions: 800},
-  {total_emissions: 3100, water_emissions: 600, diet_emissions: 451, transportation_emissions: 1049, waste_emissions: 70, home_energy_emissions: 930}, 
-  {total_emissions: 1980, water_emissions: 120, diet_emissions: 612, transportation_emissions: 800, waste_emissions: 50, home_energy_emissions: 398}, 
-  {total_emissions: 990, water_emissions: 90, diet_emissions: 420, transportation_emissions: 250, waste_emissions: 30, home_energy_emissions: 200}, 
-  {total_emissions: 495, water_emissions: 95, diet_emissions: 246, transportation_emissions: 0, waste_emissions: 54, home_energy_emissions: 100}])
+  {total_emissions: 5000, water_emissions: 100, diet_emissions: 685, transportation_emissions: 3561, waste_emissions: 100, home_energy_emissions: 554, created_at: Time.new(2016, 1, 13), updated_at: Time.new(2016, 1, 13)},
+  {total_emissions: 4000, water_emissions: 1000, diet_emissions: 868, transportation_emissions: 1200, waste_emissions: 132, home_energy_emissions: 800, created_at: Time.new(2016, 2, 12), updated_at: Time.new(2016, 2, 12)},
+  {total_emissions: 3100, water_emissions: 600, diet_emissions: 451, transportation_emissions: 1049, waste_emissions: 70, home_energy_emissions: 930, created_at: Time.new(2016, 3, 15), updated_at: Time.new(2016, 3, 15)}, 
+  {total_emissions: 1980, water_emissions: 120, diet_emissions: 612, transportation_emissions: 800, waste_emissions: 50, home_energy_emissions: 398, created_at: Time.new(2015, 12, 22), updated_at: Time.new(2015, 12, 22)},
+  {total_emissions: 990, water_emissions: 90, diet_emissions: 420, transportation_emissions: 250, waste_emissions: 30, home_energy_emissions: 200, created_at: Time.new(2016, 4, 24), updated_at: Time.new(2016, 4, 24)}, 
+  {total_emissions: 495, water_emissions: 95, diet_emissions: 246, transportation_emissions: 0, waste_emissions: 54, home_energy_emissions: 100, created_at: Time.new(2016, 5, 26), updated_at: Time.new(2016, 5, 26)}])
 
 BlogPost.create([
   {author_id: 4, title: "Civiliation, Consumerism, and Taking Risks", description: "Reid talks about the rise of consumerism in our culture, and the potential beauty of breaking free of it.", body: "I feel like I should begin with a disclaimer. With some posts, I feel somewhat qualified to talk about the things I'm talking about. Whether that is due to a class, a good book I read, or probings to my internal feelings, I sort of feel like maybe I know what I'm talking about. This post is different. I have no idea what I'm talking about. It's just a compilation of a lot of seemingly unrelated thoughts into a coherent piece. Personally, I think it's kind of neat. I hope you find the same.<PARAGRAPH>

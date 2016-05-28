@@ -87,4 +87,12 @@ class Profile < ActiveRecord::Base
     return finished_footprints.last unless finished_footprints.empty?
     return false
   end
+
+  def footprint_overview_data
+    overview_data = []
+    self.footprints.order(:created_at).each do |footprint|
+      overview_data.push([(footprint.created_at.to_f * 1000), footprint.total_emissions])
+    end
+    return overview_data
+  end
 end

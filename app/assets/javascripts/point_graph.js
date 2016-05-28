@@ -8,7 +8,6 @@ $(document).on('page:load', ready); // turbolinks friendly
 
 function drawPointGraph(data) {
   if ($('#point-overview-graph').length > 0) {
-    console.log(data);
     new Highcharts.Chart({
       chart: {
         renderTo: 'point-overview-graph',
