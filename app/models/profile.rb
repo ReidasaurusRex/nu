@@ -12,6 +12,8 @@ class Profile < ActiveRecord::Base
   has_many :pending_followings, through: :pending_subscriptions
   has_many :newsfeed_item_profiles, dependent: :destroy
   has_many :newsfeed_items, through: :newsfeed_item_profiles
+  has_many :profile_feeds, dependent: :destroy
+  has_many :feeds, through: :profile_feeds
 
   # Challenge relations
   has_many :profile_started_challenges, dependent: :destroy
