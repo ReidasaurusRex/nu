@@ -1,0 +1,2 @@
+class ProfileFeedsController < ApplicationController
+end

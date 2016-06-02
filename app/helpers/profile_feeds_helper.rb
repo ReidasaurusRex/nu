@@ -1,0 +1,2 @@
+module ProfileFeedsHelper
+end
