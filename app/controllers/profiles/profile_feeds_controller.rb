@@ -1,2 +1,3 @@
-class ProfileFeedsController < ApplicationController
+class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserController
+  
 end
