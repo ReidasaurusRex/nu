@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602192325) do
+ActiveRecord::Schema.define(version: 20160602230231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160602192325) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "suggested"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -212,6 +213,13 @@ ActiveRecord::Schema.define(version: 20160602192325) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "progress_category"
+  end
+
+  create_table "profile_feeds", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profile_started_challenges", force: :cascade do |t|
