@@ -79,6 +79,14 @@
   end
   # newsfeed 
 
+  # Feed entries routes
+  resources :profile_feeds, module: 'profiles' do 
+      scope module: 'profile_feeds' do 
+        resources :entries, only: :index
+      end # profile_feed module
+  end
+  # feed entries
+
   # Footprint component routes
   scope module: 'profiles' do
     scope module: 'footprints' do 

@@ -3,7 +3,7 @@
   width: 250px;
 }
 
-.profile-feeds-index .profile-feeds-list a {
+.profile-feeds li a {
   color: $nu-blue;
   text-decoration: none;
 }
@@ -25,3 +25,6 @@
   font-size: 0.8em;
 }
 
+.feed-entries li {
+  margin-top: 20px;
+}

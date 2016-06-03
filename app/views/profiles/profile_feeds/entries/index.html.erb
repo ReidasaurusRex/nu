@@ -1,0 +1,8 @@
+<div class="entries-index entries profile-feeds">
+  <h1>Entries for <%= @profile_feed.feed.title %></h1>
+  <ul class="feed-entries">
+    <% @entries.each do |entry| %>
+      <li><%= link_to(entry.title, entry.url) %> - <%= entry.time_since_publish %></li>
+    <% end %>
+  </ul>
+</div>

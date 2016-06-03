@@ -3,8 +3,8 @@ class Feed < ActiveRecord::Base
   has_many :profile_feeds, dependent: :destroy
   has_many :profiles, through: :profile_feeds
 
-  def self.create_from_feedjira_feed(parsed_feed)
-    feed = Feed.new(title: parsed_feed.title, url: parsed_feed.url, description: parsed_feed.description, suggested: false)
+  def self.create_from_feedjira_feed(url, parsed_feed)
+    feed = Feed.new(title: parsed_feed.title, url: url, description: parsed_feed.description, suggested: false)
     if feed.save
       parsed_feed.entries.each do |entry|
         local_entry = feed.entries.where(title: entry.title).first_or_initialize
