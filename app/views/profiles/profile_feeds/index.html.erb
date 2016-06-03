@@ -6,16 +6,37 @@
       <%= f.submit "Add Feed" %>
     <% end %>
   </div>
-  <ul class="profile-feeds-list">
-    <% if @profile.feeds.empty? %>
-      <li>No feeds</li>
-    <% else %>
-      <% @profile.profile_feeds.each do |profile_feed| %>
-        <li>
-          <%= link_to(profile_feed.feed.name, profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id)) %>
-          <%= button_to "Remove", profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), method: :delete %>
-        </li>
+  <div class="current-profile-feeds">
+    <h2>Your Feeds</h2>
+    <ul class="profile-feeds-list">
+      <% if @profile_feeds.empty? %>
+        <li>No feeds</li>
+      <% else %>
+        <% @profile_feeds.each do |profile_feed| %>
+          <li>
+            <%= link_to(profile_feed.feed.name, profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id)) %>
+            <%= button_to "Remove", profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), method: :delete %>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+  </div>
+  <% unless @suggested_feeds.empty? %>
+    <div class="suggested-profile-feeds">
+    <h2>Suggested Feeds</h2>
+      <ul class="profile-feeds-list suggested-feed-list">
+        <% @suggested_feeds.each do |sug_feed| %>
+          <li>
+            <h3>
+              <%= sug_feed.name %>
+              <%= button_to "Add Feed", profile_profile_feeds_path(profile_id: @profile.id, profile_feed: {profile_id: @profile.id, feed_id: sug_feed.id}), method: :post %>
+            </h3>
+            <p><%= sug_feed.description %></p>
+
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 </div>
