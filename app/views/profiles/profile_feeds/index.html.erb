@@ -14,7 +14,7 @@
       <% else %>
         <% @profile_feeds.each do |profile_feed| %>
           <li>
-            <%= link_to(profile_feed.feed.name, profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id)) %>
+            <%= link_to(profile_feed.feed.title, profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id)) %>
             <%= button_to "Remove", profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), method: :delete %>
           </li>
         <% end %>
@@ -28,7 +28,7 @@
         <% @suggested_feeds.each do |sug_feed| %>
           <li>
             <h3>
-              <%= sug_feed.name %>
+              <%= sug_feed.title %>
               <%= button_to "Add Feed", profile_profile_feeds_path(profile_id: @profile.id, profile_feed: {profile_id: @profile.id, feed_id: sug_feed.id}), method: :post %>
             </h3>
             <p><%= sug_feed.description %></p>
