@@ -1,3 +1,21 @@
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/main")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/environmentaljustice")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("https://www.epa.gov/newsreleases/releases/rss/subject/trash-and-recycling")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://dotearth.blogs.nytimes.com/feed/")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/fracking")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/airquality")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/waterquality")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/waterquantity")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/topstories")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/causes")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/economics")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/energy")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/acidification")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/politics")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://blog.epa.gov/blog/feed/")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://dotearth.blogs.nytimes.com/feed/")).update(suggested: true)
+Feed.create_from_feedjira_feed(Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/solutions")).update(suggested: true)
+
 jarrell = User.create(email: "jarrell@nu.world", password: "1234")
 kendra = User.create(email: "kendra@nu.world", password: "1234")
 steven = User.create(email: "steven@nu.world", password: "1234")
@@ -120,3 +138,5 @@ History seems to have this ability to look back with added clarity (more or less
 Yet! This worry is not without its counterpart. I see people from all areas and classes investigating new ways to live their lives, ways that can be kind to themselves and their surroundings. I see a movement of people that in a culture that says MORE! MORE! MORE!, have chosen less. Intentionally. Things like these give me hope.<PARAGRAPH>
 The Peter Pan complex in me still likes to give a romantic, fantastical spin to things. I like to tell myself that there are plenty of demons and dragons to fight in the real world. I struggle often to overcome my addictions so that I can fight them with the courage and discipline I feel they require. I'm hoping that the society I'm living in is right by my side."}
   ])
+
+

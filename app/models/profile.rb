@@ -39,6 +39,7 @@ class Profile < ActiveRecord::Base
 
   after_create :add_default_settings
   after_create :add_point_overview
+  after_create :add_default_feeds
 
   def full_name
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
@@ -55,6 +56,13 @@ class Profile < ActiveRecord::Base
 
   def add_point_overview
     PointOverview.create(profile_id: self.id, total: 0, diet: 0, waste: 0, water: 0, transportation: 0, home_energy: 0, social: 0)
+  end
+
+  def add_default_feeds
+    ProfileFeed.create(profile_id: self.id, feed_id: 1)
+    ProfileFeed.create(profile_id: self.id, feed_id: 2)
+    ProfileFeed.create(profile_id: self.id, feed_id: 3)
+    ProfileFeed.create(profile_id: self.id, feed_id: 4)
   end
 
   def post_to_followers(header, content)
