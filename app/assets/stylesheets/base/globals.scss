@@ -8,6 +8,17 @@ body > div, body > table {
   background-color: white;
 }
 
+.main-body {
+  width: 100%;
+}
+
+.main-body > div {
+  margin: 0 auto;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  width: 50%;
+}
+
 h1 {
   font-size: 3em;
   margin-bottom: 20px;
