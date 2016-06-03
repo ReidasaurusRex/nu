@@ -12,7 +12,8 @@ class PointOverview < ActiveRecord::Base
   end
 
   def section_percent(section)
-    return ((self[section].to_f / self.total) * 100).round
+    return ((self[section].to_f / self.total) * 100).round unless self[section] == 0
+    return 0
   end
 
   def graph_data

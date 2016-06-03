@@ -1,0 +1,21 @@
+<div class="profile-feeds-index profile-feeds">
+  <h1>Manage RSS Feeds</h1>
+  <div class="new-feed-form">
+    <%= form_for(Feed.new, url: profile_feeds_path, method: :post) do |f| %>
+      <%= f.text_field :url, placeholder: "Post RSS Link here " %>
+      <%= f.submit "Add Feed" %>
+    <% end %>
+  </div>
+  <ul class="profile-feeds-list">
+    <% if @profile.feeds.empty? %>
+      <li>No feeds</li>
+    <% else %>
+      <% @profile.profile_feeds.each do |profile_feed| %>
+        <li>
+          <%= link_to(profile_feed.feed.name, profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id)) %>
+          <%= button_to "Remove", profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), method: :delete %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

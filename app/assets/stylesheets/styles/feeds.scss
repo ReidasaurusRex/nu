@@ -1,3 +1,14 @@
-// Place all the styles related to the feeds controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-feeds-index .profile-feeds-list li {
+  margin-top: 20px; 
+  width: 250px;
+}
+
+.profile-feeds-index .profile-feeds-list a {
+  color: $nu-blue;
+  text-decoration: none;
+}
+
+.profile-feeds-index .profile-feeds-list li form {
+  display: inline-block;
+  float: right;
+}

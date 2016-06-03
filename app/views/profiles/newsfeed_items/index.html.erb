@@ -1,5 +1,6 @@
 <div class="newsfeed-index">
   <h1>Your Feed</h1>
+  <h4><%= link_to "Manage RSS Feeds", profile_profile_feeds_path(@profile.id) %></h4>
 
   <% if @profile == @user.profile %>
     <div class="new-newsfeed-item">

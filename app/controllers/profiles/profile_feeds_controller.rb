@@ -9,5 +9,6 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   end
 
   def destroy
+    binding.pry
   end
 end
