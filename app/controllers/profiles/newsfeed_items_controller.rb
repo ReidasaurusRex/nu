@@ -24,7 +24,7 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
 
   private
   def newsfeed_item_params
-    params.require(:newsfeed_item).permit(:header, :content).merge(source_id: @profile.id, type: "profile")
+    params.require(:newsfeed_item).permit(:header, :content).merge(source_id: @profile.id, source_type: "profile")
   end
 
   def get_newsfeed_item

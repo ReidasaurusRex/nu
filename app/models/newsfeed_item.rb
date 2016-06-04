@@ -5,9 +5,9 @@ class NewsfeedItem < ActiveRecord::Base
   has_many :likes
 
   def source
-    if self.type == "profile"
+    if self.source_type == "profile"
       return Profile.find(self.source_id)
-    elsif self.type == "feed"
+    elsif self.source_type == "feed"
       return Feed.find(self.source_id)
     else
       raise "Something went wrong"
