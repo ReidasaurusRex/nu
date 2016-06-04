@@ -36,6 +36,14 @@ class NewsfeedItem < ActiveRecord::Base
     end
   end
 
+  def source_name_or_title(profile)
+    if self.source_type == "feed"
+      return source.title
+    else
+      return self.source_name_or_you(profile)
+    end
+  end
+
   def source_name_or_you(profile)
     if self.source == profile
       return "You"
