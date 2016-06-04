@@ -2,8 +2,17 @@ class NewsfeedItem < ActiveRecord::Base
   has_many :newsfeed_item_profiles, dependent: :destroy
   has_many :profiles, through: :newsfeed_item_profiles
   has_many :comments, dependent: :destroy
-  belongs_to :source, class_name: "Profile"
   has_many :likes
+
+  def source
+    if self.type == "profile"
+      return Profile.find(self.source_id)
+    elsif self.type == "feed"
+      return Feed.find(self.source_id)
+    else
+      raise "Something went wrong"
+    end
+  end
 
   def time_since_creation
     time_array = [[3153600 ,"year"], [2592000, "month"], [86400, "day"], [3600, "hour"], [60, "min"], [1, "sec"]]

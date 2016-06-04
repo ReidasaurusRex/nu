@@ -66,8 +66,9 @@ class Profile < ActiveRecord::Base
   end
 
   def post_to_followers(header, content)
+    newsfeed_item = NewsfeedItem.create(type: "profile", source_id: self.id, header: header, content: content)
     self.followers.each do |follower|
-      follower.newsfeed_items.create(source_id: self.id, header: header, content: content)
+      follower.newsfeed_item_profiles.create(newsfeed_item_id: newsfeed_item.id)
     end
   end
 

@@ -1,4 +1,5 @@
 namespace :sync do
+  desc 'Update RSS content'
   task feeds: [:environment] do
     Feed.all.each do |feed|
       content = Feedjira::Feed.fetch_and_parse feed.url
