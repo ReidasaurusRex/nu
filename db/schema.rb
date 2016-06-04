@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603212126) do
+ActiveRecord::Schema.define(version: 20160604161922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,11 +152,11 @@ ActiveRecord::Schema.define(version: 20160603212126) do
 
   create_table "newsfeed_items", force: :cascade do |t|
     t.integer  "source_id"
-    t.string   "type"
+    t.string   "source_type"
     t.string   "header"
     t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "notifications", force: :cascade do |t|
