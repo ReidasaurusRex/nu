@@ -30,11 +30,20 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   def create_profile_feed(params)
     @profile_feed = ProfileFeed.new(params)
     if @profile_feed.save
+      add_recent_newsfeed_items_to_profile_feed(@profile_feed)
       flash[:success] = "Added feed: #{@profile_feed.feed.title}"
       redirect_to profile_profile_feeds_path(@profile.id)
     else
       flash[:error] = "Something went wrong"
       render :index
     end
+  end
+
+  def add_recent_newsfeed_items_to_profile_feed(profile_feed)
+    recent_feed_items = NewsfeedItem.where("source_id = ? AND source_type = ?", profile_feed.feed_id, "feed").last(4)
+    recent_feed_items.each do |feed_item|
+      NewsfeedItemProfile.create(newsfeed_item_id: feed_item.id, profile_id: profile_feed.profile_id)
+    end
+    binding.pry
   end
 end
