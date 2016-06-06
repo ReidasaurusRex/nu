@@ -1,10 +1,9 @@
 .dropdown-menu {
-  border-right: 1px solid $nu-blue;
-  border-left: 1px solid $nu-blue;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   display: none;
   float: right;
   position: absolute;
-  right: 0;
+  right: 50px;
   width: 300px;
 }
 
@@ -16,6 +15,10 @@
   line-height: 40px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.dropdown-menu li:last-child {
+  border: none;
 }
 
 .dropdown-menu .profile-menu-summary {
