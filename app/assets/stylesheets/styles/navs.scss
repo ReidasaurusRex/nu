@@ -1,4 +1,5 @@
 .top-nav { 
+  border-bottom: 1px solid $nu-blue;
   height: 80px;
   width: 100%;
 }
@@ -19,8 +20,15 @@
   width: 32%;
 }
 
-.top-nav {
-  border-bottom: 1px solid $nu-blue;
+.top-nav a {
+  color: #7E908E;
+  text-decoration: none;
+}
+
+.top-nav .primary-links > div:hover {
+  a {color: #8BD1CA;}
+  border-bottom: 2px solid #8BD1CA;
+  padding-top: 1px;
 }
 
 .top-nav #home-logo {
