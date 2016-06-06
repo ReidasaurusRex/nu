@@ -1,7 +1,5 @@
 <li class="profile-menu-summary">
-  <ul>
-      <li><%= profile.full_name %></li>
-      <li><%= profile.point_overview.total %>pts</li>
-      <li><%= link_to "View profile", profile_path(profile) %></li>
-    </ul>  
+  <%= image_tag(profile.profile_pic, class: "profile-summary-pic") %>
+  <h3 class="profile-summary-name"><%= profile.full_name %></h3>
+  <h4 class="profile-summary-link"><%= link_to "View profile", profile_path(profile) %></h3>
 </li>
