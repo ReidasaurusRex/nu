@@ -1,14 +1,14 @@
 function ready() {
-  var footprintsData = $('#footprint-line-graph').data('footprintOverview');
-  var convertedData = convertedDateData(footprintsData);
-  drawFootprintsGraph(convertedData);
+  drawFootprintsGraph();
 }
 
 $(document).ready(ready); 
 $(document).on('page:load', ready); // turbolinks friendly
 
-function drawFootprintsGraph(data) {
+function drawFootprintsGraph() {
   if ($('#footprint-line-graph').length > 0) {
+    var footprintsData = $('#footprint-line-graph').data('footprintOverview');
+    var convertedData = convertedDateData(footprintsData);
     new Highcharts.Chart({
       chart: {
         renderTo: 'footprint-line-graph',
@@ -46,7 +46,7 @@ function drawFootprintsGraph(data) {
       colors: ['#B7DC78'],
       series: [{
         name: 'Emisions', 
-        data: data
+        data: convertedData
       }]
     });
   }

@@ -1,5 +1,5 @@
 .dropdown-menu {
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
   display: none;
   float: right;
   position: absolute;
@@ -16,6 +16,11 @@
   padding-left: 15px;
   padding-right: 15px;
   text-align: center;
+}
+
+.dropdown-menu li a {
+  color: black;
+  text-decoration: none;
 }
 
 .dropdown-menu li:last-child {
