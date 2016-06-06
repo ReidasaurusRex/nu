@@ -1,0 +1,20 @@
+<% if pending_follows.empty? %>
+    <li class="pending-follow-list-item">
+      No pending followers!
+    </li>
+  <% else %>
+    <% pending_follows.last(4).reverse.each do |pending_follow| %>
+      <li class="pending-follow-list-item">
+          <%= pending_follow.pending_follower.full_name %>
+          <span class="right-side">
+            <%= link_to "<i class='fa fa-check'></i>".html_safe, profile_follows_path(profile_id: @profile.id, follower_id: pending_follow.pending_follower_id), method: :post%>
+            <%= link_to "<i class='fa fa-times'></i>".html_safe, profile_pending_follow_path(profile_id: @profile.id, id: pending_follow.id), method: :delete %>
+          </span>
+      </li>
+    <% end %>
+    <% if pending_follows.length > 4 %>
+      <li class="pending-follow-list-item">
+        <%= link_to "View all", profile_pending_follows_path(profile_id: profile.id) %>
+      </li>
+    <% end %>
+  <% end %>

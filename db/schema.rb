@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505173625) do
+ActiveRecord::Schema.define(version: 20160604161922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,10 +49,19 @@ ActiveRecord::Schema.define(version: 20160505173625) do
     t.string   "title"
     t.string   "caption"
     t.string   "description"
-    t.string   "points"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "progress_category"
+    t.integer  "difficulty"
+    t.integer  "points"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "newsfeed_item_id"
+    t.string   "profile_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "text"
   end
 
   create_table "diets", force: :cascade do |t|
@@ -61,6 +70,26 @@ ActiveRecord::Schema.define(version: 20160505173625) do
     t.integer  "section_emissions"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "published"
+    t.text     "summary"
+    t.string   "url"
+    t.string   "author"
+    t.integer  "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "suggested"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -107,23 +136,37 @@ ActiveRecord::Schema.define(version: 20160505173625) do
     t.datetime "updated_at",            null: false
   end
 
-  create_table "newsfeed_items", force: :cascade do |t|
+  create_table "likes", force: :cascade do |t|
+    t.integer  "newsfeed_item_id"
     t.integer  "profile_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "newsfeed_item_profiles", force: :cascade do |t|
+    t.integer  "newsfeed_item_id"
+    t.integer  "profile_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "newsfeed_items", force: :cascade do |t|
     t.integer  "source_id"
-    t.string   "type"
+    t.string   "source_type"
     t.string   "header"
     t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "profile_id"
-    t.integer  "source_id"
     t.boolean  "unseen"
-    t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
+    t.string   "text"
+    t.string   "link"
   end
 
   create_table "pending_follows", force: :cascade do |t|
@@ -140,6 +183,19 @@ ActiveRecord::Schema.define(version: 20160505173625) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "point_overviews", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "total"
+    t.integer  "diet"
+    t.integer  "waste"
+    t.integer  "water"
+    t.integer  "transportation"
+    t.integer  "home_energy"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "social"
+  end
+
   create_table "privacy_settings", force: :cascade do |t|
     t.integer  "profile_id"
     t.string   "display_location"
@@ -149,13 +205,28 @@ ActiveRecord::Schema.define(version: 20160505173625) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "profile_challenges", force: :cascade do |t|
+  create_table "profile_completed_challenges", force: :cascade do |t|
     t.integer  "profile_id"
     t.integer  "challenge_id"
-    t.string   "completion_entry"
+    t.string   "entry"
+    t.float    "average_difficulty"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "progress_category"
+  end
+
+  create_table "profile_feeds", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profile_started_challenges", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "challenge_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.boolean  "completed"
     t.string   "progress_category"
   end
 
@@ -190,6 +261,15 @@ ActiveRecord::Schema.define(version: 20160505173625) do
     t.boolean  "footprint"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "started_challenge_updates", force: :cascade do |t|
+    t.integer  "profile_started_challenge_id"
+    t.integer  "challenge_id"
+    t.integer  "difficulty"
+    t.integer  "update_number"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|

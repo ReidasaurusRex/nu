@@ -2,13 +2,21 @@
   <div class="newsfeed-item">
     
     <div class="newsfeed-header">
-      <h3><%= feed_item.source_name_or_you %></h3>
+      <h3><%= feed_item.source_name_or_title(profile).html_safe %></h3>
       <h5><%= feed_item.time_since_creation %></h5>
       <h3><%= feed_item.header %></h3>
     </div>
     
     <div class="newsfeed-content">
       <p><%= feed_item.content %></p>
+    </div>
+
+    <div class="likes-overview">
+      <%= like_button(feed_item, profile) %> <span class="like-number"><%= like_number(feed_item) %></span>
+    </div>
+
+    <div class="comments-overview">
+      <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>
     </div>
 
   </div> <!-- newsfeed-item -->

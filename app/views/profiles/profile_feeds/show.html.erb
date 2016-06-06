@@ -1,0 +1,17 @@
+<div class="profile-feeds profile-feeds-show">
+  <h1 class="feed-title"><%= @profile_feed.feed.title %></h1>
+  <p class="feed-description"><%= @profile_feed.feed.description %></p>
+  <ul class="feed-entries">
+    <% @profile_feed.feed.entries.last(5).each do |entry| %>
+      <li>
+        <%= link_to(entry.title, entry.url) %>
+         - <%= entry.time_since_publish %>
+      </li>
+    <% end %>
+    <% if @profile_feed.feed.entries.length > 5 %>
+      <li>
+        <%= link_to("View all entries", profile_feed_entries_path(profile_feed_id: @profile_feed.id)) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

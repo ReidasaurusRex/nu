@@ -3,7 +3,7 @@
   <h2><%= @challenge.caption %></h2>
   <p><%= @challenge.description %></p>
   <h4>
-    <%= link_to("Start challenge", profile_profile_challenges_path(profile_id: @profile.id, profile_challenge: {challenge_id: @challenge.id, progress_category: @challenge.progress_category}), method: :post) %>
-    <%= link_to "Back to challenges", profile_profile_challenges_path(profile_id: @profile.id) %>
+    <%= link_to("Start challenge", profile_profile_started_challenges_path(profile_id: @profile.id, profile_started_challenge: {challenge_id: @challenge.id, progress_category: @challenge.progress_category}), method: :post) %>
+    <%= link_to "Back to challenges", profile_challenges_path(profile_id: @profile.id) %>
   </h4>
 </div>

@@ -1,0 +1,7 @@
+<div class="profile-completed-challenges profile-completed-challenges-index">
+  <h2>Completed challenges</h2>
+  <h5 class="new-challenges-link"><%= link_to "Start a new challenge", profile_challenges_path(profile_id: @profile.id) %></h5>
+  <ul class="completed-challenges-list">
+    <%= render partial: "profiles/challenges/profile_completed_challenges/completed_challenges_list", locals: {profile_completed_challenges: @profile_completed_challenges, profile: @profile} %>
+  </ul>
+</div>

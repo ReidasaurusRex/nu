@@ -1,0 +1,14 @@
+<% if profile_started_challenges.empty? %>
+  <li>No current challenges</li>
+  <li><%= link_to "Start one", profile_challenges_path(profile.id) %></li>
+<% else %>
+  <% profile_started_challenges.each do |profile_started_challenge| %>
+    <li>
+      <h3><%= profile_started_challenge.challenge.title %></h3>
+      <h4><%= profile_started_challenge.challenge.caption %></h4>
+      <h4>
+      <%= link_to "View", profile_profile_started_challenge_path(profile_id: profile.id, id: profile_started_challenge.id) %>
+      <%= challenge_complete_or_check_in_link(profile_started_challenge) %></h4>
+    </li>
+  <% end %>
+<% end %>

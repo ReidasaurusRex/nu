@@ -1,6 +1,18 @@
 class NewsfeedItem < ActiveRecord::Base
-  belongs_to :profile
-  belongs_to :source, class_name: "Profile"
+  has_many :newsfeed_item_profiles, dependent: :destroy
+  has_many :profiles, through: :newsfeed_item_profiles
+  has_many :comments, dependent: :destroy
+  has_many :likes
+
+  def source
+    if self.source_type == "profile"
+      return Profile.find(self.source_id)
+    elsif self.source_type == "feed"
+      return Feed.find(self.source_id)
+    else
+      raise "Something went wrong"
+    end
+  end
 
   def time_since_creation
     time_array = [[3153600 ,"year"], [2592000, "month"], [86400, "day"], [3600, "hour"], [60, "min"], [1, "sec"]]
@@ -24,11 +36,23 @@ class NewsfeedItem < ActiveRecord::Base
     end
   end
 
-  def source_name_or_you
-    if self.profile_id == self.source_id
+  def source_name_or_title(profile)
+    if self.source_type == "feed"
+      return source.title
+    else
+      return self.source_name_or_you(profile)
+    end
+  end
+
+  def source_name_or_you(profile)
+    if self.source == profile
       return "You"
     else
       return self.source.full_name
     end
+  end
+
+  def belongs_to_profile?(profile)
+    return self.source == profile
   end
 end

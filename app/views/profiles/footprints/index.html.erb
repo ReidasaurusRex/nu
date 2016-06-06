@@ -1,4 +1,6 @@
+<%= javascript_include_tag "footprint_line_graph", "data-turbolinks-track" => true %>
 <div class="footprints-index">
+
   
   <% if @footprints.empty? %>
   
@@ -7,6 +9,9 @@
   <% else %>
 
     <h1>Your Emissions Stats</h1>
+    <%= content_tag "div", id: "footprint-line-graph", data: {footprint_overview: @profile.footprint_overview_data} do %> 
+      Loading footprint history...
+    <% end %>
     <h2>Recent footprint results</h2>
     <h3 class="average-footprint">Average footprint <span><%= @profile.average_footprint_emissions %></span></h3>
     <% @footprints.to_a.reverse.each_with_index do |footprint, index| %>

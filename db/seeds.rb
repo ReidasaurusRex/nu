@@ -1,3 +1,21 @@
+Feed.create_from_feedjira_feed("http://www.dailyclimate.org/feeds/main", Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/main")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.ehn.org/feeds/environmentaljustice", Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/environmentaljustice")).update(suggested: true)
+Feed.create_from_feedjira_feed("https://www.epa.gov/newsreleases/releases/rss/subject/trash-and-recycling", Feedjira::Feed.fetch_and_parse("https://www.epa.gov/newsreleases/releases/rss/subject/trash-and-recycling")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://dotearth.blogs.nytimes.com/feed/", Feedjira::Feed.fetch_and_parse("http://dotearth.blogs.nytimes.com/feed/")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.ehn.org/feeds/fracking", Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/fracking")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.ehn.org/feeds/airquality", Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/airquality")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.ehn.org/feeds/waterquality", Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/waterquality")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.ehn.org/feeds/waterquantity", Feedjira::Feed.fetch_and_parse("http://www.ehn.org/feeds/waterquantity")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.dailyclimate.org/feeds/topstories", Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/topstories")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.dailyclimate.org/feeds/causes", Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/causes")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.dailyclimate.org/feeds/economics", Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/economics")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.dailyclimate.org/feeds/energy", Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/energy")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.dailyclimate.org/feeds/acidification", Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/acidification")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.dailyclimate.org/feeds/politics", Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/politics")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://blog.epa.gov/blog/feed/", Feedjira::Feed.fetch_and_parse("http://blog.epa.gov/blog/feed/")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://dotearth.blogs.nytimes.com/feed/", Feedjira::Feed.fetch_and_parse("http://dotearth.blogs.nytimes.com/feed/")).update(suggested: true)
+Feed.create_from_feedjira_feed("http://www.dailyclimate.org/feeds/solutions", Feedjira::Feed.fetch_and_parse("http://www.dailyclimate.org/feeds/solutions")).update(suggested: true)
+
 jarrell = User.create(email: "jarrell@nu.world", password: "1234")
 kendra = User.create(email: "kendra@nu.world", password: "1234")
 steven = User.create(email: "steven@nu.world", password: "1234")
@@ -7,9 +25,6 @@ jprof = Profile.create(user_id: jarrell.id, first_name: "Jarrell", last_name: "W
 kprof = Profile.create(user_id: kendra.id, first_name: "Kendra", last_name: "Black", state: "ut", interests: "Saving the planet")
 sprof = Profile.create(user_id: steven.id, first_name: "Steven", last_name: "Nagie", state: "ut", interests: "Saving the planet")
 rprof = Profile.create(user_id: reid.id, first_name: "Reid", last_name: "Lewis", state: "az", interests: "Saving the planet. And riding my bike")
-
-profiles = [jprof, kprof, sprof, rprof]
-profiles.each{|prof| prof.add_default_settings}
 
 jprof.follows.create(follower_id: kprof.id)
 jprof.follows.create(follower_id: sprof.id)
@@ -42,24 +57,59 @@ rprof.subscriptions.create(following_id: kprof.id)
 rprof.pending_subscriptions.create(pending_following_id: jprof.id)
 
 challenges = Challenge.create([
-  {title: "Water Ghost", caption: "Use as little water as possible for a week", description: "You need about 2.5 liters of water a day to stay healthy. How close can you get your total daily water use to that number? Cut down on shower times (or showers, eek!), hand washing times, dishwashing water, and everything else to cut down your water usage for a week.", points: 25, progress_category: "Water"}, 
-  {title: "Natural Transporter", caption: "Screw your car. Use your legs for a week", description: "How little can you use your car this week? Public transportation is alright, but to really reap the benefits of a lowered footprint and better health, use what your momma gave ya. Ride a bike or take a walk anytime you need to get somewhere this week.", points: 40, progress_category: "Transportation"}, 
-  {title: "Produce purchaser", caption: "Buy produce at the store to reduce packaging this month.", description: "You can reduce your trash by a metric fuck ton if you opt for produce over preprocessed foods. Your planet, and your body, will thank you this month.", points: 20, progress_category: "Waste"}, 
-  {title: "Line Dryer", caption: "Hang clothes on the line to dry this month to save energy.", description: "Utilizing a clothes line to dry your laundry can save you x, y, and even Z amount of energy. Your clothes will look better, feel softer, and last longer. Try it for a month, but we bet you'll be hooked for longer.", points: 23, progress_category: "Home Energy"}, 
-  {title: "Vegan Sampler", caption: "Not a vegan? Try it for two months and see how you do!", description: "It's a real hole in the bowl that the hardest part of being vegan is the first month. You don't see the benefits, your tastebuds still crave that sweet, sweet excess, and you haven't got in the habit of any new recipes. Thank goodness we're pushing you to do two months, then!", points: 35, progress_category: "Diet"}
+  {title: "Educate Your Eyeballs", caption: "Watch three environmental documentaries", description: "Knowledge is power! Snuggle in with a bowl of locally grown strawberries or anything besides popcorn and educate yourself!", difficulty: 1, points: 12, progress_category: "social"}, 
+  {title: "Learn With Your Brain", caption: "Read two environmental books", description: "There are very few benefits to literacy. One of the few good things it that it allows you to complete this challenge. Learn some cool stuff an topics ranging from climate change and deforestation to pollution and endangered species. You'll learn some great stuff and finally have the background to have an intelligent conversation with a hippy.", difficulty: 3, points: 17, progress_category: "social"}, 
+  {title: "Kill Fewer Animals", caption: "Eat vegan or vegetarian for two weeks", description: "Feeding 7 billion people every day is a huge task, and one that takes a large toll on our planet. Producing meat uses many more resources than producing other types of foods. It makes sense, right? You could either eat some beans, or feed the beans to some cows, do a whole bunch more work, and then eat the cows. Which sounds like the more environmentally responsible option?", difficulty: 3, points: 17, progress_category: "diet"}, 
+  {title: "Put Them Sweet Gams To Use!", caption: "Walk or bike instead of driving for one week", description: "Look, I love my Ferrari as much as the next guy. But it's better for the planet to keep it in the garage. Walking or biking to your destination is the single best thing you can do for the environment. Try it for a week: you'll be surprised how easy it is.", difficulty: 5, points: 18, progress_category: "transportation"}, 
+  {title: "Chaste Behavior", caption: "Take cold showers this week", description: "Don't believe the hype; hot showers aren't so great. Cold showers are the exact same thing, no matter what the fat cats in Washington would have you believe. But, cold showers don't require any energy to heat the water, saving energy and helping our sweet world.", difficulty: 2, points: 15, progress_category: "home_energy"},
+  {title: "Buy Hippie Food", caption: "Shop only at farmers' markets this month", description: "There's more to those hippies at the local market than just flannel, sandals, and good vibrations. Turns out they can actually turn dirt into food. And they can usually do it in a way that's great for the environment. Plus, buying from them means you can learn exactly where your food comes from, and advocate for best practices. And that stuff's way tastier than grocery store stuff.", difficulty: 3, points: 18, progress_category: "diet"},
+  {title: "You Aren't God, Stop Screwing The Weather", caption: "Bring your AC or heat up or down two degrees to align with the weather", description: "The very idea of making air be something it isn't naturally seems pretty outrageous when you think about it. You think, just because you have a big metal box in your window, that you're some type of God who can control the weather? Bring it down two notches, buddy, before you get smote from on high. Also, save some energy and some CO2.", difficulty: 3, points: 18, progress_category: "home_energy"},
+  {title: "Make Yourself Less Dumb", caption: "Read a book rather than watch TV this week", description: "Grandma's been saying it for years: TV rots your brain and reading makes you smart. Plus, every second you spend not watching TV is a second spent not using energy you don't really need. Save money, save energy, save the planet, learn something.", difficulty: 2, points: 15, progress_category: "home_energy"},
+  {title: "Sleep Natural", caption: "Go to bed one hour earlier this week", description: "If you go to bed when it's dark and wake up when it's light, instead of using a bunch of lights to keep your house bright, you'll save energy and live more in rythym with the natural order. ", difficulty: 3, points: 16, progress_category: "home_energy"},
+  {title: "Tell Your Friends!", caption: "Start ten conversations about sustainability", description: "I'll tell you a secret: everyone loves strangers talking about the environment. Seriously. Give it a try and I promise you'll make tons of friends. Plus, if you can make them smarter, then you're creating more advocates for the environment. Tell them about Nu and they can help us with our goal of reduced emissions for everyone!", difficulty: 2, points: 13, progress_category: "social"},
+  {title: "Your Lawn Doesn't Care What Color It Is", caption: "Water your lawn half as much this month", description: "Watering the lawn takes tons of water. No one cares what color your house is; why should they care what color the stuff around it is?", difficulty: 1, points: 16, progress_category: "Water"},
+  {title: "Ride A Bus", caption: "Use public transport instead of driving for two weeks", description: "I know what you're going to say: the bus is gross and chicks dig your 2001 Toyota Camry. Well, those chicks wouldn't dig it so much if they knew that the ol' Toyota was the single biggest source of emissions in your life. Do the smart thing for the environment and for the ladies and take a train or bus or something.", difficulty: 2, points: 16, progress_category: "transportation"},
+  {title: "The Caribbean Isn't That Great Anyway", caption: "Vacation close to home", description: "Everyone knows planes are bad for the environment. All you have to do is look up to see them emitting all those nasty chemtrails. This year, try a \"staycation\" - keep close to home to avoid flights and reduce your emissions.", difficulty: 3, points: 18, progress_category: "transportation"},
+  {title: "Fat Tire", caption: "Go inflate your tires properly, and keep them that way", description: "Check your tire pressure twice a week to catch and fix any problems. It's a simple thing that can have an impact on your fuel efficiency and therefore your emissions. Keep this habit up for a month and you'll get some sweet savings.", difficulty: 1, points: 16, progress_category: "transportation"},
+  {title: "Share The Burden", caption: "Carpool to work for a month", description: "There's no reason for you to be alone on your daily slog to work. In fact, you might find having a buddy along does good things to your morale. Regardless, removing a car from the road is a great thing for the blue and green ball (Earth). And, the more people you get to participate, the larger your impact and the better a person you suddenly are!", difficulty: 2, points: 17, progress_category: "transportation"},
+  {title: "Solar Power To The People", caption: "Sign up with your electricity utility's renewable energy program to switch half of your average monthly electricity to renewables", description: "We can't wait for other people to fix electricity. It's one of the largest sources of emissions for individuals, and it's a major problem. Luckily, the future is now - there are already ways to invest in renewable energy, giving it a welcome boost. Check out this website http://apps3.eere.energy.gov/greenpower/buying/buying_power.shtml to see how to enroll.", difficulty: 3, points: 15, progress_category: "home_energy"},
+  {title: "Greenthumb", caption: "Plant a tree", description: "Trees are great: they look nice, they smell nice, they give us oxygen, and they give us apples and oranges and stuff like that. Go put one in the ground.", difficulty: 2, points: 13, progress_category: "social"},
+  {title: "Be Cool", caption: "Ride a motorcycle instead of driving for a month", description: "Besides being way better for the environment, both in terms of their initial production (less stuff pulled from the earth) and daily operation (less gas), motorcycles are precisely 269 times cooler than cars.", difficulty: 4, points: 19, progress_category: "transportation"},
+  {title: "Spread The Word!", caption: "Organize an event for the environment", description: "Whether it's a rally or a riot, there's nothing better for the environment than recruiting new warriors for the planet and using them to show people how it be.", difficulty: 5, points: 19, progress_category: "social"},
+  {title: "Just Like Grandma Used To Do", caption: "Don't use any electricity during the day for two weeks", description: "We won't count time spent at work, but if you can use zero electricity when the sun's out, you'll be miles ahead of everyone else. Really, it isn't that hard. Just open the shades for some natural light and read a book or go for a walk instead of watching TV. Just like life was in the 19th century! Yay!", difficulty: 3, points: 18, progress_category: "home_energy"},
+  {title: "Grow Your Meals", caption: "Start a garden", description: "The current agriculture scene is pretty out of whack. The more local you can make your food, the better. And there's nothing more local than your own backyard. Take the time to set up a nice garden, and you'll be rewarded for years to come with a healthy conscience and delicious veggies!", difficulty: 5, points: 20, progress_category: "diet"},
+  {title: "Stinky Backyard Pile", caption: "Compost all organic waste for a month", description: "Throwing food away means it's in the waaste management system, which means someone has to expel a lot of energy to take care of it. It's easier for everyone if you just use your organic waste to compost. Then, you can use the compost to fuel that new garden you've wanted to make for so long! By the way, this challenge says \"for a month\" mostly for the sake of simplicity. Feel free to keep it going. You'll love it.", difficulty: 3, points: 18, progress_category: "waste"}
   ])
 
-rprof.profile_challenges.create(challenge_id: challenges[0].id, completed: true)
-rprof.profile_challenges.create(challenge_id: challenges[4].id, completed: true)
-rprof.profile_challenges.create(challenge_id: challenges[3].id, completed: false)
+rprof.profile_started_challenges.create([
+  {challenge_id: challenges[0].id, progress_category: challenges[0].progress_category},
+  {challenge_id: challenges[3].id, progress_category: challenges[3].progress_category},
+  {challenge_id: challenges[-2].id, progress_category: challenges[-1].progress_category}
+  ])
+
+rprof.profile_started_challenges[0].started_challenge_updates.create([
+  {challenge_id: challenges[0].id, difficulty: 1, update_number: 1},
+  {challenge_id: challenges[0].id, difficulty: 1, update_number: 2}
+  ])
+
+rprof.profile_started_challenges[1].started_challenge_updates.create([
+  {challenge_id: challenges[3].id, difficulty: 3, update_number: 1},
+  {challenge_id: challenges[3].id, difficulty: 2, update_number: 2},
+  {challenge_id: challenges[3].id, difficulty: 1, update_number: 3}
+  ])
+
+rprof.profile_completed_challenges.create([
+  {challenge_id: challenges[-1].id, progress_category: challenges[-1].progress_category, entry: "Just lashed together some logs, then started throwing my food in there", average_difficulty: 2.2},
+  {challenge_id: challenges[-10].id, progress_category: challenges[-10].progress_category, entry: "I\'m all about traveling around Flagstaff! There\'s just so much to see!", average_difficulty: 1}])
+
 
 rprof.footprints.create([
-  {total_emissions: 5000, water_emissions: 100, diet_emissions: 685, transportation_emissions: 3561, waste_emissions: 100, home_energy_emissions: 554},
-  {total_emissions: 4000, water_emissions: 1000, diet_emissions: 868, transportation_emissions: 1200, waste_emissions: 132, home_energy_emissions: 800},
-  {total_emissions: 3100, water_emissions: 600, diet_emissions: 451, transportation_emissions: 1049, waste_emissions: 70, home_energy_emissions: 930}, 
-  {total_emissions: 1980, water_emissions: 120, diet_emissions: 612, transportation_emissions: 800, waste_emissions: 50, home_energy_emissions: 398}, 
-  {total_emissions: 990, water_emissions: 90, diet_emissions: 420, transportation_emissions: 250, waste_emissions: 30, home_energy_emissions: 200}, 
-  {total_emissions: 495, water_emissions: 95, diet_emissions: 246, transportation_emissions: 0, waste_emissions: 54, home_energy_emissions: 100}])
+  {total_emissions: 5000, water_emissions: 100, diet_emissions: 685, transportation_emissions: 3561, waste_emissions: 100, home_energy_emissions: 554, created_at: Time.new(2016, 1, 13), updated_at: Time.new(2016, 1, 13)},
+  {total_emissions: 4000, water_emissions: 1000, diet_emissions: 868, transportation_emissions: 1200, waste_emissions: 132, home_energy_emissions: 800, created_at: Time.new(2016, 2, 12), updated_at: Time.new(2016, 2, 12)},
+  {total_emissions: 3100, water_emissions: 600, diet_emissions: 451, transportation_emissions: 1049, waste_emissions: 70, home_energy_emissions: 930, created_at: Time.new(2016, 3, 15), updated_at: Time.new(2016, 3, 15)}, 
+  {total_emissions: 1980, water_emissions: 120, diet_emissions: 612, transportation_emissions: 800, waste_emissions: 50, home_energy_emissions: 398, created_at: Time.new(2015, 12, 22), updated_at: Time.new(2015, 12, 22)},
+  {total_emissions: 990, water_emissions: 90, diet_emissions: 420, transportation_emissions: 250, waste_emissions: 30, home_energy_emissions: 200, created_at: Time.new(2016, 4, 24), updated_at: Time.new(2016, 4, 24)}, 
+  {total_emissions: 495, water_emissions: 95, diet_emissions: 246, transportation_emissions: 0, waste_emissions: 54, home_energy_emissions: 100, created_at: Time.new(2016, 5, 26), updated_at: Time.new(2016, 5, 26)}])
 
 BlogPost.create([
   {author_id: 4, title: "Civiliation, Consumerism, and Taking Risks", description: "Reid talks about the rise of consumerism in our culture, and the potential beauty of breaking free of it.", body: "I feel like I should begin with a disclaimer. With some posts, I feel somewhat qualified to talk about the things I'm talking about. Whether that is due to a class, a good book I read, or probings to my internal feelings, I sort of feel like maybe I know what I'm talking about. This post is different. I have no idea what I'm talking about. It's just a compilation of a lot of seemingly unrelated thoughts into a coherent piece. Personally, I think it's kind of neat. I hope you find the same.<PARAGRAPH>
@@ -88,3 +138,5 @@ History seems to have this ability to look back with added clarity (more or less
 Yet! This worry is not without its counterpart. I see people from all areas and classes investigating new ways to live their lives, ways that can be kind to themselves and their surroundings. I see a movement of people that in a culture that says MORE! MORE! MORE!, have chosen less. Intentionally. Things like these give me hope.<PARAGRAPH>
 The Peter Pan complex in me still likes to give a romantic, fantastical spin to things. I like to tell myself that there are plenty of demons and dragons to fight in the real world. I struggle often to overcome my addictions so that I can fight them with the courage and discipline I feel they require. I'm hoping that the society I'm living in is right by my side."}
   ])
+
+

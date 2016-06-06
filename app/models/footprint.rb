@@ -38,11 +38,16 @@ class Footprint < ActiveRecord::Base
     end
   end
 
-  def post_if_first_completion(prior_complete)
+  def post_and_score_if_first_completion(prior_complete)
     if !prior_complete && self.complete?
       profile = self.profile
+      profile.point_overview.add_score_from_footprint
       profile.newsfeed_items.create(source_id: profile.id, header: "Completed an emissions assessment", content: "#{profile.first_name.capitalize} checked out their carbon footprint, and it's at #{self.total_emissions}lbs of CO2e!")
       profile.post_to_followers("Completed an emissions assessment", "#{profile.first_name.capitalize} checked out their carbon footprint, and it's at #{self.total_emissions}lbs of CO2e!")
     end
+  end
+
+  def percent_of_us_allotment
+    return ((self.total_emissions.to_f / 1980) * 100).round
   end
 end

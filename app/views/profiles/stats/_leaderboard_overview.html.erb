@@ -1,0 +1,10 @@
+<h2>Leaderboard overview</h2>
+<ul class="leaderboard-categories">
+  <li>Total: <%= profile.current_place %></li>
+  <li>Water: <%= profile.current_place(:water) %></li>
+  <li>Waste: <%= profile.current_place(:waste) %></li>
+  <li>Diet: <%= profile.current_place(:diet) %></li>
+  <li>Transportation: <%= profile.current_place(:transportation) %></li>
+  <li>Home Energy: <%= profile.current_place(:home_energy) %></li>
+  <li>Social: <%= profile.current_place(:social) %></li>
+</ul>

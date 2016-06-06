@@ -1,0 +1,12 @@
+<div class="challenges-index">
+  <h1>Check out a challenge!</h1>
+  <ul class="challenge-list">
+  <% @challenges.each do |challenge| %>
+    <li>
+      <h3 class="challenge-title"><%= challenge.title %></h3>
+      <h4 class="challenge-caption"><%= challenge.caption %></h4>
+      <h4 class="challenge-link"><%= link_to "Check it out", profile_challenge_path(profile_id: @profile.id, id: challenge.id) %></h4>
+    </li>
+  <% end %>
+  </ul>
+</div>

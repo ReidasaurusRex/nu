@@ -1,4 +1,4 @@
-<h2>People who you follow</h2>
+<h2>Following: <span><%= subscriptions.length unless subscriptions.empty? %></span></h2>
 <% unless subscriptions.empty? %>
   
   <% for subscription in subscriptions do %>

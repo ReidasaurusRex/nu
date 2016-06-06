@@ -1,0 +1,15 @@
+<h2>Point Breakdown</h2>
+<%= content_tag "div", id: "point-overview-graph", data: {point_overview: profile.point_overview.graph_data} do  %>
+  Loading points...
+<% end %>
+<div class="point-overview-numbers">
+<h3>Total: <%= profile.point_overview.total %>pts</h3>
+  <ul class="point-categories">
+    <li>Water <%= profile.point_overview.water %>pts <span><%= profile.point_overview.section_percent(:water) %>%</span></li>
+    <li>Waste <%= profile.point_overview.waste %>pts <span><%= profile.point_overview.section_percent(:waste) %>%</span></li>
+    <li>Diet <%= profile.point_overview.diet %>pts <span><%= profile.point_overview.section_percent(:diet) %>%</span></li>
+    <li>Transportation <%= profile.point_overview.transportation %>pts <span><%= profile.point_overview.section_percent(:transportation) %>%</span></li>
+    <li>Energy <%= profile.point_overview.home_energy %>pts <span><%= profile.point_overview.section_percent(:home_energy) %>%</span></li>
+    <li>Social <%= profile.point_overview.social %>pts <span><%= profile.point_overview.section_percent(:social) %>%</span></li>
+  </ul>
+</div>

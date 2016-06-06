@@ -3,8 +3,9 @@
   border-left: 1px solid $nu-blue;
   display: none;
   float: right;
+  position: absolute;
   right: 0;
-  width: 200px;
+  width: 300px;
 }
 
 .dropdown-menu li {
@@ -13,7 +14,8 @@
   border-collapse: true;
   height: 40px;
   line-height: 40px;
-  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .dropdown-menu .profile-menu-summary {
@@ -42,21 +44,30 @@
   display: block;
 }
 
-.dropdown-menu-button button {
-  background: none;
-  border: none;
+.profile-dropdown-menu-button button {
   display: inline-block;
   height: 70px;
   width: 70px;
 }
 
-.dropdown-menu-button button i:first-child {
-  background: #8F8F8F;
+.profile-dropdown-menu-button button i {
+  color: #8B8B8B;
+}
+
+.profile-dropdown-menu-button button i:first-child {
   border-radius: 15px;
-  color: white;
   margin-right: 5px;
   padding-bottom: 6px;
   padding-left: 7px;
   padding-right: 7px;
   padding-top: 5px;
+}
+
+.profile-dropdown-menu-button button:hover {
+  background: #8B8B8B;
+  border-radius: 30px;
+}
+
+.profile-dropdown-menu-button button:hover i {
+  color: white;
 }

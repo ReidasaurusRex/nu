@@ -4,8 +4,8 @@
     <!-- left -->
     <td class="nav-section">
       <div><%= link_to "<i class='fa fa-list fa-lg'></i>Feed".html_safe, profile_newsfeed_items_path(@user.profile) %></div>
-      <div><%= link_to "<i class='fa fa-signal fa-lg'></i>Emissions".html_safe, profile_footprints_path(@user.profile) %></div>
-      <div><%= link_to "<i class='fa fa-trophy fa-lg'></i>Challenges".html_safe, profile_profile_challenges_path(@user.profile) %></div>
+      <div><%= link_to "<i class='fa fa-signal fa-lg'></i>Stats".html_safe, profile_stats_path(@user.profile) %></div>
+      <div><%= link_to "<i class='fa fa-trophy fa-lg'></i>Challenges".html_safe, profile_profile_started_challenges_path(@user.profile) %></div>
     </td> 
     <!-- left -->
 
@@ -24,7 +24,13 @@
       <% end %> 
       </div>  <!-- search-form -->
       
-      <div class="dropdown-menu-button right-side"><%= button_tag "<i class='fa fa-user fa-2x'></i><i class='fa fa-caret-down fa-lg'></i>".html_safe %></div>
+      <div class="notifications-menu-button icon-button dropdown-menu-button">
+        <%= button_tag("<i class='fa fa-bell fa-2x'></i>.".html_safe) %>
+      </div> <!-- notifications -->
+
+      <div class="profile-dropdown-menu-button icon-button dropdown-menu-button right-side">
+        <%= button_tag "<i class='fa fa-user fa-2x'></i><i class='fa fa-caret-down fa-lg'></i>".html_safe %>
+      </div> <!-- dropdown-menu -->
     </td>
     <!-- right -->
 
@@ -32,6 +38,10 @@
 </table> <!-- nav-bar top-nav -->
 
 <!-- dropdown menu -->
-<div class="dropdown-menu">
+<div class="dropdown-menu profile-dropdown-menu">
   <%= render partial: "dropdown_menu/dropdown_menu", locals: {user: @user} %>
+</div>
+
+<div class="notifications-list dropdown-menu">
+  <%= render partial: "notifications_menu/notifications_menu", locals: {profile: @user.profile} %>
 </div>

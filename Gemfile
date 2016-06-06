@@ -32,6 +32,10 @@ gem 'figaro'
 gem 'font-awesome-rails'
 # Using uploadcare for image handling
 gem 'uploadcare-rails', "~> 1.0"
+# Using highcharts
+gem 'highcharts-rails'
+# Using feedjira for rssfeeds
+gem 'feedjira'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

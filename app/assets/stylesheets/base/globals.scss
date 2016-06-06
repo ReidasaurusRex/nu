@@ -1,8 +1,22 @@
 body {
+  background-color: #E7EEF6;
   color: #464646;
   font-family: sans-serif;
-  margin-left: 2%;
-  margin-right: 2%;
+}
+
+body > div, body > table {
+  background-color: white;
+}
+
+.main-body {
+  width: 100%;
+}
+
+.main-body > div {
+  margin: 0 auto;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  width: 80%;
 }
 
 h1 {
@@ -39,4 +53,13 @@ p {
 
 .main-body {
   float: left;
+}
+
+.icon-button button {
+  background: none;
+  border: none;
+}
+
+.hidden {
+  display: hidden;
 }

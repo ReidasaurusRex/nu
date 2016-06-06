@@ -1,7 +1,6 @@
 class Profiles::Footprints::WastesController < Inheritance::CalculatorComponentsController
   before_action :get_footprint
   before_action :get_waste, except: [:new, :create]
-  before_action :ensure_footprint_belongs_to_user
 
   def new
     @waste = Waste.new
@@ -40,7 +39,7 @@ class Profiles::Footprints::WastesController < Inheritance::CalculatorComponents
       @waste.update(section_emissions: emissions)
       @footprint.update(waste_emissions: emissions)
       @footprint.update_total_if_complete
-      @footprint.post_if_first_completion(prior_footprint_completion)
+      @footprint.post_and_score_if_first_completion(prior_footprint_completion)
       flash[:calculator_message] = "Waste emissions: #{emissions}lbs of CO2e"
       redirect_to next_component_path(@waste)
     else

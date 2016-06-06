@@ -1,15 +1,9 @@
 class Inheritance::CalculatorComponentsController < Inheritance::CompletedProfileController
   layout "calculator"
 
-  before_action :get_profile
-
   protected
   def get_footprint
     @footprint = Footprint.find(params[:footprint_id])
-  end
-
-  def get_profile
-    @profile = @user.profile
   end
   
   # def ensure_footprint_belongs_to_user

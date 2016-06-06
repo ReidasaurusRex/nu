@@ -1,9 +1,12 @@
+
+
 .newsfeed-index .newsfeed-item, .newsfeed-index .new-newsfeed-item {
   box-shadow: -4px 4px 14px $nu-red, 4px -4px 14px $nu-green;
   margin-bottom: 20px;
   padding: 15px;
+  width: 500px;
 }
 
-.newsfeed-index .new-newsfeed-item form {
+.new-newsfeed-item form, .newsfeed-item form {
   width: 90%;
 }

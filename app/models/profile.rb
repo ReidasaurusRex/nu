@@ -10,11 +10,16 @@ class Profile < ActiveRecord::Base
   has_many :followings, through: :subscriptions
   has_many :pending_subscriptions, dependent: :destroy
   has_many :pending_followings, through: :pending_subscriptions
-  has_many :newsfeed_items, dependent: :destroy
+  has_many :newsfeed_item_profiles, dependent: :destroy
+  has_many :newsfeed_items, through: :newsfeed_item_profiles
+  has_many :profile_feeds, dependent: :destroy
+  has_many :feeds, through: :profile_feeds
 
   # Challenge relations
-  has_many :profile_challenges, dependent: :destroy
-  has_many :challenges, through: :profile_challenges
+  has_many :profile_started_challenges, dependent: :destroy
+  has_many :started_challenges, through: :profile_started_challenges, source: :challenge
+  has_many :profile_completed_challenges, dependent: :destroy
+  has_many :completed_challenges, through: :profile_completed_challenges, source: :challenge
 
   # Setting relations
   has_one :privacy_setting, dependent: :destroy
@@ -24,12 +29,17 @@ class Profile < ActiveRecord::Base
   has_many :footprints, dependent: :destroy
   has_many :blocked_users, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_one :point_overview, dependent: :destroy
 
   @@state_list = %w(ak al ar az ca co ct dc de fl ga hi ia id il in ks ky la ma md me mi mn mo ms mt nc nd ne nh nj nm nv ny oh ok or pa ri sc sd tn tx ut va vt wa wi wv wy)
   validates :first_name, presence: {message: " is required"}
   validates :last_name, presence: {message: " is required"}
   validates :state, inclusion: {in: @@state_list, 
     message: " choose an abbr"}
+
+  after_create :add_default_settings
+  after_create :add_point_overview
+  after_create :add_default_feeds
 
   def full_name
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
@@ -44,9 +54,21 @@ class Profile < ActiveRecord::Base
     SharingSetting.create(profile_id: self.id, improvements: true, follow: true, footprint: true)
   end
 
+  def add_point_overview
+    PointOverview.create(profile_id: self.id, total: 0, diet: 0, waste: 0, water: 0, transportation: 0, home_energy: 0, social: 0)
+  end
+
+  def add_default_feeds
+    ProfileFeed.create(profile_id: self.id, feed_id: 1)
+    ProfileFeed.create(profile_id: self.id, feed_id: 2)
+    ProfileFeed.create(profile_id: self.id, feed_id: 3)
+    ProfileFeed.create(profile_id: self.id, feed_id: 4)
+  end
+
   def post_to_followers(header, content)
+    newsfeed_item = NewsfeedItem.create(type: "profile", source_id: self.id, header: header, content: content)
     self.followers.each do |follower|
-      follower.newsfeed_items.create(source_id: self.id, header: header, content: content)
+      follower.newsfeed_item_profiles.create(newsfeed_item_id: newsfeed_item.id)
     end
   end
 
@@ -60,4 +82,28 @@ class Profile < ActiveRecord::Base
     end
   end
 
+  def notify_followers(text, link)
+    @profile.followers.each do |follower|
+      follower.notifications.create(text: text, link: link)
+    end
+  end
+
+  def current_place(category=:total)
+    overviews = PointOverview.order(category => :desc)
+    return overviews.index{|overview| overview.profile_id == self.id} + 1
+  end
+
+  def last_finished_footprint
+    finished_footprints = self.footprints.select{|footprint| footprint.total_emissions}
+    return finished_footprints.last unless finished_footprints.empty?
+    return false
+  end
+
+  def footprint_overview_data
+    overview_data = []
+    self.footprints.order(:created_at).each do |footprint|
+      overview_data.push([(footprint.created_at.to_f * 1000), footprint.total_emissions])
+    end
+    return overview_data
+  end
 end
