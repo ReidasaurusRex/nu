@@ -31,7 +31,6 @@ class ProfilesController < Inheritance::LoggedInController
 
   def create_profile(profile_params)
     @profile = Profile.new(profile_params)
-    binding.pry
     if @profile.save
       redirect_to profile_footprints_path(@profile)
     else
