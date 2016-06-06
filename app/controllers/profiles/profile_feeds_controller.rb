@@ -44,6 +44,5 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
     recent_feed_items.each do |feed_item|
       NewsfeedItemProfile.create(newsfeed_item_id: feed_item.id, profile_id: profile_feed.profile_id)
     end
-    binding.pry
   end
 end
