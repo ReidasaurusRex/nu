@@ -1,6 +1,6 @@
 <div class="image-name-points">
   <div class="profile-pic-with-link">
-    <div class="profile-pic"></div>
+    <%= image_tag profile.profile_pic, class: "profile-pic" %>
     <h4><%= edit_follow_unfollow_link(profile, user_profile) %></h4>
   </div>
   <div class="name-and-points">
@@ -12,8 +12,8 @@
 <div class="social-summary-and-interests">
   <div class="social-summary">
     <h3>
-      <%= @profile.followers.length %> followers | 
-      following <%= @profile.followings.length %> 
+      <%= profile.followers.length %> followers | 
+      following <%= profile.followings.length %> 
     </h3>
   </div>
   <div class="interests">
