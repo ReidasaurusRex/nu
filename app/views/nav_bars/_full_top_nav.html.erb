@@ -29,7 +29,9 @@
       </div> <!-- notifications -->
 
       <div class="profile-dropdown-menu-button icon-button dropdown-menu-button right-side">
-        <%= button_tag "<i class='fa fa-user fa-2x'></i><i class='fa fa-caret-down fa-lg'></i>".html_safe %>
+        <%= button_tag do %>
+          <%= image_tag @user.profile.profile_pic, class: "dropdown-profile-pic" %><i class='fa fa-caret-down fa-lg'></i>
+        <% end %>
       </div> <!-- dropdown-menu -->
     </td>
     <!-- right -->
