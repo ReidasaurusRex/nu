@@ -2,9 +2,14 @@
   <div class="newsfeed-item">
     
     <div class="newsfeed-header">
-      <h3><%= feed_item.source_name_or_title(profile).html_safe %></h3>
-      <h5><%= feed_item.time_since_creation %></h5>
-      <h3><%= feed_item.header %></h3>
+      <% if feed_item.source_type == "profile" %>
+        <%= image_tag feed_item.source.profile_pic, class: "newsfeed-profile-pic" %>
+      <% end %>
+      <div class="header-text">
+        <h3><%= feed_item.source_name_or_title(profile) %></h3>
+        <h5><%= feed_item.time_since_creation %></h5>
+        <h3><%= feed_item.header.html_safe %></h3>
+      </div>
     </div>
     
     <div class="newsfeed-content">

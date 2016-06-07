@@ -1,5 +1,3 @@
-
-
 .newsfeed-index .newsfeed-item, .newsfeed-index .new-newsfeed-item {
   box-shadow: -4px 4px 14px $nu-red, 4px -4px 14px $nu-green;
   margin-bottom: 20px;
@@ -9,4 +7,17 @@
 
 .new-newsfeed-item form, .newsfeed-item form {
   width: 90%;
+}
+
+.newsfeed-header .newsfeed-profile-pic {
+  border-radius: 75px;
+  max-width: 75px;
+}
+
+.newsfeed-header > div {
+  display: inline-block;
+}
+
+.newsfeed-header .header-text {
+  padding-left: 15px;
 }
