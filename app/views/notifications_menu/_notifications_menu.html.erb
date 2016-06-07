@@ -5,7 +5,7 @@
   </li>
   <%= render partial: "notifications_menu/notifications_list", locals: {notifications: profile.notifications, profile: profile} %>
   <li class="notifications-section-title">
-    Pending Followers
+    Follower Requests <span><%= profile.pending_follows.length %></span>
   </li>
   <%= render partial: "notifications_menu/pending_followers_list.html.erb", locals: {pending_follows: profile.pending_follows, profile: profile} %>  
 </ul>
