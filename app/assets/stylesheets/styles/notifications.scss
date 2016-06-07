@@ -9,8 +9,8 @@
 }
 
 .notifications-list ul li {
-  background-color: #F7F7F7;
-  color: #8F8F8F;
+  background-color: #BFBFBF;
+  color: black;
   height: 60px;
   line-height: 60px;
 }
@@ -19,10 +19,14 @@
   background-color: white;
   height: 40px;
   line-height: 40px;
+  text-align: left;
 }
 
-.notifications-list ul .notifications-section-title span {
-  font-size: 0.7em;
+.notifications-list ul .notifications-section-title span, .notifications-section-title span a {
+  color: #F1613A;
+  float: right;
+  font-size: 0.9em;
+  text-decoration: none;
 }
 
 .notifications-list .notification-link {

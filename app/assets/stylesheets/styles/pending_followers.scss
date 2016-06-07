@@ -1,8 +1,28 @@
-.pending-follow-list-item {
+.notifications-dropdown-menu .pending-follow-list-item {
   text-align: left;
 }
 .pending-follow-list-item .pending-follower-pic {
   border-radius: 40px;
   margin-top: 10px;
   max-width: 40px;
+}
+
+.pending-follow-list-item span .fa {
+  background: #FFFFFF;
+  border: 0px solid #E7E7E7;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+
+.pending-follow-list-item span .pending-follower-deny {
+  color: #E88469;
+  height: 19px;
+  padding-left: 4px;
+  padding-top: 1px;
+  width: 16px;
+}
+
+.pending-follow-list-item span .pending-follower-accept {
+  color: #B1D276;
+  padding: 2px;
 }
