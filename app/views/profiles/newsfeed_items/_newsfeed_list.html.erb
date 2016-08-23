@@ -3,7 +3,7 @@
     
     <div class="newsfeed-header">
       <% if feed_item.source_type == "profile" %>
-        <%= image_tag feed_item.source.profile_pic, class: "newsfeed-profile-pic" %>
+        <%= image_tag feed_item.source.profile_photo, class: "newsfeed-profile-pic" %>
       <% end %>
       <div class="header-text">
         <h3><%= feed_item.source_name_or_title(profile) %></h3>

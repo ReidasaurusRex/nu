@@ -5,7 +5,7 @@
   <% else %>
     <% pending_follows.last(4).reverse.each do |pending_follow| %>
       <li class="pending-follow-list-item">
-          <%= image_tag pending_follow.pending_follower.profile_pic, class: "pending-follower-pic" %>
+          <%= image_tag pending_follow.pending_follower.profile_photo, class: "pending-follower-pic" %>
           <%= pending_follow.pending_follower.full_name %>
           <span class="right-side">
             <%= link_to "<i class='fa fa-times pending-follower-deny'></i>".html_safe, profile_pending_follow_path(profile_id: @profile.id, id: pending_follow.id), method: :delete %>
