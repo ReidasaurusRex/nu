@@ -4,19 +4,30 @@
     UPLOADCARE_PUBLIC_KEY = "<%= ENV['uploadcare_public_key'] %>";
 </script>
 <script charset="utf-8" src="//ucarecdn.com/widget/2.8.2/uploadcare/uploadcare.full.min.js"></script>
+
 <div class="profiles-new">
   <h2>Create your profile!</h2>
   <%= form_for @profile do |f| %>
   <div class="new-profile-form">
+    <div class="cover-photo-form">
+      <input type="hidden" role="uploadcare-uploader"
+        data-crop="1:1.9"
+        data-preview-step="true"
+        data-images-only="true"
+        name="profile[cover_photo]"
+      />
+      <span class="form-label">Cover photo</span>
+    </div>
     <div class="photo-with-names">
       <div class="profile-photo">
         <img src="" alt="">
         <input type="hidden" role="uploadcare-uploader"
-         data-crop="1:1"
-         data-preview-step="true"
-         data-images-only="true"
-         data-image-shrink="400x400"
-         name="profile[profile_photo]" />    
+          data-crop="1:1"
+          data-preview-step="true"
+          data-images-only="true"
+          data-image-shrink="400x400"
+          name="profile[profile_photo]" 
+         />    
       </div> <!-- profile-photo -->
       <div class="first-and-last-name">
         <div class="text-form-with-errors">

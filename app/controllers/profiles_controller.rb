@@ -26,7 +26,7 @@ class ProfilesController < Inheritance::LoggedInController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :interests, :state, :profile_photo).merge(user_id: session[:user_id])
+    params.require(:profile).permit(:first_name, :last_name, :interests, :state, :profile_photo, :cover_photo).merge(user_id: session[:user_id])
   end
 
   def create_profile(profile_params)

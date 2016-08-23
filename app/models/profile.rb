@@ -36,6 +36,8 @@ class Profile < ActiveRecord::Base
   validates :last_name, presence: {message: " is required"}
   validates :state, inclusion: {in: @@state_list, 
     message: " choose an abbr"}
+  validates :profile_photo, presence: {message: " is required"}
+  validates :cover_photo, presence: {message: " is required"}
 
   after_create :add_default_settings
   after_create :add_point_overview

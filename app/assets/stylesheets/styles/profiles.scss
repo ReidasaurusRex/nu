@@ -1,10 +1,18 @@
 .profile-show > a, .profile-show > div {
-  margin-top: 30px;
+  margin-top: $spacing-unit;
+}
+
+.cover-photo-form {
+  margin: $spacing-unit 0;
+}
+
+.profile-cover-photo {
+  height: 600px;
 }
 
 .photo-with-names > div {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: $spacing-unit;
   vertical-align: top;
 }
 

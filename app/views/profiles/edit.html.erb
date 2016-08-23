@@ -8,6 +8,15 @@
   <h2>Edit your profile</h2>
   <%= form_for @profile do |f| %>
   <div class="edit-profile-form">
+    <div class="cover-photo-form">
+      <input type="hidden" role="uploadcare-uploader"
+        data-crop="1:1.9"
+        data-preview-step="true"
+        data-images-only="true"
+        name="profile[cover_photo]"
+      />
+      <span class="form-label">Cover photo</span>
+    </div>
     <div class="photo-with-names">
       <div class="profile-photo">
         <img src="" alt="">
