@@ -18,6 +18,15 @@ input[type="text"], input[type="password"] {
   height: 25px;
 }
 
+input[type="submit"] {
+  background: $nu-blue;
+  border: none;
+  border-radius: 1000px;
+  color: white;
+  font-size: 105%;
+  padding: $spacing-unit / 2 $spacing-unit;
+}
+
 textarea {
   line-height: 25px;
   padding-bottom: 10px;
