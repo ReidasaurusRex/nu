@@ -33,6 +33,14 @@
   display: none;
 }
 
+.notification-list-item .notification-image {
+  border-radius: 1000px;
+  display: inline-block;
+  height: 40px;
+  margin-top: 10px;
+  width: 40px;
+}
+
 .notifications-list .notification-list-item:hover {
   cursor: pointer;
 }

@@ -4,7 +4,10 @@
   float: right;
   position: absolute;
   right: 50px;
-  width: 250px;
+  width: 300px;
+  &.notifications-list {
+    right: 120px;
+  }
 }
 
 .dropdown-menu li {

@@ -1,6 +1,6 @@
 <%= form_for(item, url: profile_newsfeed_items_path(profile_id: profile.id)) do |f| %>
 
-  <%= image_tag profile.profile_photo, class: "newsfeed-form-profile-pic"  %>
+  <%= image_tag profile.profile_photo, class: "newsfeed-profile-pic"  %>
 
   <div class="text-form-with-errors">
     <%= f.text_area(:content, rows: 3, placeholder: "Share something nu...") %>

@@ -5,6 +5,7 @@
   <% else %>
     <% notifications.last(4).reverse.each do |notification| %>
       <li class="notification-list-item">
+          <%= image_tag notification.image, class: "notification-image" %>
           <%= notification.text %>
           <%= link_to "View", notification.link, class: "notification-link" %>
       </li>
