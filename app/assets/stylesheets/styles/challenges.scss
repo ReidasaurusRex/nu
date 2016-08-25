@@ -1,3 +1,15 @@
+.challenge-headers {
+  padding: $spacing-unit 0 $spacing-unit / 2 0;
+}
+
+.challenge-navigation-link {
+  display: inline-block;
+  float: right;
+  margin-right: -48px;
+  text-align: right;
+  text-decoration: none;
+}
+
 .challenges-index h1:first-child {
   margin-bottom: 45px;
 }

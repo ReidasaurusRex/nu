@@ -3,6 +3,7 @@
 <% else %>
   <% profile_completed_challenges.each do |profile_completed_challenge| %>
     <li>
+      <%= image_tag(profile_completed_challenge.image_path) %>
       <h3><%= profile_completed_challenge.challenge.title %></h3>
       <h4>Completed <%= profile_completed_challenge.completion_date %></h4>
       <h4><%= link_to "View", profile_profile_completed_challenge_path(profile_id: @profile.id, id: profile_completed_challenge.id) %></h4>
