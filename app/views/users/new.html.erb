@@ -1,31 +1,33 @@
-<div class="users-new">
-  <h2>Join the fight!</h2>
-  <%= form_for @user do |f|%>
-  <div class="new-user-form">
-    <div class="text-form-with-errors">
-      <%= f.text_field :email, autofocus: true %>
-      <p class="form-label">
-        <%= f.label :email %>
-        <span class="error-message"><%= add_errors_if_any(@user, :email) %></span>
-      </p>
+<div class="wrapper centered-content">
+  <div class="component">
+    <h2>Join the fight!</h2>
+    <%= form_for @user do |f|%>
+    <div class="new-user-form">
+      <div class="text-form-with-errors">
+        <%= f.text_field :email, autofocus: true %>
+        <p class="form-label">
+          <%= f.label :email %>
+          <span class="error-message"><%= add_errors_if_any(@user, :email) %></span>
+        </p>
+      </div>
+      <div class="text-form-with-errors">
+        <%= f.password_field :password %>
+        <p class="form-label">
+          <%= f.label :password %>
+          <span class="error-message"><%= add_errors_if_any(@user, :password) %></span>
+        </p>
+      </div>
+      <div class="text-form-with-errors">
+        <%= f.password_field :password_confirmation %>
+        <p class="form-label">
+          <%= f.label :password_confirmation %>
+          <span class="error-message"><%= add_errors_if_any(@user, :password_confirmation) %></span>
+        </p>
+      </div>
+      <div class="submit-form">
+        <%= f.submit "Join the Nu World Order" %>
+      </div>
     </div>
-    <div class="text-form-with-errors">
-      <%= f.password_field :password %>
-      <p class="form-label">
-        <%= f.label :password %>
-        <span class="error-message"><%= add_errors_if_any(@user, :password) %></span>
-      </p>
-    </div>
-    <div class="text-form-with-errors">
-      <%= f.password_field :password_confirmation %>
-      <p class="form-label">
-        <%= f.label :password_confirmation %>
-        <span class="error-message"><%= add_errors_if_any(@user, :password_confirmation) %></span>
-      </p>
-    </div>
-    <div class="submit-form">
-      <%= f.submit "Join the Nu World Order" %>
-    </div>
-  </div>
-  <% end %>
-</div>
+    <% end %> <!-- form -->
+  </div> <!-- component -->
+</div> <!-- wrapper centered-content -->

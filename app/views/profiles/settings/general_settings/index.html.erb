@@ -1,5 +1,7 @@
 <div class="settings-index">
   <h1>Settings for <%= @profile.full_name %></h1>
+  <h3>Email: <%= @profile.user.email %></h3>
+  <h3><%= link_to "Edit email or password", edit_user_path(@profile.user) %></h3>
   
   <div class="privacy-settings settings-section">
     <h2 class="section-header">Privacy Settings</h2>
