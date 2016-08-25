@@ -2,6 +2,7 @@
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
   display: none;
   float: right;
+  margin-top: -2px;
   position: absolute;
   right: 50px;
   width: 300px;
@@ -46,10 +47,6 @@
   margin-top: 5px;
 }
 
-// .dropdown-menu .profile-menu-summary .profile-summary-name {
-//   margin-top: 100px;
-// }
-
 .dropdown-menu .profile-menu-summary li:last-child {
   margin-bottom: 15px;
 }
@@ -60,6 +57,7 @@
 
 .expanded-menu {
   display: block;
+  z-index: 2;
 }
 
 

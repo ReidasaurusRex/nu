@@ -1,8 +1,5 @@
-.log-in-form {
-  max-width: 350px;
-}
-
-.access-landing .sign-up-link {
-  display: block;
-  margin-top: 30px;
+.sign-up-link {
+  display: inline-block;
+  float: right;
+  padding-top: $spacing-unit;
 }
