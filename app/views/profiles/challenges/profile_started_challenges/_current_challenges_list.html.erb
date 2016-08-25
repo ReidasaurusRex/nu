@@ -4,6 +4,7 @@
 <% else %>
   <% profile_started_challenges.each do |profile_started_challenge| %>
     <li>
+      <%= image_tag(profile_started_challenge.image_path) %>
       <h3><%= profile_started_challenge.challenge.title %></h3>
       <h4><%= profile_started_challenge.challenge.caption %></h4>
       <h4>

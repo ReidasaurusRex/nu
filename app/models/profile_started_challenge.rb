@@ -19,4 +19,8 @@ class ProfileStartedChallenge < ActiveRecord::Base
   def start_date
     self.created_at.strftime("%B %d, %Y")
   end
+
+  def image_path
+    "progress_icons/color/#{self.progress_category}"
+  end
 end
