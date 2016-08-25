@@ -25,6 +25,9 @@ input[type="submit"] {
   color: white;
   font-size: 105%;
   padding: $spacing-unit / 2 $spacing-unit;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 textarea {
