@@ -1,23 +1,32 @@
 <%= javascript_include_tag "footprint_line_graph", "data-turbolinks-track" => true %>
-<div class="footprints-index">
 
-  
+<div class="wrapper centered-content">
+
   <% if @footprints.empty? %>
   
+  <div class="component">
     <h3>Let's get started! <%= link_to("Figure out your carbon footprint!", profile_footprints_path(profile_id: @profile.id), method: :post) %></h3>
+  </div> <!-- component -->
   
   <% else %>
-
-    <h1>Your Emissions Stats</h1>
+  
+  <h4><%= link_to "Back to Stats", profile_stats_path(profile_id: @profile.id), class: "orange-link" %></h4>
+  <div class="component">
+    <h1>Progress</h1>
     <%= content_tag "div", id: "footprint-line-graph", data: {footprint_overview: @profile.footprint_overview_data} do %> 
-      Loading footprint history...
+        Loading footprint history...
     <% end %>
+  </div> <!-- component -->
+
+  <div class="component">
     <h2>Recent footprint results</h2>
     <h3 class="average-footprint">Average footprint <span><%= @profile.average_footprint_emissions %></span></h3>
     <% @footprints.to_a.reverse.each_with_index do |footprint, index| %>
       <%= render partial: "profiles/footprints/index_summary", locals: {footprint: footprint, index: index} %>
     <% end %>
     <h3><%= link_to("Begin new emissions test", profile_footprints_path(profile_id: @profile.id), method: :post) %></h3>
+  </div> <!-- component -->
 
-  <% end %>
-</div>
+  <% end %> <!-- if @footprints.empty -->
+
+</div> <!-- wrapper centered-content -->
