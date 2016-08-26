@@ -1,16 +1,17 @@
-<div class="newsfeed-index">
-  <h1>Your Feed</h1>
-  <h4><%= link_to "Manage RSS Feeds", profile_profile_feeds_path(@profile.id) %></h4>
+<div class="wrapper">
 
-  <% if @profile == @user.profile %>
-    <div class="new-newsfeed-item">
-      <%= render partial: "profiles/newsfeed_items/new_newsfeed_item_form", locals: {item: @newsfeed_item, profile: @profile} %>
-    </div>
-  <% end %> <!-- user profile check -->
+  <div class="new-newsfeed-item">
+    <h4><i class="fa fa-commenting-o"></i>Write a Post</h4>
+    <div class="component">
+    <%= render partial: "profiles/newsfeed_items/new_newsfeed_item_form", locals: {item: @newsfeed_item, profile: @profile} %>
+    </div> <!-- component -->
+    <h4><%= link_to "Manage RSS Feeds", profile_profile_feeds_path(@profile.id) %></h4>
+  </div> <!-- new-newsfeed-item -->
 
   <% if @newsfeed_items.empty? %>
     <h2>Looks like your feed is empty!</h3>
   <% else %>
     <%= render partial: "profiles/newsfeed_items/newsfeed_list", locals: {newsfeed_items: @newsfeed_items, profile: @profile} %>
   <% end %>
-</div>
+  
+</div> <!-- wrapper -->
