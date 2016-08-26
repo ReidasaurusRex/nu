@@ -1,7 +1,11 @@
-<div class="feedback-thanks">
-  <h2>Thanks for the feedback!</h2>
-  <p>We got your feedback concerning the subject of <%= @subject.downcase %>. We'll get back to you as soon as we can! Sorry for any issues/bugs/hairpullingout that occured. We're still in our early stages, and are working hard to get through any kinks. We really appreciate all your feedback!</p>
-  <p> - The team at Nu</p>
+<div class="wrapper centered-content">
 
-  <h4><%= link_to "Head back to the site", root_path %></h4>
-</div>
+  <div class="component">
+    <h2>Thanks for the feedback!</h2>
+    <p>We got your feedback concerning the subject of <%= @subject.downcase %>. We'll get back to you as soon as we can! Sorry for any issues/bugs/hairpullingout that occured. We're still in our early stages, and are working hard to get through any kinks. We really appreciate all your feedback!</p>
+    <p> - The team at Nu</p>
+
+    <h4><%= link_to "Head back to the site", root_path %></h4>
+  </div> <!-- component -->
+
+</div> <!-- wrapper centered-content -->

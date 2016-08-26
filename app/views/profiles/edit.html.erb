@@ -4,7 +4,9 @@
     UPLOADCARE_PUBLIC_KEY = "<%= ENV['uploadcare_public_key'] %>";
 </script>
 <script charset="utf-8" src="//ucarecdn.com/widget/2.8.2/uploadcare/uploadcare.full.min.js"></script>
+
 <div class="wrapper centered-content">
+  
   <div class="component">
     <h2>Edit your profile</h2>
     <%= form_for @profile do |f| %>
@@ -65,4 +67,5 @@
     </div> <!-- edit-profile-form -->
     <% end %> <!-- form -->
   </div> <!-- component -->  
+  
 </div> <!-- wrapper centered-content -->
