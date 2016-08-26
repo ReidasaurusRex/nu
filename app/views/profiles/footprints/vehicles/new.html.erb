@@ -1,4 +1,5 @@
 <div class="wrapper centered-content">
+
   <div class="component">
     <%= form_for(@vehicle, url: transportation_vehicles_path(transportation_id: @transportation.id), method: :post) do |f| %>
     <div class="new-vehicle-form">
@@ -95,4 +96,5 @@
     </div>
     <% end %>
   </div> <!-- component -->
+  
 </div> <!-- wrapper centered-content -->
