@@ -1,69 +1,72 @@
-<div class="public-transportation-profiles-new">
-  <h2>Assess public transportation</h2>
-  <%= form_for(@public_transportation, url: transportation_public_transportations_path(transportation_id: @transportation.id), method: :post) do |f| %>
-  <div class="new-public-transportation-form">
-    
-    <div class="question-and-response">
-      <p class="form-question">Do you use public transportation?</p>
-      <p class="error-message"><%= add_errors_if_any(@public_transportation, :use) %></p>
-      <ul class="radio-button-list inline-list">
-        <li>
-          <%= f.radio_button :use, "1", {checked: true} %>
-          <%= f.label :use, "Yes" %>
-        </li>
-        <li>
-          <%= f.radio_button :use, "0" %>
-          <%= f.label :use, "No" %>
-        </li>
-      </ul>
-    </div>
+<div class="wrapper centered-content">
 
-    <p class="section-prompt">If you use public transportation, how many miles a month do you use each of the following?</p>
+  <div class="component">
+    <%= form_for(@public_transportation, url: transportation_public_transportations_path(transportation_id: @transportation.id), method: :post) do |f| %>
+    <div class="new-public-transportation-form">
+      
+      <div class="question-and-response">
+        <p class="form-question">Do you use public transportation?</p>
+        <p class="error-message"><%= add_errors_if_any(@public_transportation, :use) %></p>
+        <ul class="radio-button-list inline-list">
+          <li>
+            <%= f.radio_button :use, "1", {checked: true} %>
+            <%= f.label :use, "Yes" %>
+          </li>
+          <li>
+            <%= f.radio_button :use, "0" %>
+            <%= f.label :use, "No" %>
+          </li>
+        </ul>
+      </div>
 
-    <div class="text-form-with-errors">
-      <%= f.text_field :metro, {value: "0"} %>
-      <p class="form-label">
-      <%= f.label :metro %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation, :metro) %></span>
-      </p>
-    </div>
+      <p class="section-prompt">If you use public transportation, how many miles a month do you use each of the following?</p>
 
-    <div class="text-form-with-errors">
-      <%= f.text_field :commuter, {value: "0"} %>
-      <p class="form-label">
-      <%= f.label :commuter %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation, :commuter) %></span>
-      </p>
-    </div>
+      <div class="text-form-with-errors">
+        <%= f.text_field :metro, {value: "0"} %>
+        <p class="form-label">
+        <%= f.label :metro %>
+        <span class="error-message"><%= add_errors_if_any(@public_transportation, :metro) %></span>
+        </p>
+      </div>
 
-    <div class="text-form-with-errors">
-      <%= f.text_field :inter_city, {value: "0"} %>
-      <p class="form-label">
-      <%= f.label :inter_city %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation, :inter_city) %></span>
-      </p>
-    </div>
+      <div class="text-form-with-errors">
+        <%= f.text_field :commuter, {value: "0"} %>
+        <p class="form-label">
+        <%= f.label :commuter %>
+        <span class="error-message"><%= add_errors_if_any(@public_transportation, :commuter) %></span>
+        </p>
+      </div>
 
-    <div class="text-form-with-errors">
-      <%= f.text_field :bus, {value: "0"} %>
-      <p class="form-label">
-      <%= f.label :bus %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation, :bus) %></span>
-      </p>
-    </div>
+      <div class="text-form-with-errors">
+        <%= f.text_field :inter_city, {value: "0"} %>
+        <p class="form-label">
+        <%= f.label :inter_city %>
+        <span class="error-message"><%= add_errors_if_any(@public_transportation, :inter_city) %></span>
+        </p>
+      </div>
 
-    <div class="text-form-with-errors">
-      <%= f.text_field :taxi, {value: "0"} %>
-      <p class="form-label">
-      <%= f.label :taxi %>
-      <span class="error-message"><%= add_errors_if_any(@public_transportation, :taxi) %></span>
-      </p>
-    </div>
+      <div class="text-form-with-errors">
+        <%= f.text_field :bus, {value: "0"} %>
+        <p class="form-label">
+        <%= f.label :bus %>
+        <span class="error-message"><%= add_errors_if_any(@public_transportation, :bus) %></span>
+        </p>
+      </div>
 
-    <div class="submit-form">
-      <%= f.submit "Next question" %>
+      <div class="text-form-with-errors">
+        <%= f.text_field :taxi, {value: "0"} %>
+        <p class="form-label">
+        <%= f.label :taxi %>
+        <span class="error-message"><%= add_errors_if_any(@public_transportation, :taxi) %></span>
+        </p>
+      </div>
+
+      <div class="submit-form">
+        <%= f.submit "Next question" %>
+      </div>
+      
     </div>
-    
-  </div>
-  <% end %>
-</div>
+    <% end %>
+  </div> <!-- component -->
+
+</div> <!-- wrapper centered-content -->

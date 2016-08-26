@@ -1,97 +1,98 @@
-<div class="vehicle-profiles-edit">
-  <h2>Assess home vehicle</h2>
-  <%= form_for(@vehicle, url: transportation_vehicle_path(transportation_id: @transportation.id, id: @vehicle.id), method: :put) do |f| %>
-  <div class="new-vehicle-form">
+<div class="wrapper centered-content">
+  <div class="component">
+    <%= form_for(@vehicle, url: transportation_vehicle_path(transportation_id: @transportation.id, id: @vehicle.id), method: :put) do |f| %>
+    <div class="new-vehicle-form">
 
-    <div class="question-and-response">
-      <p class="form-question">Do you own a home vehicle? </p>
-      <p class="error-message"><%= add_errors_if_any(@vehicle, :have) %></p>
-      <ul class="radio-button-list inline-list">
-        <li>
-          <%= f.radio_button :have, "1", {checked: true} %>
-          <%= f.label :have, "Yes" %>
-        </li>
-        <li>
-          <%= f.radio_button :have, "0" %>
-          <%= f.label :have, "No" %>
-        </li>
-      </ul>
+      <div class="question-and-response">
+        <p class="form-question">Do you own a home vehicle? </p>
+        <p class="error-message"><%= add_errors_if_any(@vehicle, :have) %></p>
+        <ul class="radio-button-list inline-list">
+          <li>
+            <%= f.radio_button :have, "1", {checked: true} %>
+            <%= f.label :have, "Yes" %>
+          </li>
+          <li>
+            <%= f.radio_button :have, "0" %>
+            <%= f.label :have, "No" %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="question-and-response">
+        <p class="form-question">What kind of vehicle is it?</p>
+        <p class="error-message"><%= add_errors_if_any(@vehicle, :vehicle_type) %></p>
+        <ul class="radio-button-list inline-list">
+          <li>
+            <%= f.radio_button :vehicle_type, "car" %>
+            <%= f.label :vehicle_type, "Car" %>
+          </li>
+          <li>
+            <%= f.radio_button :vehicle_type, "truck" %>
+            <%= f.label :vehicle_type, "Truck" %>
+          </li>
+          <li>
+            <%= f.radio_button :vehicle_type, "motorcycle" %>
+            <%= f.label :vehicle_type, "Motorcycle" %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="question-and-response">
+        <p class="form-question">What type of fuel does it take?</p>
+        <p class="error-message"><%= add_errors_if_any(@vehicle, :fuel_type) %></p>
+        <ul class="radio-button-list inline-list">
+          <li>
+            <%= f.radio_button :fuel_type, "gasoline" %>
+            <%= f.label :fuel_type, "Gasoline" %>
+          </li>
+          <li>
+            <%= f.radio_button :fuel_type, "diesel" %>
+            <%= f.label :fuel_type, "Diesel" %>
+          </li>
+          <li>
+            <%= f.radio_button :fuel_type, "b100" %>
+            <%= f.label :fuel_type, "B100 (biofuel)" %>
+          </li>
+          <li>
+            <%= f.radio_button :fuel_type, "b20" %>
+            <%= f.label :fuel_type, "B20 (biofuel)" %>
+          </li>
+          <li>
+            <%= f.radio_button :fuel_type, "hybrid" %>
+            <%= f.label :fuel_type, "Hybrid" %>
+          </li>
+          <li>
+            <%= f.radio_button :fuel_type, "pi_hybrid" %>
+            <%= f.label :fuel_type, "Plug in hybrid" %>
+          </li>
+          <li>
+            <%= f.radio_button :fuel_type, "electric" %>
+            <%= f.label :fuel_type, "Electric" %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="question-and-response">
+        <p class="form-question">About how many miles a month do you use it?</p>
+        <p class="error-message"><%= add_errors_if_any(@vehicle, :mmonth) %></p>
+        <p>
+          <%= f.text_field :mmonth %>
+        </p>
+      </div>
+
+      <div class="question-and-response">
+        <p class="form-question">How many miles to the gallon does it get?</p>
+        <p class="error-message"><%= add_errors_if_any(@vehicle, :mpg) %></p>
+        <p>
+          <%= f.text_field :mpg %>
+        </p>
+      </div>
+
+      <div class="submit-form">
+        <%= f.submit 'Next' %>
+      </div>
+
     </div>
-
-    <div class="question-and-response">
-      <p class="form-question">What kind of vehicle is it?</p>
-      <p class="error-message"><%= add_errors_if_any(@vehicle, :vehicle_type) %></p>
-      <ul class="radio-button-list inline-list">
-        <li>
-          <%= f.radio_button :vehicle_type, "car" %>
-          <%= f.label :vehicle_type, "Car" %>
-        </li>
-        <li>
-          <%= f.radio_button :vehicle_type, "truck" %>
-          <%= f.label :vehicle_type, "Truck" %>
-        </li>
-        <li>
-          <%= f.radio_button :vehicle_type, "motorcycle" %>
-          <%= f.label :vehicle_type, "Motorcycle" %>
-        </li>
-      </ul>
-    </div>
-
-    <div class="question-and-response">
-      <p class="form-question">What type of fuel does it take?</p>
-      <p class="error-message"><%= add_errors_if_any(@vehicle, :fuel_type) %></p>
-      <ul class="radio-button-list inline-list">
-        <li>
-          <%= f.radio_button :fuel_type, "gasoline" %>
-          <%= f.label :fuel_type, "Gasoline" %>
-        </li>
-        <li>
-          <%= f.radio_button :fuel_type, "diesel" %>
-          <%= f.label :fuel_type, "Diesel" %>
-        </li>
-        <li>
-          <%= f.radio_button :fuel_type, "b100" %>
-          <%= f.label :fuel_type, "B100 (biofuel)" %>
-        </li>
-        <li>
-          <%= f.radio_button :fuel_type, "b20" %>
-          <%= f.label :fuel_type, "B20 (biofuel)" %>
-        </li>
-        <li>
-          <%= f.radio_button :fuel_type, "hybrid" %>
-          <%= f.label :fuel_type, "Hybrid" %>
-        </li>
-        <li>
-          <%= f.radio_button :fuel_type, "pi_hybrid" %>
-          <%= f.label :fuel_type, "Plug in hybrid" %>
-        </li>
-        <li>
-          <%= f.radio_button :fuel_type, "electric" %>
-          <%= f.label :fuel_type, "Electric" %>
-        </li>
-      </ul>
-    </div>
-
-    <div class="question-and-response">
-      <p class="form-question">About how many miles a month do you use it?</p>
-      <p class="error-message"><%= add_errors_if_any(@vehicle, :mmonth) %></p>
-      <p>
-        <%= f.text_field :mmonth %>
-      </p>
-    </div>
-
-    <div class="question-and-response">
-      <p class="form-question">How many miles to the gallon does it get?</p>
-      <p class="error-message"><%= add_errors_if_any(@vehicle, :mpg) %></p>
-      <p>
-        <%= f.text_field :mpg %>
-      </p>
-    </div>
-
-    <div class="submit-form">
-      <%= f.submit 'Next' %>
-    </div>
-
-  </div>
-  <% end %>
-</div>
+    <% end %>
+  </div> <!-- component -->
+</div> <!-- wrapper centered-content -->
