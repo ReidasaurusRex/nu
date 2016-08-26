@@ -1,4 +1,6 @@
-<div class="calculator-component home-energies-show">
+<div class="wrapper centered-content">
+  
+  <div class="component">
   <h1>Home Energy Overview <span><%= @footprint.friendly_creation_date %></span></h1>
 
   <h2>Emissions: <span><%= @home_energy.emissions_overview %></span></h2>
@@ -11,4 +13,6 @@
 
   <% end %>
   <h3><%= link_to("Back to overview", profile_footprint_path(profile_id: @footprint.profile.id, id: @footprint.id)) %></h3>
-</div> <!-- home-energies-show -->
+  </div> <!-- component -->
+
+</div> <!-- wrapper centered-content -->
