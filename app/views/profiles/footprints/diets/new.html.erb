@@ -1,38 +1,42 @@
-<div class="diets-new">
-  <%= form_for(@diet, url: footprint_diets_path(
-  footprint_id: @footprint.id), method: :post) do |f| %>
-  <div class="diet-form">
-    <h2>What term best describes your diet?</h2>
-    <p class="error-message"><%= add_errors_if_any(@diet, :diet_type) %></p>
-    <ul class="radio-button-list block-list">
-      <li>
-        <%= f.radio_button :diet_type, :typical %>
-        <%= f.label :diet_type, 'Average' %>
-      </li>
-      <li>
-        <%= f.radio_button :diet_type, :meat_heavy %>
-        <%= f.label :diet_type, 'Meat heavy' %>
-      </li>
-      <li>
-        <%= f.radio_button :diet_type, :no_beef %>
-        <%= f.label :diet_type, 'No beef' %>
-      </li>
-      <li>
-        <%= f.radio_button :diet_type, :pescatarian %>
-        <%= f.label :diet_type, 'Pescatarian' %>
-      </li>
-      <li>
-        <%= f.radio_button :diet_type, :vegetarian %>
-        <%= f.label :diet_type, 'Vegetarian' %>
-      </li>
-      <li>
-        <%= f.radio_button :diet_type, :vegan %>
-        <%= f.label :diet_type, 'Vegan' %>
-      </li>
-    </ul>
-    <div class="submit-form">
-      <%= f.submit 'Next question' %>
+<div class="wrapper centered-content">
+
+  <div class="component">
+    <%= form_for(@diet, url: footprint_diets_path(
+    footprint_id: @footprint.id), method: :post) do |f| %>
+    <div class="diet-form">
+      <h2>What term best describes your diet?</h2>
+      <p class="error-message"><%= add_errors_if_any(@diet, :diet_type) %></p>
+      <ul class="radio-button-list block-list">
+        <li>
+          <%= f.radio_button :diet_type, :typical %>
+          <%= f.label :diet_type, 'Average' %>
+        </li>
+        <li>
+          <%= f.radio_button :diet_type, :meat_heavy %>
+          <%= f.label :diet_type, 'Meat heavy' %>
+        </li>
+        <li>
+          <%= f.radio_button :diet_type, :no_beef %>
+          <%= f.label :diet_type, 'No beef' %>
+        </li>
+        <li>
+          <%= f.radio_button :diet_type, :pescatarian %>
+          <%= f.label :diet_type, 'Pescatarian' %>
+        </li>
+        <li>
+          <%= f.radio_button :diet_type, :vegetarian %>
+          <%= f.label :diet_type, 'Vegetarian' %>
+        </li>
+        <li>
+          <%= f.radio_button :diet_type, :vegan %>
+          <%= f.label :diet_type, 'Vegan' %>
+        </li>
+      </ul>
+      <div class="submit-form">
+        <%= f.submit 'Next question' %>
+      </div>
     </div>
-  </div>
-  <% end %>
-</div>
+    <% end %>
+  </div> <!-- component -->
+  
+</div> <!-- wrapper centered-content -->
