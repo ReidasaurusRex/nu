@@ -21,6 +21,7 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
   end
 
   def update
+    update_profile_completed_challenge(update_profile_completed_challenge_params)
   end
 
   private
@@ -52,6 +53,14 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
       redirect_to profile_profile_completed_challenge_path(profile_id: @profile.id, id: @profile_completed_challenge.id)
     else
       render :new
+    end
+  end
+
+  def update_profile_completed_challenge(params)
+    if @profile_completed_challenge.update(params)
+      redirect_to profile_profile_completed_challenge_path(profile_id: @profile.id, id: @profile_completed_challenge.id)
+    else
+      render :edit
     end
   end
 end

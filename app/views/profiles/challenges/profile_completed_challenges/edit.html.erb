@@ -1,2 +1,12 @@
-<h1>ProfileCompletedChallenges#edit</h1>
-<p>Find me in app/views/profile_completed_challenges/edit.html.erb</p>
+<div class="wrapper centered-content">
+  
+  <div class="component">
+    <h2><%= @profile_completed_challenge.challenge.title %></h2>
+    <h4>Care to tell us how this challenge went?</h4>
+      <%= form_for(@profile_completed_challenge, url: profile_profile_completed_challenge_path(profile_id: @profile.id, id: @profile_completed_challenge.id), method: :put) do |f| %>
+      <%= f.text_area :entry, rows: 3 %>
+      <%= f.submit "Submit" %>
+    <% end %>
+  </div> <!-- component -->
+
+</div> <!-- wrapper centered-content -->

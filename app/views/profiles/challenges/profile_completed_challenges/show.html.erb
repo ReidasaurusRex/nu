@@ -5,8 +5,9 @@
     <h2><%= @profile_completed_challenge.challenge.title %> <span>Completed <%= @profile_completed_challenge.completion_date %></span></h2>
     <h3><%= @profile_completed_challenge.challenge.caption %> <span>+<%= @profile_completed_challenge.challenge.points %></span></h3>
     <h4>Your average difficulty: <%= @profile_completed_challenge.average_difficulty %></h4>
+    <p>Your response: <%= @profile_completed_challenge.entry %></p>
     <p><%= @profile_completed_challenge.challenge.description %></p>
-    <h4><%= link_to "Back to completed challenges", profile_profile_completed_challenges_path(profile_id: @profile.id) %></h4>
+    <h4><%= link_to "Back to completed challenges", profile_profile_completed_challenges_path(profile_id: @profile.id) %> <%= link_to "Edit response", edit_profile_profile_completed_challenge_path(profile_id: @profile.id, id: @profile_completed_challenge.id) %></h4>
     </div> <!-- component -->
 
 </div> <!-- wrapper centered-content -->
