@@ -1,7 +1,9 @@
 <div class="wrapper centered-content">
   
   <div class="component new-challenge-prompt">
-    
+    <p><i class="fa fa-large fa-trophy"></i></p>
+    <p>Start a new challenge</p>
+    <p><%= link_to "Browse Challenges", profile_challenges_path(profile_id: @profile.id) %></p>
   </div>
 
   <div class="challenge-headers">
