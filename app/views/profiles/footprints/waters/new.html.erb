@@ -1,63 +1,66 @@
-<div class="waters-new">
-  <%= form_for(@water, url: footprint_waters_path(footprint_id: @footprint.id), method: :post) do |f| %>
-  <div class="water-form">
-    
-    <div class="question-and-response">
+<div class="wrapper centered-content">
+  
+  <div class="component">
+    <%= form_for(@water, url: footprint_waters_path(footprint_id: @footprint.id), method: :post) do |f| %>
+    <div class="water-form">
       
-      <p class="form-question">Do you use water at your residence?</p>
-      <p class="error-message"><%= add_errors_if_any(@water, :use) %></p>
+      <div class="question-and-response">
+        
+        <p class="form-question">Do you use water at your residence?</p>
+        <p class="error-message"><%= add_errors_if_any(@water, :use) %></p>
+        
+        <ul class="radio-button-list inline-list">
+          <li>
+            <%= f.radio_button :use, "1", {checked: true} %>
+            <%= f.label :use, "Yes" %>
+          </li>
+          <li>
+            <%= f.radio_button :use, "0" %>
+            <%= f.label :use, "No" %>
+          </li>
+        </ul>
+
+      </div> <!-- question-and-response -->
       
-      <ul class="radio-button-list inline-list">
-        <li>
-          <%= f.radio_button :use, "1", {checked: true} %>
-          <%= f.label :use, "Yes" %>
-        </li>
-        <li>
-          <%= f.radio_button :use, "0" %>
-          <%= f.label :use, "No" %>
-        </li>
-      </ul>
+      <div class="question-and-response">
+        
+        <p class="form-question">If yes, do you know the amount?</p>
+        <p class="error-message"><%= add_errors_if_any(@water, :known) %></p>
+        
+        <ul class="radio-button-list inline-list">
+          <li>
+            <%= f.radio_button :known, "1", {checked: true} %>
+            <%= f.label :known, "Yes" %>
+          </li>
+          <li>
+            <%= f.radio_button :known, "0" %>
+            <%= f.label :known, "No" %>
+          </li>
+        </ul>
 
-    </div> <!-- question-and-response -->
-    
-    <div class="question-and-response">
+      </div> <!-- question-and-response -->
       
-      <p class="form-question">If yes, do you know the amount?</p>
-      <p class="error-message"><%= add_errors_if_any(@water, :known) %></p>
-      
-      <ul class="radio-button-list inline-list">
-        <li>
-          <%= f.radio_button :known, "1", {checked: true} %>
-          <%= f.label :known, "Yes" %>
-        </li>
-        <li>
-          <%= f.radio_button :known, "0" %>
-          <%= f.label :known, "No" %>
-        </li>
-      </ul>
+      <div class="question-and-response">
+        
+        <p class="form-question">What is the amount, in what units?</p>
+        <p class="error-message">
+          <%= add_errors_if_any(@water, :measurement_amount) %>
+          <%= add_errors_if_any(@water, :measurement_type) %>
+        </p>
 
-    </div> <!-- question-and-response -->
-    
-    <div class="question-and-response">
-      
-      <p class="form-question">What is the amount, in what units?</p>
-      <p class="error-message">
-        <%= add_errors_if_any(@water, :measurement_amount) %>
-        <%= add_errors_if_any(@water, :measurement_type) %>
-      </p>
+        <div class="text-field-with-unit">
+          <%= f.text_field :measurement_amount %>
+          <%= f.select :measurement_type, [['gallons', 'gallons'], ['hundred cubic feet', '100cf']] %>
+        </div> <!-- text-field-with-unit -->
 
-      <div class="text-field-with-unit">
-        <%= f.text_field :measurement_amount %>
-        <%= f.select :measurement_type, [['gallons', 'gallons'], ['hundred cubic feet', '100cf']] %>
-      </div> <!-- text-field-with-unit -->
+      </div> <!-- question-and-response -->
 
-    </div> <!-- question-and-response -->
+      <div class="submit-form">
+        <%= f.submit 'Next question' %>
+      </div>
 
-    <div class="submit-form">
-      <%= f.submit 'Next question' %>
-    </div>
+    </div> <!-- water-form -->
+    <% end %>
+  </div> <!-- component -->
 
-  </div> <!-- water-form -->
-  <% end %>
-
-</div>
+</div> <!-- wrapper centered-content -->
