@@ -1,4 +1,6 @@
-<div class="utilities-index">
+<div class="wrapper centered-content">
+
+  <div class="component">
   <h1>Utilities</h1>
   <h3 class="return-link"><%= link_to "Add or drop utilities", edit_footprint_home_energy_path(footprint_id: @footprint.id, id: @home_energy.id) %></h3>
   
@@ -45,4 +47,6 @@
       <%= submit_tag "Assess utilities" %>
     </div>
   <% end %>
-</div>
+  </div> <!-- component -->
+
+</div> <!-- wrapper centered-content -->
