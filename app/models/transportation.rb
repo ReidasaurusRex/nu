@@ -35,4 +35,12 @@ class Transportation < ActiveRecord::Base
       return "Pending"
     end
   end
+
+  def image_path
+    if self.section_emissions
+      return "progress_icons/color/transportation"
+    else
+      return "progress_icons/grayscale/transportation"
+    end
+  end
 end

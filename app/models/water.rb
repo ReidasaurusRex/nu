@@ -54,4 +54,12 @@ class Water < ActiveRecord::Base
       return "None"
     end
   end
+
+  def image_path
+    if self.section_emissions
+      return "progress_icons/color/water"
+    else
+      return "progress_icons/grayscale/water"
+    end
+  end
 end

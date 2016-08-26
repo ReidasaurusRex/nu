@@ -37,4 +37,12 @@ class Waste < ActiveRecord::Base
     end
   end
 
+  def image_path
+    if self.section_emissions
+      return "progress_icons/color/waste"
+    else
+      return "progress_icons/grayscale/waste"
+    end
+  end
+
 end

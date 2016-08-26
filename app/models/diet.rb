@@ -28,4 +28,12 @@ class Diet < ActiveRecord::Base
       return "Pending"
     end
   end
+
+  def image_path
+    if self.section_emissions
+      return "progress_icons/color/diet"
+    else
+      return "progress_icons/grayscale/diet"
+    end
+  end
 end

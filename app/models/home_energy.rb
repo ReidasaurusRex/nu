@@ -35,4 +35,12 @@ class HomeEnergy < ActiveRecord::Base
     self.footprint.update_total_if_complete
     self.footprint.post_and_score_if_first_completion(prior_footprint_completion)
   end
+
+  def image_path
+    if self.section_emissions
+      return "progress_icons/color/home_energy"
+    else
+      return "progress_icons/grayscale/home_energy"
+    end
+  end
 end
