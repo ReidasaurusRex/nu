@@ -1,34 +1,36 @@
-<div class="footprints-show">
+<div class="wrapper centered-content">
   
-  <div class="footprint-overview">
-    <h1>Emissions report</h1>
-    <h3 class="footprint-date"><%= @footprint.friendly_creation_date %></h3>
-    <h2 class="total-emissions">Total emissions: <span><%= @footprint.emissions_or_pending %></span></h2>
-  </div>
+  <div class="component">
+    <div class="footprint-overview">
+      <h1>Emissions report</h1>
+      <h3 class="footprint-date"><%= @footprint.friendly_creation_date %></h3>
+      <h2 class="total-emissions">Total emissions: <span><%= @footprint.emissions_or_pending %></span></h2>
+    </div>
 
-  <div class="section-overview">
-    <h2>Diet</h2>
-    <%= footprint_section_summary("diet") %>
-  </div> <!-- section-overview -->
+    <div class="section-overview">
+      <h2>Diet</h2>
+      <%= footprint_section_summary("diet") %>
+    </div> <!-- section-overview -->
 
-  <div class="section-overview">
-    <h2>Water</h2>
-    <%= footprint_section_summary("water") %>
-  </div> <!-- section-overview -->
+    <div class="section-overview">
+      <h2>Water</h2>
+      <%= footprint_section_summary("water") %>
+    </div> <!-- section-overview -->
 
-  <div class="section-overview">
-    <h2>Waste</h2>
-    <%= footprint_section_summary("waste") %>
-  </div> <!-- section-overview -->
+    <div class="section-overview">
+      <h2>Waste</h2>
+      <%= footprint_section_summary("waste") %>
+    </div> <!-- section-overview -->
 
-  <div class="section-overview">
-    <h2>Transportation</h2>
-    <%= footprint_section_summary("transportation") %>
-  </div> <!-- section-overview -->
+    <div class="section-overview">
+      <h2>Transportation</h2>
+      <%= footprint_section_summary("transportation") %>
+    </div> <!-- section-overview -->
 
-  <div class="section-overview">
-    <h2>Home Energy</h2>
-    <%= footprint_section_summary("home_energy") %>
-  </div> <!-- section-overview -->
+    <div class="section-overview">
+      <h2>Home Energy</h2>
+      <%= footprint_section_summary("home_energy") %>
+    </div> <!-- section-overview -->
+  </div> <!-- component -->
   
-</div> <!-- footprints-show -->
+</div> <!-- wrapper centered-content -->
