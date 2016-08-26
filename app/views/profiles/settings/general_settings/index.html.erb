@@ -1,20 +1,23 @@
-<div class="settings-index">
-  <h1>Settings for <%= @profile.full_name %></h1>
-  <h3>Email: <%= @profile.user.email %></h3>
-  <h3><%= link_to "Edit email or password", edit_user_path(@profile.user) %></h3>
-  
-  <div class="privacy-settings settings-section">
-    <h2 class="section-header">Privacy Settings</h2>
+<div class="wrapper">
+
+  <div class="component">
+    <h1>Account</h1>
+    <h3>Email: <%= @profile.user.email %></h3>
+    <h3><%= link_to "Edit email or password", edit_user_path(@profile.user) %></h3>
+  </div>
+
+  <div class="component">
+    <h1>Privacy</h1>
     <p class="section-description">Who gets to see what?</p>
     <%= render partial: "profiles/settings/privacy_settings/overview_list", locals: {privacy: @settings[:privacy]} %>
     <%= link_to "Edit privacy settings", edit_profile_privacy_setting_path(profile_id: @profile.id, id: @profile.privacy_setting.id) %>
-  </div> <!-- privacy-settings -->
+  </div>
 
-  <div class="sharing-settings settings-section">
-    <h2 class="section-header">Sharing Settings</h2>
+  <div class="component">
+    <h1>Sharing</h1>
     <p class="section-description">What do you post to your followers?</p>
     <%= render partial: "profiles/settings/sharing_settings/overview_list", locals: {sharing: @settings[:sharing]} %>
     <%= link_to "Edit sharing settings", edit_profile_sharing_setting_path(profile_id: @profile.id, id: @profile.sharing_setting.id) %>
-  </div> <!-- sharing-settings -->
+  </div>
 
-</div> <!-- settings-index --> 
+</div> <!-- wrapper --> 
