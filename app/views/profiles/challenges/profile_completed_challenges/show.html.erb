@@ -1,6 +1,7 @@
 <div class="wrapper centered-content">
 
   <div class="component">
+    <%= image_tag @profile_completed_challenge.image_path %>
     <h2><%= @profile_completed_challenge.challenge.title %> <span>Completed <%= @profile_completed_challenge.completion_date %></span></h2>
     <h3><%= @profile_completed_challenge.challenge.caption %> <span>+<%= @profile_completed_challenge.challenge.points %></span></h3>
     <h4>Your average difficulty: <%= @profile_completed_challenge.average_difficulty %></h4>
