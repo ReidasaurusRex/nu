@@ -43,7 +43,7 @@ class Footprint < ActiveRecord::Base
       profile = self.profile
       profile.point_overview.add_score_from_footprint
       profile.newsfeed_items.create(source_id: profile.id, content: "#{profile.first_name.capitalize} checked out their carbon footprint, and it's at #{self.total_emissions}lbs of CO2e!")
-      profile.post_to_followers("Completed an emissions assessment", "#{profile.first_name.capitalize} checked out their carbon footprint, and it's at #{self.total_emissions}lbs of CO2e!")
+      profile.post_to_followers("#{profile.first_name.capitalize} checked out their carbon footprint, and it's at #{self.total_emissions}lbs of CO2e!")
     end
   end
 

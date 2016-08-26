@@ -5,6 +5,7 @@
 <% elsif profile.footprints.last.complete? == false %>
   <h3>Calculator in progress</h3>
   <%= button_to("Complete", profile_footprint_path(profile_id: profile.id, id: profile.footprints.last.id), method: :get) %>
+  <h4><%= link_to "View Past Reports", profile_footprints_path(profile.id) %></h4>
 <% else %>
   <h4>Last updated <%= profile.footprints.last.friendly_creation_date %></h4>
   <%= button_to("Reassess", profile_footprints_path(profile.id), method: :post) %>
