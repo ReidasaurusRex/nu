@@ -13,8 +13,9 @@
   <div class="progress-bar">
     <h4>Progress</h4>
     <div class="progress-indicator">
+      <div class="progress-negative" style="width: <%= 100 - footprint.percent_progress %>%"></div>
     </div>
-    <h4>20%</h4>
+    <h4><%= footprint.percent_progress %>%</h4>
   </div>
 
 </div>

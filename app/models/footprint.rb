@@ -50,4 +50,12 @@ class Footprint < ActiveRecord::Base
   def percent_of_us_allotment
     return ((self.total_emissions.to_f / 1980) * 100).round
   end
+
+  def percent_progress
+    progress = 0
+    [self.diet_emissions, self.water_emissions, self.waste_emissions, self.transportation_emissions, self.home_energy_emissions].each do |section|
+      progress += 20 if section
+    end
+    return progress
+  end
 end
