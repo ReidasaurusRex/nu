@@ -9,6 +9,36 @@
     </p>
   </div>
 
+  
+  <ul class="check-list inline-list tags-list">
+    <%= fields_for :tags do |tag| %>
+      <li>
+        <%= tag.check_box :water, {}, '1', false %>
+        <%= tag.label :water, 'Water' %>
+      </li>
+      <li>
+        <%= tag.check_box :waste, {}, '1', false %>
+        <%= tag.label :waste, 'Waste' %>
+      </li>
+      <li>
+        <%= tag.check_box :diet, {}, '1', false %>
+        <%= tag.label :diet, 'Diet' %>
+      </li>
+      <li>
+        <%= tag.check_box :travel, {}, '1', false %>
+        <%= tag.label :travel, 'Travel' %>
+      </li>
+      <li>
+        <%= tag.check_box :energy, {}, '1', false %>
+        <%= tag.label :energy, 'Energy' %>
+      </li>
+      <li>
+        <%= tag.check_box :social, {}, '1', false %>
+        <%= tag.label :social, 'Social' %>
+      </li>
+      <% end %>
+  </ul>
+
   <div class="submit-form">
     <%= f.submit "Post" %>
   </div>

@@ -5,6 +5,8 @@ class NewsfeedItem < ActiveRecord::Base
   has_many :likes
   has_many :tags, as: :taggable
 
+  validates :content, presence: {message: "Please add some content"}
+
   def source
     if self.source_type == "profile"
       return Profile.find(self.source_id)
@@ -55,5 +57,15 @@ class NewsfeedItem < ActiveRecord::Base
 
   def belongs_to_profile?(profile)
     return self.source == profile
+  end
+
+  def add_tags(tags)
+    self.tags.each{|tag| tag.destroy}
+    _self = self
+    unless tags.empty?
+      tags.each do |name, val| 
+        _self.tags.create(name: name)
+      end
+    end
   end
 end

@@ -7,7 +7,7 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   end
 
   def create
-    create_newsfeed_item(newsfeed_item_params)
+    create_newsfeed_item(newsfeed_item_params, tag_params)
   end
 
   def show
@@ -27,13 +27,19 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
     params.require(:newsfeed_item).permit(:content).merge(source_id: @profile.id, source_type: "profile")
   end
 
+  def tag_params
+    params.fetch(:tags, {}).permit(:water, :waste, :energy, :social, :travel, :diet)
+  end
+
   def get_newsfeed_item
     @newsfeed_item = NewsfeedItem.find(params[:id])
   end
 
-  def create_newsfeed_item(params)
+  def create_newsfeed_item(params, tags)
+    binding.pry
     @newsfeed_item = NewsfeedItem.new(params)
     if @newsfeed_item.save
+      @newsfeed_item.add_tags(tags)
       NewsfeedItemProfile.create(profile_id: @profile.id, newsfeed_item_id: @newsfeed_item.id)
       @profile.followers.each{|follower| NewsfeedItemProfile.create(profile_id: follower.id, newsfeed_item_id: @newsfeed_item.id)}
       redirect_to profile_newsfeed_items_path(profile_id: @profile.id)
