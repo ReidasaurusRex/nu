@@ -15,6 +15,15 @@
       <p><%= feed_item.content %></p>
     </div>
 
+    <% unless feed_item.tags.empty? %>
+      <ul class="newsfeed-tags inline-list">
+        <li>Tags: </li>
+        <% feed_item.tags.each do |tag| %>
+          <li><%= link_to "\##{tag.name}", profile_search_path(profile_id: @profile.id, query: "#{tag.name}"), method: :post %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <div class="likes-overview">
       <%= like_button(feed_item, profile) %> <span class="like-number"><%= like_number(feed_item) %></span>
     </div>
