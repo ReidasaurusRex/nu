@@ -1,6 +1,7 @@
 class ProfilesController < Inheritance::LoggedInController
   before_action :get_profile, except: [:new, :create]
   before_action :check_if_existing_profile, only: [:new, :create]
+  before_action :ensure_profile_matches_user, only: [:edit, :update]
 
   def new
     @profile = Profile.new
