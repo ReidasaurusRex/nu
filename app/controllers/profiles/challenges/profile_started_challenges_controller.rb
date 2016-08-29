@@ -1,6 +1,7 @@
 class Profiles::Challenges::ProfileStartedChallengesController < Inheritance::ProfileMatchesUserController
   before_action :get_profile_started_challenges, only: :index
   before_action :get_profile_started_challenge, only: :show
+  # TODO: ensure profile matches user
 
   def index
   end

@@ -1,6 +1,7 @@
 class Profiles::Footprints::HomeEnergiesController < Inheritance::CalculatorComponentsController
   before_action :get_footprint
   before_action :get_home_energy, except: [:new, :create]
+  # TODO: ensure home energy belongs to profile
 
   def new
     @home_energy = HomeEnergy.new

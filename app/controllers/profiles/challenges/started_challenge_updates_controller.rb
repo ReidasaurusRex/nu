@@ -1,5 +1,6 @@
 class Profiles::Challenges::StartedChallengeUpdatesController < Inheritance::ProfileMatchesUserController
   before_action :get_profile_started_challenge
+  # TODO: ensure started challenge belongs to profile
 
   def new
     @started_challenge_update = StartedChallengeUpdate.new

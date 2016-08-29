@@ -2,6 +2,7 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
   before_action :get_profile_completed_challenges, only: :index
   before_action :get_profile_started_challenge, only: [:new, :create]
   before_action :get_profile_completed_challenge, only: [:show, :edit, :update]
+  # TODO: ensure profile matches user
 
   def index
   end

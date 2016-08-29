@@ -6,6 +6,7 @@ class Inheritance::CalculatorComponentsController < Inheritance::CompletedProfil
     @footprint = Footprint.find(params[:footprint_id])
   end
   
+  # TODO: ensure footprint belongs to user
   # def ensure_footprint_belongs_to_user
   #   unless @user.profile.footprints.include?(@footprint)
   #     flash[:error] = "Unauthorized"
