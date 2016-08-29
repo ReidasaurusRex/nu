@@ -1,5 +1,6 @@
 class ProfilesController < Inheritance::LoggedInController
   before_action :get_profile, except: [:new, :create]
+  before_action :check_if_existing_profile, only: [:new, :create]
 
   def new
     @profile = Profile.new
@@ -21,6 +22,12 @@ class ProfilesController < Inheritance::LoggedInController
   end
 
   private
+  def check_if_existing_profile
+    if @user.profile
+      redirect_to profile_path(@user.profile)
+    end
+  end
+
   def get_profile
     @profile = Profile.find(params[:id])
   end

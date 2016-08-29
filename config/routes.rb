@@ -16,7 +16,7 @@
   get 'feedback/new', as: 'new_feedback'
   post 'feedback/create', as: 'create_feedback'
   get 'feedback/thanks', as: 'feedback_thanks'
-# feedback
+  # feedback
 
   # Access routes
   root 'access#landing'
