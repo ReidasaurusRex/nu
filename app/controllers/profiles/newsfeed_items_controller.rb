@@ -36,7 +36,6 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   end
 
   def create_newsfeed_item(params, tags)
-    binding.pry
     @newsfeed_item = NewsfeedItem.new(params)
     if @newsfeed_item.save
       @newsfeed_item.add_tags(tags)
