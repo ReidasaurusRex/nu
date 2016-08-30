@@ -25,6 +25,10 @@ class Profiles::Footprints::WastesController < Inheritance::CalculatorComponents
   private
   def get_waste
     @waste = Waste.find(params[:id])
+    if @waste != @footprint.waste
+      flash[:error] = "Unauthorized"
+      redirect_to profile_footprint_path(profile_id: @profile.id, id: @footprint.id)
+    end
   end
 
   def waste_params
