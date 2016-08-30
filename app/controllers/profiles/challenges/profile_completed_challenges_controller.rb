@@ -2,7 +2,6 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
   before_action :get_profile_completed_challenges, only: :index
   before_action :get_profile_started_challenge, only: [:new, :create]
   before_action :get_profile_completed_challenge, only: [:show, :edit, :update]
-  # TODO: ensure profile matches user
 
   def index
   end
@@ -32,9 +31,12 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
 
   def get_profile_started_challenge
     @profile_started_challenge = ProfileStartedChallenge.find(params[:profile_started_challenge_id])
-    unless @profile.profile_started_challenges.include?(@profile_started_challenge)
+    if !@profile.profile_started_challenges.include?(@profile_started_challenge)
       flash[:error] = "Unauthorized"
       redirect_to profile_profile_started_challenges_path(@profile)
+    elsif @profile_started_challenge.started_challenge_updates.length < 4
+      flash[:error] = "Incomplete"
+      redirect_to new_profile_started_challenge_started_challenge_update_path(@profile_started_challenge)
     end
   end
 
