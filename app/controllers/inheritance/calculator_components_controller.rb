@@ -6,13 +6,12 @@ class Inheritance::CalculatorComponentsController < Inheritance::CompletedProfil
     @footprint = Footprint.find(params[:footprint_id])
   end
   
-  # TODO: ensure footprint belongs to user
-  # def ensure_footprint_belongs_to_user
-  #   unless @user.profile.footprints.include?(@footprint)
-  #     flash[:error] = "Unauthorized"
-  #     redirect_to root_path
-  #   end
-  # end
+  def ensure_footprint_belongs_to_profile
+    if !@profile.footprints.include?(@footprint)
+      flash[:error] = "Unauthorized"
+      redirect_to profile_stats_path(@profile)
+    end
+  end
 
   def next_component_path(current_section)
     if current_section.has_attribute?(:transportation_id)

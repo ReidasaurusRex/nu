@@ -1,7 +1,7 @@
 <div class="wrapper centered-content">
   
   <div class="component">
-    <%= form_for(@home_energy, url: footprint_home_energies_path(footprint_id: @footprint.id), method: :post) do |f| %>
+    <%= form_for(@home_energy, url: footprint_home_energy_path(footprint_id: @footprint.id, id: @home_energy.id), method: :put) do |f| %>
     <div class="new-home-energy-form">
 
       <p class="section-prompt">Which of the following utilities do you use in your place of residence?</p>

@@ -2,7 +2,7 @@ class Profiles::ChallengesController < Inheritance::ProfileMatchesUserController
   before_action :get_available_challenges, only: :index
   before_action :get_challenge, only: :show
   before_action :ensure_profile_without_challenge, only: :show
-  # TODO: ensure profile matches user
+  
   def index
   end
 
