@@ -2,7 +2,7 @@ class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
   layout "calculator", except: :index
 
   before_action :get_footprint, only: [:show, :destroy]
-  # before_action :ensure_footprint_belongs_to_user, except: [:index, :create]
+  before_action :ensure_footprint_belongs_to_user, except: [:index, :create]
 
   def index
     @footprints = @profile.footprints
@@ -28,11 +28,10 @@ class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
     @footprint = Footprint.find(params[:id])
   end
 
-  # def ensure_footprint_belongs_to_user
-  #   profile = @user.profile
-  #   unless profile.footprints.include?(@footprint)
-  #     flash[:error] = "Unauthorized"
-  #     redirect_to root_path
-  #   end 
-  # end
+  def ensure_footprint_belongs_to_user
+    unless @profile.footprints.include?(@footprint)
+      flash[:error] = "Unauthorized"
+      redirect_to profile_stats_path(@profile)
+    end 
+  end
 end
