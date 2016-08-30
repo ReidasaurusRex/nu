@@ -26,6 +26,10 @@ class Profiles::Footprints::DietsController < Inheritance::CalculatorComponentsC
   private
   def get_diet
     @diet = Diet.find(params[:id])
+    if @diet != @footprint.diet
+      flash[:error] = "Unauthorized"
+      redirect_to profile_footprint_path(profile_id: @profile.id, id: @footprint.id)
+    end
   end
 
   def diet_params
