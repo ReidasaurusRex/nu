@@ -17,6 +17,10 @@ class Profiles::Footprints::UtilitiesController < Inheritance::CalculatorCompone
 
   def get_footprint
     @footprint = @home_energy.footprint
+    if !@profile.footprints.include?(@footprint)
+      flash[:error] = "Unauthorized"
+      redirect_to profile_stats_path(@profile)
+    end
   end
 
   def get_utilities
