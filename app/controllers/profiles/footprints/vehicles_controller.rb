@@ -28,10 +28,18 @@ class Profiles::Footprints::VehiclesController < Inheritance::CalculatorComponen
 
   def get_transportation_footprint
     @footprint = @transportation.footprint
+    if !@profile.footprints.include?(@footprint)
+      flash[:error] = "Unauthorized"
+      redirect_to profile_stats_path(@profile)
+    end
   end
 
   def get_vehicle
     @vehicle = Vehicle.find(params[:id])
+    if @transportation.vehicle != @vehicle
+      flash[:error] = "Unauthorized"
+      redirect_to footprint_transportation_path(footprint_id: @footprint.id, id: @transportation.id)
+    end
   end
 
   def vehicle_params
