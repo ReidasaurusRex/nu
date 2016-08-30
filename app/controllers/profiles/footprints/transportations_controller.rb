@@ -1,7 +1,7 @@
 class Profiles::Footprints::TransportationsController < Inheritance::CalculatorComponentsController
   before_action :get_footprint
+  before_action :ensure_footprint_belongs_to_profile
   before_action :get_transportation, except: :create
-  # TODO: ensure footprint belongs to profile
 
   def create
     create_transportation
@@ -22,6 +22,10 @@ class Profiles::Footprints::TransportationsController < Inheritance::CalculatorC
   private
   def get_transportation
     @transportation = Transportation.find(params[:id])
+    if @transportation != @footprint.transportation
+      flash[:error] = "Unauthorized"
+      redirect_to profile_footprint_path(profile_id: @profile.id, id: @footprint.id)
+    end
   end
 
   def create_transportation
