@@ -27,8 +27,7 @@ class Profiles::Footprints::HomeEnergiesController < Inheritance::CalculatorComp
   private
   def get_home_energy
     @home_energy = HomeEnergy.find(params[:id])
-    binding.pry
-    if !@home_energy == @footprint.home_energy
+    if @home_energy != @footprint.home_energy
       flash[:error] = "Unauthorized"
       redirect_to profile_footprint_path(profile_id: @profile.id, id: @footprint.id)
     end
