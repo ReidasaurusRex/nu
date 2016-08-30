@@ -1,6 +1,5 @@
 class Profiles::Challenges::StartedChallengeUpdatesController < Inheritance::ProfileMatchesUserController
   before_action :get_profile_started_challenge
-  # TODO: ensure started challenge belongs to profile
 
   def new
     @started_challenge_update = StartedChallengeUpdate.new
@@ -13,6 +12,10 @@ class Profiles::Challenges::StartedChallengeUpdatesController < Inheritance::Pro
   private
   def get_profile_started_challenge
     @profile_started_challenge = ProfileStartedChallenge.find(params[:profile_started_challenge_id])
+    if !@profile.profile_started_challenges.include?(@profile_started_challenge)
+      flash[:error] = "Unauthorized"
+      redirect_to profile_profile_started_challenges_path(@profile)
+    end
   end
 
   def started_challenge_update_params
