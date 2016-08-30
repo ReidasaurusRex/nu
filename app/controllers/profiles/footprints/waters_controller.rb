@@ -26,6 +26,10 @@ class Profiles::Footprints::WatersController < Inheritance::CalculatorComponents
   private
   def get_water
     @water = Water.find(params[:id])
+    if @water != @footprint.water
+      flash[:error] = "Unauthorized"
+      redirect_to profile_footprint_path(profile_id: @profile.id, id: @footprint.id)
+    end
   end
 
   def water_params
