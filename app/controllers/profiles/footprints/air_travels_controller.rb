@@ -28,10 +28,18 @@ class Profiles::Footprints::AirTravelsController < Inheritance::CalculatorCompon
 
   def get_transportation_footprint
     @footprint = @transportation.footprint
+    if !@profile.footprints.include?(@footprint)
+      flash[:error] = "Unauthorized"
+      redirect_to profile_stats_path(@profile)
+    end
   end
 
   def get_air_travel
     @air_travel = AirTravel.find(params[:id])
+    if @transportation.air_travel != @air_travel
+      flash[:error] = "Unauthorized"
+      redirect_to footprint_transportation_path(footprint_id: @footprint.id, id: @transportation.id)
+    end
   end
 
   def air_travel_params
