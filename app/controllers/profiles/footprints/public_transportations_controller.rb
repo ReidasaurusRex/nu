@@ -27,10 +27,18 @@ class Profiles::Footprints::PublicTransportationsController < Inheritance::Calcu
 
   def get_transportation_footprint
     @footprint = @transportation.footprint
+    if !@profile.footprints.include?(@footprint)
+      flash[:error] = "Unauthorized"
+      redirect_to profile_stats_path(@profile)
+    end
   end
 
   def get_public_transportation
     @public_transportation = PublicTransportation.find(params[:id])
+    if @public_transportation != @transportation.public_transportation
+      flash[:error] = "Unauthorized"
+      redirect_to footprint_transportation_path(footprint_id: @footprint.id, id: @transportation.id)
+    end
   end
 
   def public_transportation_params
