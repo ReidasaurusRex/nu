@@ -29,7 +29,8 @@
     resources :profiles, except: [:index, :destroy]
   end
 
-  get '/users/:id/password_edit', to: 'users#password_edit', as: 'user_edit_password'
+  get '/users/:id/edit_password', to: 'users#edit_password', as: 'user_edit_password'
+  post '/users/:id/update_password', to: 'users#update_password', as: 'user_update_password'
   # user and settings 
 
   # Profile linked routes
