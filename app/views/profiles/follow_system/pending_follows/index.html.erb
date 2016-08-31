@@ -3,9 +3,10 @@
   <h2><%= flash[:success] %> <%= flash[:error] %></h2>
   <% @pending_follows.each do |pfollower| %>
     <div class="profile-summary">
-      <h3><%= pfollower.full_name %></h3>
+      <%= image_tag pfollower.pending_follower.profile_photo, class: "profile-photo" %>
+      <h3><%= pfollower.pending_follower.full_name %></h3>
       <h3>
-        <%= link_to("View profile", profile_path(pfollower.id)) %>
+        <%= link_to("View profile", profile_path(pfollower.pending_follower.id)) %>
         <%= button_to("Let follow", profile_follows_path(@profile), method: :post, params: {follower_id: pfollower.id})%>
         </h3>
     </div>
