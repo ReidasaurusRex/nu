@@ -1,0 +1,33 @@
+.leaderboard-list li {
+  border: 1px solid $nu-blue;
+  border-radius: 100px;
+  height: 25px;
+  line-height: 25px;
+  margin-bottom: $spacing-unit * 1.5;
+  padding: $spacing-unit / 2;
+  text-align: left;
+  vertical-align: top;
+  .leader-place {
+    color: $nu-blue;
+    padding-right: $spacing-unit / 2;
+  }
+  img {
+    border-radius: 100px;
+    display: inline-block;
+    height: 65px;
+    margin-top: -19px;
+    vertical-align: top;
+    width: 65px;
+  }
+  .leader-name {
+    color: #000000;
+    padding-left: $spacing-unit;
+  }
+  .point-number {
+    color: $nu-red;
+    float: right;
+  }
+  &.current-profile-leader {
+    background-image: linear-gradient(-229deg, #A7CD66 0%, #87D0CA 100%);
+  }
+}

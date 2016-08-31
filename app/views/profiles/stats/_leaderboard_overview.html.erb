@@ -1,11 +1,14 @@
 <h2>Leaderboard</h2>
 <ul class="leaderboard-list">
-  <% leaderboards_around_profile(profile.id, 3).each do |leader_profile| %>
+  <% leaderboards_around_profile(profile.id, 3).each_with_index do |leader_profile, index| %>
 
   <li class="leaderboard-profile <%= is_current_profile_leader(profile.id, leader_profile.id) %>">
-    <%= image_tag(leader_profile.profile_photo) %>
-    <%= leader_profile.full_name %>
-    <%= leader_profile.point_overview.total %>
+    <p>
+      <span class="leader-place"><%= index + 1 %></span>
+      <%= image_tag(leader_profile.profile_photo) %>
+      <span class="leader-name"><%= leader_profile.full_name %></span>
+      <span class="point-number"><%= leader_profile.point_overview.total %></span>
+    </p>
   </li>
   
   <% end %>
