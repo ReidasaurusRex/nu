@@ -22,17 +22,17 @@ steven = User.create(email: "steven@nu.world", password: "1234")
 reid = User.create(email: "reid@nu.world", password: "1234")
 ethan = User.create(email: "ethan@gmail.com", password: "1234")
 cannon = User.create(email: "cannon@gmail.com", password: "1234")
-aysia = User.create(email: "aysia@gmail.com", passwrod: "1234")
-gabi = User.create(email: "gabi@gmail.com", password: "1234")
+aysia = User.create(email: "aysia@gmail.com", password: "1234")
+gabe = User.create(email: "gabe@gmail.com", password: "1234")
 
 jprof = Profile.create(user_id: jarrell.id, first_name: "Jarrell", last_name: "Whipple", state: "ut", interests: "Music, biking, and online sociology.", profile_photo: "https://ucarecdn.com/0ceea936-8ec6-450a-8e38-e201f95ad573/", cover_photo: "https://ucarecdn.com/29d86ca0-119f-48fb-8cbd-10681b3c62a0/")
 kprof = Profile.create(user_id: kendra.id, first_name: "Kendra", last_name: "Black", state: "ut", interests: "Design, Spain, and righteous feminism.", profile_photo: "https://ucarecdn.com/93a1560a-0851-4784-b564-7e655c2ee7c4/", cover_photo: "https://ucarecdn.com/29d86ca0-119f-48fb-8cbd-10681b3c62a0/")
 sprof = Profile.create(user_id: steven.id, first_name: "Steven", last_name: "Nagie", state: "ut", interests: "Development, climate science, and cooking.", profile_photo: "https://ucarecdn.com/06ded808-a40c-41b1-90f1-302b095f6e12/", cover_photo: "https://ucarecdn.com/29d86ca0-119f-48fb-8cbd-10681b3c62a0/")
 rprof = Profile.create(user_id: reid.id, first_name: "Reid", last_name: "Lewis", state: "az", interests: "Biking, development, yoga, and board games.", profile_photo: "https://ucarecdn.com/9f272167-4698-4d72-a9c3-1af9e8ef7cd7/-/crop/110x110/30,0/-/preview/", cover_photo: "https://ucarecdn.com/29d86ca0-119f-48fb-8cbd-10681b3c62a0/")
-eprof = Profile.create(user_id: ethan.id, first_name: "Ethan", last_name: "Muesch", state: "az", interests: "Biking, dogs, skiing, board games.", profile_photo: "https://ucarecdn.com/9f272167-4698-4d72-a9c3-1af9e8ef7cd7/-/crop/110x110/30,0/-/preview/", cover_photo: "https://ucarecdn.com/29d86ca0-119f-48fb-8cbd-10681b3c62a0/")
-cprof = Profile.create(user_id: cannon.id, first_name: "Cannon", last_name: "Atkinson", state: "ut", interests: "Communism, environmentalism, and vegan goooooooods.", profile_photo: "https://ucarecdn.com/9f272167-4698-4d72-a9c3-1af9e8ef7cd7/-/crop/110x110/30,0/-/preview/", cover_photo: "https://ucarecdn.com/29d86ca0-119f-48fb-8cbd-10681b3c62a0/")
-aprof = Profile.create(user_id: aysia.id, first_name: "Aysia", last_name: "Raines", state: "mt", interests: "Animals, coffee, and tattoos.", profile_photo: "https://ucarecdn.com/9f272167-4698-4d72-a9c3-1af9e8ef7cd7/-/crop/110x110/30,0/-/preview/", cover_photo: "https://ucarecdn.com/29d86ca0-119f-48fb-8cbd-10681b3c62a0/")
-gprof = Profile.create(user_id: gabi.id, first_name: "Gabi", last_name: "Dragonheart", state: "ut", interests: "Biking, hiking, camping, general badassery.", profile_photo: "https://ucarecdn.com/9f272167-4698-4d72-a9c3-1af9e8ef7cd7/-/crop/110x110/30,0/-/preview/", cover_photo: "https://ucarecdn.com/29d86ca0-119f-48fb-8cbd-10681b3c62a0/")
+eprof = Profile.create(user_id: ethan.id, first_name: "Ethan", last_name: "Muesch", state: "az", interests: "Biking, dogs, skiing, board games.", profile_photo: "https://ucarecdn.com/ea8c794f-6c13-4cc0-8ff6-972799110820/", cover_photo: "https://ucarecdn.com/00083a24-3575-4c3f-a7a3-63e35cde5702/")
+cprof = Profile.create(user_id: cannon.id, first_name: "Cannon", last_name: "Atkinson", state: "ut", interests: "Communism, environmentalism, and vegan goooooooods.", profile_photo: "https://ucarecdn.com/8998ef6c-37f4-4374-a3ed-bc7a175a8a5f/", cover_photo: "https://ucarecdn.com/00083a24-3575-4c3f-a7a3-63e35cde5702/")
+aprof = Profile.create(user_id: aysia.id, first_name: "Aysia", last_name: "Raines", state: "mt", interests: "Animals, coffee, and tattoos.", profile_photo: "https://ucarecdn.com/14ec26e4-c51d-4e30-837d-9fadbe1c2708/", cover_photo: "https://ucarecdn.com/00083a24-3575-4c3f-a7a3-63e35cde5702/")
+gprof = Profile.create(user_id: gabe.id, first_name: "Gabe", last_name: "Dragonheart", state: "ut", interests: "Biking, hiking, camping, general badassery.", profile_photo: "https://ucarecdn.com/c0f7b0b8-7d6a-4f94-8355-5bb226f9140d/-/crop/313x313/99,0/-/preview/", cover_photo: "https://ucarecdn.com/00083a24-3575-4c3f-a7a3-63e35cde5702/")
 
 
 jprof.point_overview.update(total: 30, diet: 5, waste: 5, water: 5, transportation: 5, home_energy: 5, social: 5)
@@ -156,4 +156,4 @@ Yet! This worry is not without its counterpart. I see people from all areas and 
 The Peter Pan complex in me still likes to give a romantic, fantastical spin to things. I like to tell myself that there are plenty of demons and dragons to fight in the real world. I struggle often to overcome my addictions so that I can fight them with the courage and discipline I feel they require. I'm hoping that the society I'm living in is right by my side."}
   ])
 
-
+<img class="profile-pic" src="https://ucarecdn.com/14ec26e4-c51d-4e30-837d-9fadbe1c2708/" alt="14ec26e4 c51d 4e30 837d 9fadbe1c2708">
