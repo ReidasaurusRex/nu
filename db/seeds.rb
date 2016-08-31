@@ -155,5 +155,3 @@ History seems to have this ability to look back with added clarity (more or less
 Yet! This worry is not without its counterpart. I see people from all areas and classes investigating new ways to live their lives, ways that can be kind to themselves and their surroundings. I see a movement of people that in a culture that says MORE! MORE! MORE!, have chosen less. Intentionally. Things like these give me hope.<PARAGRAPH>
 The Peter Pan complex in me still likes to give a romantic, fantastical spin to things. I like to tell myself that there are plenty of demons and dragons to fight in the real world. I struggle often to overcome my addictions so that I can fight them with the courage and discipline I feel they require. I'm hoping that the society I'm living in is right by my side."}
   ])
-
-<img class="profile-pic" src="https://ucarecdn.com/14ec26e4-c51d-4e30-837d-9fadbe1c2708/" alt="14ec26e4 c51d 4e30 837d 9fadbe1c2708">
