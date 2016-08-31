@@ -1,10 +1,10 @@
-<h2>Leaderboard overview</h2>
-<ul class="leaderboard-categories">
-  <li>Total: <%= profile.current_place %></li>
-  <li>Water: <%= profile.current_place(:water) %></li>
-  <li>Waste: <%= profile.current_place(:waste) %></li>
-  <li>Diet: <%= profile.current_place(:diet) %></li>
-  <li>Transportation: <%= profile.current_place(:transportation) %></li>
-  <li>Home Energy: <%= profile.current_place(:home_energy) %></li>
-  <li>Social: <%= profile.current_place(:social) %></li>
+<h2>Leaderboard</h2>
+<ul class="leaderboard-list">
+  <% leaderboards_around_profile(profile.id, 3).each do |leaderboard_profile| %>
+
+  <li class="leaderboard-profile <%= is_current_profile_leaderboard(profile.id, leaderboard_profile.id) %>">
+    <%= image_tag(leaderboard_profile.profile_photo) %>
+  </li>
+  
+  <% end %>
 </ul>
