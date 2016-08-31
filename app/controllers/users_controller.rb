@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :get_profile_if_complete, except: [:new, :create]
   def new
     @user = User.new
   end
@@ -28,6 +29,12 @@ class UsersController < ApplicationController
   end
 
   private
+  def get_profile_if_complete
+    if @user.profile
+      @profile = @user.profile
+    end
+  end
+
   def new_user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
