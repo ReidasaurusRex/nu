@@ -28,6 +28,8 @@
   resources :users, except: :index do 
     resources :profiles, except: [:index, :destroy]
   end
+
+  get '/users/:id/password_edit', to: 'users#password_edit', as: 'user_edit_password'
   # user and settings 
 
   # Profile linked routes
