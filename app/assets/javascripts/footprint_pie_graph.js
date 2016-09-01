@@ -12,10 +12,7 @@ function drawFootprintPieGraphs() {
 }
 
 function drawPieGraph(footprintDiv) {
-  console.log(footprintDiv);
-  var footprintData = footprintDiv.dataset.footprintOverview;
-  console.log(footprintData);
-  console.log(extractDataPoints(footprintData));
+  var footprintData = $(footprintDiv).data('footprintOverview');
   new Highcharts.Chart({
     chart: {
       renderTo: footprintDiv,
