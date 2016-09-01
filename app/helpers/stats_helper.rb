@@ -3,13 +3,15 @@ module StatsHelper
     leader_ids = PointOverview.order(category => :desc).pluck(:profile_id)
     index = leader_ids.index(profile_id)
     target_length = range * 2 + 1
-    binding.pry
+    profiles_with_place = leader_ids.map.with_index do |id, ind|
+      {place: ind + 1, prof: Profile.find(id)}
+    end
     if index < range
-      return leader_ids.slice(0, target_length).map{|id| Profile.find(id)}
+      return profiles_with_place.slice(0, target_length)
     elsif index >= (leader_ids.length - range)
-      return leader_ids.slice(-target_length, target_length).map{|id| Profile.find(id)}
+      return profiles_with_place.slice(-target_length, target_length)
     else
-      return leader_ids[(index - range)..(index + range)].map{|id| Profile.find(id)}
+      return profiles_with_place[(index - range)..(index + range)]
     end
   end
 

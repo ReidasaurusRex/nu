@@ -29,5 +29,8 @@
   }
   &.current-profile-leader {
     background-image: linear-gradient(-229deg, #A7CD66 0%, #87D0CA 100%);
+    .leader-place, .leader-name, .point-number {
+      color: white;
+    }
   }
 }
