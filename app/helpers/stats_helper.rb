@@ -3,6 +3,7 @@ module StatsHelper
     leader_ids = PointOverview.order(category => :desc).pluck(:profile_id)
     index = leader_ids.index(profile_id)
     target_length = range * 2 + 1
+    binding.pry
     if index < range
       return leader_ids.slice(0, target_length).map{|id| Profile.find(id)}
     elsif index >= (leader_ids.length - range)
