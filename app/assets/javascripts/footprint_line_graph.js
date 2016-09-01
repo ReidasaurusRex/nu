@@ -7,7 +7,7 @@ $(document).on('page:load', ready); // turbolinks friendly
 
 function drawFootprintsGraph() {
   if ($('#footprint-line-graph').length > 0) {
-    var footprintsData = $('#footprint-line-graph').data('footprintOverview');
+    var footprintsData = $('#footprint-line-graph').data('footprintsOverview');
     var convertedData = convertedDateData(footprintsData);
     new Highcharts.Chart({
       chart: {

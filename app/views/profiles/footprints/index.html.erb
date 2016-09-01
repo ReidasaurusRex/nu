@@ -13,7 +13,7 @@
   <h4><%= link_to "Back to Stats", profile_stats_path(profile_id: @profile.id), class: "orange-link" %></h4>
   <div class="component">
     <h1>Progress</h1>
-    <%= content_tag "div", id: "footprint-line-graph", data: {footprint_overview: @profile.footprint_overview_data} do %> 
+    <%= content_tag "div", id: "footprint-line-graph", data: {footprints_overview: @profile.footprint_overview_data} do %> 
         Loading footprint history...
     <% end %>
   </div> <!-- component -->
@@ -24,7 +24,6 @@
     <% @footprints.to_a.reverse.each_with_index do |footprint, index| %>
       <%= render partial: "profiles/footprints/index_summary", locals: {footprint: footprint, index: index} %>
     <% end %>
-    <h3><%= link_to("Begin new emissions test", profile_footprints_path(profile_id: @profile.id), method: :post) %></h3>
   </div> <!-- component -->
 
   <% end %> <!-- if @footprints.empty -->

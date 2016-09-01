@@ -1,5 +1,6 @@
 .footprints-index-summary {
-  box-shadow: -4px 4px 14px $nu-red, 4px -4px 14px $nu-green;
-  padding: 15px;
-  margin-bottom: 40px;
+  padding: $spacing-unit;
+  &:not(:last-child) {
+    border-bottom: 1px solid $nu-blue;
+  }
 }

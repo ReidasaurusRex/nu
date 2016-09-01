@@ -1,5 +1,10 @@
+<%= javascript_include_tag "footprint_pie_graph", "data-turbolinks-track" => true %>
+
 <div class="footprints-index-summary footprint-overview">
-  <h2>Footprint summary for <%= footprint.friendly_creation_date %></h2>
+  <h2><%= footprint.friendly_creation_date %></h2>
+  <%= content_tag "div", class: "footprint-pie-graph", data: {footprint_overview: footprint.pie_graph_data} do %>
+    Loading graph...
+  <% end %>  
   <h3>Total emissions: <span><%= emissions_statement(footprint, index) %></span></h3>
   <h3>Percent of share: <span><%= percent_of_share(footprint) %></span></h3>
   <h3>Percent of national average: <span><%= percent_of_average(footprint) %></span></h3>
