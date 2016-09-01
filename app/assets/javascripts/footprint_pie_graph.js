@@ -31,7 +31,11 @@ function drawPieGraph(footprintDiv) {
 function extractDataPoints(data) {
   var dataPoints = [];
   for (var key in data) {
-    dataPoints.push({name: key, y: data[key]});
+    dataPoints.push({name: capitalize(key), y: data[key]});
   }
   return dataPoints;
+}
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
