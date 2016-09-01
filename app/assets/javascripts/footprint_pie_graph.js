@@ -15,12 +15,21 @@ function drawPieGraph(footprintDiv) {
   var footprintData = $(footprintDiv).data('footprintOverview');
   new Highcharts.Chart({
     chart: {
+      animation: false,
       renderTo: footprintDiv,
       plotBackgroundColor: null,
       plotBorderWidth: null,
       plotShadow: false, 
       type: 'pie'}, 
+      title: {
+        text: $(footprintDiv).data('creationDate')
+      },
     colors: ['#B7DC78', '#65CBC9', '#FF8D6A', '#F2D383'],
+    plotOptions: {
+      series: {
+        animation: false
+      }
+    },
     series: [{
       name: 'Emissions', 
       data: extractDataPoints(footprintData)

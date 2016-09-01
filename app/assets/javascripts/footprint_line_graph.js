@@ -15,12 +15,30 @@ function drawFootprintsGraph() {
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false, 
-        type: 'line'}, 
-      title: {
-        text: 'Emissions Overview'
-      }, 
+        type: 'line'
+      },
+      colors: ['#B7DC78'],
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        series: {
+          animation: false
+        }
+      },
+      series: [{
+        name: 'Emisions', 
+        data: convertedData
+      }],
       subtitle: {
         text: "Keep it up! er... down?"
+      },
+      title: {
+        text: 'Emissions Overview'
+      },
+      tooltip: {
+        headerFormat: '<b>{series.name}</b><br>',
+        pointFormat: '{point.x:%b %e}: {point.y}lbs CO2e'
       },
       xAxis: {
         type: "datetime",
@@ -35,19 +53,7 @@ function drawFootprintsGraph() {
         title: {
           text: "Emissions (lbs CO2e / month)"
         }
-      },
-      tooltip: {
-        headerFormat: '<b>{series.name}</b><br>',
-        pointFormat: '{point.x:%b %e}: {point.y}lbs CO2e'
-      },
-      legend: {
-        enabled: false
-      },
-      colors: ['#B7DC78'],
-      series: [{
-        name: 'Emisions', 
-        data: convertedData
-      }]
+      }
     });
   }
 }

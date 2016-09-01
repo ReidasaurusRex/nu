@@ -15,15 +15,21 @@ function drawPointGraph(data) {
         plotBorderWidth: null,
         plotShadow: false, 
         type: 'pie'}, 
-      title: {
-        text: 'Point Overview'
-      }, 
+      
       colors: ['#B7DC78', '#65CBC9', '#FF8D6A', '#F2D383'],
+      plotOptions: {
+        series: {
+          animation: false
+        }
+      },
       series: [{
         name: 'Points', 
         data:
           extractDataPoints(data)
-      }]
+      }],
+      title: {
+        text: 'Point Overview'
+      }
     });
   }
 }
