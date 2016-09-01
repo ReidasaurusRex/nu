@@ -32,8 +32,11 @@ function drawPieGraph(footprintDiv) {
       pie: {
         borderWidth: 9,
         dataLabels: {
+          color: 'gray',
+          connectorColor: 'gray',
           enabled: true,
-          format: '{point.name}<br>{point.y} lbs of CO2e '
+          format: '{point.name}<br>{point.y} lbs of CO2e',
+          softConnector: false
         },
         states: {
           hover: {

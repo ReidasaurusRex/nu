@@ -27,7 +27,7 @@ function drawFootprintsGraph() {
         }
       },
       series: [{
-        name: 'Emisions', 
+        name: 'Emissions', 
         data: convertedData
       }],
       subtitle: {
