@@ -24,16 +24,31 @@ function drawPieGraph(footprintDiv) {
       title: {
         text: $(footprintDiv).data('creationDate')
       },
-    colors: ['#B7DC78', '#65CBC9', '#FF8D6A', '#F2D383'],
+    colors: ['#F99B6D', '#BFEAE7', '#F484B4', '#C9E38A', '#FFDD10'],
     plotOptions: {
       series: {
         animation: false
-      }
+      },
+      pie: {
+        borderWidth: 9,
+        dataLabels: {
+          enabled: true,
+          format: '{point.name}<br>{point.y} lbs of CO2e '
+        },
+        states: {
+          hover: {
+            enabled: false
+          }
+        }
+      },
     },
     series: [{
       name: 'Emissions', 
-      data: extractDataPoints(footprintData)
-    }]
+      data: extractDataPoints(footprintData),
+    }],
+    tooltip: {
+      enabled: false
+    }
   });
 }
 
