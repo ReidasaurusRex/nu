@@ -21,7 +21,7 @@
   <div class="component">
     <h2>Recent footprint results</h2>
     <h3 class="average-footprint">Average footprint <span><%= @profile.average_footprint_emissions %></span></h3>
-    <% @footprints.to_a.reverse.each_with_index do |footprint, index| %>
+    <% @footprints.each_with_index do |footprint, index| %>
       <%= render partial: "profiles/footprints/index_summary", locals: {footprint: footprint, index: index} %>
     <% end %>
   </div> <!-- component -->
