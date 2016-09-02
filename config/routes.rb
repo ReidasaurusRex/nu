@@ -8,6 +8,8 @@
   get 'about/future', as: 'about_future'
   # about
 
+  get 'browser_req/no_js', as: 'no_js'
+
   # Blog routes
   resources :blog_posts, only: [:index, :show]
   # blog
