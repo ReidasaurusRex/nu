@@ -9,11 +9,15 @@ class Profiles::ProfileBlockedProfilesController < Inheritance::ProfileMatchesUs
   end
 
   def destroy
+    name = @profile_blocked_profile.blocked_profile.first_name
+    @profile_blocked_profile.destroy
+    flash[:success] = "Unblocked #{name}"
+    redirect_to profile_profile_blocked_profiles_path(@profile)
   end
 
   private
   def get_blocked_profiles
-    @blocked_profiles = @profile.profile_blocked_profiles
+    @profile_blocked_profiles = @profile.profile_blocked_profiles
   end
 
   def get_blocked_profile

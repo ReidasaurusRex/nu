@@ -1,2 +1,16 @@
-<h1>BlockedUsers#index</h1>
-<p>Find me in app/views/blocked_users/index.html.erb</p>
+<div class="component centered-content">
+  <h1>Blocked Profiles</h1>
+  <% if !@profile_blocked_profiles.empty? %>
+    <ul class="blocked-profiles-list">
+      <% @profile_blocked_profiles.each do |pbp| %>
+        <li>
+          <%= image_tag pbp.blocked_profile.profile_photo, class: "profile-photo" %>
+          <%= pbp.blocked_profile.full_name %>
+          <%= button_to('X', profile_profile_blocked_profile_path(profiled_id: @profile.id, id: pbp.id), method: :delete, data: {confirm: "Unblock #{pbp.blocked_profile.first_name}?"}) %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h2>You have no blocked profiles!</h2>
+  <% end %>
+</div> <!-- component centered-content -->
