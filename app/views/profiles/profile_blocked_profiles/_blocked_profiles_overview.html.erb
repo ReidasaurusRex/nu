@@ -1,0 +1,8 @@
+<ul class="blocked-profiles-list">
+  <% profile.profile_blocked_profiles.each do |pbp| %>
+    <li><%= pbp.blocked_profile.full_name %></li>
+  <% end %>
+  <% if profile.profile_blocked_profiles.length > 2 %>
+    <li><%= link_to "View all", profile_profile_blocked_profiles_path(profile) %></li>
+  <% end %>
+</ul>

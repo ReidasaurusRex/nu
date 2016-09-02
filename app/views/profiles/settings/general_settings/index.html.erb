@@ -20,4 +20,9 @@
     <%= link_to "Edit sharing settings", edit_profile_sharing_setting_path(profile_id: @profile.id, id: @profile.sharing_setting.id) %>
   </div>
 
+  <div class="component">
+    <h1>Blocked Profiles</h1>
+    <%= render partial: "profiles/profile_blocked_profiles/blocked_profiles_overview", locals: {profile: @profile} %>
+  </div>
+
 </div> <!-- wrapper --> 
