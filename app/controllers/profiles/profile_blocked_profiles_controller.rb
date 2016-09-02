@@ -1,4 +1,6 @@
 class Profiles::ProfileBlockedProfilesController < Inheritance::ProfileMatchesUserController
+  # TODO: meet on blocked_profile functionality, add blocking across site
+
   before_action :get_blocked_profiles, only: :index
   before_action :get_blocked_profile, only: :destroy
 
@@ -6,6 +8,7 @@ class Profiles::ProfileBlockedProfilesController < Inheritance::ProfileMatchesUs
   end
 
   def create
+    # TODO: add create functionality
   end
 
   def destroy
