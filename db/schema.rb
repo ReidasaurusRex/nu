@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902162421) do
+ActiveRecord::Schema.define(version: 20160902162926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,6 +195,13 @@ ActiveRecord::Schema.define(version: 20160902162421) do
     t.string   "display_feed"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "profile_blocked_profiles", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "blocked_profile_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "profile_completed_challenges", force: :cascade do |t|
