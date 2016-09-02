@@ -44,7 +44,7 @@
       resources :stats, only: :index
       resources :challenges, only: [:index, :show]
       resources :newsfeed_items, except: :new
-      resources :blocked_users, only: [:index, :create, :destroy]
+      resources :profile_blocked_profiles, only: [:index, :create, :destroy]
       resources :footprints, except: [:new, :update, :edit]
       resources :feeds, only: :create
       resources :profile_feeds, except: [:edit, :update, :new]
