@@ -1,4 +1,4 @@
-class BlockedUser < ActiveRecord::Base
+class BlockedProfile < ActiveRecord::Base
   belongs_to :profile
   belongs_to :blocked_profile, class_name: "Profile"
 end

@@ -27,7 +27,7 @@ class Profile < ActiveRecord::Base
 
   # Misc relations
   has_many :footprints, dependent: :destroy
-  has_many :blocked_users, dependent: :destroy
+  has_many :blocked_profiles, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_one :point_overview, dependent: :destroy
 
