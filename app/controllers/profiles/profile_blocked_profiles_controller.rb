@@ -22,5 +22,11 @@ class Profiles::ProfileBlockedProfilesController < Inheritance::ProfileMatchesUs
 
   def get_blocked_profile
     @profile_blocked_profile = ProfileBlockedProfile.find(params[:id])
+    if !@profile.profile_blocked_profiles.include?(@profile_blocked_profile)
+      flash[:error] = "Unauthorized"
+      redirect_to profile_profile_blocked_profiles_path(@profile)
+    else
+      return @profile_blocked_profile
+    end
   end
 end
