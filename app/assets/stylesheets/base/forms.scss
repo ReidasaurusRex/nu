@@ -1,0 +1,24 @@
+input[type="text"], input[type="password"] {
+  font-size: 92%;
+  height: $spacing-unit;
+  padding: 0px 10px;
+}
+
+textarea {
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  color: $color-monte-carlo;
+}
+
+input[type="submit"] {
+  background: $color-monte-carlo;
+  border: none;
+  border-radius: 100px;
+  color: $color-white;
+  padding: $spacing-unit / 2 $spacing-unit;
+  &:hover {
+    cursor: pointer;
+  }
+}
