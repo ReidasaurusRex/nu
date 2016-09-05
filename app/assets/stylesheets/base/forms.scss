@@ -1,15 +1,18 @@
 input[type="text"], input[type="password"] {
   font-size: 92%;
   height: $spacing-unit;
+  margin-bottom: $spacing-unit;
   padding: 0px 10px;
 }
 
 textarea {
+  margin-bottom: $spacing-unit;
   padding: 10px;
 }
 
 input[type="checkbox"] {
   color: $color-monte-carlo;
+  margin-bottom: $spacing-unit / 2;
 }
 
 input[type="submit"] {
