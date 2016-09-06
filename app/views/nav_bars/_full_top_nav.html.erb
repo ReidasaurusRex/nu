@@ -31,22 +31,24 @@
       <td class="c-top-nav__nav-section c-top-nav__nav-section--third">
         
         <ul class="o-inline-list">
-        <li class="o-inline-list__li">
-        <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
-          <div id="search-input"><%= text_field_tag(:query, params[:query], placeholder: "Search...") %></div>
-          <div id="search-submit"><%= button_tag("<i class='fa fa-search'></i>".html_safe) %></div>
-        <% end %> 
-        </li>  <!-- search-form -->
-        
-        <li class="o-inline-list__li notifications-menu-button icon-button dropdown-menu-button">
-          <%= button_tag("<i class='fa fa-bell'></i>.".html_safe) %>
-        </li> <!-- notifications -->
 
-        <li class="o-inline-list__li profile-dropdown-menu-button icon-button dropdown-menu-button right-side">
-          <%= button_tag do %>
-            <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %><i class='fa fa-caret-down fa-lg'></i>
-          <% end %>
-        </li> <!-- dropdown-menu -->
+          <li class="o-inline-list__li c-search-form">
+            <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
+              <div id="search-input"><%= text_field_tag(:query, params[:query], placeholder: "Search...") %></div>
+              <div id="search-submit"><%= button_tag("<i class='fa fa-search'></i>".html_safe) %></div>
+            <% end %> 
+          </li>  <!-- search-form -->
+          
+          <li class="o-inline-list__li notifications-menu-button icon-button dropdown-menu-button">
+            <%= button_tag("<i class='fa fa-bell'></i>.".html_safe) %>
+          </li> <!-- notifications -->
+
+          <li class="o-inline-list__li profile-dropdown-menu-button icon-button dropdown-menu-button right-side">
+            <%= button_tag do %>
+              <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %><i class='fa fa-caret-down fa-lg'></i>
+            <% end %>
+          </li> <!-- dropdown-menu -->
+
         </ul>
 
       </td>
