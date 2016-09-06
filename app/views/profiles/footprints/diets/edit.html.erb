@@ -1,6 +1,6 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
   
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
     <%= form_for(@diet, url: footprint_diet_path(
     footprint_id: @footprint.id, id: @diet.id), method: :put) do |f| %>
     <div class="diet-form">
@@ -35,6 +35,6 @@
       </div>
     </div>
     <% end %>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
 
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

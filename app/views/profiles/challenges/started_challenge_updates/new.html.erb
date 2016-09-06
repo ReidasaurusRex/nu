@@ -1,4 +1,4 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
   
   <div class="challenge-headers">
     <h4>
@@ -7,7 +7,7 @@
     </h4>  
   </div>
 
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
     <h2><%= @profile_started_challenge.challenge.title %> <span>How's this going?</span></h2>
 
     <%= form_for(@started_challenge_update, url: profile_started_challenge_started_challenge_updates_path(@profile_started_challenge.id), method: :post) do |f| %>
@@ -33,6 +33,6 @@
         </li>
       </ul>
     <% end %>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
 
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

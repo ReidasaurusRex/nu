@@ -1,6 +1,6 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
 
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
   <h1>Water Overview <span><%= @footprint.friendly_creation_date %></span></h1>
 
   <h2>Emissions: <span><%= @water.emissions_overview %></span></h2>
@@ -8,6 +8,6 @@
   <h2>Usage: <span><%= @water.usage_overview %></span></h2>
 
   <h3><%= link_to "Edit water use", edit_footprint_water_path(footprint_id: @footprint.id, id: @water.id) %></h3>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
 
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

@@ -1,6 +1,6 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
   
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
     <%= form_for(@water, url: footprint_waters_path(footprint_id: @footprint.id), method: :post) do |f| %>
     <div class="water-form">
       
@@ -61,6 +61,6 @@
 
     </div> <!-- water-form -->
     <% end %>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
 
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

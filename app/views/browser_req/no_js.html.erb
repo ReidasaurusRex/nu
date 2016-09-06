@@ -1,8 +1,10 @@
-<div class="o-bubble centered-content">
-  <h1>You don't have Javascript enabled.</h1>
-  <p>This will break our shit. Please enable Javascript in your browser.</p>
-  <p><%= link_to "Home", root_path  %></p>
-  <% if session[:user_id] %>
-    <p><%= link_to("Logout", logout_path, {method: :delete})%></p>
-  <% end %>
+<div class="o-wrapper">
+  <div class="o-bubble o-bubble--full">
+    <h1>You don't have Javascript enabled.</h1>
+    <p>This will break our shit. Please enable Javascript in your browser.</p>
+    <p><%= link_to "Home", root_path  %></p>
+    <% if session[:user_id] %>
+      <p><%= link_to("Logout", logout_path, {method: :delete})%></p>
+    <% end %>
+  </div>
 </div>

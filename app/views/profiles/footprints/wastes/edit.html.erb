@@ -1,6 +1,6 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
   
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
     <%= form_for(@waste, url: footprint_wastes_path(footprint_id: @footprint.id), method: :put) do |f| %>
     <div class="waste-form">
 
@@ -90,6 +90,6 @@
 
     </div> <!-- waste-form -->
     <% end %>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
   
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

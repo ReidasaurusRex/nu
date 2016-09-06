@@ -1,12 +1,12 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
   
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
     <h2><%= @profile_started_challenge.challenge.title %></h2>
     <h4>Care to tell us how this challenge went?</h4>
       <%= form_for(@profile_completed_challenge, url: profile_started_challenge_profile_completed_challenges_path(@profile_started_challenge.id), method: :post) do |f| %>
       <%= f.text_area :entry, rows: 3 %>
       <%= f.submit "Submit" %>
     <% end %>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
 
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

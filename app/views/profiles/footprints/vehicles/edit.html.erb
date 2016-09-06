@@ -1,6 +1,6 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
 
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
     <%= form_for(@vehicle, url: transportation_vehicle_path(transportation_id: @transportation.id, id: @vehicle.id), method: :put) do |f| %>
     <div class="new-vehicle-form">
 
@@ -95,6 +95,6 @@
 
     </div>
     <% end %>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
   
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

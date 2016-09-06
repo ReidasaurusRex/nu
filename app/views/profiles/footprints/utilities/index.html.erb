@@ -1,6 +1,6 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
 
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
   <h1>Utilities</h1>
   <h3 class="return-link"><%= link_to "Add or drop utilities", edit_footprint_home_energy_path(footprint_id: @footprint.id, id: @home_energy.id) %></h3>
   
@@ -47,6 +47,6 @@
       <%= submit_tag "Assess utilities" %>
     </div>
   <% end %>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
 
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

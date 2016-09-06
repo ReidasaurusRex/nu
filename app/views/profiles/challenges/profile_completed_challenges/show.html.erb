@@ -1,6 +1,6 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
 
-  <div class="o-bubble">
+  <div class="o-bubble o-bubble--full">
     <%= image_tag @profile_completed_challenge.image_path %>
     <h2><%= @profile_completed_challenge.challenge.title %> <span>Completed <%= @profile_completed_challenge.completion_date %></span></h2>
     <h3><%= @profile_completed_challenge.challenge.caption %> <span>+<%= @profile_completed_challenge.challenge.points %></span></h3>
@@ -8,6 +8,6 @@
     <p>Your response: <%= @profile_completed_challenge.entry %></p>
     <p><%= @profile_completed_challenge.challenge.description %></p>
     <h4><%= link_to "Back to completed challenges", profile_profile_completed_challenges_path(profile_id: @profile.id) %> <%= link_to "Edit response", edit_profile_profile_completed_challenge_path(profile_id: @profile.id, id: @profile_completed_challenge.id) %></h4>
-    </div> <!-- o-bubble -->
+    </div> <!-- o-bubble o-bubble--full -->
 
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->

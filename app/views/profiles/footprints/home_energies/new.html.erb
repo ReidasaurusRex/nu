@@ -1,6 +1,6 @@
-<div class="o-wrapper centered-content">
+<div class="o-wrapper">
   
-    <div class="o-bubble">
+    <div class="o-bubble o-bubble--full">
     <%= form_for(@home_energy, url: footprint_home_energies_path(footprint_id: @footprint.id), method: :post) do |f| %>
     <div class="new-home-energy-form">
 
@@ -42,6 +42,6 @@
 
     </div>  
     <% end %>
-  </div> <!-- o-bubble -->
+  </div> <!-- o-bubble o-bubble--full -->
 
-</div> <!-- o-wrapper centered-content -->
+</div> <!-- o-wrapper -->
