@@ -1,0 +1,22 @@
+.o-media {
+  margin: $spacing-unit / 2;
+}
+
+.o-media, .o-media__bd {
+  overflow: hidden;
+  _overflow: visible; 
+  zoom: 1;
+}
+
+.o-media__img {
+  float: left;
+  margin-right: $spacing-unit / 2;
+  img {
+    display: block;
+  }
+}
+
+.o-media__ext {
+  float: right;
+  margin-left: $spacing-unit / 2;
+}
