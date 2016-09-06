@@ -2,23 +2,26 @@
   border: 2px solid $color-wild-willow;
   border-radius: 45px;
   height: 32px;
-  line-height: 32px;
-  vertical-align: center;
-  // margin-top: 15px;
-  // margin-right: 40px;
-  width: 200px;
+  vertical-align: middle;
+  width: 220px;
 }
 
 .c-search-bar__input {
-  display: inline-block;
-  width: 80%;
+  border: none;
+  float: left;
+  margin: 3px 0 0 10px;
+  outline: none;
+  width: 140px;
 }
 
 .c-search-bar__submit {
-  background: $color-white;
+  background: none;
   color: $color-sirocco;
-  display: inline-block;
-  width: 20%;
+  float: right;
+  margin-top: -3px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 // #search-input {
 //   padding-left: 10px;
