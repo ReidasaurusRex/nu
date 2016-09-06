@@ -18,91 +18,87 @@
   width: 33%;
 }
 
-.nav-section > div {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 auto;
+.c-top-nav__nav-section__img {
+  height: 32px;
+  width: 32px;
 }
 
-.nav-section:first-child > div {
-  width: 32%;
-}
+// .nav-section > div {
+//   display: inline-block;
+//   line-height: 80px;
+//   margin: 0 auto;
+// }
 
-.nav-section:last-child {
-  padding-right: 25px;
-}
+// .nav-section:first-child > div {
+//   width: 32%;
+// }
 
-.top-nav button {
-  outline: none;
-}
+// .nav-section:last-child {
+//   padding-right: 25px;
+// }
 
-.top-nav a {
-  color: #7E908E;
-  text-decoration: none;
-}
+// .top-nav .primary-links > div:hover {
+//   a {color: #8BD1CA;}
+//   border-bottom: 2px solid #8BD1CA;
+//   padding-top: 1px;
+// }
 
-.top-nav .primary-links > div:hover {
-  a {color: #8BD1CA;}
-  border-bottom: 2px solid #8BD1CA;
-  padding-top: 1px;
-}
+// .top-nav #home-logo {
+//   height: 60px;
+//   width: 60px;
+// }
 
-.top-nav #home-logo {
-  height: 60px;
-  width: 60px;
-}
+// .calculator-sections-nav {
+//   margin: 0 auto;
+//   max-width: 800px;
+//   padding-top: $spacing-unit * 2;
+//   text-align: center;
+//   ul {
+//     display: inline-block;
+//     max-width: 700px;
+//   }
+//   li {
+//     display: inline-block;
+//     padding-left: $spacing-unit;
+//     &:last-child {
+//       padding-right: $spacing-unit;
+//     }
+//   }
+//   .progress-bar {
+//     padding-left: $spacing-unit;
+//     padding-top: $spacing-unit;
+//     text-align: left;
+//     h4, .progress-indicator {
+//       display: inline-block;
+//     }
+//     h4 {
+//       &:first-child {
+//         padding-right: $spacing-unit / 2;
+//       }
+//       &:last-child {
+//         padding-left: $spacing-unit / 2;
+//       }
+//     }
+//     .progress-indicator {
+//       background-image: linear-gradient(90deg, #63CAC0 1%, #B5DE6D 38%, #FCD776 70%, #F98161 100%);  
+//       height: 5px;
+//       width: 80%;
+//       .progress-negative {
+//         background: #D9D9D9;
+//         height: 5px;
+//         margin-left: auto;
+//         margin-right: 0;
+//         // width dependent on footprint progress. see inline at _calculator_overview.html.erb
+//         z-index: 2;
+//       }
+//     }
+//   }
+// }
 
-.calculator-sections-nav {
-  margin: 0 auto;
-  max-width: 800px;
-  padding-top: $spacing-unit * 2;
-  text-align: center;
-  ul {
-    display: inline-block;
-    max-width: 700px;
-  }
-  li {
-    display: inline-block;
-    padding-left: $spacing-unit;
-    &:last-child {
-      padding-right: $spacing-unit;
-    }
-  }
-  .progress-bar {
-    padding-left: $spacing-unit;
-    padding-top: $spacing-unit;
-    text-align: left;
-    h4, .progress-indicator {
-      display: inline-block;
-    }
-    h4 {
-      &:first-child {
-        padding-right: $spacing-unit / 2;
-      }
-      &:last-child {
-        padding-left: $spacing-unit / 2;
-      }
-    }
-    .progress-indicator {
-      background-image: linear-gradient(90deg, #63CAC0 1%, #B5DE6D 38%, #FCD776 70%, #F98161 100%);  
-      height: 5px;
-      width: 80%;
-      .progress-negative {
-        background: #D9D9D9;
-        height: 5px;
-        margin-left: auto;
-        margin-right: 0;
-        // width dependent on footprint progress. see inline at _calculator_overview.html.erb
-        z-index: 2;
-      }
-    }
-  }
-}
+// .shallow-top .nav-section:nth-child(2) div {
+//   width: 30%;
+// }
 
-.shallow-top .nav-section:nth-child(2) div {
-  width: 30%;
-}
-
-.nav-bar a i {
-  padding-right: 8px;
-}
+// .nav-bar a i {
+//   padding-right: 8px;
+// }

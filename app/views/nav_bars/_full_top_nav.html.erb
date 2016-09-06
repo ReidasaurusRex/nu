@@ -1,42 +1,45 @@
 <table class="c-top-nav c-top-nav--full">
-  <tr class="nav-items">
-    
-    <!-- left -->
-    <td class="nav-section primary-links">
-      <div><%= link_to "<i class='fa fa-list fa-lg'></i>Feed".html_safe, profile_newsfeed_items_path(@user.profile) %></div>
-      <div><%= link_to "<i class='fa fa-signal fa-lg'></i>Stats".html_safe, profile_stats_path(@user.profile) %></div>
-      <div><%= link_to "<i class='fa fa-trophy fa-lg'></i>Challenges".html_safe, profile_profile_started_challenges_path(@user.profile) %></div>
-    </td> 
-    <!-- left -->
-
-    <!-- center -->
-    <td class="nav-section">
-      <div id="home-logo"><%= link_to image_tag("nu_color_logo.svg"), root_path %></div>
-    </td>
-    <!-- center -->
-
-    <!-- right -->
-    <td class="nav-section">
-      <div id="search-form">
-      <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
-        <div id="search-input"><%= text_field_tag(:query, params[:query], placeholder: "Search...") %></div>
-        <div id="search-submit"><%= button_tag("<i class='fa fa-search fa-lg'></i>".html_safe) %></div>
-      <% end %> 
-      </div>  <!-- search-form -->
+  <tbody>
+    <tr>
       
-      <div class="notifications-menu-button icon-button dropdown-menu-button">
-        <%= button_tag("<i class='fa fa-bell fa-2x'></i>.".html_safe) %>
-      </div> <!-- notifications -->
+      <td class="c-top-nav__nav-section c-top-nav__nav-section--third">
 
-      <div class="profile-dropdown-menu-button icon-button dropdown-menu-button right-side">
-        <%= button_tag do %>
-          <%= image_tag @user.profile.profile_photo, class: "dropdown-profile-pic" %><i class='fa fa-caret-down fa-lg'></i>
-        <% end %>
-      </div> <!-- dropdown-menu -->
-    </td>
-    <!-- right -->
+        <div><%= link_to "<i class='fa fa-list fa-lg'></i>Feed".html_safe, profile_newsfeed_items_path(@user.profile) %></div>
+        <div><%= link_to "<i class='fa fa-signal fa-lg'></i>Stats".html_safe, profile_stats_path(@user.profile) %></div>
+        <div><%= link_to "<i class='fa fa-trophy fa-lg'></i>Challenges".html_safe, profile_profile_started_challenges_path(@user.profile) %></div>
 
-  </tr> <!-- nav-items -->
+      </td> 
+      
+      <td class="c-top-nav__nav-section c-top-nav__nav-section--third">
+
+        <%= link_to image_tag("nu_color_logo.svg", class: "c-top-nav__nav-section__img" ), root_path %>
+
+      </td>
+      
+      <td class="c-top-nav__nav-section c-top-nav__nav-section--third">
+        
+        <div id="search-form">
+        <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
+          <div id="search-input"><%= text_field_tag(:query, params[:query], placeholder: "Search...") %></div>
+          <div id="search-submit"><%= button_tag("<i class='fa fa-search fa-lg'></i>".html_safe) %></div>
+        <% end %> 
+        </div>  <!-- search-form -->
+        
+        <div class="notifications-menu-button icon-button dropdown-menu-button">
+          <%= button_tag("<i class='fa fa-bell fa-2x'></i>.".html_safe) %>
+        </div> <!-- notifications -->
+
+        <div class="profile-dropdown-menu-button icon-button dropdown-menu-button right-side">
+          <%= button_tag do %>
+            <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %><i class='fa fa-caret-down fa-lg'></i>
+          <% end %>
+        </div> <!-- dropdown-menu -->
+
+      </td>
+      
+
+    </tr>
+  </tbody>
 </table> <!-- nav-bar top-nav -->
 
 <!-- dropdown menu -->
