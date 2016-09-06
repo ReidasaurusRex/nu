@@ -2,22 +2,22 @@
 <div class="stats-index">
   
   <div class="calculator-and-leaderboard left-side">
-    <div class="calculator-reminder component">
+    <div class="calculator-reminder o-bubble">
       <%= render partial: "profiles/stats/calculator_reminder", locals: {profile: @profile} %>
     </div>
-    <div class="leaderboard-overview component">
+    <div class="leaderboard-overview o-bubble">
       <%= render partial: "profiles/stats/leaderboard_overview", locals: {profile: @profile} %>
     </div>
   </div>
 
   <div class="emissions-points-overview right-side">
-    <div class="us-allotment component">
+    <div class="us-allotment o-bubble">
       <%= render partial: "profiles/stats/us_allotment", locals: {profile: @profile} %>
     </div>
-    <div class="co2e-overview component">
+    <div class="co2e-overview o-bubble">
       <%= render partial: "profiles/stats/emissions_sections", locals: {profile: @profile} %>
     </div>
-    <div class="point-breakdown component">
+    <div class="point-breakdown o-bubble">
      <%= render partial: "profiles/stats/point_breakdown", locals: {profile: @profile} %>
     </div>
   </div>

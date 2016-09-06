@@ -4,27 +4,27 @@
 
   <% if @footprints.empty? %>
   
-  <div class="component">
+  <div class="o-bubble">
     <h3>Let's get started! <%= link_to("Figure out your carbon footprint!", profile_footprints_path(profile_id: @profile.id), method: :post) %></h3>
-  </div> <!-- component -->
+  </div> <!-- o-bubble -->
   
   <% else %>
   
   <h4><%= link_to "Back to Stats", profile_stats_path(profile_id: @profile.id), class: "orange-link" %></h4>
-  <div class="component">
+  <div class="o-bubble">
     <h1>Progress</h1>
     <%= content_tag "div", id: "footprint-line-graph", data: {footprints_overview: @profile.footprint_overview_data} do %> 
         Loading footprint history...
     <% end %>
-  </div> <!-- component -->
+  </div> <!-- o-bubble -->
 
-  <div class="component">
+  <div class="o-bubble">
     <h2>Recent footprint results</h2>
     <h3 class="average-footprint">Average footprint <span><%= @profile.average_footprint_emissions %></span></h3>
     <% @footprints.each_with_index do |footprint, index| %>
       <%= render partial: "profiles/footprints/index_summary", locals: {footprint: footprint, index: index} %>
     <% end %>
-  </div> <!-- component -->
+  </div> <!-- o-bubble -->
 
   <% end %> <!-- if @footprints.empty -->
 

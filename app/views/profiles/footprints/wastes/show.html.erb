@@ -1,6 +1,6 @@
 <div class="wrapper centered-content">
   
-  <div class="component">
+  <div class="o-bubble">
     <h1>Waste Overview <span><%= @footprint.friendly_creation_date %></span></h1>
 
     <h2 class="recycled-list">Reycled items:</h2>
@@ -9,6 +9,6 @@
     <h2>Emissions: <span><%= @waste.emissions_overview %></span></h2>
 
     <h3><%= link_to "Edit waste", edit_footprint_waste_path(footprint_id: @footprint.id, id: @waste.id) %></h3>
-  </div> <!-- component -->
+  </div> <!-- o-bubble -->
 
 </div> <!-- wrapper centered-content -->

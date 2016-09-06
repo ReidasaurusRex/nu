@@ -1,6 +1,6 @@
 <div class="wrapper centered-content">
   
-  <div class="component">
+  <div class="o-bubble">
     <h1>Transportation Overview <span><%= @footprint.friendly_creation_date %></span></h1>
 
     <h2>Emissions: <span><%= @transportation.emissions_overview %></span></h2>
@@ -18,6 +18,6 @@
     </div>
 
     <h3><%= link_to("Back to overview", profile_footprint_path(profile_id: @footprint.profile.id, id: @footprint.id)) %></h3>
-  </div> <!-- component -->
+  </div> <!-- o-bubble -->
 
 </div> <!-- wrapper centered-content -->

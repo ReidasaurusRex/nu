@@ -1,5 +1,5 @@
 <% newsfeed_items.each do |feed_item| %>
-  <div class="component">
+  <div class="o-bubble">
     
     <div class="newsfeed-header">
       <% if feed_item.source_type == "profile" %>
@@ -32,5 +32,5 @@
       <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>
     </div>
 
-  </div> <!-- component -->
+  </div> <!-- o-bubble -->
 <% end %>
