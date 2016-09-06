@@ -37,12 +37,13 @@
           </li>  <!-- search-form -->
           
           <li class="o-inline-list__li notifications-menu-button icon-button dropdown-menu-button">
-            <%= button_tag("<i class='fa fa-bell'></i>.".html_safe) %>
+            <%= button_tag("<i class='fa fa-bell fa-2x'></i>.".html_safe, class: "c-top-nav__nav-section__icon-link") %>
           </li> <!-- notifications -->
 
           <li class="o-inline-list__li profile-dropdown-menu-button icon-button dropdown-menu-button right-side">
-            <%= button_tag do %>
-              <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %><i class='fa fa-caret-down fa-lg'></i>
+            <%= button_tag(class: "c-top-nav__nav-section__icon-link") do %>
+              <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %>
+              <i class='fa fa-caret-down fa-lg'></i>
             <% end %>
           </li> <!-- dropdown-menu -->
 

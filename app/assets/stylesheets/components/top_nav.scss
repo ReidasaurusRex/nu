@@ -47,6 +47,15 @@
 .c-top-nav__nav-section__text-link__icon {
   padding-right: $spacing-unit / 4;
 }
+
+.c-top-nav__nav-section__icon-link {
+  background: none;
+  color: $color-sirocco;
+  vertical-align: middle;
+  &:hover {
+    cursor: pointer;
+  }
+}
 // .calculator-sections-nav {
 //   margin: 0 auto;
 //   max-width: 800px;
