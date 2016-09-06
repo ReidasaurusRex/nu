@@ -34,31 +34,18 @@
   width: 32px;
 }
 
-// .nav-section > div {
-//   display: inline-block;
-//   line-height: 80px;
-//   margin: 0 auto;
-// }
+.c-top-nav__nav-section__text-link {
+  color: $color-sirocco;
+  &:hover {
+    border-bottom: 2px solid $color-monte-carlo;
+    color: $color-monte-carlo;
+    padding-bottom: $spacing-unit / 4;
+  }
+}
 
-// .nav-section:first-child > div {
-//   width: 32%;
-// }
-
-// .nav-section:last-child {
-//   padding-right: 25px;
-// }
-
-// .top-nav .primary-links > div:hover {
-//   a {color: #8BD1CA;}
-//   border-bottom: 2px solid #8BD1CA;
-//   padding-top: 1px;
-// }
-
-// .top-nav #home-logo {
-//   height: 60px;
-//   width: 60px;
-// }
-
+.c-top-nav__nav-section__text-link__icon {
+  padding-right: $spacing-unit / 4;
+}
 // .calculator-sections-nav {
 //   margin: 0 auto;
 //   max-width: 800px;
@@ -104,12 +91,4 @@
 //       }
 //     }
 //   }
-// }
-
-// .shallow-top .nav-section:nth-child(2) div {
-//   width: 30%;
-// }
-
-// .nav-bar a i {
-//   padding-right: 8px;
 // }
