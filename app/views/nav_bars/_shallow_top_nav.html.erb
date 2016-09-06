@@ -2,19 +2,21 @@
   <tbody>
     <tr>
       
-      <td class="c-top-nav__nav-section--half">
+      <td class="c-top-nav__nav-section c-top-nav__nav-section--half">
         
         <%= link_to image_tag("nu_color_logo.svg", class: "c-top-nav__nav-section__img" ), root_path %>
 
       </td>
       
-      <td class="c-top-nav__nav-section--half">
+      <td class="c-top-nav__nav-section c-top-nav__nav-section--half">
 
-        <div><%= link_to "About", about_general_path %></div>
-        <div><%= link_to "Feedback", new_feedback_path %></div>
-        <% if session[:user_id] %>
-          <div><%= link_to("Logout", logout_path, method: :delete) %></div>
-        <% end %>
+        <ul class="o-inline-list">
+          <li class="o-inline-list__li"><%= link_to "About", about_general_path %></li>
+          <li class="o-inline-list__li"><%= link_to "Feedback", new_feedback_path %></li>
+          <% if session[:user_id] %>
+            <li class="o-inline-list__li"><%= link_to("Logout", logout_path, method: :delete) %></li>
+          <% end %>
+        </ul>
 
       </td>
 
