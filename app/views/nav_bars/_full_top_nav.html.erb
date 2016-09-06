@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       
-      <td class="c-top-nav__nav-section c-top-nav__nav-section--third">
+      <td class="c-top-nav__nav-section c-top-nav__nav-section--wide">
       
         <ul class="o-inline-list">
 
@@ -22,21 +22,18 @@
 
       </td> 
       
-      <td class="c-top-nav__nav-section c-top-nav__nav-section--third">
+      <td class="c-top-nav__nav-section c-top-nav__nav-section--narrow">
 
         <%= link_to image_tag("nu_color_logo.svg", class: "c-top-nav__nav-section__img" ), root_path %>
 
       </td>
       
-      <td class="c-top-nav__nav-section c-top-nav__nav-section--third">
+      <td class="c-top-nav__nav-section c-top-nav__nav-section--wide">
         
         <ul class="o-inline-list">
 
-          <li class="o-inline-list__li c-search-form">
-            <%= form_tag(profile_search_path(@user.profile), method: :post) do %>
-              <div id="search-input"><%= text_field_tag(:query, params[:query], placeholder: "Search...") %></div>
-              <div id="search-submit"><%= button_tag("<i class='fa fa-search'></i>".html_safe) %></div>
-            <% end %> 
+          <li class="o-inline-list__li c-search-bar">
+            <%= render partial: "profiles/search/search_bar", locals: {profile: @user.profile} %>
           </li>  <!-- search-form -->
           
           <li class="o-inline-list__li notifications-menu-button icon-button dropdown-menu-button">

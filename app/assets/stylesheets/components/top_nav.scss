@@ -20,11 +20,12 @@
   width: 50%;
 }
 
-.c-top-nav__nav-section--third {
-  width: 33%;
-  &:nth-child(2) {
-    text-align: center;
-  }
+.c-top-nav__nav-section--wide {
+  width: 40%;
+}
+
+.c-top-nav__nav-section--narrow {
+  width: 20%;
 }
 
 .c-top-nav__nav-section__img {
