@@ -1,5 +1,14 @@
 .o-point-circle {
-  border: $color-wild-willow;
+  border: 2px solid $color-wild-willow;
   border-radius: 100px;
   color: $color-wild-willow;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+}
+
+.o-point-circle--small {
+  height: 20px;
+  line-height: 20px;
+  width: 20px;
 }
