@@ -36,7 +36,7 @@
             <%= render partial: "profiles/search/search_bar", locals: {profile: @user.profile} %>
           </li>  <!-- search-form -->
           
-          <li class="o-inline-list__li notifications-menu-button icon-button dropdown-menu-button">
+          <li class="o-inline-list__li notifications-menu-button icon-button dropdown-menu-button" id="jsNotiDropdownButton">
             <%= button_tag("<i class='fa fa-bell fa-2x'></i>.".html_safe, class: "c-top-nav__nav-section__icon-link") %>
           </li> <!-- notifications -->
 
