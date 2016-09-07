@@ -5,3 +5,9 @@ button {
   outline: none;
   padding: $spacing-unit / 2;
 }
+
+.button--orange {
+  background: $color-bridesmaid;
+  color: $color-apricot;
+  border: 1px solid $color-apricot;
+}

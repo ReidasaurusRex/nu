@@ -7,8 +7,9 @@ $(document).ready(ready);
 $(document).on('page:load', ready); // turbolinks friendly
 
 function toggleProfileMenu(event) {
+  console.log(event);
   $('.notifications-list').removeClass('o-dropdown--is-open');
-  $('.jsProfDropdownButton').toggleClass('o-dropdown--is-open'); 
+  $('.c-prof-dropdown').toggleClass('o-dropdown--is-open'); 
 }
 
 function toggleNotificationsMenu(event) {
