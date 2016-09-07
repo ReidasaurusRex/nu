@@ -1,3 +1,32 @@
 .c-challenge {
-  
+
+}
+
+.c-challenge__heading {
+  height: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+  margin-bottom: $spacing-unit;
+  margin-left: $spacing-unit / 2;
+  margin-top: $spacing-unit * 1.5;
+}
+
+.c-challenge__img {
+  height: 70px;
+  width: 70px;  
+}
+
+.c-challenge__bd {
+  width: 55%;
+}
+
+.c-challenge__ext {
+  border: 1px solid $color-apricot;
+  border-radius: 10px;
+  padding: $spacing-unit;
+  text-align: center;
+  width: 20%;
+}
+
+.c-challenge__bd__el {
+  margin-bottom: $spacing-unit / 2;
 }
