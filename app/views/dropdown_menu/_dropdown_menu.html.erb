@@ -8,6 +8,6 @@
   <li class="o-dropdown__li"><%= link_to "Terms & Conditions", profile_site_terms_path(profile_id: @user.profile.id), class: "c-prof-dropdown__link" %></li>
   <li class="o-dropdown__li"><%= link_to "Sitemap", profile_sitemap_path(profile_id: @user.profile.id), class: "c-prof-dropdown__link" %></li>
   <li class="o-dropdown__li"><%= link_to "Feedback", new_feedback_path, class: "c-prof-dropdown__link" %></li>
-  <li class="o-dropdown__li"><%= link_to "Logout", logout_path, method: :delete %></li>
+  <li class="o-dropdown__li"><%= button_to "Logout", logout_path, method: :delete, class: "button--orange" %></li>
 
 </ul>
