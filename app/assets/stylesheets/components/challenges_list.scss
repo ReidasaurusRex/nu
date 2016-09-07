@@ -18,6 +18,10 @@
   padding-right: $spacing-unit;
 }
 
+.c-challenges-list__heading--push-down {
+  margin-top: $spacing-unit * 1.5;
+}
+
 .c-challenges-list__li {
   border-bottom: 1px solid $color-aqua-haze;
   height: 100px;

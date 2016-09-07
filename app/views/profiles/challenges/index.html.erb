@@ -1,9 +1,12 @@
 <div class="o-wrapper">
   
-  <div class="c-challenges-list__heading">
+  <div class="c-challenges-list__heading c-challenges-list__heading--push-down">
     <h4 class="c-challenges-list__heading__left">
       Challenges    
     </h4>
+    <h5 class="c-challenges-list__heading__right">
+      <%= link_to "View current challenges", profile_profile_started_challenges_path(@profile), class: "u-text--orange" %>
+    </h5>
   </div>
 
   <div class="o-bubble o-bubble--full">
