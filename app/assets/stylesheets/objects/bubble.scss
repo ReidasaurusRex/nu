@@ -4,7 +4,9 @@
   border-radius: 10px;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.12);
   display: inline-block;
+  margin: $spacing-unit;
   padding: $spacing-unit;
+  vertical-align: top;
 }
 
 .o-bubble--full {
