@@ -1,10 +1,10 @@
 <% if pending_follows.empty? %>
-    <li class="pending-follow-list-item">
+    <li class="pending-follow-list-item o-dropdown__li">
       No pending followers!
     </li>
   <% else %>
     <% pending_follows.last(4).reverse.each do |pending_follow| %>
-      <li class="pending-follow-list-item">
+      <li class="pending-follow-list-item o-dropdown__li">
           <%= image_tag pending_follow.pending_follower.profile_photo, class: "pending-follower-pic" %>
           <%= pending_follow.pending_follower.full_name %>
           <span class="right-side">
@@ -14,7 +14,7 @@
       </li>
     <% end %>
     <% if pending_follows.length > 4 %>
-      <li class="pending-follow-list-item">
+      <li class="pending-follow-list-item o-dropdown__li">
         <%= link_to "View all", profile_pending_follows_path(profile_id: profile.id) %>
       </li>
     <% end %>

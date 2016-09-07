@@ -57,11 +57,7 @@
 </table> <!-- nav-bar top-nav -->
 
 <!-- dropdown menu -->
-<div class="dropdown-menu profile-dropdown-menu">
-  <%= render partial: "dropdown_menu/dropdown_menu", locals: {user: @user} %>
-</div>
+<%= render partial: "dropdown_menu/dropdown_menu", locals: {user: @user} %>
 
 <!-- notifications-menu -->
-<div class="notifications-list dropdown-menu">
-  <%= render partial: "notifications_menu/notifications_menu", locals: {profile: @user.profile} %>
-</div>
+<%= render partial: "notifications_menu/notifications_menu", locals: {profile: @user.profile} %>

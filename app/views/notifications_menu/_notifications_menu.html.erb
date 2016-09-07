@@ -1,10 +1,10 @@
 <ul class="o-dropdown c-noti-dropdown notifications-dropdown-menu">
-  <li class="notifications-section-title">
+  <li class="notifications-section-title o-dropdown__li">
     Notifications
     <span><%= link_to "Settings", profile_general_settings_path(profile_id: profile.id) %></span>
   </li>
   <%= render partial: "notifications_menu/notifications_list", locals: {notifications: profile.notifications, profile: profile} %>
-  <li class="notifications-section-title">
+  <li class="notifications-section-title o-dropdown__li">
     Follower Requests <span><%= profile.pending_follows.length %></span>
   </li>
   <%= render partial: "notifications_menu/pending_followers_list.html.erb", locals: {pending_follows: profile.pending_follows, profile: profile} %>  
