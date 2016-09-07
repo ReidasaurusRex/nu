@@ -8,6 +8,7 @@
 }
 
 .c-challenges-list__heading--left {
+  color: $color-sirocco;
   float: left;
   padding-left: $spacing-unit;
 }
@@ -19,11 +20,20 @@
 
 .c-challenges-list__li {
   border-bottom: 1px solid $color-aqua-haze;
-  height: 80px;
-  padding: $spacing-unit 0;
+  height: 100px;
+  padding-bottom: $spacing-unit;
+  padding-top: $spacing-unit;
   &:first-child {
     padding-top: 0;
   }
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.c-challenges-list__li__img, .c-challenges-list__li__check-in {
+  padding-top: $spacing-unit / 2;
 }
 
 .c-challenges-list__li__img {
@@ -31,7 +41,15 @@
   width: 70px;
 }
 
-.c-challenges-list__li__check-in {
+.c-challenges-list__li__bd {
+  padding-left: $spacing-unit;
+}
+
+.c-challenges-list__li__bd--push-down {
+  padding-top: $spacing-unit / 2;
+}
+
+.c-challenges-list__li__ext {
   line-height: 40px;
   text-align: center;
 }
