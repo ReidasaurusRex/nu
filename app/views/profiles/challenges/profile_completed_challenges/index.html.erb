@@ -1,10 +1,12 @@
 <div class="o-wrapper">
   
-  <div class="challenge-headers">
-    <h4>
+  <div class="c-challenges-list__heading">
+    <h4 class="c-challenges-list__heading__left">
       Completed Challenges
-      <%= link_to "Start a new challenge", profile_challenges_path(@profile.id), class: "challenge-navigation-link orange-link" %>
     </h4>
+    <h5 class="c-challenges-list__heading__right">
+      <%= link_to "Start a new challenge", profile_challenges_path(@profile.id), class: "u-link--orange" %>
+    </h5>
   </div>
 
   <div class="o-bubble o-bubble--full">
