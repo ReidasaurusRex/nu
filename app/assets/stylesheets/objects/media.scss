@@ -8,6 +8,11 @@
   zoom: 1;
 }
 
+.o-media__bd {
+  display: inline-block;
+  margin-left: $spacing-unit;
+}
+
 .o-media__img {
   float: left;
   margin-right: $spacing-unit / 2;
@@ -18,5 +23,4 @@
 
 .o-media__ext {
   float: right;
-  margin-left: $spacing-unit / 2;
 }

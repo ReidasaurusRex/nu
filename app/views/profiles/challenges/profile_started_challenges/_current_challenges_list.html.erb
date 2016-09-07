@@ -3,13 +3,22 @@
   <li><%= link_to "Start one", profile_challenges_path(profile.id) %></li>
 <% else %>
   <% profile_started_challenges.each do |profile_started_challenge| %>
-    <li>
-      <%= image_tag(profile_started_challenge.image_path) %>
-      <h3><%= profile_started_challenge.challenge.title %></h3>
-      <h4><%= profile_started_challenge.challenge.caption %></h4>
-      <h4>
-      <%= link_to "View", profile_profile_started_challenge_path(profile_id: profile.id, id: profile_started_challenge.id) %>
-      <%= challenge_complete_or_check_in_link(profile_started_challenge) %></h4>
+    <li class="c-challenges-list__li o-media">
+      <%= image_tag(profile_started_challenge.image_path, class: "c-challenges-list__li__img o-media__img") %>
+      <div class="o-media__bd c-challenges-list__li__bd ">
+        <h3 class="c-challenges-list__li__bd__el"><%= profile_started_challenge.challenge.title %></h3>
+        <p class="c-challenges-list__li__bd__el"><%= profile_started_challenge.challenge.caption %></p>
+        <p class="c-challenges-list__li__bd__el">Nu Score <span class="o-score-circle"><%= profile_started_challenge.challenge.points %></span></p>
+        <p class="c-challenges-list__li__bd__el">Progress Bar</p>
+        
+      </div>
+      <div class="o-media__ext c-challenges-list__li__check-in">
+        <%= challenge_complete_or_check_in_link(profile_started_challenge) %>
+        <h5>
+          <%= link_to "View", profile_profile_started_challenge_path(profile_id: profile.id, id: profile_started_challenge.id), class: "u-link--orange" %>
+        </h5>
+        
+      </div>
     </li>
   <% end %>
 <% end %>
