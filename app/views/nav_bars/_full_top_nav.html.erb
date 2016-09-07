@@ -40,7 +40,7 @@
             <%= button_tag("<i class='fa fa-bell fa-2x'></i>.".html_safe, class: "c-top-nav__nav-section__icon-link") %>
           </li> <!-- notifications -->
 
-          <li class="o-inline-list__li profile-dropdown-menu-button icon-button dropdown-menu-button right-side">
+          <li class="o-inline-list__li icon-button dropdown-menu-button right-side" id="jsProfDropdownButton">
             <%= button_tag(class: "c-top-nav__nav-section__icon-link") do %>
               <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %>
               <i class='fa fa-caret-down fa-lg'></i>
