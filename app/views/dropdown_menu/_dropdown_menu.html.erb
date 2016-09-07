@@ -1,6 +1,8 @@
 <ul class="o-dropdown c-prof-dropdown">
 
-  <%= profile_or_user_summary(user) %>
+  <li class="o-dropdown__li c-prof-dropdown__prof-summary">
+    <%= profile_or_user_summary(user) %>  
+  </li>
   <li class="o-dropdown__li"><%= link_to "Settings", profile_general_settings_path(profile_id: @user.profile.id), class: "c-prof-dropdown__link" %></li>
   <li class="o-dropdown__li"><%= link_to "Blog", blog_posts_path, class: "c-prof-dropdown__link" %></li>
   <li class="o-dropdown__li"><%= link_to "About", about_general_path, class: "c-prof-dropdown__link" %></li>
