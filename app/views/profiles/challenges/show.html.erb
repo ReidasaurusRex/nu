@@ -13,7 +13,7 @@
       <p class="c-challenge__bd__el">
         <%= @challenge.description %>
       </p>
-      <%= button_to "Add Challenge", profile__profile_started_challenges_path(@profile), method: :post %>
+      <%= button_to "Add Challenge", profile_profile_started_challenges_path(profile_id: @profile.id, profile_started_challenge: {challenge_id: @challenge.id, progress_category: @challenge.progress_category}), method: :post %>
     </div>
 
     <div class="o-media__ext c-challenge__ext">

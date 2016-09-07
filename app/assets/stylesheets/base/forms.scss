@@ -20,6 +20,7 @@ input[type="submit"] {
   border: none;
   border-radius: 100px;
   color: $color-white;
+  outline: none;
   padding: $spacing-unit / 2 $spacing-unit;
   &:hover {
     cursor: pointer;
