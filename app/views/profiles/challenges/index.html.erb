@@ -1,13 +1,19 @@
 <div class="o-wrapper">
   
   <div class="o-bubble o-bubble--full">
-    <ul class="challenge-list">
+    <ul class="c-challenges-list">
     <% @challenges.each do |challenge| %>
-      <li>
-        <%= image_tag(challenge.image_path) %>
-        <h3 class="challenge-title"><%= challenge.title %></h3>
-        <h4 class="challenge-caption"><%= challenge.caption %></h4>
-        <h4 class="challenge-link"><%= link_to "Check it out", profile_challenge_path(profile_id: @profile.id, id: challenge.id) %></h4>
+      <li class="c-challenges-list__li o-media">
+        <%= image_tag(challenge.image_path, class: "o-media__img c-challenges-list__li__img") %>
+        <div class="o-media__bd c-challenges-list__li__bd--push-down">
+          <h3 class="c-challenges-list__li__bd__el"><%= challenge.title %></h3>
+          <p class="c-challenges-list__li__bd__el"><%= challenge.caption %></p>
+        </div>
+        <div class="o-media__ext c-challenges-list__li__ext">
+          <p>Nu Score</p>
+          <p class="o-point-circle o-point-circle--small"><%= challenge.points %></p>
+          <p><%= link_to "Check it out", profile_challenge_path(profile_id: @profile.id, id: challenge.id) %></p>
+        </div>
       </li>
     <% end %>
     </ul>
