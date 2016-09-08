@@ -1,12 +1,27 @@
 <div class="o-wrapper">
-  
-  <div class="o-bubble o-bubble--full">
-    <h2><%= @profile_completed_challenge.challenge.title %></h2>
-    <h4>Care to tell us how this challenge went?</h4>
+
+  <div class="o-bubble o-bubble--full c-challenge-update">
+    
+    <div class="c-challenge-update__title o-media">
+      <%= image_tag(@profile_completed_challenge.challenge.image_path, class: "c-challenge-update__title__img o-media__img") %>
+      <h4 class="o-media__bd c-challenge-udpate__title__bd"><%= @profile_completed_challenge.challenge.title %></h4>
+    </div>
+
+    <div class="c-challenge-update__body">
+      
+      <h2>Tell us about your experience.</h2>
+
       <%= form_for(@profile_completed_challenge, url: profile_profile_completed_challenge_path(profile_id: @profile.id, id: @profile_completed_challenge.id), method: :put) do |f| %>
-      <%= f.text_area :entry, rows: 3 %>
-      <%= f.submit "Submit" %>
-    <% end %>
+        
+        <%= f.text_area :entry, rows: 5, placeholder: "Thoughts?", class: "c-challenge-update__text-entry" %>
+        
+        <p>
+          <%= f.submit "Edit Entry"  %>  
+        </p>
+        
+      <% end %>
+
+    </div>
   </div> <!-- o-bubble o-bubble--full -->
 
 </div> <!-- o-wrapper -->
