@@ -1,26 +1,26 @@
 <%= javascript_include_tag "point_graph", "data-turbolinks-track" => true %>
-<div class="stats-index">
-  
-  <div class="calculator-and-leaderboard left-side">
-    <div class="calculator-reminder o-bubble">
+
+<div class="o-wrapper">
+
+  <div class="calculator-and-leaderboard o-bubble--left">
+    <div class="calculator-reminder o-bubble o-bubble--full o-bubble--centered-content">
       <%= render partial: "profiles/stats/calculator_reminder", locals: {profile: @profile} %>
     </div>
-    <div class="leaderboard-overview o-bubble">
+    <div class="leaderboard-overview o-bubble o-bubble--full o-bubble--centered-content">
       <%= render partial: "profiles/stats/leaderboard_overview", locals: {profile: @profile} %>
     </div>
   </div>
 
-  <div class="emissions-points-overview right-side">
-    <div class="us-allotment o-bubble">
+  <div class="emissions-points-overview o-bubble--right ">
+    <div class="us-allotment o-bubble o-bubble--full">
       <%= render partial: "profiles/stats/us_allotment", locals: {profile: @profile} %>
     </div>
-    <div class="co2e-overview o-bubble">
+    <div class="co2e-overview o-bubble o-bubble--full">
       <%= render partial: "profiles/stats/emissions_sections", locals: {profile: @profile} %>
     </div>
-    <div class="point-breakdown o-bubble">
+    <div class="point-breakdown o-bubble o-bubble--full">
      <%= render partial: "profiles/stats/point_breakdown", locals: {profile: @profile} %>
     </div>
   </div>
 
-  
 </div>

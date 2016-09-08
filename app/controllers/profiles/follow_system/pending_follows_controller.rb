@@ -7,14 +7,13 @@ class Profiles::FollowSystem::PendingFollowsController < Inheritance::ProfileMat
   end
 
   def destroy
+    @pending_follow = PendingFollow.find(params[:id])
+    @pending_follow.destroy
+    redirect_to :back
   end
 
   private
   def pending_follow_params
     params.require(:pending_follow).permit(:profile_id, :pending_follower_id)
-  end
-
-  def create_pending_follow(params)
-    
   end
 end
