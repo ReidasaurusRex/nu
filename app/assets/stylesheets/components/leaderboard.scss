@@ -1,7 +1,3 @@
-.c-leaderboard {
-
-}
-
 .c-leaderboard__title {
   border-bottom: 1px solid $color-swans-down;
   padding-bottom: $spacing-unit / 2;
@@ -15,16 +11,6 @@
   margin-bottom: $spacing-unit * 1.5;
   padding: $spacing-unit / 2;
   text-align: left;
-  .leader-name {
-    color: #000000;
-    padding-left: $spacing-unit;
-  }
-  &.current-profile-leader {
-    background-image: linear-gradient(-229deg, #A7CD66 0%, #87D0CA 100%);
-    .leader-place, .leader-name, .point-number {
-      color: white;
-    }
-  }
 }
 
 .c-leaderboard__li__p {
@@ -49,8 +35,4 @@
 .c-leaderboard__li__p__points {
   color: $color-apricot;
   float: right;
-}
-
-.leaderboard-list li {
-  
 }
