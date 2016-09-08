@@ -17,7 +17,7 @@ module StatsHelper
 
   def is_current_profile_leader(profile_id, leaderboard_id)
     if profile_id == leaderboard_id
-      return "current-profile-leader"
+      return "u-profile-leader"
     end
   end
 end

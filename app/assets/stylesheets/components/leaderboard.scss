@@ -1,31 +1,23 @@
-.leaderboard-list li {
-  border: 1px solid $nu-blue;
+.c-leaderboard {
+
+}
+
+.c-leaderboard__title {
+  border-bottom: 1px solid $color-swans-down;
+  padding-bottom: $spacing-unit / 2;
+}
+
+.c-leaderboard__li {
+  border: 1px solid $color-apricot;
   border-radius: 100px;
   height: 25px;
   line-height: 25px;
   margin-bottom: $spacing-unit * 1.5;
   padding: $spacing-unit / 2;
   text-align: left;
-  vertical-align: top;
-  .leader-place {
-    color: $nu-blue;
-    padding-right: $spacing-unit / 2;
-  }
-  img {
-    border-radius: 100px;
-    display: inline-block;
-    height: 65px;
-    margin-top: -19px;
-    vertical-align: top;
-    width: 65px;
-  }
   .leader-name {
     color: #000000;
     padding-left: $spacing-unit;
-  }
-  .point-number {
-    color: $nu-red;
-    float: right;
   }
   &.current-profile-leader {
     background-image: linear-gradient(-229deg, #A7CD66 0%, #87D0CA 100%);
@@ -33,4 +25,32 @@
       color: white;
     }
   }
+}
+
+.c-leaderboard__li__p {
+  padding-top: 5px;
+}
+
+.c-leaderboard__li__p__place {
+  color: $color-monte-carlo;
+  padding-right: $spacing-unit / 2;
+}
+
+.c-leaderboard__li__p__img {
+  margin-top: -$spacing-unit;
+  vertical-align: top;
+}
+
+.c-leaderboard__li__p__name {
+  color: $color-black;
+  padding-left: $spacing-unit;
+}
+
+.c-leaderboard__li__p__points {
+  color: $color-apricot;
+  float: right;
+}
+
+.leaderboard-list li {
+  
 }
