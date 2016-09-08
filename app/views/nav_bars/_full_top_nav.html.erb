@@ -36,11 +36,11 @@
             <%= render partial: "profiles/search/search_bar", locals: {profile: @user.profile} %>
           </li>  <!-- search-form -->
           
-          <li class="o-inline-list__li notifications-menu-button icon-button dropdown-menu-button" id="jsNotiDropdownButton">
+          <li class="o-inline-list__li jsDropdownButton" id="jsNotiDropdownButton">
             <%= button_tag("<i class='fa fa-bell fa-2x'></i>.".html_safe, class: "c-top-nav__nav-section__icon-link") %>
           </li> <!-- notifications -->
 
-          <li class="o-inline-list__li icon-button dropdown-menu-button right-side" id="jsProfDropdownButton">
+          <li class="o-inline-list__li jsDropdownButton" id="jsProfDropdownButton">
             <%= button_tag(class: "c-top-nav__nav-section__icon-link") do %>
               <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %>
               <i class='fa fa-caret-down fa-lg'></i>
