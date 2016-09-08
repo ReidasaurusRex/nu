@@ -24,8 +24,9 @@ function drawPointGraph(data) {
       },
       series: [{
         name: 'Points', 
-        data:
-          extractDataPoints(data)
+        data: extractDataPoints(data),
+        size: '100%',
+        innerSize: '80%'
       }],
       title: {
         text: 'Point Overview'
