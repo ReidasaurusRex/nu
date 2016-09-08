@@ -7,7 +7,7 @@
       <%= render partial: "profiles/stats/calculator_reminder", locals: {profile: @profile} %>
     </div>
     <div class="leaderboard-overview o-bubble o-bubble--full o-bubble--centered-content c-leaderboard">
-      <%= render partial: "profiles/stats/leaderboard_overview", locals: {profile: @profile} %>
+      <%= render partial: "profiles/stats/leaderboard_overview", locals: {profile: @profile, leaders: @leaders_around_profile, high_leader: @highest_leader} %>
     </div>
   </div>
 
