@@ -1,3 +1,27 @@
 .c-challenge-update {
-  
+
+}
+
+.c-challenge-update__title {
+  border-bottom: 1px solid $color-swans-down;
+  display: block;
+  height: 45px;
+  line-height: 45px;
+  margin-bottom: $spacing-unit;
+  padding-bottom: $spacing-unit / 2;
+}
+
+.c-challenge-update__title__img {
+  height: 40px;
+  width: 40px;
+}
+
+.c-challenge-update__body {
+  text-align: center;
+}
+
+.c-challenge-update__option:checked {
+  + label {
+    color: $color-breaker-bay;
+  }
 }
