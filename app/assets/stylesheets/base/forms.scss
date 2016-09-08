@@ -1,3 +1,7 @@
+input[type="text"], input[type="password"], textarea {
+  color: $color-edward;
+}
+
 input[type="text"], input[type="password"] {
   font-size: 92%;
   height: $spacing-unit;
@@ -6,8 +10,12 @@ input[type="text"], input[type="password"] {
 }
 
 textarea {
+  border: 1px solid $color-alto;
+  font-size: 100%;
   margin-bottom: $spacing-unit;
+  outline: none;
   padding: 10px;
+  resize: none;
 }
 
 input[type="checkbox"] {

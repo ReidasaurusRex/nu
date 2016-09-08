@@ -1,7 +1,3 @@
-.c-challenge-update {
-
-}
-
 .c-challenge-update__title {
   border-bottom: 1px solid $color-swans-down;
   display: block;
@@ -18,6 +14,10 @@
 
 .c-challenge-update__body {
   text-align: center;
+}
+
+.c-challenge-update__text-entry {
+  width: 91%;
 }
 
 .c-challenge-update__option:checked {
