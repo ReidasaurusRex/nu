@@ -1,17 +1,17 @@
 <%= javascript_include_tag "point_graph", "data-turbolinks-track" => true %>
 
-<div class="o-wrapper">
+<div class="o-wrapper o-wrapper--wide">
 
-  <div class="calculator-and-leaderboard o-bubble--left">
+  <div class="calculator-and-leaderboard o-stat-section--left">
     <div class="calculator-reminder o-bubble o-bubble--full o-bubble--centered-content">
       <%= render partial: "profiles/stats/calculator_reminder", locals: {profile: @profile} %>
     </div>
-    <div class="leaderboard-overview o-bubble o-bubble--full o-bubble--centered-content c-leaderboard">
+    <div class="o-bubble o-bubble--full c-leaderboard">
       <%= render partial: "profiles/stats/leaderboard_overview", locals: {profile: @profile, leaders: @leaders_around_profile, high_leader: @highest_leader} %>
     </div>
   </div>
 
-  <div class="emissions-points-overview o-bubble--right ">
+  <div class="emissions-points-overview o-stat-section--right ">
     <div class="us-allotment o-bubble o-bubble--full">
       <%= render partial: "profiles/stats/us_allotment", locals: {profile: @profile} %>
     </div>

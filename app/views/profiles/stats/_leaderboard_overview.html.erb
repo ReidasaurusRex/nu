@@ -1,7 +1,7 @@
 <h2 class="c-leaderboard__title">Leaderboard</h2>
 <ul class="c-leaderboard__list">
   <% leaders.each do |leader| %>
-  <li class="c-leaderboard__li <%= is_current_profile_leader(profile.id, leader[:prof].id) %>" style="width: <%= place_percentage_or_20(leader[:prof], high_leader) %>%">
+  <li class="c-leaderboard__li <%= is_current_profile_leader(profile.id, leader[:prof].id) %>" style="width: <%= place_percentage_or_65(leader[:prof], high_leader) %>%">
     <p class="c-leaderboard__li__p">
       <span class="c-leaderboard__li__p__place"><%= leader[:place] %></span>
       <%= image_tag(leader[:prof].profile_photo, class: "o-img--round o-img--med c-leaderboard__li__p__img") %>

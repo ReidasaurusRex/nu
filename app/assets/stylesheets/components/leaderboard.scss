@@ -19,22 +19,28 @@
 }
 
 .c-leaderboard__li__p {
+  font-size: 90%;
   padding-top: 6px;
 }
 
 .c-leaderboard__li__p__place {
   color: $color-monte-carlo;
-  padding-right: $spacing-unit / 2;
+  padding-right: $spacing-unit / 4;
 }
 
 .c-leaderboard__li__p__img {
+  margin-right: 0px;
   margin-top: -$spacing-unit;
   vertical-align: top;
 }
 
 .c-leaderboard__li__p__name {
+  // TODO: fix two line length overflow
   color: $color-black;
-  padding-left: $spacing-unit;
+  display: inline-block;
+  max-width: 120px;
+  overflow: hidden;
+  padding-left: $spacing-unit / 4;
 }
 
 .c-leaderboard__li__p__points {
