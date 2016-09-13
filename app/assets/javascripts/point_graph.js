@@ -10,12 +10,12 @@ function drawPointGraph(data) {
   if ($('#jsPointOverviewGraph').length > 0) {
     new Highcharts.Chart({
       chart: {
-        margin: [-50, 0, 0, 0],
+        margin: [0, 0, 0, 0],
         spacing: [0, 0, 0, 0],
         renderTo: 'jsPointOverviewGraph',
         type: 'pie'
       }, 
-      colors: ['#B7DC78', '#65CBC9', '#FF8D6A', '#F2D383'],
+      colors: ['#B1D276', '#FFB907', '#8BD1CA', '#E64D7D', '#F1613A', '#B17FCE'],
       credits: {
         enabled: false
       },
@@ -44,6 +44,9 @@ function drawPointGraph(data) {
       }],
       title: {
         text: null
+      }, 
+      tooltip: {
+        enabled: false
       }
     });
   }

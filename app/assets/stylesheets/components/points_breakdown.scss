@@ -4,23 +4,69 @@
 }
 
 .c-points-breakdown__header {
-  margin-left: $spacing-unit * 1.5;
+  margin-left: $spacing-unit;
 }
 
 .c-points-breakdown__div {
   display: inline-block;
-  height: 180px;
   vertical-align: top;
 }
 
 .c-points-breakdown__graph {
-  height: inherit;
   float: left;
-  margin-left: $spacing-unit;
-  width: 27%;
+  height: 150px;
+  margin-left: $spacing-unit * 1.5;
+  width: 150px;
 }
 
 .c-points-breakdown__desc-and-legend {
   float: right;
   width: 66%;
+}
+
+.c-points-breakdown__desc-and-legend__legend-item {
+  height: 60px;
+  margin-bottom: $spacing-unit / 2;
+  vertical-align: top;
+  width: 120px;
+}
+
+.c-points-breakdown__desc-and-legend__legend-item__dot, .c-points-breakdown__desc-and-legend__legend-item__bd {
+  vertical-align: top;
+}
+
+.c-points-breakdown__desc-and-legend__legend-item__dot {
+  border-radius: 100px;
+  display: inline-block;
+  height: 13px;
+  margin-right: none;
+  width: 13px;
+  &--transportation {
+    background-color: $color-wild-willow;
+  }
+  &--home-energy {
+    background-color: $color-selective-yellow;
+  }
+  &--water {
+    background-color: $color-monte-carlo;
+  }
+  &--waste {
+    background-color: $color-mandy;
+  }
+  &--diet {
+    background-color: $color-flamingo;
+  }
+  &--social {
+    background-color: $color-east-side;
+  }
+}
+
+.c-points-breakdown__desc-and-legend__legend-item__bd {
+  margin-left: 0;
+  width: 80px;
+}
+
+.c-points-breakdown__desc-and-legend__legend-item__bd__title {
+  color: $color-silver-sand;
+  margin-bottom: $spacing-unit / 3;
 }

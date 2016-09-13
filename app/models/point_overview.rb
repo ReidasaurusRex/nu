@@ -17,6 +17,6 @@ class PointOverview < ActiveRecord::Base
   end
 
   def graph_data
-    return {diet: self.diet, water: self.water, waste: self.waste, transportation: self.transportation, home_energy: self.home_energy, social: self.social}
+    return {transportation: self.transportation, home_energy: self.home_energy, water: self.water, waste: self.waste, diet: self.diet, social: self.social}
   end
 end
