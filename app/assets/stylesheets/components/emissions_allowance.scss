@@ -8,3 +8,22 @@
   margin-bottom: $spacing-unit;
   padding-left: $spacing-unit / 2;
 }
+
+.c-emissions-allowance__progress {
+  color: $color-edward;
+}
+
+.c-emissions-allowance__progress__bar {
+  background-image: linear-gradient(-90deg, #F98161 0%, #FCD776 37%, #B5DE6D 70%, #63CAC0 100%);  
+  display: inline-block;
+  height: 5px;
+  margin: 0 $spacing-unit / 2;
+  vertical-align: middle;
+  width: 560px;
+}
+
+.c-emissions-allowance__progress__bar__cover {
+  background: $color-alto;
+  float: right;
+  height: inherit;
+}

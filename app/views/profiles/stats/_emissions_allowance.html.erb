@@ -1,7 +1,10 @@
 <h2 class="o-stat-section__section--top__heading">Emissions Allowance</h2>
 <p class="c-emissions-allowance__desc">Per person monthly allowance based on U.S. gaols to reduce emissions by 26-28% by 2025. <span class="c-emissions-allowance__desc__learn"><%= link_to "Learn more", "#", class:"u-text--orange" %></span></p>
-<% if profile.footprints.empty? || profile.last_finished_footprint == false %>
-  <h3>Pending</h3>
-<% else %>
-  <h3>Last assessment: <%= profile.last_finished_footprint.percent_of_us_allotment %>%</h3>
-<% end %>
+<div class="c-emissions-allowance__progress">
+    Shares used
+    <div class="c-emissions-allowance__progress__bar">
+      <div class="c-emissions-allowance__progress__bar__cover" style="width: <%= 100 - recent_footprint_allotment_percentage(profile.footprints.last) %>%"></div>
+    </div>
+    <%= recent_footprint_allotment_percentage(profile.footprints.last) %>%
+  </p>
+</div>
