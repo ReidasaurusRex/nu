@@ -2,8 +2,8 @@
 
 <div class="o-wrapper o-wrapper--wide">
 
-  <div class="calculator-and-leaderboard o-stat-section--left">
-    <div class="calculator-reminder o-bubble o-bubble--full o-bubble--centered-content">
+  <div class="o-stat-section--left">
+    <div class="o-bubble o-bubble--full o-bubble--centered-content">
       <%= render partial: "profiles/stats/calculator_reminder", locals: {profile: @profile} %>
     </div>
     <div class="o-bubble o-bubble--full c-leaderboard">
@@ -11,14 +11,14 @@
     </div>
   </div>
 
-  <div class="emissions-points-overview o-stat-section--right ">
-    <div class="us-allotment o-bubble o-bubble--full">
+  <div class="o-stat-section--right ">
+    <div class="o-bubble o-bubble--full o-bubble--centered-content">
       <%= render partial: "profiles/stats/us_allotment", locals: {profile: @profile} %>
     </div>
-    <div class="co2e-overview o-bubble o-bubble--full">
+    <div class="o-bubble o-bubble--full o-bubble--centered-content">
       <%= render partial: "profiles/stats/emissions_sections", locals: {profile: @profile} %>
     </div>
-    <div class="point-breakdown o-bubble o-bubble--full">
+    <div class="o-bubble o-bubble--full">
      <%= render partial: "profiles/stats/point_breakdown", locals: {profile: @profile} %>
     </div>
   </div>
