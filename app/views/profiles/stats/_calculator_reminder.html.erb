@@ -1,17 +1,17 @@
 <h2 class="o-stat-section__section--top__heading">Your Footprint</h2>
 <% if profile.footprints.empty? %>
-  <h3>You haven't completed the calculator yet.</h3>
+  <p>You haven't completed the calculator yet.</p>
   <p>
     <%= button_to("Start", profile_footprints_path(profile.id), method: :post) %>
   </p>
 <% elsif profile.footprints.last.complete? == false %>
-  <h3>Calculator in progress</h3>
+  <p>Calculator in progress</p>
   <%= button_to("Complete", profile_footprint_path(profile_id: profile.id, id: profile.footprints.last.id), method: :get) %>
   <h4><%= link_to "View Past Reports", profile_footprints_path(profile.id), class: "u-text--orange" %></h4>
 <% else %>
-  <h4>Last updated <%= profile.footprints.last.friendly_creation_date %></h4>
+  <p>Last updated <%= profile.footprints.last.friendly_creation_date %></p>
   <p>
     <%= button_to("Reassess", profile_footprints_path(profile.id), method: :post) %>
   </p>
-  <h4><%= link_to "View Past Reports", profile_footprints_path(profile.id), class: "u-text--orange" %></h4>
+  <p><%= link_to "View Past Reports", profile_footprints_path(profile.id), class: "u-text--orange" %></p>
 <% end %>
