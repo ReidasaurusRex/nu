@@ -11,3 +11,11 @@
   float: right;
   width: 64%;
 }
+
+.o-stat-section__section--top {
+  height: 235px;
+}
+
+.o-stat-section__section--top__heading {
+  padding-top: $spacing-unit * 2;
+}

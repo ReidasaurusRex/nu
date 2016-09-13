@@ -3,7 +3,7 @@
 <div class="o-wrapper o-wrapper--wide">
 
   <div class="o-stat-section--left">
-    <div class="o-bubble o-bubble--full o-bubble--centered-content">
+    <div class="o-bubble o-bubble--full o-bubble--centered-content o-stat-section__section--top">
       <%= render partial: "profiles/stats/calculator_reminder", locals: {profile: @profile} %>
     </div>
     <div class="o-bubble o-bubble--full c-leaderboard">
@@ -12,7 +12,7 @@
   </div>
 
   <div class="o-stat-section--right ">
-    <div class="o-bubble o-bubble--full o-bubble--centered-content c-emissions-allowance">
+    <div class="o-bubble o-bubble--full o-bubble--centered-content c-emissions-allowance o-stat-section__section--top">
       <%= render partial: "profiles/stats/emissions_allowance", locals: {profile: @profile} %>
     </div>
     <div class="o-bubble o-bubble--full o-bubble--centered-content">
