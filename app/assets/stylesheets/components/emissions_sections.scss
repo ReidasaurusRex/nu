@@ -1,0 +1,20 @@
+.c-emissions-sections__section {
+  display: inline-block;
+  margin-bottom: $spacing-unit;
+  margin-right: $spacing-unit;
+  text-align: center;
+}
+
+.c-emissions-sections__section__el {
+  margin-bottom: $spacing-unit / 3;
+}
+
+.c-emissions-sections__section__img {
+  display: block;
+  height: 80px;
+  width: 80px;
+}
+
+.c-emissions-sections__section__num {
+  color: $color-monte-carlo;
+}

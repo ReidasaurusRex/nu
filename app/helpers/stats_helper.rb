@@ -21,4 +21,20 @@ module StatsHelper
       return 65
     end
   end
+
+  def progress_categories()
+    return ["transportation", "home_energy", "water", "waste", "diet"]
+  end
+
+  def category_emissions_or_pending(footprint, category_emissions)
+    if footprint
+      if footprint[category_emissions]
+        return footprint[category_emissions]
+      else
+        return "Pending"
+      end
+    else
+      return "Pending"
+    end
+  end
 end

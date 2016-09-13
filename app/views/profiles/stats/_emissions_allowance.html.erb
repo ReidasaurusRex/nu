@@ -3,8 +3,8 @@
 <div class="c-emissions-allowance__progress">
     Shares used
     <div class="c-emissions-allowance__progress__bar">
-      <div class="c-emissions-allowance__progress__bar__cover" style="width: <%= 100 - recent_footprint_allotment_percentage(profile.footprints.last) %>%"></div>
+      <div class="c-emissions-allowance__progress__bar__cover" style="width: <%= 100 - recent_footprint_allotment_percentage(profile.last_finished_footprint) %>%"></div>
     </div>
-    <%= recent_footprint_allotment_percentage(profile.footprints.last) %>%
+    <%= recent_footprint_allotment_percentage(profile.last_finished_footprint) %>%
   </p>
 </div>
