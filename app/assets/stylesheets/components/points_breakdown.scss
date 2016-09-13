@@ -1,3 +1,26 @@
 .c-points-breakdown {
   height: 240px;
+  overflow-y: hidden;
+}
+
+.c-points-breakdown__header {
+  margin-left: $spacing-unit * 1.5;
+}
+
+.c-points-breakdown__div {
+  display: inline-block;
+  height: 180px;
+  vertical-align: top;
+}
+
+.c-points-breakdown__graph {
+  height: inherit;
+  float: left;
+  margin-left: $spacing-unit;
+  width: 27%;
+}
+
+.c-points-breakdown__desc-and-legend {
+  float: right;
+  width: 66%;
 }

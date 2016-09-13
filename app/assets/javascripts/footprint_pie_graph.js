@@ -25,6 +25,9 @@ function drawPieGraph(footprintDiv) {
         text: $(footprintDiv).data('creationDate')
       },
     colors: ['#F99B6D', '#BFEAE7', '#F484B4', '#C9E38A', '#FFDD10'],
+    credits: {
+      enabled: false
+    },
     plotOptions: {
       series: {
         animation: false

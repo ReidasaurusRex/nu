@@ -10,26 +10,40 @@ function drawPointGraph(data) {
   if ($('#jsPointOverviewGraph').length > 0) {
     new Highcharts.Chart({
       chart: {
+        margin: [-50, 0, 0, 0],
+        spacing: [0, 0, 0, 0],
         renderTo: 'jsPointOverviewGraph',
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false, 
-        type: 'pie'}, 
-      
+        type: 'pie'
+      }, 
       colors: ['#B7DC78', '#65CBC9', '#FF8D6A', '#F2D383'],
+      credits: {
+        enabled: false
+      },
       plotOptions: {
+        pie: {
+          size: '100%'
+        },
         series: {
-          animation: false
+          animation: false,
+          states: {
+            hover: {
+              enabled: false
+            }
+          }
         }
       },
       series: [{
         name: 'Points', 
         data: extractDataPoints(data),
+        dataLabels: {
+          enabled: false
+        },
         size: '100%',
+        type: 'pie',
         innerSize: '80%'
       }],
       title: {
-        text: 'Point Overview'
+        text: null
       }
     });
   }

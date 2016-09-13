@@ -1,9 +1,9 @@
-<h2>Point Breakdown</h2>
-<%= content_tag "div", id: "jsPointOverviewGraph", data: {point_overview: profile.point_overview.graph_data} do  %>
+<h2 class="c-points-breakdown__header">Point Breakdown</h2>
+<%= content_tag "div", id: "jsPointOverviewGraph", class: "c-points_breakdown__div c-points-breakdown__graph", data: {point_overview: profile.point_overview.graph_data} do  %>
   Loading points...
 <% end %>
-<div class="point-overview-numbers">
-<h3>Total: <%= profile.point_overview.total %>pts</h3>
+<div class="c-points-breakdown__div c-points-breakdown__desc-and-legend">
+  <p>These points indicate your progress across various environmental areas.</p>
   <ul class="point-categories">
     <li>Water <%= profile.point_overview.water %>pts <span><%= profile.point_overview.section_percent(:water) %>%</span></li>
     <li>Waste <%= profile.point_overview.waste %>pts <span><%= profile.point_overview.section_percent(:waste) %>%</span></li>

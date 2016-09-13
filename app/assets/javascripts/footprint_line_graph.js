@@ -18,6 +18,9 @@ function drawFootprintsGraph() {
         type: 'area'
       },
       colors: ['#B7DC78'],
+      credits: {
+        enabled: false
+      },
       legend: {
         enabled: false
       },
