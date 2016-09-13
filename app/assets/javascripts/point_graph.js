@@ -1,5 +1,5 @@
 function ready() {
-  var pointData = $('#point-overview-graph').data('pointOverview');
+  var pointData = $('#jsPointOverviewGraph').data('pointOverview');
   drawPointGraph(pointData);
 }
 
@@ -7,10 +7,10 @@ $(document).ready(ready);
 $(document).on('page:load', ready); // turbolinks friendly
 
 function drawPointGraph(data) {
-  if ($('#point-overview-graph').length > 0) {
+  if ($('#jsPointOverviewGraph').length > 0) {
     new Highcharts.Chart({
       chart: {
-        renderTo: 'point-overview-graph',
+        renderTo: 'jsPointOverviewGraph',
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false, 

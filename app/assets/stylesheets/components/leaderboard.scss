@@ -12,10 +12,15 @@
   border-radius: 100px;
   height: 25px;
   line-height: 25px;
-  margin-bottom: $spacing-unit * 1.5;
   padding: $spacing-unit / 2;
   text-align: left;
   // width is inline dependent on point
+  &:not(:last-child) {
+    margin-bottom: $spacing-unit * 1.5;
+  }
+  &:last-child {
+    margin-bottom: 0px;
+  }
 }
 
 .c-leaderboard__li__p {
