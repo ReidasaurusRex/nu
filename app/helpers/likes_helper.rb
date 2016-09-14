@@ -1,4 +1,5 @@
 module LikesHelper
+  # TODO: Rename likes to appreciations
   def like_button(newsfeed_item, profile)
     likes_profile_ids = newsfeed_item.likes.pluck(:profile_id)
     if likes_profile_ids.include?(profile.id)
