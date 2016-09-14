@@ -10,7 +10,7 @@
     <% if item.tags.length > 0 %>
       <ul class="o-inline-list">
         <% item.tags.each do |tag| %>
-          <li class="o-inline-list__li c-newsfeed-list__item__tag">
+          <li class="o-inline-list__li c-newsfeed-list__item__bd__tag">
             <%= link_to "\##{tag.name}", profile_search_path(profile_id: profile.id, query: tag.name), method: :post %>
           </li>
         <% end %>
