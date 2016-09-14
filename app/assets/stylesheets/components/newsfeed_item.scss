@@ -16,11 +16,15 @@
   margin-bottom: $spacing-unit / 3;
 }
 
+.c-newsfeed-list__item__bd {
+  width: 85%;
+}
+
 .c-newsfeed-list__item__pd {
   color: $color-edward;
   display: inline-block;
   font-size: 90%;
-  margin-left: $spacing-unit;
+  margin-left: $spacing-unit / 2;
 }
 
 .c-newsfeed-list__item__tag {
