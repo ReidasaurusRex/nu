@@ -1,9 +1,26 @@
 .c-newsfeed-composer {
   border: 1px solid $color-apricot;
+  overflow: hidden;
+}
+
+.c-newsfeed-composer__img, .c-newsfeed-composer__bd {
+  margin-top: $spacing-unit / 2;
+}
+
+.c-newsfeed-composer__img {
+  margin-left: $spacing-unit;
 }
 
 .c-newsfeed-composer__text-area {
   border: none;
+  margin-bottom: 0;
+}
+
+.c-newsfeed-composer__tag-submit {
+  background: $color-aqua-haze;
+  height: 50px;
+  line-height: 45px;
+  padding: 0px $spacing-unit / 2;
 }
 
 .c-newsfeed-composer__tag-list, .c-newsfeed-composer__submit {
@@ -13,9 +30,31 @@
 .c-newsfeed-composer__tag-list {
   display: inline-block;
   float: left;
+  font-size: 75%;
+  height: inherit;
+}
+
+.c-newsfeed-composer__tag-list__prompt {
+  color: $color-fountain-blue;
+}
+
+.c-newsfeed-composer__tag-list__tag {
+  background: $color-wild-sand;
+  border: 2px solid $color-alto;
+  border-radius: 100px;
+  color: $color-monte-carlo;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  width: 75px;
+  &:checked {
+    border: 1px solid $color-breaker-bay;
+    color: $color-breaker-bay;
+  }
 }
 
 .c-newsfeed-composer__submit {
   float: right;
+  margin-top: 2px;
 }
 

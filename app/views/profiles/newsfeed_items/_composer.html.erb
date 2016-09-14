@@ -1,44 +1,46 @@
 <%= form_for(item, url: profile_newsfeed_items_path(profile_id: profile.id)) do |f| %>
   <div class="o-media">
-    <%= image_tag profile.profile_photo, class: "o-img--small o-img--round o-media__img"  %>
+    <%= image_tag profile.profile_photo, class: "o-img--small o-img--round o-media__img c-newsfeed-composer__img"  %>
 
-    <div class="o-media__bd">
-      <%= f.text_area(:content, rows: 3, placeholder: "Share something nu...", class: "c-newsfeed-composer__text-area") %>
+    <div class="o-media__bd c-newsfeed-composer__bd">
+      <%= f.text_area(:content, rows: 2, placeholder: "Share something nu...", class: "c-newsfeed-composer__text-area") %>
     </div>
   </div>
 
-  
-  <ul class="o-inline-list c-newsfeed-composer__tag-list">
-    <%= fields_for :tags do |tag| %>
-      <li class="o-inline-list__li">
-        <%= tag.check_box :water, {}, '1', false %>
-        <%= tag.label :water, 'Water' %>
-      </li>
-      <li class="o-inline-list__li">
-        <%= tag.check_box :waste, {}, '1', false %>
-        <%= tag.label :waste, 'Waste' %>
-      </li>
-      <li class="o-inline-list__li">
-        <%= tag.check_box :diet, {}, '1', false %>
-        <%= tag.label :diet, 'Diet' %>
-      </li>
-      <li class="o-inline-list__li">
-        <%= tag.check_box :travel, {}, '1', false %>
-        <%= tag.label :travel, 'Travel' %>
-      </li>
-      <li class="o-inline-list__li">
-        <%= tag.check_box :energy, {}, '1', false %>
-        <%= tag.label :energy, 'Energy' %>
-      </li>
-      <li class="o-inline-list__li">
-        <%= tag.check_box :social, {}, '1', false %>
-        <%= tag.label :social, 'Social' %>
-      </li>
-      <% end %>
-  </ul>
+  <div class="c-newsfeed-composer__tag-submit">
+    <ul class="o-inline-list c-newsfeed-composer__tag-list">
+      <%= fields_for :tags do |tag| %>
+        <li class="o-inline-list__li c-newsfeed-composer__tag-list__prompt">Add tags<sup>*</sup></li>
+        <li class="o-inline-list__li c-newsfeed-composer__tag-list__tag">
+          <%= tag.check_box :water, {}, '1', false %>
+          <%= tag.label :water, 'Water' %>
+        </li>
+        <li class="o-inline-list__li c-newsfeed-composer__tag-list__tag">
+          <%= tag.check_box :waste, {}, '1', false %>
+          <%= tag.label :waste, 'Waste' %>
+        </li>
+        <li class="o-inline-list__li c-newsfeed-composer__tag-list__tag">
+          <%= tag.check_box :diet, {}, '1', false %>
+          <%= tag.label :diet, 'Diet' %>
+        </li>
+        <li class="o-inline-list__li c-newsfeed-composer__tag-list__tag">
+          <%= tag.check_box :travel, {}, '1', false %>
+          <%= tag.label :travel, 'Travel' %>
+        </li>
+        <li class="o-inline-list__li c-newsfeed-composer__tag-list__tag">
+          <%= tag.check_box :energy, {}, '1', false %>
+          <%= tag.label :energy, 'Energy' %>
+        </li>
+        <li class="o-inline-list__li c-newsfeed-composer__tag-list__tag">
+          <%= tag.check_box :social, {}, '1', false %>
+          <%= tag.label :social, 'Social' %>
+        </li>
+        <% end %>
+    </ul>
 
-  <div class="c-newsfeed-composer__submit">
-    <%= f.submit "Post" %>
+    <div class="c-newsfeed-composer__submit">
+      <%= f.submit "Post" %>
+    </div>
   </div>
 
 <% end %>
