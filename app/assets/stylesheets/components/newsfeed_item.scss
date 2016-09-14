@@ -5,13 +5,17 @@
 .c-newsfeed-list__item {
   display: inline-block;
   text-align: left;
-  width: 375px;
+  width: 425px;
   &:nth-child(odd) {
     float: left;
   }
   &:nth-child(even) {
     float: right;
   }
+}
+
+.c-newsfeed-list__item--padding {
+  padding: $spacing-unit / 2;
 }
 
 .c-newsfeed-list__item__text {

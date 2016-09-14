@@ -1,6 +1,7 @@
-<ul>
-  <li class="new-comment"><%= render partial: "profiles/comments/new_comment", locals: {profile: profile, newsfeed_item: newsfeed_item} %></li>
-  <% newsfeed_item.comments.each do |comment| %>  
-    <li class="comment"><%= render partial: "profiles/comments/comment_overview", locals: {comment: comment, profile: profile} %></li>  
-  <% end %>
-</ul>
+<li class="c-comments-list__li c-comments-list__new"><%= render partial: "profiles/comments/new_comment", locals: {profile: profile, newsfeed_item: newsfeed_item} %></li>
+
+<% newsfeed_item.comments.each do |comment| %>  
+
+  <li class="c-comments_list__li c-comments-list__comment"><%= render partial: "profiles/comments/comment_overview", locals: {comment: comment, profile: profile} %></li>  
+
+<% end %>

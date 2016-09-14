@@ -1,8 +1,9 @@
 <div class="c-newsfeed-list">
 <% newsfeed_items.each do |feed_item| %>
   
-  <div class="o-bubble c-newsfeed-list__item">
-
+  <div class="o-bubble o-bubble--no-pad c-newsfeed-list__item">
+    
+    <div class="c-newsfeed-list__item--padding">
     <% if feed_item.source_type == "profile" %>
       <%= render partial: "profiles/newsfeed_items/native_item", locals: {profile: @profile, item: feed_item} %> 
     <% else %>
@@ -17,11 +18,13 @@
         <%= comment_button(feed_item, profile) %> <span class="u-text--edward"><%= comment_number(feed_item) %></span>
       </li>
     </ul>
+  </div> <!-- c-newsfeed-list-item--padding -->
 
-    <div class="c-comments-list">
+    <ul class="c-comments-list">
       <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>
-    </div>
+    </ul>
 
   </div>
+
 <% end %>
 </div> 
