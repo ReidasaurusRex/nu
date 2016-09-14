@@ -1,7 +1,13 @@
-<li class="c-comments-list__li c-comments-list__new"><%= render partial: "profiles/comments/new_comment", locals: {profile: profile, newsfeed_item: newsfeed_item} %></li>
+<li class="o-media c-comments-list__li c-comments-list__new">
+  <%= image_tag profile.profile_photo, class: "o-media__img o-img--tiny o-img--round c-comments-list__li__img" %>
+  <%= render partial: "profiles/comments/new_comment", locals: {profile: profile, newsfeed_item: newsfeed_item} %>
+  
+  </li>
 
 <% newsfeed_item.comments.each do |comment| %>  
 
-  <li class="c-comments_list__li c-comments-list__comment"><%= render partial: "profiles/comments/comment_overview", locals: {comment: comment, profile: profile} %></li>  
+  <li class="o-media c-comments-list__li c-comments-list__comment">
+    <%= render partial: "profiles/comments/comment_overview", locals: {comment: comment, profile: profile} %>
+  </li>  
 
 <% end %>

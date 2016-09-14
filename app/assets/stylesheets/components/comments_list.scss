@@ -1,0 +1,31 @@
+.c-comments-list__li {
+  margin-bottom: 0;
+  min-height: 60px;
+  padding: 0 $spacing-unit / 2;
+}
+
+.c-comments-list__li__img {
+  margin-top: $spacing-unit * 0.75;
+}
+
+.c-comments-list__li__bd {
+  margin-top: $spacing-unit;
+  width: 80%;
+}
+
+.c-comments-list__new {
+  background: $color-aqua-haze;
+  height: 60px;
+  line-height: 60px;
+}
+
+.c-comments-list__new__text-field {
+  border: 1px solid $color-monte-carlo;
+  width: 62%;
+}
+
+.c-comments-list__comment {
+  &:not(:last-child) {
+    border-bottom: 1px solid $color-swans-down;
+  }
+}
