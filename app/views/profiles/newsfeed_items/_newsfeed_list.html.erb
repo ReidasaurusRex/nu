@@ -1,6 +1,7 @@
+<div class="c-newsfeed-list">
 <% newsfeed_items.each do |feed_item| %>
   
-  <div class="o-bubble c-newsfeed-item">
+  <div class="o-bubble c-newsfeed-list__item">
     <% if feed_item.source_type == "profile" %>
       <%= render partial: "profiles/newsfeed_items/native_item", locals: {profile: @profile, item: feed_item} %> 
     <% else %>
@@ -40,4 +41,5 @@
     </div>
 
   </div> <!-- o-bubble -->
-<% end %> -->
+  <% end %>
+</div>
