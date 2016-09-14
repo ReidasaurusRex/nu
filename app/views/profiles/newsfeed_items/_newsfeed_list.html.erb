@@ -10,10 +10,10 @@
     <% end %>
 
     <ul class="o-inline-list c-social-overview">
-      <li class="o-inline-list__li c-social-overview__likes">
+      <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
         <%= like_button(feed_item, profile) %> <span class="u-text--edward"><%= like_number(feed_item) %></span>
       </li>
-      <li class="o-inline-list__li c-social-overview__comments">
+      <li class="o-inline-list__li c-social-overview__comments c-social-overview__li">
         <%= comment_button(feed_item, profile) %> <span class="u-text--edward"><%= comment_number(feed_item) %></span>
       </li>
     </ul>

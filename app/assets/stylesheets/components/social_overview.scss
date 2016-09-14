@@ -1,3 +1,9 @@
 .c-social-overview {
-  
+  margin-left: $spacing-unit * 2;
 }
+
+.c-social-overview__li {
+  margin-left: 0;
+  margin-right: $spacing-unit / 2;
+}
+
