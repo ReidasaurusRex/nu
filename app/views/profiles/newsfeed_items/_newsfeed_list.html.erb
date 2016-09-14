@@ -9,13 +9,17 @@
       <%= render partial: "profiles/newsfeed_items/feed_item", locals: {profile: @profile, item: feed_item} %>
     <% end %>
 
-    <div class="c-social-overview">
-      <div class="c-social-overview__likes">
+    <ul class="o-inline-list c-social-overview">
+      <li class="o-inline-list__li c-social-overview__likes">
         <%= like_button(feed_item, profile) %> <span class="u-text--edward"><%= like_number(feed_item) %></span>
-      </div>
-      <div class="c-social-overview__comments">
-        <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>
-      </div>
+      </li>
+      <li class="o-inline-list__li c-social-overview__comments">
+        <%= comment_button(feed_item, profile) %> <span class="u-text--edward"><%= comment_number(feed_item) %></span>
+      </li>
+    </ul>
+
+    <div class="c-comments-list">
+      <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>
     </div>
 
   </div>
