@@ -11,7 +11,7 @@
 
     <div class="c-social-overview">
       <div class="c-social-overview__likes">
-        <%= like_button(feed_item, profile) %> <span class="u-text--gray"><%= like_number(feed_item) %></span>
+        <%= like_button(feed_item, profile) %> <span class="u-text--edward"><%= like_number(feed_item) %></span>
       </div>
       <div class="c-social-overview__comments">
         <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>

@@ -1,7 +1,7 @@
 <div class="o-wrapper">
   
   <div class="o-bubble o-bubble--full c-new-challenge-prompt">
-    <h1><i class="fa fa-2x fa-trophy u-text--green"></i></h1>
+    <h1><i class="fa fa-2x fa-trophy u-text--wild-willow"></i></h1>
     <h2>Start a new challenge</h2>
     <h2><%= button_to "Browse Challenges", profile_challenges_path(profile_id: @profile.id), method: :get %></h2>
   </div>
@@ -11,7 +11,7 @@
       Current Challenges
     </h4>
     <h5 class="c-challenges-list__heading__right">
-      <%= link_to "View Completed Challenges", profile_profile_completed_challenges_path(@profile), class: "u-text--orange" %>
+      <%= link_to "View Completed Challenges", profile_profile_completed_challenges_path(@profile), class: "u-text--apricot" %>
     </h5>
   </div> <!-- o-bubble o-bubble--full new-challenge-prompt -->
 

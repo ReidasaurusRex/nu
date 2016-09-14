@@ -9,8 +9,8 @@
         <p  class="c-challenges-list__li__bd__el">Completed <%= profile_completed_challenge.completion_date %></p>
       </div>
       <div class="o-media__ext c-challenges-list__li__ext">
-        <h4><%= link_to "View", profile_profile_completed_challenge_path(profile_id: @profile.id, id: profile_completed_challenge.id), class: "u-text--orange" %></h4>
-        <p class="u-text--green">Got <%= profile_completed_challenge.challenge.points %>pts</p>
+        <h4><%= link_to "View", profile_profile_completed_challenge_path(profile_id: @profile.id, id: profile_completed_challenge.id), class: "u-text--apricot" %></h4>
+        <p class="u-text--wild-willow">Got <%= profile_completed_challenge.challenge.points %>pts</p>
       </div>
     </li>
   <% end %>

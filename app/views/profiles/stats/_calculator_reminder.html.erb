@@ -7,11 +7,11 @@
 <% elsif profile.footprints.last.complete? == false %>
   <p>Calculator in progress</p>
   <%= button_to("Complete", profile_footprint_path(profile_id: profile.id, id: profile.footprints.last.id), method: :get) %>
-  <h4><%= link_to "View Past Reports", profile_footprints_path(profile.id), class: "u-text--orange" %></h4>
+  <h4><%= link_to "View Past Reports", profile_footprints_path(profile.id), class: "u-text--apricot" %></h4>
 <% else %>
   <p>Last updated <%= profile.footprints.last.friendly_creation_date %></p>
   <p>
     <%= button_to("Reassess", profile_footprints_path(profile.id), method: :post) %>
   </p>
-  <p><%= link_to "View Past Reports", profile_footprints_path(profile.id), class: "u-text--orange" %></p>
+  <p><%= link_to "View Past Reports", profile_footprints_path(profile.id), class: "u-text--apricot" %></p>
 <% end %>
