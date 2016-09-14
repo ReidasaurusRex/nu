@@ -25,7 +25,6 @@ class NewsfeedItem < ActiveRecord::Base
         if (time_since / time[0]) >= 1
           x_since = (time_since / time[0]).to_i
           response = "#{x_since}#{time[1]}"
-          response << "s" if x_since > 1
           return response
         end
       else
