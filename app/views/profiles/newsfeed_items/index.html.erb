@@ -1,13 +1,13 @@
 <div class="o-wrapper">
+  
+  <div class="o-bubble-heading">
+    <h4 class="o-bubble-heading--left"><i class="fa fa-commenting-o u-text--blue"></i>Write a Post</h4>
+    <h5 class="o-bubble-heading--right"><%= link_to "Manage RSS Feeds", profile_profile_feeds_path(@profile.id), class: "u-text--orange" %></h5>
+  </div>
 
-  <div class="new-newsfeed-item">
-    <h4><i class="fa fa-commenting-o u-text--blue"></i>Write a Post</h4>
-    <h4><%= link_to "Manage RSS Feeds", profile_profile_feeds_path(@profile.id), class: "u-text--orange" %></h4>
-    <div class="o-bubble o-bubble--full o-bubble--no-pad c-newsfeed-composer">
-    <%= render partial: "profiles/newsfeed_items/composer", locals: {item: @newsfeed_item, profile: @profile} %>
-    </div> <!-- o-bubble -->
-    
-  </div> <!-- new-newsfeed-item -->
+  <div class="o-bubble o-bubble--full o-bubble--no-pad c-newsfeed-composer">
+  <%= render partial: "profiles/newsfeed_items/composer", locals: {item: @newsfeed_item, profile: @profile} %>
+  </div> <!-- o-bubble -->
 
   <% if @newsfeed_items.empty? %>
     <h2>Looks like your feed is empty!</h3>
