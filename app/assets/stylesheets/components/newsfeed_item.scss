@@ -13,6 +13,7 @@
 
 .c-newsfeed-list__item__text {
   color: $color-black;
+  margin-bottom: $spacing-unit / 3;
 }
 
 .c-newsfeed-list__item__pd {
@@ -23,7 +24,7 @@
 }
 
 .c-newsfeed-list__item__tag {
-  margin: 0;
+  margin: $spacing-unit / 2 0 0 0;
   &:not(:last-child) {
     margin-right: $spacing-unit / 2;
   }
