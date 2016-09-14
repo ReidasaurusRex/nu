@@ -1,7 +1,7 @@
 <h2>Feed</h2>
 
 <div class="new-newsfeed-item">
-  <%= render partial: "profiles/newsfeed_items/new_newsfeed_item_form", locals: {item: NewsfeedItem.new, profile: profile} %>
+  <%= render partial: "profiles/newsfeed_items/composer", locals: {item: NewsfeedItem.new, profile: profile} %>
 </div>
 
 <% if profile.newsfeed_items.empty? %>

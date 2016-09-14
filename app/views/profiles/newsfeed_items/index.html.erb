@@ -3,7 +3,7 @@
   <div class="new-newsfeed-item">
     <h4><i class="fa fa-commenting-o"></i>Write a Post</h4>
     <div class="o-bubble">
-    <%= render partial: "profiles/newsfeed_items/new_newsfeed_item_form", locals: {item: @newsfeed_item, profile: @profile} %>
+    <%= render partial: "profiles/newsfeed_items/composer", locals: {item: @newsfeed_item, profile: @profile} %>
     </div> <!-- o-bubble -->
     <h4><%= link_to "Manage RSS Feeds", profile_profile_feeds_path(@profile.id) %></h4>
   </div> <!-- new-newsfeed-item -->
