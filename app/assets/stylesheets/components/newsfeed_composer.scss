@@ -1,0 +1,21 @@
+.c-newsfeed-composer {
+  border: 1px solid $color-apricot;
+}
+
+.c-newsfeed-composer__text-area {
+  border: none;
+}
+
+.c-newsfeed-composer__tag-list, .c-newsfeed-composer__submit {
+  vertical-align: top;
+}
+
+.c-newsfeed-composer__tag-list {
+  display: inline-block;
+  float: left;
+}
+
+.c-newsfeed-composer__submit {
+  float: right;
+}
+
