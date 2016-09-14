@@ -1,8 +1,20 @@
 <div class="o-media c-newsfeed-item__media">
-  <%= image_tag item.source.profile_photo, class: "o-media__img o-image--small o-image--round c-newsfeed-item__media__img" %>
+  <%= image_tag item.source.profile_photo, class: "o-media__img o-img--small o-img--round c-newsfeed-item__media__img" %>
   <div class="o-media__bd c-newsfeed-item__media__bd">
-    <p></p>
-    <p></p>
-
+    <p class="c-newsfeed-list__item__text">
+      <%= item.source.full_name %> <span class="c-newsfeed-list__item__pd"><%= item.time_since_creation %></span>
+    </p>
+    <p class="c-newsfeed-list__item__text">
+      <%= item.content %>
+    </p>
+    <% if item.tags.length > 0 %>
+      <ul class="o-inline-list">
+        <% item.tags.each do |tag| %>
+          <li class="o-inline-list__li c-newsfeed-list__item__tag">
+            <%= link_to "\##{tag.name}", profile_search_path(profile_id: profile.id, query: tag.name), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>

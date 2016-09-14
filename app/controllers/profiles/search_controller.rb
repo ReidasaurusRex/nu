@@ -1,5 +1,5 @@
 class Profiles::SearchController < Inheritance::CompletedProfileController
-
+  # TODO: add results from tags
   def results
     @query = params[:query]
     @results = get_results(params[:query])
