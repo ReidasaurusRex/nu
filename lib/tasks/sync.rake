@@ -12,6 +12,7 @@ namespace :sync do
           create_newsfeed_rss_feed_entry(new_entry, feed)
         end
         p "Synced Entry - #{entry.title}"
+        p "Entry image - #{}"
       end
       p "Synced Feed - #{feed.title}"
     end
