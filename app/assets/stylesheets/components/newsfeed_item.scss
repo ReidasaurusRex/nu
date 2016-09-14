@@ -7,7 +7,10 @@
   text-align: left;
   width: 375px;
   &:nth-child(odd) {
-    margin-right: $spacing-unit; 
+    float: left;
+  }
+  &:nth-child(even) {
+    float: right;
   }
 }
 
@@ -20,7 +23,7 @@
   width: 85%;
 }
 
-.c-newsfeed-list__item__pd {
+.c-newsfeed-list__item__bd__pd {
   color: $color-edward;
   display: inline-block;
   font-size: 90%;
@@ -28,6 +31,8 @@
 }
 
 .c-newsfeed-list__item__bd__tag {
+  height: 25px;
+  line-height: 25px;
   margin: $spacing-unit / 2 0 0 0;
   &:not(:last-child) {
     margin-right: $spacing-unit / 2;
