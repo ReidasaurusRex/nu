@@ -11,20 +11,20 @@ class NewsfeedItem < ActiveRecord::Base
     if self.source_type == "profile"
       return Profile.find(self.source_id)
     elsif self.source_type == "feed"
-      return Feed.find(self.source_id)
+      return Entry.find(self.source_id)
     else
       raise "Something went wrong"
     end
   end
 
   def time_since_creation
-    time_array = [[3153600 ,"year"], [2592000, "month"], [86400, "day"], [3600, "hour"], [60, "min"], [1, "sec"]]
+    time_array = [[3153600 ,"yr"], [2592000, "mth"], [86400, "d"], [3600, "hr"], [60, "m"], [1, "s"]]
     time_since = Time.now - self.created_at
     time_array.each do |time| 
       unless time[0] == 1
         if (time_since / time[0]) >= 1
           x_since = (time_since / time[0]).to_i
-          response = "#{x_since} #{time[1]}"
+          response = "#{x_since}#{time[1]}"
           response << "s" if x_since > 1
           return response
         end

@@ -1,1 +1,7 @@
-Feed Item
+<h3 class="c-newsfeed-list__item__title"><%= item.source.feed.title %> <span class="c-newsfeed-list__item__pd"><%= item.time_since_creation %></span></h3>
+
+<div class="c-newsfeed-list__item__bd">
+  <p><%= item.source.title %></p>
+  <p><%= item.content %></p>
+  <p><%= link_to "View article", item.source.url, class: "u-text--orange", target: "_blank" %></p>
+</div>
