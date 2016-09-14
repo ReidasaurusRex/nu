@@ -2,44 +2,22 @@
 <% newsfeed_items.each do |feed_item| %>
   
   <div class="o-bubble c-newsfeed-list__item">
+
     <% if feed_item.source_type == "profile" %>
       <%= render partial: "profiles/newsfeed_items/native_item", locals: {profile: @profile, item: feed_item} %> 
     <% else %>
       <%= render partial: "profiles/newsfeed_items/feed_item", locals: {profile: @profile, item: feed_item} %>
     <% end %>
-  </div>
-  <!-- 
-    <div class="newsfeed-header">
-      <% if feed_item.source_type == "profile" %>
-        <%= image_tag feed_item.source.profile_photo, class: "newsfeed-profile-pic" %>
-      <% end %>
-      <div class="header-text">
-        <h3><%= feed_item.source_name_or_title(profile) %></h3>
-        <h5><%= feed_item.time_since_creation %></h5>
+
+    <div class="c-social-overview">
+      <div class="c-social-overview__likes">
+        <%= like_button(feed_item, profile) %> <span class="u-text--gray"><%= like_number(feed_item) %></span>
+      </div>
+      <div class="c-social-overview__comments">
+        <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>
       </div>
     </div>
-    
-    <div class="newsfeed-content">
-      <p><%= feed_item.content %></p>
-    </div>
 
-    <% unless feed_item.tags.empty? %>
-      <ul class="newsfeed-tags inline-list">
-        <li>Tags: </li>
-        <% feed_item.tags.each do |tag| %>
-          <li><%= link_to "\##{tag.name}", profile_search_path(profile_id: @profile.id, query: "#{tag.name}"), method: :post %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <div class="likes-overview">
-      <%= like_button(feed_item, profile) %> <span class="like-number"><%= like_number(feed_item) %></span>
-    </div>
-
-    <div class="comments-overview">
-      <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: feed_item, profile: profile} %>
-    </div>
-
-  </div> <!-- o-bubble -->
-  <% end %>
-</div>
+  </div>
+<% end %>
+</div> 
