@@ -2,17 +2,18 @@ namespace :sync do
   desc 'Update RSS content and post to followers'
   task feeds: [:environment] do
     Feed.all.each do |feed|
+      Feedjira::Feed.add_common_feed_element('image')
       content = Feedjira::Feed.fetch_and_parse feed.url
       content.entries.each do |entry|
         if feed.entries.where(title: entry.title).first
           local_entry = feed.entries.where(title: entry.title).first
           local_entry.update_attributes(summary: entry.summary, author: entry.author, url: entry.url, published: entry.published)
         else
-          new_entry = feed.entries.create(title: entry.title, summary: entry.summary, author: entry.author, url: entry.url, published: entry.published)
+          new_entry = feed.entries.create(title: entry.title, summary: entry.summary, author: entry.author, url: entry.url, published: entry.published, image: entry.image)
           create_newsfeed_rss_feed_entry(new_entry, feed)
         end
         p "Synced Entry - #{entry.title}"
-        p "Entry image - #{}"
+        p "Entry image - #{entry.image}"
       end
       p "Synced Feed - #{feed.title}"
     end
