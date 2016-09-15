@@ -10,6 +10,7 @@
 
 .c-comments-list__li__bd {
   margin-top: $spacing-unit;
+  padding-bottom: $spacing-unit / 2;
   width: 80%;
 }
 
@@ -25,7 +26,13 @@
 }
 
 .c-comments-list__comment {
+  height: inherit;
+  font-size: 90%;
   &:not(:last-child) {
     border-bottom: 1px solid $color-swans-down;
   }
+}
+
+.c-comments-list__comment__pd {
+  margin-top: $spacing-unit;
 }

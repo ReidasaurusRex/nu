@@ -1,7 +1,8 @@
 <%= image_tag(comment.profile.profile_photo, class: "o-media__img o-img--tiny o-img--round c-comments-list__li__img") %>
 
 <div class="o-media__bd c-comments-list__li__bd">
-  <%= comment.profile.full_name %> <%= comment.text %>
+  <%= link_to comment.profile.full_name, profile_path(comment.profile) %>
+  <%= comment.text %>
 </div>
 
-<div class="o-media__ext"></div>
+<div class="o-media__ext c-comments-list__comment__pd u-text--edward"><%= comment.time_since_creation %></div>
