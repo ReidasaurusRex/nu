@@ -4,6 +4,7 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   def index
     @newsfeed_items = @profile.newsfeed_items.order(updated_at: :desc)
     @newsfeed_item = NewsfeedItem.new
+    # TODO: style floats so odd item doesn't stack to bottom
   end
 
   def create

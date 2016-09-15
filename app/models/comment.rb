@@ -15,9 +15,9 @@ class Comment < ActiveRecord::Base
         end
       else
         if (time_since / time[0]) >= 1
-          response = "Seconds ago"
+          response = "Now"
         else
-          response = "Just now"
+          response = "Now"
         end
         return response
       end
