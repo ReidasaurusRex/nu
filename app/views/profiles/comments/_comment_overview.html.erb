@@ -5,7 +5,7 @@
   <%= comment.text %>
   <% if comment.profile_id == profile.id %>
   <div class="c-comments-list__li__bd__destroy">
-    <%= link_to "x", profile_comment_path(profile_id: profile.id, id: comment.id), method: :delete, data: {confirm: "Delete comment?"} %>
+    <%= link_to "x", newsfeed_item_comment_path(newsfeed_item_id: comment.newsfeed_item.id, id: comment.id), method: :delete, data: {confirm: "Delete comment?"} %>
   </div>
   <% end %>
 </div>
