@@ -21,7 +21,7 @@ class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
   private
   def create_footprint
     footprint = @profile.footprints.create
-    redirect_to new_footprint_diet_path(footprint)
+    redirect_to footprint_create_transportation_path(footprint)
   end
 
   def get_footprint

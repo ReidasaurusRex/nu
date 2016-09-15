@@ -13,7 +13,7 @@ class NewsfeedItem < ActiveRecord::Base
     elsif self.source_type == "feed"
       return Entry.find(self.source_id)
     else
-      raise "Something went wrong"
+      raise "Invalid source type"
     end
   end
 

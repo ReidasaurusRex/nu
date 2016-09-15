@@ -56,8 +56,12 @@ class Vehicle < ActiveRecord::Base
 
   def percent_of_transportation
     if self.sub_section_emissions && self.transportation.section_emissions
-      percentage = ((self.sub_section_emissions.to_f / self.transportation.section_emissions.to_f) * 100).round
-      return "#{percentage}% of transportation emissions"
+      unless self.transportation.section_emissions == 0
+        percentage = ((self.sub_section_emissions.to_f / self.transportation.section_emissions.to_f) * 100).round
+      else
+        percentage = 0
+      end
+      return "#{percentage}\% of transportation emissions"
     else
       return "Pending"
     end
