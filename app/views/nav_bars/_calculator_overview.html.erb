@@ -1,21 +1,23 @@
-<div class="c-calculator-nav">
- 
-  <ul class="nav-items">
-    <!-- <li><%= link_to "Overview", profile_footprint_path(profile_id: footprint.profile.id, id: footprint.id) %></li> -->
-    <li><%= diet_link(footprint) %></li>
-    <li><%= water_link(footprint) %></li>
-    <li><%= waste_link(footprint) %></li>
-    <li><%= transportation_link(footprint) %></li>
-    <li><%= home_energy_link(footprint) %></li>
-    <li class="right-side"><%= flash[:calculator_message] %></li>
-  </ul>
+<div class="o-wrapper">
+  <div class="c-calculator-nav">
+   
+    <ul class="o-inline-listnav-items">
+      <!-- <li><%= link_to "Overview", profile_footprint_path(profile_id: footprint.profile.id, id: footprint.id) %></li> -->
+      <li class="o-inline-list__li"><%= transportation_link(footprint) %></li>
+      <li class="o-inline-list__li"><%= home_energy_link(footprint) %></li>
+      <li class="o-inline-list__li"><%= water_link(footprint) %></li>
+      <li class="o-inline-list__li"><%= waste_link(footprint) %></li>
+      <li class="o-inline-list__li"><%= diet_link(footprint) %></li>
+      <!-- <li class="right-side"><%= flash[:calculator_message] %></li> -->
+    </ul>
 
-  <div class="progress-bar">
-    <h4>Progress</h4>
-    <div class="progress-indicator">
-      <div class="progress-negative" style="width: <%= 100 - footprint.percent_progress %>%"></div>
+    <div class="c-calculator-nav__progress">
+      <h4 class="c-calculator-nav__progress__el c-calculator-nav__progress__title">Progress</h4>
+      <div class="c-calculator-nav__progress__el c-calculator-nav__progress__bar">
+        <div class="c-calculator-nav__progress__bar__neg" style="width: <%= 100 - footprint.percent_progress %>%"></div>
+      </div>
+      <h4 class="c-calculator-nav__progress__el c-calculator-nav__progress__percent"><%= footprint.percent_progress %>%</h4>
     </div>
-    <h4><%= footprint.percent_progress %>%</h4>
-  </div>
 
+  </div>
 </div>
