@@ -1,100 +1,98 @@
 <div class="o-wrapper">
 
-  <div class="o-bubble o-bubble--full">
+  <div class="o-bubble o-bubble--full c-calculator-questions">
     <%= form_for(@vehicle, url: transportation_vehicles_path(transportation_id: @transportation.id), method: :post) do |f| %>
-    <div class="new-vehicle-form">
 
-      <div class="question-and-response">
-        <p class="form-question">Do you own a home vehicle? </p>
-        <p class="error-message"><%= add_errors_if_any(@vehicle, :have) %></p>
-        <ul class="radio-button-list inline-list">
-          <li>
-            <%= f.radio_button :have, "1", {checked: true} %>
-            <%= f.label :have, "Yes" %>
-          </li>
-          <li>
-            <%= f.radio_button :have, "0" %>
-            <%= f.label :have, "No" %>
-          </li>
-        </ul>
-      </div>
-
-      <div class="question-and-response">
-        <p class="form-question">What kind of vehicle is it?</p>
-        <p class="error-message"><%= add_errors_if_any(@vehicle, :vehicle_type) %></p>
-        <ul class="radio-button-list inline-list">
-          <li>
-            <%= f.radio_button :vehicle_type, "car" %>
-            <%= f.label :vehicle_type, "Car" %>
-          </li>
-          <li>
-            <%= f.radio_button :vehicle_type, "truck" %>
-            <%= f.label :vehicle_type, "Truck" %>
-          </li>
-          <li>
-            <%= f.radio_button :vehicle_type, "motorcycle" %>
-            <%= f.label :vehicle_type, "Motorcycle" %>
-          </li>
-        </ul>
-      </div>
-
-      <div class="question-and-response">
-        <p class="form-question">What type of fuel does it take?</p>
-        <p class="error-message"><%= add_errors_if_any(@vehicle, :fuel_type) %></p>
-        <ul class="radio-button-list inline-list">
-          <li>
-            <%= f.radio_button :fuel_type, "gasoline" %>
-            <%= f.label :fuel_type, "Gasoline" %>
-          </li>
-          <li>
-            <%= f.radio_button :fuel_type, "diesel" %>
-            <%= f.label :fuel_type, "Diesel" %>
-          </li>
-          <li>
-            <%= f.radio_button :fuel_type, "b100" %>
-            <%= f.label :fuel_type, "B100 (biofuel)" %>
-          </li>
-          <li>
-            <%= f.radio_button :fuel_type, "b20" %>
-            <%= f.label :fuel_type, "B20 (biofuel)" %>
-          </li>
-          <li>
-            <%= f.radio_button :fuel_type, "hybrid" %>
-            <%= f.label :fuel_type, "Hybrid" %>
-          </li>
-          <li>
-            <%= f.radio_button :fuel_type, "pi_hybrid" %>
-            <%= f.label :fuel_type, "Plug in hybrid" %>
-          </li>
-          <li>
-            <%= f.radio_button :fuel_type, "electric" %>
-            <%= f.label :fuel_type, "Electric" %>
-          </li>
-        </ul>
-      </div>
-
-      <div class="question-and-response">
-        <p class="form-question">About how many miles a month do you use it?</p>
-        <p class="error-message"><%= add_errors_if_any(@vehicle, :mmonth) %></p>
-        <p>
-          <%= f.text_field :mmonth %>
-        </p>
-      </div>
-
-      <div class="question-and-response">
-        <p class="form-question">How many miles to the gallon does it get?</p>
-        <p class="error-message"><%= add_errors_if_any(@vehicle, :mpg) %></p>
-        <p>
-          <%= f.text_field :mpg %>
-        </p>
-      </div>
-
-      <div class="submit-form">
-        <%= f.submit 'Next' %>
-      </div>
-
+    <div class="c-calculator-questions__q-block">
+      <h2 class="c-calculator-questions__q-block__prompt">Do you own a home vehicle? </h2>
+      <p class="error-message"><%= add_errors_if_any(@vehicle, :have) %></p>
+      <ul class="o-inline-list c-calculator-questions__q-block__response-list">
+        <li class="o-inline-list__li">
+          <%= f.radio_button :have, "1", {checked: true, class: "c-calculator-questions__q-block__response-list__response"} %>
+          <%= f.label :have, "Yes" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :have, "0", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :have, "No" %>
+        </li>
+      </ul>
     </div>
-    <% end %>
+
+    <div class="c-calculator-questions__q-block">
+      <h2 class="c-calculator-questions__q-block__prompt">What kind of vehicle is it?</h2>
+      <p class="error-message"><%= add_errors_if_any(@vehicle, :vehicle_type) %></p>
+      <ul class="o-inline-list c-calculator-questions__q-block__response-list">
+        <li class="o-inline-list__li">
+          <%= f.radio_button :vehicle_type, "car", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :vehicle_type, "Car" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :vehicle_type, "truck", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :vehicle_type, "Truck" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :vehicle_type, "motorcycle", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :vehicle_type, "Motorcycle" %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="c-calculator-questions__q-block">
+      <h2 class="c-calculator-questions__q-block__prompt">What type of fuel does it take?</h2>
+      <p class="error-message"><%= add_errors_if_any(@vehicle, :fuel_type) %></p>
+      <ul class="o-inline-list c-calculator-questions__q-block__response-list">
+        <li class="o-inline-list__li">
+          <%= f.radio_button :fuel_type, "gasoline", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :fuel_type, "Gasoline" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :fuel_type, "diesel", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :fuel_type, "Diesel" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :fuel_type, "b100", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :fuel_type, "B100 (biofuel)" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :fuel_type, "b20", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :fuel_type, "B20 (biofuel)" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :fuel_type, "hybrid", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :fuel_type, "Hybrid" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :fuel_type, "pi_hybrid", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :fuel_type, "Plug in hybrid" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :fuel_type, "electric", class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :fuel_type, "Electric" %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="c-calculator-questions__q-block">
+      <h2 class="c-calculator-questions__q-block__prompt">About how many miles a month do you use it?</p>
+      <p class="error-message"><%= add_errors_if_any(@vehicle, :mmonth) %></p>
+      <p>
+        <%= f.text_field :mmonth, placeholder: "Miles per month..." %>
+      </p>
+    </div>
+
+    <div class="c-calculator-questions__q-block">
+      <h2 class="c-calculator-questions__q-block__prompt">How many miles to the gallon does it get?</h2>
+      <p class="error-message"><%= add_errors_if_any(@vehicle, :mpg) %></p>
+      <p>
+        <%= f.text_field :mpg, placeholder: "Miles per gallon..." %>
+      </p>
+    </div>
+
+    <div class="submit-form">
+      <%= f.submit "Submit" %>
+    </div>
+
+  <% end %> <!-- form -->
   </div> <!-- o-bubble o-bubble--full -->
   
 </div> <!-- o-wrapper -->

@@ -16,7 +16,7 @@
 
   <%= proper_top_nav %>
   <%= render partial: "nav_bars/calculator_overview", locals: {footprint: @footprint} %>
-  <div class="content calculator-content <%= controller_name.gsub(/\_/, '-') %> <%= action_name.gsub(/\_/, '-') %>">
+  <div class="content <%= controller_name.gsub(/\_/, '-') %> <%= action_name.gsub(/\_/, '-') %>">
     <%= yield %>
   </div>
 

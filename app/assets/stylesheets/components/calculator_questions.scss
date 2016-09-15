@@ -1,0 +1,29 @@
+.c-calculator-questions {
+  padding: $spacing-unit * 2 $spacing-unit;
+  text-align: center;
+}
+
+.c-calculator-questions__q-block {
+  margin-bottom: $spacing-unit * 1.5;
+  &:first-child {
+    margin-top: $spacing-unit;
+  }
+}
+
+.c-calculator-questions__q-block__prompt {
+  margin-bottom: $spacing-unit / 2;
+}
+
+.c-calculator-questions__q-block__response-list {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.c-calculator-questions__q-block__response-list__response {
+  + label {
+    color: $color-edward;
+  }
+  &:checked + label {
+    color: $color-monte-carlo;
+  }
+}
