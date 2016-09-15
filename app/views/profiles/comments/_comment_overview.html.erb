@@ -3,6 +3,11 @@
 <div class="o-media__bd c-comments-list__li__bd">
   <%= link_to comment.profile.full_name, profile_path(comment.profile) %>
   <%= comment.text %>
+  <% if comment.profile_id == profile.id %>
+  <div class="c-comments-list__li__bd__destroy">
+    <%= link_to "x", profile_comment_path(profile_id: profile.id, id: comment.id), method: :delete, data: {confirm: "Delete comment?"} %>
+  </div>
+  <% end %>
 </div>
 
 <div class="o-media__ext c-comments-list__comment__pd u-text--edward"><%= comment.time_since_creation %></div>
