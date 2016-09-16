@@ -25,6 +25,7 @@ class Waste < ActiveRecord::Base
         recycled.push(item)
       end
     end
+    recycled.push("none") if recycled.empty?
     recycled[0].capitalize!
     return recycled.join(", ")
   end

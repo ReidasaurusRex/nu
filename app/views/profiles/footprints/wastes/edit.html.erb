@@ -1,95 +1,93 @@
 <div class="o-wrapper">
   
-  <div class="o-bubble o-bubble--full">
-    <%= form_for(@waste, url: footprint_wastes_path(footprint_id: @footprint.id), method: :put) do |f| %>
-    <div class="waste-form">
+  <div class="o-bubble o-bubble--full c-calculator-questions">
+    <%= form_for(@waste, url: footprint_waste_path(footprint_id: @footprint.id, id: @waste.id), method: :put) do |f| %>
 
-      <div class="question-and-response">
-        <p class="form-question">Do you recycle glass?</p>
-        <p class="error-message"><%= add_errors_if_any(@waste, :glass) %></p>
+    <div class="c-calculator-questions__q-block">
+      <p class="c-calculator-questions__q-block__prompt">Do you recycle glass?</p>
+      <p class="error-message"><%= add_errors_if_any(@waste, :glass) %></p>
 
-        <ul class="radio-button-list inline-list">
-          <li>
-            <%= f.radio_button :glass, true, {checked: true} %>
-            <%= f.label :glass, "Yes" %>
-          </li>
-          <li>
-            <%= f.radio_button :glass, false %>
-            <%= f.label :glass, "No" %>
-          </li>
-        </ul>
-      </div> <!-- question-and-response -->
+      <ul class="o-inline-list">
+        <li class="o-inline-list__li">
+          <%= f.radio_button :glass, true, {checked: true, class: "c-calculator-questions__q-block__response-list__response"} %>
+          <%= f.label :glass, "Yes" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :glass, false,class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :glass, "No" %>
+        </li>
+      </ul>
+    </div> <!-- c-calculator-questions__q-block -->
 
-      <div class="question-and-response">
-        <p class="form-question">Do you recycle metal?</p>
-        <p class="error-message"><%= add_errors_if_any(@waste, :metal) %></p>
+    <div class="c-calculator-questions__q-block">
+      <p class="c-calculator-questions__q-block__prompt">Do you recycle metal?</p>
+      <p class="error-message"><%= add_errors_if_any(@waste, :metal) %></p>
 
-        <ul class="radio-button-list inline-list">
-          <li>
-            <%= f.radio_button :metal, true, {checked: true} %>
-            <%= f.label :metal, "Yes" %>
-          </li>
-          <li>
-            <%= f.radio_button :metal, false %>
-            <%= f.label :metal, "No" %>
-          </li>
-        </ul>
-      </div> <!-- question-and-response -->
+      <ul class="o-inline-list">
+        <li class="o-inline-list__li">
+          <%= f.radio_button :metal, true, {checked: true, class: "c-calculator-questions__q-block__response-list__response"} %>
+          <%= f.label :metal, "Yes" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :metal, false,class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :metal, "No" %>
+        </li>
+      </ul>
+    </div> <!-- c-calculator-questions__q-block -->
 
-      <div class="question-and-response">
-        <p class="form-question">Do you recycle plastic?</p>
-        <p class="error-message"><%= add_errors_if_any(@waste, :plastic) %></p>
+    <div class="c-calculator-questions__q-block">
+      <p class="c-calculator-questions__q-block__prompt">Do you recycle plastic?</p>
+      <p class="error-message"><%= add_errors_if_any(@waste, :plastic) %></p>
 
-        <ul class="radio-button-list inline-list">
-          <li>
-            <%= f.radio_button :plastic, true, {checked: true} %>
-            <%= f.label :plastic, "Yes" %>
-          </li>
-          <li>
-            <%= f.radio_button :plastic, false %>
-            <%= f.label :plastic, "No" %>
-          </li>
-        </ul>
-      </div> <!-- question-and-response -->
+      <ul class="o-inline-list">
+        <li class="o-inline-list__li">
+          <%= f.radio_button :plastic, true, {checked: true, class: "c-calculator-questions__q-block__response-list__response"} %>
+          <%= f.label :plastic, "Yes" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :plastic, false,class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :plastic, "No" %>
+        </li>
+      </ul>
+    </div> <!-- c-calculator-questions__q-block -->
 
-      <div class="question-and-response">
-        <p class="form-question">Do you recycle newspaper?</p>
-        <p class="error-message"><%= add_errors_if_any(@waste, :newspaper) %></p>
+    <div class="c-calculator-questions__q-block">
+      <p class="c-calculator-questions__q-block__prompt">Do you recycle newspaper?</p>
+      <p class="error-message"><%= add_errors_if_any(@waste, :newspaper) %></p>
 
-        <ul class="radio-button-list inline-list">
-          <li>
-            <%= f.radio_button :newspaper, true, {checked: true} %>
-            <%= f.label :newspaper, "Yes" %>
-          </li>
-          <li>
-            <%= f.radio_button :newspaper, false %>
-            <%= f.label :newspaper, "No" %>
-          </li>
-        </ul>
-      </div> <!-- question-and-response -->
+      <ul class="o-inline-list">
+        <li class="o-inline-list__li">
+          <%= f.radio_button :newspaper, true, {checked: true, class: "c-calculator-questions__q-block__response-list__response"} %>
+          <%= f.label :newspaper, "Yes" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :newspaper, false,class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :newspaper, "No" %>
+        </li>
+      </ul>
+    </div> <!-- c-calculator-questions__q-block -->
 
-      <div class="question-and-response">
-        <p class="form-question">Do you recycle magazines?</p>
-        <p class="error-message"><%= add_errors_if_any(@waste, :magazines) %></p>
+    <div class="c-calculator-questions__q-block">
+      <p class="c-calculator-questions__q-block__prompt">Do you recycle magazines?</p>
+      <p class="error-message"><%= add_errors_if_any(@waste, :magazines) %></p>
 
-        <ul class="radio-button-list inline-list">
-          <li>
-            <%= f.radio_button :magazines, true, {checked: true} %>
-            <%= f.label :magazines, "Yes" %>
-          </li>
-          <li>
-            <%= f.radio_button :magazines, false %>
-            <%= f.label :magazines, "No" %>
-          </li>
-        </ul>
-      </div> <!-- question-and-response -->
+      <ul class="o-inline-list">
+        <li class="o-inline-list__li">
+          <%= f.radio_button :magazines, true, {checked: true, class: "c-calculator-questions__q-block__response-list__response"} %>
+          <%= f.label :magazines, "Yes" %>
+        </li>
+        <li class="o-inline-list__li">
+          <%= f.radio_button :magazines, false,class: "c-calculator-questions__q-block__response-list__response" %>
+          <%= f.label :magazines, "No" %>
+        </li>
+      </ul>
+    </div> <!-- c-calculator-questions__q-block -->
 
-      <div class="submit-form">
-        <%= f.submit 'Next question' %>
-      </div>
+    <div>
+      <%= f.submit 'Next question' %>
+    </div>
 
-    </div> <!-- waste-form -->
-    <% end %>
+    <% end %> <!-- form -->
   </div> <!-- o-bubble o-bubble--full -->
   
 </div> <!-- o-wrapper -->

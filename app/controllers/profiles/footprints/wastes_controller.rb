@@ -17,6 +17,7 @@ class Profiles::Footprints::WastesController < Inheritance::CalculatorComponents
   end
 
   def update
+    update_waste(waste_params)
   end
 
   def destroy
@@ -49,5 +50,18 @@ class Profiles::Footprints::WastesController < Inheritance::CalculatorComponents
     else
       render :new
     end
-  end 
+  end
+
+  def update_waste(params)
+    if @waste.update(params)
+      emissions = @waste.calculate_emissions
+      @waste.update(section_emissions: emissions)
+      @footprint.update(waste_emissions: emissions)
+      @footprint.update_total_if_complete
+      flash[:calculator_message] = "Waste emissions: #{emissions}lbs CO2e"
+      redirect_to next_component_path(@waste)
+    else
+      render :edit
+    end
+  end
 end
