@@ -1,3 +1,4 @@
+# TODO: Fix uploadcare keys
 defaults: &defaults
   public_key: ENV["uploadcare_public_key"] # replace it with your public key
   private_key: ENV["uploadcare_secret_key"] # replace it with your private key
