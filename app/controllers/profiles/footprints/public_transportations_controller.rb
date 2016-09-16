@@ -15,6 +15,7 @@ class Profiles::Footprints::PublicTransportationsController < Inheritance::Calcu
   end
 
   def update
+    update_public_transportation(public_transportation_params)
   end
 
   def destroy
@@ -56,6 +57,19 @@ class Profiles::Footprints::PublicTransportationsController < Inheritance::Calcu
       redirect_to next_component_path(@public_transportation)
     else
       render :new
+    end
+  end
+
+  def update_public_transportation(params)
+    if @public_transportation.update(params)
+      emissions = @public_transportation.calculate_emissions
+      @public_transportation.update(sub_section_emissions: emissions)
+      @transportation.update(public_emissions: emissions)
+      @transportation.update_emissions
+      flash[:calculator_message] = "Public transportation emissions: #{emissions}lbs CO2e"
+      redirect_to next_component_path(@public_transportation)
+    else
+      render :edit
     end
   end
 end
