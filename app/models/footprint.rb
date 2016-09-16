@@ -18,6 +18,10 @@ class Footprint < ActiveRecord::Base
     return self.created_at.strftime("%B %d, %Y")
   end
 
+  def long_creation_date
+    return self.created_at.strftime("%A, %B %e, %Y %l:%M%P")
+  end
+
   def emissions_or_pending
     if self.total_emissions
       return "#{self.total_emissions}lbs CO2e"

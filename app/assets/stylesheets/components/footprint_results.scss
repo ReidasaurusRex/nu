@@ -2,20 +2,22 @@
   text-align: center;
 }
 
+.c-footprint-results--index:not(:last-child) {
+  border-bottom: 1px solid $color-monte-carlo;
+  margin-bottom: $spacing-unit;
+  padding-bottom: $spacing-unit;
+}
+
 .c-footprint-results__title {
   border-bottom: 1px solid $color-monte-carlo;
   margin-top: $spacing-unit;
   padding-bottom: $spacing-unit;
 }
 
-.c-footprint-results__gl {
-  margin-right: $spacing-unit * 1.5;
-}
-
 .c-footprint-results__section {
   display: inline-block;
   vertical-align: top;
-  width: 400px;
+  width: 420px;
 }
 
 .c-footprint-results__text {
@@ -24,6 +26,6 @@
 }
 
 .c-footprint-results__gl__legend {
-  margin-left: $spacing-unit * 2;
+  margin-left: $spacing-unit * 3;
   text-align: left;
 }

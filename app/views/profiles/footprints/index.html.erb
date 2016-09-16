@@ -19,11 +19,14 @@
   </div> <!-- o-bubble o-bubble--full -->
 
   <div class="o-bubble o-bubble--full">
-    <h2>Recent footprint results</h2>
-    <h3 class="average-footprint">Average footprint <span><%= @profile.average_footprint_emissions %></span></h3>
+    
+    <h2>View Past Reports</h2>
     <% @footprints.each_with_index do |footprint, index| %>
-      <%= render partial: "profiles/footprints/footprint_summary", locals: {footprint: footprint, index: index} %>
+      <div class="c-footprint-results c-footprint-results--index">
+        <%= render partial: "profiles/footprints/footprint_summary", locals: {footprint: footprint, index: index, single_result: false} %>
+      </div>
     <% end %>
+    
   </div> <!-- o-bubble o-bubble--full -->
 
   <% end %> <!-- if @footprints.empty -->

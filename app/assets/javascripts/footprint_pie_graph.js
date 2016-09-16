@@ -23,7 +23,8 @@ function drawPieGraph(footprintDiv) {
       type: 'pie'}, 
       title: {
         style: {
-          color: "#A6B1B0"
+          color: "#A6B1B0",
+          textAlign: "left"
         },
         text: $(footprintDiv).data('creationDate')
       },

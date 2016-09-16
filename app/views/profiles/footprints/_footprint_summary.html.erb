@@ -2,7 +2,7 @@
 
 <%= javascript_include_tag "footprint_pie_graph", "data-turbolinks-track" => true %>
 <div class="c-footprint-results__section c-footprint-results__gl">
-  <%= content_tag "div", class: "jsFootprintPieGraph c-footprint-results__gl__graph", data: {footprint_overview: footprint.pie_graph_data, creation_date: footprint.friendly_creation_date} do %>
+  <%= content_tag "div", class: "jsFootprintPieGraph c-footprint-results__gl__graph", data: {footprint_overview: footprint.pie_graph_data, creation_date: footprint.long_creation_date} do %>
       Loading graph...
   <% end %>
   <div class="c-footprint-results__gl__legend">
@@ -13,7 +13,7 @@
       <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--transportation"></div>
       <div class="o-media__bd">
       <h5>
-        <%= footprint.transportation_emissions %> lbs of CO2<sub>e</sub>
+        Travel - <%= footprint.transportation_emissions %>
       </h5>
       </div>
     </li>
@@ -22,7 +22,7 @@
       <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--home-energy"></div>
       <div class="o-media__bd">
         <h5>
-          <%= footprint.home_energy_emissions %> lbs of CO2<sub>e</sub>
+          Energy - <%= footprint.home_energy_emissions %>
         </h5>
       </div>      
     </li>
@@ -31,7 +31,7 @@
       <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--water"></div>
       <div class="o-media__bd">
         <h5>
-          <%= footprint.water_emissions %> lbs of CO2<sub>e</sub>
+          Water - <%= footprint.water_emissions %>
         </h5>
       </div> 
     </li>
@@ -40,7 +40,7 @@
       <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--waste"></div>
       <div class="o-media__bd">
         <h5>
-          <%= footprint.waste_emissions %> lbs of CO2<sub>e</sub>
+          Waste - <%= footprint.waste_emissions %>
         </h5>
       </div>
     </li>
@@ -49,7 +49,7 @@
       <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--diet"></div>
       <div class="o-media__bd">
         <h5>
-          <%= footprint.diet_emissions %> lbs of CO2<sub>e</sub>
+          Food - <%= footprint.diet_emissions %>
         </h5>
       </div>
     </li>
@@ -71,10 +71,12 @@
     <p class="u-text--monte-carlo">Resources</p>
     <p>It takes EARTH DATA HERE</p>
   </div>
-  <div class="c-footprint-resluts__text__sub-section">
-    <p><%= link_to "See Stats", profile_stats_path(profile_id: footprint.profile.id), class: "u-text--apricot" %></p>
-  </div>
-  <div class="c-footprint-resluts__text__sub-section">
-    <p><%= link_to "View Past Reports", profile_footprints_path(profile_id: footprint.profile.id), class: "u-text--apricot" %></p>
-  </div>
+  <% if single_result %>
+    <div class="c-footprint-resluts__text__sub-section">
+      <p><%= link_to "See Stats", profile_stats_path(profile_id: footprint.profile.id), class: "u-text--apricot" %></p>
+    </div>
+    <div class="c-footprint-resluts__text__sub-section">
+      <p><%= link_to "View Past Reports", profile_footprints_path(profile_id: footprint.profile.id), class: "u-text--apricot" %></p>
+    </div>
+  <% end %>
 </div> <!-- c-footprint-results__text -->
