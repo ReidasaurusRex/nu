@@ -1,6 +1,10 @@
 <div class="o-wrapper">
   
-  <div class="o-bubble o-bubble--full">
+  <div class="o-bubble o-bubble--full c-footprint-results">
+    <h2 class="c-footprint-results__title">
+      Final Results
+    </h2>
+    <%= render partial: "profiles/footprints/footprint_summary", locals: {footprint: @footprint, index: 0} %>
     <div class="footprint-overview">
       <h1>Emissions report</h1>
       <h3 class="footprint-date"><%= @footprint.friendly_creation_date %></h3>

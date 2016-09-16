@@ -6,8 +6,8 @@ $(document).ready(ready);
 $(document).on('page:load', ready); // turbolinks friendly
 
 function drawFootprintPieGraphs() {
-  if ($('.footprint-pie-graph').length > 0) {
-    Array.prototype.slice.call($('.footprint-pie-graph')).forEach(drawPieGraph);
+  if ($('.jsFootprintPieGraph').length > 0) {
+    Array.prototype.slice.call($('.jsFootprintPieGraph')).forEach(drawPieGraph);
   }
 }
 
