@@ -1,47 +1,41 @@
 <div class="o-wrapper">
   
-  <div class="o-bubble o-bubble--full">
+    <div class="o-bubble o-bubble--full c-calculator-questions">
     <%= form_for(@home_energy, url: footprint_home_energy_path(footprint_id: @footprint.id, id: @home_energy.id), method: :put) do |f| %>
-    <div class="new-home-energy-form">
 
-      <p class="section-prompt">Which of the following utilities do you use in your place of residence?</p>
+    <p>Which of the following utilities do you use in your place of residence?</p>
 
-      <ul class="utilities-list check-list block-list">
-      <%= fields_for :utilities do |utility| %>
-        
-        <li>
-          <%= utility.check_box :natural_gas, {}, '1', false %>
-          <%= utility.label :natural_gas, "Natural gas" %>
-          <span class="error-message"></span>
-        </li>
-        
-        <li>
-          <%= utility.check_box :fuel_oil, {}, '1', false %>
-          <%= utility.label :fuel_oil, "Fuel oil" %>
-          <span class="error-message"></span>
-        </li>
-        
-        <li>
-          <%= utility.check_box :propane, {}, '1', false %>
-          <%= utility.label :propane, "Propane" %>
-          <span class="error-message"></span>
-        </li>
-        
-        <li>
-          <%= utility.check_box :electricity, {}, '1', false %>
-          <%= utility.label :electricity, "Electricity" %>
-          <span class="error-message"></span>
-        </li>    
+    <ul class="c-calculator-questions__q-block__response-list">
+    <%= fields_for :utilities do |utility| %>
+      
+      <li>
+        <%= utility.check_box :natural_gas, {class: "c-calculator-questions__q-block__response-list__response"}, '1', false %>
+        <%= utility.label :natural_gas, "Natural gas" %>
+      </li>
+      
+      <li>
+        <%= utility.check_box :fuel_oil, {class: "c-calculator-questions__q-block__response-list__response"}, '1', false %>
+        <%= utility.label :fuel_oil, "Fuel oil" %>
+      </li>
+      
+      <li>
+        <%= utility.check_box :propane, {class: "c-calculator-questions__q-block__response-list__response"}, '1', false %>
+        <%= utility.label :propane, "Propane" %>
+      </li>
+      
+      <li>
+        <%= utility.check_box :electricity, {class: "c-calculator-questions__q-block__response-list__response"}, '1', false %>
+        <%= utility.label :electricity, "Electricity" %>
+      </li>    
 
-      <% end %>
-      </ul>
-
-      <div class="form-submit">
-        <%= f.submit "Assess utilities" %>
-      </div>
-
-    </div>  
     <% end %>
+    </ul>
+
+    <div>
+      <%= f.submit "Assess utilities" %>
+    </div>
+
+    <% end %> <!-- form -->
   </div> <!-- o-bubble o-bubble--full -->
 
 </div> <!-- o-wrapper -->
