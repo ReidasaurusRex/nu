@@ -1,65 +1,57 @@
 <div class="o-wrapper">
 
-  <div class="o-bubble o-bubble--full">
+  <div class="o-bubble o-bubble--full c-calculator-questions">
     <%= form_for(@air_travel, url: transportation_air_travels_path(transportation_id: @transportation.id), method: :post) do |f| %>
-    <div class="new-air-travel-form">
 
-      <p class="section-prompt">How many times have you flown over the past year in each class listed below? If none, please leave as zero.</p>
+    <p>How many times have you flown over the past year in each class listed below? If none, please leave as zero.</p>
 
-      <div class="text-form-with-errors">
-        <%= f.text_field :d_economy, autofocus: true, value: 0 %>
-        <p class="form-label">
-          <%= f.label :d_economy, "Domestic economy" %>
-          <span class="error-message"><%= add_errors_if_any(@air_travel, :d_economy) %></span>
-        </p>
-      </div>
+    <div>
+      <%= f.text_field :d_economy, {autofocus: true, value: "0", class: "u-tf--short-margin"} %>
+      <p>
+        <%= f.label :d_economy, "Domestic economy" %>
+      </p>
+    </div>
 
-      <div class="text-form-with-errors">
-        <%= f.text_field :d_business, value: 0 %>
-        <p class="form-label">
-          <%= f.label :d_business, "Domestic business" %>
-          <span class="error-message"><%= add_errors_if_any(@air_travel, :d_business) %></span>
-        </p>
-      </div>
+    <div>
+      <%= f.text_field :d_business, {value: "0", class: "u-tf--short-margin"} %>
+      <p>
+        <%= f.label :d_business, "Domestic business" %>
+      </p>
+    </div>
 
-      <div class="text-form-with-errors">
-        <%= f.text_field :i_economy, value: 0 %>
-        <p class="form-label">
-          <%= f.label :i_economy, "International economy" %>
-          <span class="error-message"><%= add_errors_if_any(@air_travel, :i_economy) %></span>
-        </p>
-      </div>
+    <div>
+      <%= f.text_field :i_economy, {value: "0", class: "u-tf--short-margin"} %>
+      <p>
+        <%= f.label :i_economy, "International economy" %>
+      </p>
+    </div>
 
-      <div class="text-form-with-errors">
-        <%= f.text_field :i_premium_economy, value: 0 %>
-        <p class="form-label">
-          <%= f.label :i_premium_economy, "International premium economy" %>
-          <span class="error-message"><%= add_errors_if_any(@air_travel, :i_premium_economy) %></span>
-        </p>
-      </div>
+    <div>
+      <%= f.text_field :i_premium_economy, {value: "0", class: "u-tf--short-margin"} %>
+      <p>
+        <%= f.label :i_premium_economy, "International premium economy" %>
+      </p>
+    </div>
 
-      <div class="text-form-with-errors">
-        <%= f.text_field :i_business, value: 0 %>
-        <p class="form-label">
-          <%= f.label :i_business, "International business" %>
-          <span class="error-message"><%= add_errors_if_any(@air_travel, :i_business) %></span>
-        </p>
-      </div>
+    <div>
+      <%= f.text_field :i_business, {value: "0", class: "u-tf--short-margin"} %>
+      <p>
+        <%= f.label :i_business, "International business" %>
+      </p>
+    </div>
 
-      <div class="text-form-with-errors">
-        <%= f.text_field :i_first, value: 0 %>
-        <p class="form-label">
-          <%= f.label :i_first, "International first class" %>
-          <span class="error-message"><%= add_errors_if_any(@air_travel, :i_first) %></span>
-        </p>
-      </div>
+    <div>
+      <%= f.text_field :i_first, {value: "0", class: "u-tf--short-margin"} %>
+      <p>
+        <%= f.label :i_first, "International first class" %>
+      </p>
+    </div>
 
-      <div class="form-submit">
-        <%= f.submit "Next question" %>
-      </div>
+    <div>
+      <%= f.submit "Next question" %>
+    </div>
 
-    </div> <!-- new-air-travel-form -->
-    <% end %>
+    <% end %> <!-- form -->
   </div> <!-- o-bubble o-bubble--full -->
 
 </div> <!-- o-wrapper -->
