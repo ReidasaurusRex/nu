@@ -22,9 +22,12 @@ function drawPieGraph(footprintDiv) {
       plotShadow: false, 
       type: 'pie'}, 
       title: {
+        style: {
+          color: "#A6B1B0"
+        },
         text: $(footprintDiv).data('creationDate')
       },
-    colors: ['#F99B6D', '#BFEAE7', '#F484B4', '#C9E38A', '#FFDD10'],
+    colors: ['#B1D276', '#FFB907', '#8BD1CA', '#E64D7D', '#F1613A'],
     credits: {
       enabled: false
     },
@@ -35,11 +38,12 @@ function drawPieGraph(footprintDiv) {
       pie: {
         borderWidth: 9,
         dataLabels: {
-          color: 'gray',
-          connectorColor: 'gray',
-          enabled: true,
-          format: '{point.name}<br>{point.y} lbs of CO2e',
-          softConnector: false
+          enabled: false
+          // color: 'gray',
+          // connectorColor: 'gray',
+          // enabled: true,
+          // format: '{point.name}<br>{point.y} lbs of CO2e',
+          // softConnector: false
         },
         states: {
           hover: {

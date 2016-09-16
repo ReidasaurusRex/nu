@@ -60,6 +60,6 @@ class Footprint < ActiveRecord::Base
   end
 
   def pie_graph_data
-    return {diet: self.diet_emissions, water: self.water_emissions, waste: self.waste_emissions, transportation: self.transportation_emissions, energy: self.home_energy_emissions}
+    return {transportation: self.transportation_emissions, home_energy: self.home_energy_emissions, water: self.water_emissions, waste: self.waste_emissions, diet: self.diet_emissions}
   end
 end

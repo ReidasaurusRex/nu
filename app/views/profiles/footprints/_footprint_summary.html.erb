@@ -1,8 +1,80 @@
-<%= javascript_include_tag "footprint_pie_graph", "data-turbolinks-track" => true %>
+<% # TODO: parse legend into helper function %>
 
-<%= content_tag "div", class: "jsFootprintPieGraph", data: {footprint_overview: footprint.pie_graph_data, creation_date: footprint.friendly_creation_date} do %>
-    Loading graph...
-  <% end %>  
+<%= javascript_include_tag "footprint_pie_graph", "data-turbolinks-track" => true %>
+<div class="c-footprint-results__gl">
+  <%= content_tag "div", class: "jsFootprintPieGraph c-footprint-results__section c-footprint-results__gl__graph", data: {footprint_overview: footprint.pie_graph_data, creation_date: footprint.friendly_creation_date} do %>
+      Loading graph...
+  <% end %>
+  <div class="c-footprint-results__gl__legend">
+    <ul class="o-inline-list">
+    
+
+    <li class="o-inline-list__li o-media c-points-breakdown__desc-and-legend__legend-item">
+      <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--transportation"></div>
+      <div class="o-media__bd c-points-breakdown__desc-and-legend__legend-item__bd">
+      <h5 class="c-points-breakdown__desc-and-legend__legend-item__bd__title">
+        Travel
+      </h5>
+      <h6 class="u-text--monte-carlo">
+        <%= footprint.transportation_emissions %> lbs of CO2<sub>e</sub>
+      </h6>
+      </div>
+    </li>
+    
+    <li class="o-inline-list__li o-media c-points-breakdown__desc-and-legend__legend-item">
+      <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--home-energy"></div>
+      <div class="o-media__bd c-points-breakdown__desc-and-legend__legend-item__bd">
+        <h5 class="c-points-breakdown__desc-and-legend__legend-item__bd__title">
+          Energy
+        </h5>
+        <h6 class="u-text--monte-carlo">
+          <%= footprint.home_energy_emissions %> lbs of CO2<sub>e</sub>
+        
+        </h6>
+      </div>      
+    </li>
+    
+    <li class="o-inline-list__li o-media c-points-breakdown__desc-and-legend__legend-item">
+      <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--water"></div>
+      <div class="o-media__bd c-points-breakdown__desc-and-legend__legend-item__bd">
+        <h5 class="c-points-breakdown__desc-and-legend__legend-item__bd__title">
+          Water
+        </h5>
+        <h6 class="u-text--monte-carlo">
+          <%= footprint.water_emissions %> lbs of CO2<sub>e</sub>
+        </h6>
+      </div> 
+    </li>
+    
+    <li class="o-inline-list__li o-media c-points-breakdown__desc-and-legend__legend-item">
+      <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--waste"></div>
+      <div class="o-media__bd c-points-breakdown__desc-and-legend__legend-item__bd">
+        <h5 class="c-points-breakdown__desc-and-legend__legend-item__bd__title">
+          Waste
+        </h5>
+        <h6 class="u-text--monte-carlo">
+          <%= footprint.waste_emissions %> lbs of CO2<sub>e</sub>
+        </h6>
+      </div>
+    </li>
+    
+    <li class="o-inline-list__li o-media c-points-breakdown__desc-and-legend__legend-item">
+      <div class="c-points-breakdown__desc-and-legend__legend-item__dot o-media__img c-points-breakdown__desc-and-legend__legend-item__dot--diet"></div>
+      <div class="o-media__bd c-points-breakdown__desc-and-legend__legend-item__bd">
+        <h5 class="c-points-breakdown__desc-and-legend__legend-item__bd__title">
+          Food
+        </h5>
+        <h6 class="u-text--monte-carlo">
+          <%= footprint.diet_emissions %> lbs of CO2<sub>e</sub>
+        </h6>
+      </div>
+    </li>
+    
+  </ul>
+  </div>
+</div>
+
+<div class="c-footprint-results__section">
   <h3>Total emissions: <span><%= emissions_statement(footprint, index) %></span></h3>
   <h3>Percent of share: <span><%= percent_of_share(footprint) %></span></h3>
   <h3>Percent of national average: <span><%= percent_of_average(footprint) %></span></h3>
@@ -11,3 +83,4 @@
   <% else %>
     <h4><%= link_to "View details", profile_footprint_path(profile_id: footprint.profile.id, id: footprint.id) %></h4>
   <% end %>
+</div>
