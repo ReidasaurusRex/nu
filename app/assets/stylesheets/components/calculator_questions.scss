@@ -10,6 +10,21 @@
   }
 }
 
+.c-calculator-questions__q-block--utility__title {
+  margin-bottom: $spacing-unit;
+}
+
+.c-calculator-questions__q-block--utility__bool {
+  margin-bottom: $spacing-unit / 2;
+}
+
+.c-calculator-questions__q-block--utility {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 350px;
+  text-align: left;
+}
+
 .c-calculator-questions__q-block__prompt {
   margin-bottom: $spacing-unit / 2;
 }
