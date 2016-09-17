@@ -1,6 +1,5 @@
 <% # TODO: parse legend into helper function %>
 
-<%= javascript_include_tag "footprint_pie_graph", "data-turbolinks-track" => true %>
 <div class="c-footprint-results__section c-footprint-results__gl">
   <%= content_tag "div", class: "jsFootprintPieGraph c-footprint-results__gl__graph", data: {footprint_overview: footprint.pie_graph_data, creation_date: footprint.long_creation_date} do %>
       Loading graph...
