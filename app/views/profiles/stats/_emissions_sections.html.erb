@@ -1,7 +1,7 @@
 <h2>CO<sub>2</sub>e Emissions</h2>
 <% progress_categories().each do |category| %>
   <div class="c-emissions-sections__section">
-    <%= image_tag "icon_color_#{category}", class: "c-emissions-sections__section__el c-emissions-sections__section__img" %>
+    <%= image_tag "icon_color_#{category}.png", class: "c-emissions-sections__section__el c-emissions-sections__section__img" %>
     <h5 class="c-emissions-sections__section__el"><%= category.split("_")[-1].capitalize %></h5>
     <h6 class="c-emissions-sections__section__el c-emissions-sections__section__num"><%= category_emissions_or_pending(profile.last_finished_footprint, (category + "_emissions")) %></h6>
   </div>
