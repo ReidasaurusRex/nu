@@ -4,7 +4,7 @@
 Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path
-Dir.glob("#{Rails.root}/app/assets/images/progress_icons/**/").each do |path|
+Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
   Rails.application.config.assets.paths << path
 end
 # Precompile additional assets.
