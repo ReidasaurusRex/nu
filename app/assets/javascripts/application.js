@@ -16,5 +16,5 @@
 //= require highcharts
 //= require point_graph
 //= require dropdown
-//= require notification
+//= require notifications
 
