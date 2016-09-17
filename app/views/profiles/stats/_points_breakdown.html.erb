@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'point_graph', 'data-turbolinks-track' => true %>
 <h2 class="c-points-breakdown__header">Point Breakdown</h2>
 
 <%= content_tag "div", id: "jsPointOverviewGraph", class: "c-points-breakdown__div c-points-breakdown__graph", data: {point_overview: profile.point_overview.graph_data} do  %>
