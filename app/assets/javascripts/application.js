@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require highcharts
-//= require_tree ./globals
+//= require globals/dropdown
+//= require globals/notifications
+
