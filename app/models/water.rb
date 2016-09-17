@@ -57,9 +57,9 @@ class Water < ActiveRecord::Base
 
   def image_path
     if self.section_emissions
-      return "progress_icons/color/water"
+      return "icon_color_water"
     else
-      return "progress_icons/grayscale/water"
+      return "icon_gray_water"
     end
   end
 end

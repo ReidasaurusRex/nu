@@ -3,7 +3,7 @@ module CalculatorHelper
     if footprint.diet
       return link_to(image_tag(footprint.diet.image_path), footprint_diet_path(footprint_id: footprint.id, id: footprint.diet.id)).html_safe
     else
-      return link_to(image_tag("progress_icons/grayscale/diet"), new_footprint_diet_path(footprint_id: footprint.id)).html_safe
+      return link_to(image_tag("icon_gray_diet"), new_footprint_diet_path(footprint_id: footprint.id)).html_safe
     end
   end
 
@@ -11,7 +11,7 @@ module CalculatorHelper
     if footprint.water
       return link_to(image_tag(footprint.water.image_path), footprint_water_path(footprint_id: footprint.id, id: footprint.water.id)).html_safe
     else
-      return link_to(image_tag("progress_icons/grayscale/water"), new_footprint_water_path(footprint_id: footprint.id)).html_safe
+      return link_to(image_tag("icon_gray_water"), new_footprint_water_path(footprint_id: footprint.id)).html_safe
     end
   end 
 
@@ -19,13 +19,13 @@ module CalculatorHelper
     if footprint.waste
       return link_to(image_tag(footprint.waste.image_path), footprint_waste_path(footprint_id: footprint.id, id: footprint.waste.id)).html_safe
     else
-      return link_to(image_tag("progress_icons/grayscale/waste"), new_footprint_waste_path(footprint_id: footprint.id)).html_safe
+      return link_to(image_tag("icon_gray_waste"), new_footprint_waste_path(footprint_id: footprint.id)).html_safe
     end
   end
 
   def transportation_link(footprint)
     unless footprint.transportation
-      return link_to(image_tag("progress_icons/grayscale/transportation"), footprint_create_transportation_path(footprint_id: footprint.id)).html_safe
+      return link_to(image_tag("icon_gray_transportation"), footprint_create_transportation_path(footprint_id: footprint.id)).html_safe
     else
       transportation = footprint.transportation
       if !transportation.vehicle_emissions
@@ -42,7 +42,7 @@ module CalculatorHelper
 
   def home_energy_link(footprint)
     unless footprint.home_energy
-      return link_to(image_tag("progress_icons/grayscale/home_energy"), new_footprint_home_energy_path(footprint_id: footprint.id)).html_safe
+      return link_to(image_tag("icon_gray_home_energy"), new_footprint_home_energy_path(footprint_id: footprint.id)).html_safe
     else
       return link_to(image_tag(footprint.home_energy.image_path), footprint_home_energy_path(footprint_id: footprint.id, id: footprint.home_energy.id)).html_safe
     end

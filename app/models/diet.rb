@@ -31,9 +31,9 @@ class Diet < ActiveRecord::Base
 
   def image_path
     if self.section_emissions
-      return "progress_icons/color/diet"
+      return "icon_color_diet"
     else
-      return "progress_icons/grayscale/diet"
+      return "icon_gray_diet"
     end
   end
 end
