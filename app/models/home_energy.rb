@@ -38,9 +38,9 @@ class HomeEnergy < ActiveRecord::Base
 
   def image_path
     if self.section_emissions
-      return "icon_color_home_energy"
+      return "icon_color_home_energy.png"
     else
-      return "icon_gray_home_energy"
+      return "icon_gray_home_energy.png"
     end
   end
 end

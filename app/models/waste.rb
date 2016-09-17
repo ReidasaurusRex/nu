@@ -40,9 +40,9 @@ class Waste < ActiveRecord::Base
 
   def image_path
     if self.section_emissions
-      return "icon_color_waste"
+      return "icon_color_waste.png"
     else
-      return "icon_gray_waste"
+      return "icon_gray_waste.png"
     end
   end
 

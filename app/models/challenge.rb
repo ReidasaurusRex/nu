@@ -3,6 +3,6 @@ class Challenge < ActiveRecord::Base
   has_many :completed_challenges
 
   def image_path
-    "icon_color_{self.progress_category}"
+    "icon_color_{self.progress_category}.png"
   end
 end

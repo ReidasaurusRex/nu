@@ -38,9 +38,9 @@ class Transportation < ActiveRecord::Base
 
   def image_path
     if self.section_emissions
-      return "icon_color_transportation"
+      return "icon_color_transportation.png"
     else
-      return "icon_gray_transportation"
+      return "icon_gray_transportation.png"
     end
   end
 end
