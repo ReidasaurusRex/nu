@@ -14,6 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require highcharts
-//= require dropdown
-//= require notifications
-
