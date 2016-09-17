@@ -13,6 +13,6 @@ class ProfileCompletedChallenge < ActiveRecord::Base
   end
 
   def image_path
-    "progress_icons/color/#{self.progress_category}"
+    "icon_color_#{self.progress_category}"
   end
 end
