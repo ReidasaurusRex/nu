@@ -44,6 +44,9 @@ class Profile < ActiveRecord::Base
   after_create :add_point_overview
   after_create :add_default_feeds
 
+  # Search settings
+  fuzzily_searchable :first_name, :last_name
+
   def full_name
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
