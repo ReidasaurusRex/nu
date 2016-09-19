@@ -8,71 +8,24 @@ class Profiles::SearchController < Inheritance::CompletedProfileController
   private
   def get_results(query)
     results = {}
-    results[:followers] = find_followers(query)
-    results[:followings] = find_followings(query)
-    results[:habits] = find_habits(query)
-    # results[:challenges] = find_challenges(query)
-    results[:profiles] = find_profiles(query).keep_if do |prof|
-      !results[:followers].include?(prof) && !results[:followings].include?(prof)
-    end
+    results[:profiles] = find_profiles(query)
+    results[:newsfeed_items] = find_newsfeed_items(query)
+    results[:challenges] = find_challenges(query)
     return results
   end
 
-  def find_followers(query)
-    followers = []
-    @profile.followers.where(first_name: query).each{|follower| followers.push(follower)}
-    @profile.followers.where(last_name: query).each{|follower| followers.push(follower)}
-    query.split.each do |word|
-      @profile.followers.where(first_name: word).each{|follower| followers.push(follower)}
-      @profile.followers.where(last_name: word).each{|follower| followers.push(follower)}
-    end
-    return followers.uniq
-  end
-
-  def find_followings(query)
-    followings = []
-    @profile.followings.where(first_name: query).each{|following| followings.push(following)}
-    @profile.followings.where(last_name: query).each{|following| followings.push(following)}
-    query.split.each do |word|
-      @profile.followings.where(first_name: word).each{|following| followings.push(following)}
-      @profile.followings.where(last_name: word).each{|following| followings.push(following)}
-    end
-    return followings.uniq
-
-
-  end
-
-  def find_habits(query)
-    results_habits = []
-    habits = Habit.all
-    habits.map{|habit| habit.title == query}.each{|habit| results_habits.push(habit)}
-    habits.map{|habit| habit.caption.include?(query)}.each{|habit| results_habits.push(habit)}
-    query.split.each do |word|
-      habits.map{|habit| habit.title == word}.each{|habit| results_habits.push(habit)}
-      habits.map{|habit| habit.caption.include?(word)}.each{|habit| results_habits.push(habit)}
-    end
-    return results_habits.uniq
-  end
-
-  # def find_challenges(query)
-  #   results_challenges = []
-  #   challenges = Challenges.all
-  #   challenges.map{|habit| habit.title == query}.each{|habit| results_challenges.push(habit)}
-  #   challenges.map{|habit| habit.caption.include?(query)}.each{|habit| results_challenges.push(habit)}
-  #   query.split.each do |word|
-  #     challenges.map{|habit| habit.title == word}.each{|habit| results_challenges.push(habit)}
-  #     challenges.map{|habit| habit.caption.include?(word)}.each{|habit| results_challenges.push(habit)}
-  #   end
-  # end
-
   def find_profiles(query)
-    profiles = []
-    Profile.where(first_name: query).each{|prof| profiles.push(prof)}
-    Profile.where(last_name: query).each{|prof| profiles.push(prof)}
-    query.split.each do |word|
-      Profile.where(first_name: word).each{|prof| profiles.push(prof)}
-      Profile.where(last_name: word).each{|prof| profiles.push(prof)}
-    end
-    return profiles.uniq
+    return Profile.find_by_fuzzy_full_name(query, limit: 10)
+  end
+
+  def find_newsfeed_items(query)
+    return NewsfeedItem.find_by_tag_name(query, limit: 5)
+  end
+
+  def find_challenges(query)
+    found_challenges = []
+    Challenge.find_by_fuzzy_title(query, limit: 5).each{|fc| found_challenges.push(fc)}
+    Challenge.find_by_fuzzy_progress_category(query, limit: 5).each{|fc| found_challenges.push(fc)}
+    return found_challenges.uniq
   end
 end
