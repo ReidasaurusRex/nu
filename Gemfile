@@ -38,12 +38,8 @@ gem 'highcharts-rails'
 gem 'feedjira'
 # Using rails_12factor
 gem 'rails_12factor', group: :production
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Using fuzzily for searching
+gem 'fuzzily'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
