@@ -45,10 +45,14 @@ class Profile < ActiveRecord::Base
   after_create :add_default_feeds
 
   # Search settings
-  fuzzily_searchable :first_name, :last_name
+  fuzzily_searchable :full_name
 
   def full_name
     return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  def full_name_changed? 
+    first_name_changed? || last_name_changed?
   end
 
   def start_date
