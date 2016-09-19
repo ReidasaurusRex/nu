@@ -52,6 +52,7 @@ class Profile < ActiveRecord::Base
   end
 
   def full_name_changed? 
+    # for fuzzy_search trigram updating
     first_name_changed? || last_name_changed?
   end
 
