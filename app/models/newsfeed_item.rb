@@ -7,8 +7,8 @@ class NewsfeedItem < ActiveRecord::Base
 
   validates :content, presence: {message: "Please add some content"}
 
-  def self.find_by_tag_name(query)
-    Tag.where(taggable_type: "NewsfeedItem").find_by_fuzzy_name(query).map{|tag| self.find(tag.taggable_id)}
+  def self.find_by_tag_name(query, limit)
+    Tag.where(taggable_type: "NewsfeedItem").find_by_fuzzy_name(query, limit: limit).map{|tag| self.find(tag.taggable_id)}
   end
   
   def source

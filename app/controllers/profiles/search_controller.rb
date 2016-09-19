@@ -19,7 +19,7 @@ class Profiles::SearchController < Inheritance::CompletedProfileController
   end
 
   def find_newsfeed_items(query)
-    return NewsfeedItem.find_by_tag_name(query, limit: 5)
+    return NewsfeedItem.find_by_tag_name(query, 5)
   end
 
   def find_challenges(query)

@@ -3,49 +3,9 @@
 <h3><%= flash[:error] %></h3>
 <h3><%= flash[:success] %></h3>
 
-  <% unless @results[:followers].empty? %>
-    <div class="results-section">
-      <h2>Followers</h2>
-      <% @results[:followers].each do |follower| %>
-        <div class="profile-summary">
-          <%= image_tag follower.profile_photo, class: "newsfeed-profile-pic" %>
-          <h3><%= follower.full_name %></h3>
-          <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @profile, target_profile: follower} %>
-          <h3><%= link_to("View profile", profile_path(follower))  %></h3>
-        </div> <!-- profile-summary -->
-      <% end %> <!-- followers each -->
-    </div> <!-- results-section -->
-  <% end %> <!-- followers empty check -->
-
-  <% unless @results[:followings].empty? %>
-    <div class="results-section">
-      <h2>Followings</h2>
-      <% @results[:followings].each do |following| %>
-        <div class="profile-summary">
-          <%= image_tag following.profile_photo, class: "newsfeed-profile-pic" %>
-          <h3><%= following.full_name %></h3>
-          <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @profile, target_profile: following} %>
-          <h3><%= link_to("View profile", profile_path(following))  %></h3>
-        </div> <!-- profile-summary -->
-      <% end %> <!-- followings each -->
-    </div> <!-- results-section -->
-  <% end %> <!-- followings empty check -->
-
-  <% unless @results[:habits].empty? %>
-    <div class="results-section">
-      <h2>Habits</h2>
-      <% @results[:habits].each do |habit| %>
-        <div class="profile-summary">
-          <h3><%= habit.title %></h3>
-          <h4><%= habit.caption %></h4>
-          <h3><%= link_to("View habit", profile_habit_path(profile_id: @profile.id, id: habit.id))  %></h3>
-        </div> <!-- profile-summary -->
-      <% end %> <!-- habits each -->
-    </div> <!-- results-section -->
-  <% end %> <!-- habits empty check -->
-
   <% unless @results[:profiles].empty? %>
     <div class="results-section">
+      
       <h2>Profiles</h2>
       <% @results[:profiles].each do |profile| %>
         <div class="profile-summary">
@@ -55,6 +15,60 @@
           <h3><%= link_to("View profile", profile_path(profile))  %></h3>
         </div> <!-- profile-summary -->
       <% end %> <!-- profiles each -->
+
     </div> <!-- results-section -->
   <% end %> <!-- profiles empty check -->
+
+  <% unless @results[:challenges].empty? %>
+    <div class="results-section">
+      
+      <h2>Challenges</h2>
+      <% @results[:challenges].each do |challenge| %>
+        <div class="profile-summary">
+          <h3><%= challenge.title %></h3>
+          <h4><%= challenge.caption %></h4>
+          <h3><%= link_to("View challenge", profile_challenge_path(profile_id: @profile.id, id: challenge.id))  %></h3>
+        </div> <!-- profile-summary -->
+      <% end %> <!-- challenges each -->
+
+    </div> <!-- results-section -->
+  <% end %> <!-- challenges empty check -->
+
+  <% unless @results[:newsfeed_items].empty? %>
+    <div class="results-section">
+      
+      <h2>Posts</h2>
+      <% @results[:newsfeed_items].each do |post| %>
+      <div class="o-bubble o-bubble--no-pad c-newsfeed-list__item">
+    
+    <div class="c-newsfeed-list__item--padding">
+    <% if post.source_type == "profile" %>
+      <%= render partial: "profiles/newsfeed_items/native_item", locals: {profile: @profile, item: post} %> 
+    <% else %>
+      <%= render partial: "profiles/newsfeed_items/feed_item", locals: {profile: @profile, item: post} %>
+    <% end %>
+
+    <ul class="o-inline-list c-social-overview">
+      <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
+        <%= like_button(post, @profile) %> <span class="u-text--edward"><%= like_number(post) %></span>
+      </li>
+      <li class="o-inline-list__li c-social-overview__comments c-social-overview__li">
+        <%= comment_button(post, @profile) %> <span class="u-text--edward"><%= comment_number(post) %></span>
+      </li>
+    </ul>
+  </div> <!-- c-newsfeed-list-item--padding -->
+
+    <ul class="c-comments-list">
+      <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: post, profile: @profile} %>
+    </ul>
+
+  </div>
+
+
+
+      <% end %>
+
+    </div>
+  <% end %>
+
 </div> <!-- search-results -->
