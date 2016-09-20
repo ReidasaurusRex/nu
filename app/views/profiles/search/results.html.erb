@@ -1,74 +1,75 @@
-<div class="search-results">
-<h1>Search results for <%= @query %></h1>
-<h3><%= flash[:error] %></h3>
-<h3><%= flash[:success] %></h3>
-
-  <% unless @results[:profiles].empty? %>
-    <div class="results-section">
-      
-      <h2>Profiles</h2>
-      <% @results[:profiles].each do |profile| %>
-        <div class="profile-summary">
-          <%= image_tag profile.profile_photo, class: "newsfeed-profile-pic" %>
-          <h3><%= profile.full_name %></h3>
-          <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @profile, target_profile: profile} %>
-          <h3><%= link_to("View profile", profile_path(profile))  %></h3>
-        </div> <!-- profile-summary -->
-      <% end %> <!-- profiles each -->
-
-    </div> <!-- results-section -->
-  <% end %> <!-- profiles empty check -->
-
-  <% unless @results[:challenges].empty? %>
-    <div class="results-section">
-      
-      <h2>Challenges</h2>
-      <% @results[:challenges].each do |challenge| %>
-        <div class="profile-summary">
-          <h3><%= challenge.title %></h3>
-          <h4><%= challenge.caption %></h4>
-          <h3><%= link_to("View challenge", profile_challenge_path(profile_id: @profile.id, id: challenge.id))  %></h3>
-        </div> <!-- profile-summary -->
-      <% end %> <!-- challenges each -->
-
-    </div> <!-- results-section -->
-  <% end %> <!-- challenges empty check -->
-
-  <% unless @results[:newsfeed_items].empty? %>
-    <div class="results-section">
-      
-      <h2>Posts</h2>
-      <% @results[:newsfeed_items].each do |post| %>
-      <div class="o-bubble o-bubble--no-pad c-newsfeed-list__item">
+<div class="o-wrapper">
+  <div class="c-search-results">
     
-    <div class="c-newsfeed-list__item--padding">
-    <% if post.source_type == "profile" %>
-      <%= render partial: "profiles/newsfeed_items/native_item", locals: {profile: @profile, item: post} %> 
-    <% else %>
-      <%= render partial: "profiles/newsfeed_items/feed_item", locals: {profile: @profile, item: post} %>
-    <% end %>
+    <h1>You searched for "<%= @query %>"</h1>
 
-    <ul class="o-inline-list c-social-overview">
-      <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
-        <%= like_button(post, @profile) %> <span class="u-text--edward"><%= like_number(post) %></span>
-      </li>
-      <li class="o-inline-list__li c-social-overview__comments c-social-overview__li">
-        <%= comment_button(post, @profile) %> <span class="u-text--edward"><%= comment_number(post) %></span>
-      </li>
-    </ul>
-  </div> <!-- c-newsfeed-list-item--padding -->
+    <% unless @results[:profiles].empty? %>
+      <div class="c-search-results__sec">
+        
+        <h2>Profiles</h2>
+        <% @results[:profiles].each do |profile| %>
+          <div class="profile-summary">
+            <%= image_tag profile.profile_photo, class: "newsfeed-profile-pic" %>
+            <h3><%= profile.full_name %></h3>
+            <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @profile, target_profile: profile} %>
+            <h3><%= link_to("View profile", profile_path(profile))  %></h3>
+          </div> <!-- profile-summary -->
+        <% end %> <!-- profiles each -->
 
-    <ul class="c-comments-list">
-      <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: post, profile: @profile} %>
-    </ul>
+      </div> <!-- c-search-results__sec -->
+    <% end %> <!-- profiles empty check -->
 
-  </div>
+    <% unless @results[:challenges].empty? %>
+      <div class="c-search-results__sec">
+        
+        <h2>Challenges</h2>
+        <% @results[:challenges].each do |challenge| %>
+          <div class="profile-summary">
+            <h3><%= challenge.title %></h3>
+            <h4><%= challenge.caption %></h4>
+            <h3><%= link_to("View challenge", profile_challenge_path(profile_id: @profile.id, id: challenge.id))  %></h3>
+          </div> <!-- profile-summary -->
+        <% end %> <!-- challenges each -->
 
+      </div> <!-- c-search-results__sec -->
+    <% end %> <!-- challenges empty check -->
 
-
+    <% unless @results[:newsfeed_items].empty? %>
+      <div class="c-search-results__sec">
+        
+        <h2>Posts</h2>
+        <% @results[:newsfeed_items].each do |post| %>
+        <div class="o-bubble o-bubble--no-pad c-newsfeed-list__item">
+      
+      <div class="c-newsfeed-list__item--padding">
+      <% if post.source_type == "profile" %>
+        <%= render partial: "profiles/newsfeed_items/native_item", locals: {profile: @profile, item: post} %> 
+      <% else %>
+        <%= render partial: "profiles/newsfeed_items/feed_item", locals: {profile: @profile, item: post} %>
       <% end %>
 
-    </div>
-  <% end %>
+      <ul class="o-inline-list c-social-overview">
+        <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
+          <%= like_button(post, @profile) %> <span class="u-text--edward"><%= like_number(post) %></span>
+        </li>
+        <li class="o-inline-list__li c-social-overview__comments c-social-overview__li">
+          <%= comment_button(post, @profile) %> <span class="u-text--edward"><%= comment_number(post) %></span>
+        </li>
+      </ul>
+    </div> <!-- c-newsfeed-list-item--padding -->
 
-</div> <!-- search-results -->
+      <ul class="c-comments-list">
+        <%= render partial: "profiles/comments/section_overview", locals: {newsfeed_item: post, profile: @profile} %>
+      </ul>
+
+    </div>
+
+
+
+        <% end %>
+
+      </div>
+    <% end %>
+
+  </div> <!-- c-search-results -->
+</div> <!-- o-wrapper -->
