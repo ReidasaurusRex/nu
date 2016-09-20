@@ -1,8 +1,24 @@
 .c-profile-summary {
   display: inline-block;
+  margin-right: $spacing-unit;
   text-align: center;
 }
 
 .c-profile-summary__el {
   margin-bottom: $spacing-unit / 2;
+}
+
+.c-profile-summary__fol-link {
+  border-radius: 100px;
+  padding: $spacing-unit / 4 $spacing-unit;
+}
+
+.c-profile-summary__fol-link--unfollow {
+  background: $color-monte-carlo;
+  color: $color-white;
+}
+
+.c-profile-summary__fol-link--follow {
+  border: 1px solid $color-monte-carlo;
+  color: $color-monte-carlo;
 }

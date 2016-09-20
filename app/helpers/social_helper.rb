@@ -3,11 +3,11 @@ module SocialHelper
     subscription_ids = user_profile.subscriptions.map {|subscrip| subscrip.following_id}
     if subscription_ids.include?(following_profile.id)
       subscription = subscription_ids.select{|id| id == following_profile.id}[0]
-      return link_to("Unfollow", profile_subscription_path(profile_id: user_profile.id, id: subscription), method: :delete)
+      return link_to("Following", profile_subscription_path(profile_id: user_profile.id, id: subscription), method: :delete, class: "c-profile-summary__fol-link c-profile-summary__fol-link--unfollow", data: {confirm: "Unfollow #{following_profile.first_name}?"}).html_safe
     elsif user_profile.pending_followings.include?(following_profile)
-      return "Pending following"
+      return "<span class='c-profile-summary__fol-link--unfollow'>Pending</span>".html_safe
     else
-      return link_to("Follow", profile_pending_subscriptions_path(profile_id: user_profile.id, pending_subscription: {profile_id: user_profile.id, pending_following_id: following_profile.id}), method: :post)
+      return link_to("Follow", profile_pending_subscriptions_path(profile_id: user_profile.id, pending_subscription: {profile_id: user_profile.id, pending_following_id: following_profile.id}), method: :post, class: "c-profile-summary__fol-link c-profile-summary__fol-link--follow")
     end
   end
 
