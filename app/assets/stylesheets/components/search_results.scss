@@ -1,10 +1,21 @@
 .c-search-results {
   margin-top: $spacing-unit * 2;
+}
+
+.c-search-results__heading {
   text-align: center;
 }
 
 .c-search-results__sec {
-  border-bottom: 1px solid $color-monte-carlo;
   margin-bottom: $spacing-unit;
+  margin-top: $spacing-unit * 2;
   padding-bottom: $spacing-unit;
+  &:not(:last-child) {
+    border-bottom: 1px solid $color-monte-carlo;
+  }
+}
+
+.c-search-results__sec__challenge {
+  display: block;
+  margin-bottom: $spacing-unit * 3;
 }

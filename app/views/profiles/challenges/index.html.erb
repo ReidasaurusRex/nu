@@ -19,9 +19,9 @@
           <p class="c-challenges-list__li__bd__el"><%= challenge.caption %></p>
         </div>
         <div class="o-media__ext c-challenges-list__li__ext">
-          <p>Nu Score</p>
-          <p class="o-point-circle o-point-circle--small"><%= challenge.points %></p>
-          <p><%= link_to "Check it out", profile_challenge_path(profile_id: @profile.id, id: challenge.id) %></p>
+          <p class="c-challenges-list__li__ext__el">Nu Score</p>
+          <p class="o-point-circle o-point-circle--small c-challenges-list__li__ext__el"><%= challenge.points %></p>
+          <p class="c-challenges-list__li__ext__el"><%= link_to "Check it out", profile_challenge_path(profile_id: @profile.id, id: challenge.id) %></p>
         </div>
       </li>
     <% end %>

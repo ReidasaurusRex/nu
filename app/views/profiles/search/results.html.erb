@@ -1,19 +1,18 @@
 <div class="o-wrapper">
   <div class="c-search-results">
     
-    <h1>You searched for "<%= @query %>"</h1>
+    <h2 class="c-search-results__heading">You searched for "<%= @query %>"</h2>
 
     <% unless @results[:profiles].empty? %>
       <div class="c-search-results__sec">
         
-        <h2>Profiles</h2>
         <% @results[:profiles].each do |profile| %>
-          <div class="profile-summary">
-            <%= image_tag profile.profile_photo, class: "newsfeed-profile-pic" %>
+          <div class="c-profile-summary">
+            <%= link_to(image_tag(profile.profile_photo, class: "o-img--large o-img--round").html_safe, profile_path(profile))  %>
             <h3><%= profile.full_name %></h3>
             <%= render partial: "profiles/follow_system/follow_subscribe_summary", locals: {user_profile: @profile, target_profile: profile} %>
             <h3><%= link_to("View profile", profile_path(profile))  %></h3>
-          </div> <!-- profile-summary -->
+          </div> <!-- c-profile-summary -->
         <% end %> <!-- profiles each -->
 
       </div> <!-- c-search-results__sec -->
@@ -22,13 +21,19 @@
     <% unless @results[:challenges].empty? %>
       <div class="c-search-results__sec">
         
-        <h2>Challenges</h2>
         <% @results[:challenges].each do |challenge| %>
-          <div class="profile-summary">
-            <h3><%= challenge.title %></h3>
-            <h4><%= challenge.caption %></h4>
-            <h3><%= link_to("View challenge", profile_challenge_path(profile_id: @profile.id, id: challenge.id))  %></h3>
-          </div> <!-- profile-summary -->
+          <div class="c-search-results__sec__challenge">
+            <%= image_tag(challenge.image_path, class: "o-media__img c-challenges-list__li__img") %>
+            <div class="o-media__bd c-challenges-list__li__bd c-challenges-list__li__bd--push-down">
+              <h3 class="c-challenges-list__li__bd__el"><%= challenge.title %></h3>
+              <p class="c-challenges-list__li__bd__el"><%= challenge.caption %></p>
+            </div>
+            <div class="o-media__ext c-challenges-list__li__ext">
+              <p class="c-challenges-list__li__ext__el">Nu Score</p>
+              <p class="o-point-circle o-point-circle--small c-challenges-list__li__ext__el"><%= challenge.points %></p>
+              <p class="c-challenges-list__li__ext__el"><%= link_to "Check it out", profile_challenge_path(profile_id: @profile.id, id: challenge.id) %></p>
+            </div>
+          </div>
         <% end %> <!-- challenges each -->
 
       </div> <!-- c-search-results__sec -->
@@ -37,7 +42,6 @@
     <% unless @results[:newsfeed_items].empty? %>
       <div class="c-search-results__sec">
         
-        <h2>Posts</h2>
         <% @results[:newsfeed_items].each do |post| %>
         <div class="o-bubble o-bubble--no-pad c-newsfeed-list__item">
       

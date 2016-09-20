@@ -63,6 +63,10 @@
   margin-bottom: $spacing-unit / 4;
 }
 
-// .profile-started-challenges-show li {
-//   padding-left: 30px;
-// }
+.c-challenges-list__li__ext__el {
+  margin-bottom: $spacing-unit / 2;
+  &:first-child {
+    margin-bottom: $spacing-unit / 3;
+    margin-top: $spacing-unit / 2;
+  }
+}
