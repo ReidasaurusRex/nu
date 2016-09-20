@@ -1,6 +1,6 @@
 class ProfilesController < Inheritance::LoggedInController
-  before_action :get_profile, except: [:new, :create]
   before_action :check_if_existing_profile, only: [:new, :create]
+  before_action :get_profile, except: [:new, :create]
   before_action :ensure_profile_matches_user, only: [:edit, :update]
 
   def new
@@ -13,6 +13,7 @@ class ProfilesController < Inheritance::LoggedInController
   end
 
   def show
+    @target_profile = Profile.find(params[:id])
   end
 
   def edit
@@ -30,7 +31,7 @@ class ProfilesController < Inheritance::LoggedInController
   end
 
   def get_profile
-    @profile = Profile.find(params[:id])
+    @profile = @user.profile
   end
 
   def profile_params

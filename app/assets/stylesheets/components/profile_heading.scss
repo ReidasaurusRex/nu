@@ -1,0 +1,24 @@
+.c-profile-heading {
+  // background inline at profiles#show
+  height: 275px;
+  padding-top: $spacing-unit;
+  width: 100%;
+}
+
+.c-profile-heading__img-and-link, .c-profile-heading__info {
+  display: inline-block;
+  vertical-align: top; 
+}
+
+.c-profile-heading__img-and-link {
+  margin-left: $spacing-unit * 4;
+  min-width: 200px;
+}
+
+.c-profile-heading__info {
+  margin-top: $spacing-unit / 2;
+}
+
+.c-profile-heading__info__text {
+  color: $color-white;
+}

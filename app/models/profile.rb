@@ -57,7 +57,7 @@ class Profile < ActiveRecord::Base
   end
 
   def start_date
-    return self.created_at.strftime("%B, %Y")
+    return self.created_at.strftime("%B %Y")
   end
 
   def add_default_settings

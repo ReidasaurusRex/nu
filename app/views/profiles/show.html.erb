@@ -1,6 +1,29 @@
-<%= image_tag @profile.cover_photo, class: "profile-cover-photo" %>
-<div class="profile-overview">
-  <%= render partial: "profiles/profile_overview", locals: {profile: @profile, user_profile: @user.profile} %>
+<div class="c-profile-heading" style="background-image: url(<%= @target_profile.cover_photo %>)">
+  <div class="c-profile-heading__img-and-link">
+    <div class="c-profile-summary">
+      <%= image_tag @target_profile.profile_photo, class: "o-img--large o-img--round c-profile-summary__el" %>
+      <p class="c-profile-summary__el"><%= follow_link(@profile, @target_profile) %></p>
+    </div> <!-- c-profile-summary -->
+  </div>
+  <div class="c-profile-heading__info">
+    <div class="c-profile-heading__info__nlj">
+      <h2 class="c-profile-heading__info__text"><%= @target_profile.full_name %></h2>
+      <p class="c-profile-heading__info__text">
+        <i class="fa fa-map-marker fa-lg u-text--apricot"></i>
+        <%= @target_profile.state.upcase %>
+      </p>
+      <h6 class="c-profile-heading__info__text">
+        <i class="fa fa-clock-o fa-lg u-text--flax"></i>
+        Joined <%= @target_profile.start_date %>
+      </h6>
+
+    </div>
+    <div class="c-profile-heading__info__ple"></div>
+    <p class="c-profile-heading__info__text">
+      <%= @profile.interests %>
+    </p>
+  </div>
+  
 </div>
 
 <div class="o-wrapper">

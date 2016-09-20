@@ -6,6 +6,8 @@ module SocialHelper
       return link_to("Following", profile_subscription_path(profile_id: user_profile.id, id: subscription), method: :delete, class: "c-profile-summary__fol-link c-profile-summary__fol-link--unfollow", data: {confirm: "Unfollow #{following_profile.first_name}?"}).html_safe
     elsif user_profile.pending_followings.include?(following_profile)
       return "<span class='c-profile-summary__fol-link--unfollow'>Pending</span>".html_safe
+    elsif user_profile == following_profile
+      return link_to("Edit Profile", edit_profile_path(user_profile), class: "c-profile-summary__fol-link c-profile-summary__fol-link--unfollow").html_safe
     else
       return link_to("Follow", profile_pending_subscriptions_path(profile_id: user_profile.id, pending_subscription: {profile_id: user_profile.id, pending_following_id: following_profile.id}), method: :post, class: "c-profile-summary__fol-link c-profile-summary__fol-link--follow")
     end
