@@ -7,17 +7,21 @@
 }
 
 .u-text--monte-carlo {
-  color: $color-monte-carlo;
+  color: $color-monte-carlo !important;
 }
 
 .u-text--silver-sand {
-  color: $color-silver-sand;
+  color: $color-silver-sand !important;
 }
 
 .u-text--edward {
-  color: $color-edward;
+  color: $color-edward !important;
 }
 
 .u-text--flax {
-  color: $color-flax;
+  color: $color-flax !important;
+}
+
+.u-text--white {
+  color: $color-white !important;
 }

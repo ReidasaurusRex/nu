@@ -6,20 +6,33 @@
     </div> <!-- c-profile-summary -->
   </div>
   <div class="c-profile-heading__info">
-    <div class="c-profile-heading__info__nlj">
-      <h2 class="c-profile-heading__info__text"><%= @target_profile.full_name %></h2>
-      <p class="c-profile-heading__info__text">
-        <i class="fa fa-map-marker fa-lg u-text--apricot"></i>
-        <%= @target_profile.state.upcase %>
-      </p>
-      <h6 class="c-profile-heading__info__text">
-        <i class="fa fa-clock-o fa-lg u-text--flax"></i>
-        Joined <%= @target_profile.start_date %>
-      </h6>
+    <div class="c-profile-heading__info__wrapper">
+      <div class="c-profile-heading__info__nlj">
+        <h2 class="c-profile-heading__info__text"><%= @target_profile.full_name %></h2>
+        <p class="c-profile-heading__info__text">
+          <i class="fa fa-map-marker fa-lg u-text--apricot"></i>
+          <%= @target_profile.state.upcase %>
+        </p>
+        <h6 class="c-profile-heading__info__text">
+          <i class="fa fa-clock-o fa-lg u-text--flax"></i>
+          Joined <%= @target_profile.start_date %>
+        </h6>
 
+      </div> <!-- c-profile-heading__info__nlj -->
+      <div class="c-profile-heading__info__ple">
+        <h3 class="c-profile-heading__info__text">
+          <%= @target_profile.point_overview.total %>pts | <%= @target_profile.current_place %> place
+        </h3>
+        <div class="c-profile-heading__info__ple__bar-outline">
+          <div class="c-profile-heading__info__ple__bar-fill" style="width: <%= recent_footprint_allotment_percentage(@target_profile.last_finished_footprint) %>%"></div>
+        </div>
+        <h6 class="c-profile-heading__info__ple__bar-label">Emissions Allowance</h6>
+        <h6 class="c-profile-heading__info__ple__bar-lm">
+          <%= link_to "What is this?", about_data_path, class: "u-text--white" %>
+        </h6>
+      </div> <!-- c-profile-heading__info__ple -->
     </div>
-    <div class="c-profile-heading__info__ple"></div>
-    <p class="c-profile-heading__info__text">
+    <p class="c-profile-heading__info__text c-profile-heading__info__interests">
       <%= @profile.interests %>
     </p>
   </div>
