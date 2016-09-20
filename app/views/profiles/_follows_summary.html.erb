@@ -1,11 +1,10 @@
-<h2>Followers: <span><%= follows.length unless follows.empty? %></span></h2>
 <% unless follows.empty? %>
   
   <% follows.each do |follow| %>
-    <div class="profile-summary">
-      <%= link_to((image_tag(follow.follower.profile_photo, class: "profile-summary-pic").html_safe), user_profile_path(user_id: user.id, id: follow.follower.id)) %>
+    <div class="c-profile-summary">
+      <%= link_to((image_tag(follow.follower.profile_photo, class: "o-img--large o-img--round c-profile-summary__el").html_safe), profile_path(id: follow.follower.id)) %>
       <h3><%= follow.follower.full_name %></h3>
-      <h4><%= link_to("Remove follower", profile_follow_path(profile_id: @user.profile.id, id: follow.id), method: :delete, data: {confirm: "Remove #{follow.follower.first_name} from followers?"}) %></h4>
+      <h4 class="c-profile-summary__el"><%= subscription_link(profile, follow.follower) %></h4>
     </div>
   <% end %>
 

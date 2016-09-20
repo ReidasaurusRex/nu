@@ -41,29 +41,22 @@
 
 <div class="o-wrapper">
 
-  <% if @profile == @user.profile %>
-    
-    <div class="profile-relation follower-summary">
-      <%= render partial: "follows_summary", locals: {follows: @profile.follows, user: @user} %>
-    </div> <!-- profile-relation follower-summary -->
+  <div class="c-profile-section">
+    <h2 class="c-profile-section__title">
+      <%= @target_profile.followers.length %> Followings
+    </h2>    
+    <%= render partial: "follows_summary", locals: {follows: @target_profile.follows, profile: @profile} %>
+  </div> <!-- c-profile-section -->
 
-    <div class="profile-relation following-summary">
-      <%=  render partial: "subscriptions_summary", locals: {subscriptions: @profile.subscriptions, user: @user} %>
-    </div> <!-- profile-relation following-summary -->
+  <div class="c-profile-section">
+    <h2 class="c-profile-section__title">
+      <%= @target_profile.followings.length %> Followers
+    </h2>
+    <%=  render partial: "subscriptions_summary", locals: {subscriptions: @target_profile.subscriptions, profile: @profile} %>
+  </div> <!-- profile-relation following-summary -->
 
-    <div class="feed-summary">
-      <%= render partial: "feed_summary", locals: {profile: @profile} %>
-    </div>
-
-  <% else %>
-
-    <div class="profile-relation follower-summary">
-      <h3>Followers: <%= @profile.followers.length %></h3>
-    </div>
-
-    <div class="profile-relation">
-      <h3>Following: <%= @profile.followings.length %></h3>
-    </div>
-
-  <% end %> <!-- profile belongs to user --> 
+  <div class="c-profile-section">
+    <h2 class="c-profile-section__title">Feed</h2>
+    <%= render partial: "feed_summary", locals: {profile: @target_profile} %>
+  </div>
 </div> <!-- o-wrapper -->

@@ -36,6 +36,7 @@ class Profiles::FollowSystem::FollowsController < Inheritance::ProfileMatchesUse
 
   def delete_follow
     @follow = Follow.find(params[:id])
+    binding.pry
     if @profile.follows.include?(@follow)
       delete_follower_subscription
       @follow.destroy

@@ -13,13 +13,13 @@ module SocialHelper
     end
   end
 
-  def manage_subscription_link(user_profile, follower_profile)
+  def subscription_link(user_profile, follower_profile)
     follower_ids = user_profile.follows.map {|follow| follow.follower_id}
     if follower_ids.include?(follower_profile.id)
       follow = follower_ids.select{|id| id == follower_profile.id}[0]
-      return link_to("Remove from followers", profile_follow_path(profile_id: user_profile.id, id: follow), method: :delete)
+      return link_to("Subscribed", profile_follow_path(profile_id: user_profile.id, id: follow), method: :delete, class: "c-profile-summary__fol-link c-profile-summary__fol-link--unfollow", data: {confirm: "Remove #{follower_profile.first_name}\'s subscription?"})
     elsif user_profile.pending_followers.include?(follower_profile)
-      return link_to("Permit to follow", profile_follow_paths(profile_id: user_profile.id, follow: {profile_id: user_profile.id, follower_id: follower_profile.id}), method: :post)
+      return link_to("Pending", profile_follow_paths(profile_id: user_profile.id, follow: {profile_id: user_profile.id, follower_id: follower_profile.id}), method: :post, class: "c-profile-summary__fol-link c-profile-summary__fol-link--unfollow")
     end
       
   end
