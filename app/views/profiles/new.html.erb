@@ -8,51 +8,55 @@
 <div class="o-wrapper">
 
   <div class="o-bubble o-bubble--full">
+    
     <h2>Create your profile!</h2>
     <div class="o-wrapper--narrow">
     <%= form_for @profile do |f| %>
-      <div class="cover-photo-form">
-      <%= f.label :cover_photo, "Cover photo" %>
-        <input type="hidden" role="uploadcare-uploader"
+
+      <div class="o-labeled-field">
+        <%= f.label :cover_photo, "Cover photo", class: "o-labeled-field--label" %>
+        <div class="o-labeled-field--field">
+          <input type="hidden" role="uploadcare-uploader"
           data-crop="9:2"
           data-preview-step="true"
           data-images-only="true"
           data-image-shrink="1600X800"
           name="profile[cover_photo]"
-        />
+          />
+        </div>
       </div>
-      <div class="photo-with-names">
-        <div class="profile-photo-form">
-        <%= f.label :profile_photo, "Profile photo" %>
+
+      <div class="o-labeled-field">
+        <%= f.label :profile_photo, "Profile photo", class: "o-labeled-field--label" %>
+        <div class="o-labeled-field--field">
           <input type="hidden" role="uploadcare-uploader"
             data-crop="1:1"
             data-preview-step="true"
             data-images-only="true"
             data-image-shrink="400x400"
             name="profile[profile_photo]" 
-           />    
-        </div> <!-- profile-photo -->
-        <div class="first-and-last-name">
-          <div class="text-form-with-errors">
-            <%= f.text_field :first_name, autofocus: true, placeholder: "First name" %>
-          </div>
-          <div class="text-form-with-errors">
-            <%= f.text_field :last_name, placeholder: "Last name" %>
-          </div>
-        </div> <!-- first-and-last-name -->
-      </div> <!-- photo-with-names -->
-      <div class="text-form-with-errors">
-        <%= f.text_area(:interests, rows: 10, placeholder: "Interests \n\nBiking, gardening, local economics. What strikes your fancy?") %>
+           />
+         </div>
       </div>
-      <div class="select-form-with-errors">
-        <%= f.label :state %>
-        <%= f.select(:state, options_for_select(state_list, selected: @profile.state)) %>
+      
+      <%= f.text_field :first_name, autofocus: true, placeholder: "First name" %>
+
+      <%= f.text_field :last_name, placeholder: "Last name" %>
+      
+      <%= f.text_area(:interests, rows: 10, placeholder: "Interests \n\nBiking, gardening, local economics. What strikes your fancy?") %>
+      
+      <div class="o-labeled-field">
+        <%= f.label :state, class: "o-labeled-field--label" %>
+        <%= f.select(:state, options_for_select(state_list, selected: @profile.state), {}, {class: "o-labeled-field--field"}) %>
       </div>
+
       <div class="submit-form">
         <%= f.submit "Create profile" %>
       </div>
+
     <% end %> <!-- form -->
     </div> <!-- o-wrapper--narrow -->
+
   </div> <!-- o-bubble o-bubble--full -->
   
 </div> <!-- o-wrapper -->

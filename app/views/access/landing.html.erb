@@ -1,22 +1,26 @@
 <div class="o-wrapper">
 
   <div class="o-bubble o-bubble--full o-bubble--centered-content">
+    
     <h1>Welcome to Nu</h1>
+
     <h3>Log In</h3>
+
+    <div class="o-wrapper--narrow">
     <%= form_tag(login_path, method: :post) %>
-    <div class="text-form-with-errors">
-      <%= text_field_tag(:email, params[:email], autofocus: true, placeholder: "Email") %>
-    </div>
-    <div class="text-form-with-errors">
-      <%= password_field_tag(:password, params[:password], placeholder: "Password") %>
-    </div>
+    
+    <%= text_field_tag(:email, params[:email], autofocus: true, placeholder: "Email") %>
+  
+    <%= password_field_tag(:password, params[:password], placeholder: "Password") %>
+  
     <% if flash[:error] %>
       <h4 class="flash-error"><%= flash[:error] %></h4>
     <% end %>
-    <div class="submit-button">
-      <%= submit_tag "Log In" %>
-      <%= link_to "Sign Up!", new_user_path, class: "sign-up-link" %>
-    </div>
+
+    <%= submit_tag "Log In" %>
+    <%= link_to "Sign Up!", new_user_path, class: "sign-up-link" %>
+    </div> <!-- o-wrapper--narrow -->
+
   </div> <!-- o-bubble o-bubble--full -->
 
 </div> <!-- o-wrapper -->

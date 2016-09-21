@@ -1,25 +1,15 @@
 <div class="o-wrapper">
 
   <div class="o-bubble o-bubble--full">
+    
     <h2>Account</h2>
-    <%= form_for @user do |f|%>
-    <%= flash[:error] %>
-    <div class="edit-user-form">
-      <div class="text-form-with-errors">
-        <%= f.text_field :email, autofocus: true %>
-        <p class="form-label">
-          <%= f.label :email %>
-          <span class="error-message"><%= add_errors_if_any(@user, :email) %></span>
-        </p>
-      </div>
 
-      <div class="text-form-with-errors">
-        <%= f.password_field :password %>
-        <p class="form-label">
-          <%= f.label :password %>
-          <span class="error-message"><%= add_errors_if_any(@user, :password) %></span>
-        </p>
-      </div>
+    <div class="o-wrapper--narrow">
+    <%= form_for @user do |f|%>
+  
+      <%= f.text_field :email, autofocus: true, placeholder: "Email" %>
+
+      <%= f.password_field :password, placeholder: "Password" %>
       
       <div class="submit-or-password">
         <div class="submit-form">
@@ -29,8 +19,8 @@
           <%= link_to "Edit password", user_edit_password_path(@user) %>
         </div>
       </div>
-    </div>
     <% end %> <!-- form -->
+    </div>
   </div> <!-- o-bubble o-bubble--full -->
   
 </div> <!-- o-wrapper  -->

@@ -1,0 +1,14 @@
+.o-labeled-field {
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: $spacing-unit;
+  max-width: 300px;
+}
+
+.o-labeled-field--label {
+  float: left;
+}
+
+.o-labeled-field--field {
+  float: right;
+}

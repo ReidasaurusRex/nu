@@ -31,6 +31,7 @@ input[type="submit"] {
   border: none;
   border-radius: 100px;
   color: $color-white;
+  margin-bottom: $spacing-unit;
   outline: none;
   padding: $spacing-unit / 2 $spacing-unit;
   &:hover {
