@@ -9,7 +9,7 @@ class Profiles::FollowSystem::PendingFollowsController < Inheritance::ProfileMat
   def destroy
     @pending_follow = PendingFollow.find(params[:id])
     @pending_follow.destroy
-    redirect_to :back
+    redirect_to profile_path(@profile)
   end
 
   private
