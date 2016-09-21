@@ -12,6 +12,7 @@
     <%= form_for @profile do |f| %>
     <div class="new-profile-form">
       <div class="cover-photo-form">
+      <%= f.label :cover_photo, "Cover photo" %>
         <input type="hidden" role="uploadcare-uploader"
           data-crop="9:2"
           data-preview-step="true"
@@ -19,12 +20,10 @@
           data-image-shrink="1600X800"
           name="profile[cover_photo]"
         />
-        <% #TODO: Add image shrink to cover photo %>
-        <span class="form-label">Cover photo</span>
       </div>
       <div class="photo-with-names">
-        <div class="profile-photo">
-          <img src="" alt="">
+        <div class="profile-photo-form">
+        <%= f.label :profile_photo, "Profile photo" %>
           <input type="hidden" role="uploadcare-uploader"
             data-crop="1:1"
             data-preview-step="true"
@@ -35,33 +34,18 @@
         </div> <!-- profile-photo -->
         <div class="first-and-last-name">
           <div class="text-form-with-errors">
-            <%= f.text_field :first_name, autofocus: true %>
-            <p class="form-label">
-              <%= f.label :first_name %>
-              <span class="error-message"><%= add_errors_if_any(@profile, :first_name) %></span>
-            </p>
+            <%= f.text_field :first_name, autofocus: true, placeholder: "First name" %>
           </div>
           <div class="text-form-with-errors">
-            <%= f.text_field :last_name %>
-            <p class="form-label">
-              <%= f.label :last_name %>
-              <span class="error-message"><%= add_errors_if_any(@profile, :last_name) %></span>
-            </p>
+            <%= f.text_field :last_name, placeholder: "Last name" %>
           </div>
         </div> <!-- first-and-last-name -->
       </div> <!-- photo-with-names -->
       <div class="text-form-with-errors">
-        <%= f.text_area(:interests, rows: 10) %>
-        <p class="form-label">
-          <%= f.label :interests %>
-          <span class="error-message"><%= add_errors_if_any(@profile, :interests) %></span>
-        </p>
+        <%= f.text_area(:interests, rows: 10, placeholder: "Interests \n\nBiking, gardening, local economics. What strikes your fancy?") %>
       </div>
       <div class="select-form-with-errors">
-        <p class="form-label">
-          <%= f.label :state %>
-          <span class="error-message"><%= add_errors_if_any(@profile, :state) %></span>
-        </p>
+        <%= f.label :state %>
         <%= f.select(:state, options_for_select(state_list, selected: @profile.state)) %>
       </div>
       <div class="submit-form">
