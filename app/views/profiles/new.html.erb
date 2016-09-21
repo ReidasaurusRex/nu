@@ -9,8 +9,8 @@
 
   <div class="o-bubble o-bubble--full">
     <h2>Create your profile!</h2>
+    <div class="o-wrapper--narrow">
     <%= form_for @profile do |f| %>
-    <div class="new-profile-form">
       <div class="cover-photo-form">
       <%= f.label :cover_photo, "Cover photo" %>
         <input type="hidden" role="uploadcare-uploader"
@@ -51,8 +51,8 @@
       <div class="submit-form">
         <%= f.submit "Create profile" %>
       </div>
-    </div> <!-- new-profile-form -->
     <% end %> <!-- form -->
+    </div> <!-- o-wrapper--narrow -->
   </div> <!-- o-bubble o-bubble--full -->
   
 </div> <!-- o-wrapper -->

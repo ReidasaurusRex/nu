@@ -1,18 +1,21 @@
-input[type="text"], input[type="password"], textarea {
+input[type="text"], input[type="password"], textarea, select {
   color: $color-black;
+  margin-bottom: $spacing-unit;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 85%;
 }
 
 input[type="text"], input[type="password"] {
   font-size: 92%;
   height: $spacing-unit;
-  margin-bottom: $spacing-unit;
   padding: 0px 10px;
 }
 
 textarea {
   border: 1px solid $color-alto;
   font-size: 100%;
-  margin-bottom: $spacing-unit;
   outline: none;
   padding: 10px;
   resize: none;
