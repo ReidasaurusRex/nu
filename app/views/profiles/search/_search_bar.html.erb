@@ -1,4 +1,8 @@
 <%= form_tag(profile_search_path(profile), method: :post) do %>
-  <%= text_field_tag(:query, params[:query], placeholder: "Search...", class: "c-search-bar__input") %></div>
+  
+  <%= text_field_tag(:query, params[:query], placeholder: "Search...", class: "c-search-bar__input") %>
+  <!-- !important on search bar width -->
+  
   <%= button_tag("<i class='fa fa-search fa-lg'></i>".html_safe, class: "c-search-bar__submit") %>
+
 <% end %> 
