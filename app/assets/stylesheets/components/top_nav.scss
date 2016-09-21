@@ -57,3 +57,18 @@
     cursor: pointer;
   }
 }
+
+.c-top-nav__nav-section__icon-link__noti-dot {
+  background-color: $color-sirocco;
+  border-radius: 6px;
+  height: 6px;
+  margin-left: 31px;
+  position: absolute;
+  top: 30px;
+  width: 6px;
+  z-index: 2;
+}
+
+.c-top-nav__nav-section__icon-link__noti-dot--apricot {
+  background-color: $color-apricot;
+}

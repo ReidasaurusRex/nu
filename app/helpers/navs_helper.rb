@@ -6,4 +6,10 @@ module NavsHelper
       render partial: "nav_bars/shallow_top_nav"
     end
   end
+
+  def pending_follows_color(user_profile)
+    if user_profile.pending_follows.length > 0
+      return "c-top-nav__nav-section__icon-link__noti-dot--apricot"
+    end
+  end
 end

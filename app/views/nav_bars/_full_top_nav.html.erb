@@ -37,7 +37,10 @@
           </li>  <!-- search-form -->
           
           <li class="o-inline-list__li jsDropdownButton" id="jsNotiDropdownButton">
-            <%= button_tag("<i class='fa fa-bell fa-2x'></i>.".html_safe, class: "c-top-nav__nav-section__icon-link") %>
+            <%= button_tag("<i class='fa fa-bell fa-2x'></i>".html_safe, class: "c-top-nav__nav-section__icon-link") %>
+            <div 
+              class="c-top-nav__nav-section__icon-link__noti-dot <%= pending_follows_color(@user.profile) %>"
+            ></div>
           </li> <!-- notifications -->
 
           <li class="o-inline-list__li jsDropdownButton" id="jsProfDropdownButton">
