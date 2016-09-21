@@ -2,7 +2,7 @@
   <div class="c-profile-heading__img-and-link">
     <div class="c-profile-summary">
       <%= image_tag @target_profile.profile_photo, class: "o-img--large o-img--round c-profile-summary__el" %>
-      <p class="c-profile-summary__el"><%= follow_link(@profile, @target_profile) %></p>
+      <p class="c-profile-summary__el"><%= subscription_link(@profile, @target_profile, true) %></p>
     </div> <!-- c-profile-summary -->
   </div>
   <div class="c-profile-heading__info">
@@ -43,14 +43,14 @@
 
   <div class="c-profile-section">
     <h2 class="c-profile-section__title">
-      <%= @target_profile.followers.length %> Followings
+      <%= @target_profile.followers.length %> Followers
     </h2>    
     <%= render partial: "follows_summary", locals: {follows: @target_profile.follows, profile: @profile} %>
   </div> <!-- c-profile-section -->
 
   <div class="c-profile-section">
     <h2 class="c-profile-section__title">
-      <%= @target_profile.followings.length %> Followers
+      <%= @target_profile.followings.length %> Followings
     </h2>
     <%=  render partial: "subscriptions_summary", locals: {subscriptions: @target_profile.subscriptions, profile: @profile} %>
   </div> <!-- profile-relation following-summary -->

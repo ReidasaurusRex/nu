@@ -1,10 +1,11 @@
+<h1>Subscriptions</h1>
 <% unless subscriptions.empty? %>
   
   <% subscriptions.each do |subscription| %>
     <div class="c-profile-summary">
       <%= link_to(image_tag(subscription.following.profile_photo, class: "o-img--large o-img--round c-profile-summary__el").html_safe, profile_path(id: subscription.following.id)) %>
       <h3><%= subscription.following.full_name %></h3>
-      <h4 class="c-profile-summary__el"><%= follow_link(profile, subscription.following) %></h4>
+      <h4 class="c-profile-summary__el"><%= subscription_link(profile, subscription.following) %></h4>
     </div>
   <% end %>
 
