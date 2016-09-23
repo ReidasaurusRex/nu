@@ -9,7 +9,7 @@
         <h3 class="c-challenges-list__li__bd__el"><%= profile_started_challenge.challenge.title %></h3>
         <p class="c-challenges-list__li__bd__el"><%= profile_started_challenge.challenge.caption %></p>
         <p class="c-challenges-list__li__bd__el">Nu Score <span class="o-point-circle o-point-circle--small"><%= profile_started_challenge.challenge.points %></span></p>
-        <p class="c-challenges-list__li__bd__el">Progress Bar</p>
+        <%= render partial: "profiles/challenges/challenge_progress_bar", locals: {psc: profile_started_challenge} %>
         
       </div>
       <div class="o-media__ext c-challenges-list__li__ext">
