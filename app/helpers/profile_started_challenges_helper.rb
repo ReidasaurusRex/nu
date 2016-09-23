@@ -6,4 +6,8 @@ module ProfileStartedChallengesHelper
       return  button_to("Complete", new_profile_started_challenge_profile_completed_challenge_path(profile_started_challenge_id: started_challenge.id), method: :get).html_safe
     end
   end
+
+  def challenge_progress_width(started_challenge)
+    return ((started_challenge.started_challenge_updates.length.to_f / 4) * 100).to_i
+  end
 end

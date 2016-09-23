@@ -1,8 +1,14 @@
 .c-progress-challenge-bar {
   background-image: linear-gradient(90deg, #63CAC0 1%, #B5DE6D 38%, #FCD776 70%, #F98161 100%);
   height: 5px;
-  overflow-y: visible;
-  width: 100%;
+  position: relative;
+}
+
+.c-progress-challenge-bar__mute {
+  background-color: $color-alto;
+  height: inherit;
+  position: absolute;
+  z-index: 1;
 }
 
 .c-progress-challenge-bar__point {
@@ -13,7 +19,8 @@
   height: 10px;
   margin-left: 23%;
   margin-top: -3px;
+  position: relative;
   vertical-align: top;
   width: 10px;
-  z-index: 2;
+  z-index: 3;
 }
