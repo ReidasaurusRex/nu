@@ -10,4 +10,19 @@ module ProfileStartedChallengesHelper
   def challenge_progress_width(started_challenge)
     return ((started_challenge.started_challenge_updates.length.to_f / 4) * 100).to_i
   end
+
+  def challenge_progress_point_style(started_challenge, point_num)
+    if started_challenge.started_challenge_updates.length >= point_num
+      case point_num
+      when 1
+        return "c-progress-challenge-bar__point--1"
+      when 2
+        return "c-progress-challenge-bar__point--2"
+      when 3
+        return "c-progress-challenge-bar__point--3"
+      else
+        return ""
+      end
+    end
+  end
 end
