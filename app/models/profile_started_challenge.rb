@@ -23,4 +23,12 @@ class ProfileStartedChallenge < ActiveRecord::Base
   def image_path
     "icon_color_#{self.progress_category}.png"
   end
+
+  def updateable?
+    if self.started_challenge_updates.length > 0
+      return (Time.now - self.started_challenge_updates.last.created_at) > self.challenge.time_between_updates
+    else
+      return (Time.now - self.created_at) > self.challenge.time_between_updates
+    end
+  end
 end
