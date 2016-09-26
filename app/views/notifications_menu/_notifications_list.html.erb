@@ -1,17 +1,20 @@
 <% if notifications.empty? %>
-    <li class="notification-list-item o-dropdown__li">
+    <li class="o-dropdown__li c-noti-dropdown__li">
       No notifications!
     </li>
   <% else %>
     <% notifications.last(4).reverse.each do |notification| %>
-      <li class="notification-list-item o-dropdown__li">
+      <li class="o-dropdown__li o-media c-noti-dropdown__li">
+        <div class="o-media__img c-noti-dropdown__li__img">
           <%= image_tag notification.image, class: "o-img--round o-img--tiny" %>
-          <%= notification.text %>
-          <%= link_to "View", notification.link, class: "notification-link" %>
+        </div>
+        <div class="o-media__bd c-noti-dropdown__li__bd">
+          <%= link_to notification.text, notification.link, class: "u-text--black" %>
+        </div>
       </li>
     <% end %>
     <% if notifications.length > 4 %>
-      <li class="notification-list-item o-dropdown__li">
+      <li class="o-dropdown__li c-noti-dropdown__li">
         <%= link_to "View all", profile_notifications_path(profile_id: profile.id) %>
       </li>
     <% end %>

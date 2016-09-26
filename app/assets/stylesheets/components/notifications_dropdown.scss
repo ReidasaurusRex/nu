@@ -1,3 +1,16 @@
 .c-noti-dropdown {
   right: 125px;
 }
+
+.c-noti-dropdown__li {
+  text-align: left;
+}
+
+.c-noti-dropdown__li__img {
+  margin-right: $spacing-unit / 3;
+  margin-top: 3px;
+}
+
+.c-noti-dropdown__li__bd {
+  font-size: 80%;
+}
