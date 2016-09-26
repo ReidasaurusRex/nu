@@ -1,16 +1,20 @@
 <% if pending_follows.empty? %>
-    <li class="pending-follow-list-item o-dropdown__li">
+    <li class="o-dropdown__li">
       No pending followers!
     </li>
   <% else %>
     <% pending_follows.last(4).reverse.each do |pending_follow| %>
-      <li class="pending-follow-list-item o-dropdown__li">
+      <li class="o-dropdown__li c-noti-dropdown__li">
+        <div class="o-media__img c-noti-dropdown__li__img">
           <%= image_tag pending_follow.pending_follower.profile_photo, class: "o-img--round o-img--tiny" %>
-          <%= pending_follow.pending_follower.full_name %>
-          <span class="right-side">
-            <%= link_to "<i class='fa fa-times pending-follower-deny'></i>".html_safe, profile_pending_follow_path(profile_id: @profile.id, id: pending_follow.id), method: :delete %>
-            <%= link_to "<i class='fa fa-check pending-follower-accept'></i>".html_safe, profile_follows_path(profile_id: @profile.id, follower_id: pending_follow.pending_follower_id), method: :post %>
-          </span>
+        </div>
+        <div class="o-media__bd c-noti-dropdown__li__bd">
+          <%= pending_follow.pending_follower.full_name %> wants to follow you
+        </div>
+        <div class="o-media__ext">
+          <%= link_to "<i class='fa fa-times'></i>".html_safe, profile_pending_follow_path(profile_id: @profile.id, id: pending_follow.id), method: :delete, class: "c-noti-dropdown__li__pf-resp u-text--apricot"%>
+          <%= link_to "<i class='fa fa-check'></i>".html_safe, profile_follows_path(profile_id: @profile.id, follower_id: pending_follow.pending_follower_id), method: :post, class: "c-noti-dropdown__li__pf-resp u-text--wild-willow" %>
+        </div>
       </li>
     <% end %>
     <% if pending_follows.length > 4 %>
