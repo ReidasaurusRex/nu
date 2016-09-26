@@ -14,3 +14,18 @@
 .c-noti-dropdown__li__bd {
   font-size: 80%;
 }
+
+.c-noti-dropdown__li--header__right {
+  display: inline-block;
+  float: right;
+}
+
+.c-noti-dropdown__li--header__right--req-num {
+  background: $color-apricot;
+  border-radius: 6px;
+  color: $color-white;
+  height: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  vertical-align: middle;
+}
