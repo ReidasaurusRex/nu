@@ -9,6 +9,6 @@ class Challenge < ActiveRecord::Base
   end
 
   def time_between_updates
-    return self.length / self.update_num
+    return self.length / (self.update_num - 1)
   end
 end
