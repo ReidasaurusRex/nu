@@ -7,7 +7,7 @@ module ProfileStartedChallengesHelper
         return  button_to("Complete", new_profile_started_challenge_profile_completed_challenge_path(profile_started_challenge_id: started_challenge.id), method: :get).html_safe
       end
     else
-      return started_challenge.update_message
+      return "<span class='c-challenges-list__li__ext__upd-message'>#{started_challenge.update_message}</span>".html_safe
     end
   end
 
