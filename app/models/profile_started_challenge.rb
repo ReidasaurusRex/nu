@@ -17,11 +17,11 @@ class ProfileStartedChallenge < ActiveRecord::Base
   end
 
   def start_date
-    self.created_at.strftime("%B %d, %Y")
+    return self.created_at.strftime("%B %d, %Y")
   end
 
   def image_path
-    "icon_color_#{self.progress_category}.png"
+    return "icon_color_#{self.progress_category}.png"
   end
 
   def updateable?
@@ -29,6 +29,25 @@ class ProfileStartedChallenge < ActiveRecord::Base
       return (Time.now - self.started_challenge_updates.last.created_at) > self.challenge.time_between_updates
     else
       return (Time.now - self.created_at) > self.challenge.time_between_updates
+    end
+  end
+
+  def time_til_updateable
+    time_since = self.started_challenge_updates.last ? (Time.now - self.started_challenge_updates.last.created_at) : (Time.now - self.created_at)
+    return self.challenge.time_between_updates - time_since
+  end
+
+  def date_updateable
+    return  Time.at(Time.now.to_f + self.time_til_updateable)
+  end
+
+  def update_message
+    date = self.date_updateable
+    time_til = date - Time.now
+    if time_til > 86400
+      return "Update on #{date.strftime("%b %d")}"
+    else
+      return "Update in #{(time_til / 3600).ceil}hr"
     end
   end
 end
