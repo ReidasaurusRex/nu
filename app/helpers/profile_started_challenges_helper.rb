@@ -15,18 +15,18 @@ module ProfileStartedChallengesHelper
     return ((started_challenge.started_challenge_updates.length.to_f / 4) * 100).to_i
   end
 
-  def challenge_progress_point_style(started_challenge, point_num)
-    if started_challenge.started_challenge_updates.length >= point_num
-      case point_num
-      when 1
-        return "c-progress-challenge-bar__point--1"
-      when 2
-        return "c-progress-challenge-bar__point--2"
-      when 3
-        return "c-progress-challenge-bar__point--3"
-      else
-        return ""
-      end
+  def challenge_progress_point_mar_left(started_challenge)
+    update_num = started_challenge.challenge.update_num
+    return (100 / update_num - (update_num - 2)).to_i
+  end
+
+  def dots_for_progress_bar(psc)
+    updates = psc.challenge.update_num - 1
+    response_string = ""
+    updates.times do |i|
+      div = "<div class='c-progress-challenge-bar__point c-progress-challenge-bar__point--#{updates}-#{i+1}' style='margin-left: #{challenge_progress_point_mar_left(psc)}%'></div>"
+      response_string << div
     end
+    return response_string.html_safe
   end
 end
