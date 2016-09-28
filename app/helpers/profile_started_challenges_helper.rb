@@ -12,7 +12,7 @@ module ProfileStartedChallengesHelper
   end
 
   def challenge_progress_width(psc)
-    return ((psc.started_challenge_updates.length.to_f / 4) * 100).to_i
+    return ((psc.started_challenge_updates.length.to_f / psc.challenge.update_num.to_f) * 100).to_i
   end
 
   def challenge_progress_point_mar_left(psc)
