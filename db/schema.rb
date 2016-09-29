@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20160919175744) do
   end
 
   create_table "challenges", force: :cascade do |t|
-    # TODO: add new columns to challenge and migrate smoothly
     t.string   "title"
     t.string   "caption"
     t.string   "description"
