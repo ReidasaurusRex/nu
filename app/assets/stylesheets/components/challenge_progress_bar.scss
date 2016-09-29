@@ -8,6 +8,7 @@
   background-color: $color-alto;
   height: inherit;
   position: absolute;
+  // width defined inline at profiles/challenges/_challenge_progress_bar.html.erb
   z-index: 1;
 }
 
@@ -17,21 +18,33 @@
   border-radius: 10px;
   display: inline-block;
   height: 10px;
-  margin-left: 23%;
+  // margin left defined in profile_started_challenges_helper.rb
   margin-top: -3px;
   position: relative;
   vertical-align: top;
   width: 10px;
   z-index: 3;
-  &--1 {
-    background: $color-apricot;
-    border: 1px solid $color-apricot;
-  }
-  &--2 {
+  &--1-1 {
     background: $color-goldenrod;
     border: 1px solid $color-goldenrod;
   }
-  &--3 {
+  &--2-1 {
+    background: $color-saffron-mango;
+    border: 1px solid $color-saffron-mango;
+  }
+  &--2-2 {
+    background: $color-conifer;
+    border: 1px solid $color-conifer;
+  }
+  &--3-1 {
+    background: $color-apricot;
+    border: 1px solid $color-apricot;
+  }
+  &--3-2 {
+    background: $color-goldenrod;
+    border: 1px solid $color-goldenrod;
+  }
+  &--3-3 {
     background: $color-wild-willow;
     border: 1px solid $color-wild-willow;
   }

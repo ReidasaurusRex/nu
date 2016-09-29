@@ -1,6 +1,13 @@
-<p>Nu Score</p>
+<p class="c-chal-info__el--small-m-bot">Nu Score</p>
 <h2 class="o-point-circle o-point-circle--large"><%= challenge.points %></h2>
-<p>Level of Difficult</p>
-<p class="u-text--apricot"><%= challenge.difficulty %> out of 5</p>
-<p>Check in #</p>
-<p>Length</p>
+<p class="c-chal-info__el--small-m-bot">Level of Difficult</p>
+<p class="c-chal-info__el--med-m-bot u-text--apricot"><%= challenge.difficulty %> out of 5</p>
+<p class="c-chal-info__el--small-m-bot">No. of Check-ins</p>
+<div class="c-chal-info__el--med-m-bot c-chal-info__upd-num">
+  <% (challenge.update_num).times do  %>
+    <div class="c-challenges-list__li__ext__upd-num__dot"></div> 
+  <% end %>
+</div>
+<p class="c-chal-info__el--small-m-bot">Length</p>
+<p class="c-chal-info__el--small-m-bot c-chal-info__clock"><i class="fa fa-2x fa-clock-o u-text--monte-carlo"></i></p>
+<p class="c-chal-info__el--small-m-bot c-chal-info__clock u-text--monte-carlo"><%= friendly_challenge_length(challenge.length) %></p>

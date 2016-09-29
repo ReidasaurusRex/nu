@@ -7,4 +7,8 @@ class Challenge < ActiveRecord::Base
   def image_path
     "icon_color_#{self.progress_category}.png"
   end
+
+  def time_between_updates
+    return self.length / (self.update_num - 1)
+  end
 end

@@ -32,7 +32,7 @@
   }
   &:last-child {
     border-bottom: none;
-    padding-bottom: 0;
+    padding-bottom: $spacing-unit / 2;
   }
 }
 
@@ -65,9 +65,28 @@
 }
 
 .c-challenges-list__li__ext__el {
+  font-size: 80%;
   margin-bottom: $spacing-unit / 2;
   &:first-child {
     margin-bottom: $spacing-unit / 3;
-    margin-top: $spacing-unit / 2;
   }
+}
+
+.c-challenges-list__li__ext__upd-message {
+  color: $color-monte-carlo;
+}
+
+.c-challenges-list__li__ext__upd-num {
+  text-align: center;
+}
+
+.c-challenges-list__li__ext__upd-num__dot {
+  background: $color-goldenrod;
+  border-radius: 5px;
+  display: inline-block;
+  height: 5px;
+  margin-bottom: $spacing-unit;
+  margin-right: $spacing-unit / 5;
+  vertical-align: top;
+  width: 5px;
 }

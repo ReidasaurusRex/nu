@@ -17,11 +17,17 @@
         <div class="o-media__bd c-challenges-list__li__bd c-challenges-list__li__bd--push-down">
           <h3 class="c-challenges-list__li__bd__el"><%= challenge.title %></h3>
           <p class="c-challenges-list__li__bd__el"><%= challenge.caption %></p>
+          <p class="c-challenges-list__li__bd__el"><%= link_to "Check it out", profile_challenge_path(profile_id: @profile.id, id: challenge.id), class: "u-text--apricot" %></p>
         </div>
         <div class="o-media__ext c-challenges-list__li__ext">
           <p class="c-challenges-list__li__ext__el">Nu Score</p>
           <p class="o-point-circle o-point-circle--small c-challenges-list__li__ext__el"><%= challenge.points %></p>
-          <p class="c-challenges-list__li__ext__el"><%= link_to "Check it out", profile_challenge_path(profile_id: @profile.id, id: challenge.id) %></p>
+          <p class="c-challenges-list__li__ext__el">No. of Check-ins</p>
+          <div class="c-challenges-list__li__ext__el c-challenges-list__li__ext__upd-num">
+            <% (challenge.update_num).times do  %>
+              <div class="c-challenges-list__li__ext__upd-num__dot"></div> 
+            <% end %>
+          </div>
         </div>
       </li>
     <% end %>

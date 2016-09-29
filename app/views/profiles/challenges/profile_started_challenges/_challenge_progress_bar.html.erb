@@ -1,6 +1,4 @@
 <div class="c-progress-challenge-bar">
   <div class="c-progress-challenge-bar__mute" style="width: <%= 100 - challenge_progress_width(psc) %>%; left: <%= challenge_progress_width(psc) %>%"></div>
-  <div class="c-progress-challenge-bar__point <%= challenge_progress_point_style(psc, 1) %>"></div>
-  <div class="c-progress-challenge-bar__point <%= challenge_progress_point_style(psc, 2) %>"></div>
-  <div class="c-progress-challenge-bar__point <%= challenge_progress_point_style(psc, 3) %>"></div>
+  <%= dots_for_progress_bar(psc) %>
 </div>
