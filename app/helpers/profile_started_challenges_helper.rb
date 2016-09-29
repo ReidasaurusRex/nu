@@ -7,7 +7,7 @@ module ProfileStartedChallengesHelper
         return  button_to("Complete", new_profile_started_challenge_profile_completed_challenge_path(profile_started_challenge_id: psc.id), method: :get).html_safe
       end
     else
-      return "<span class='c-challenges-list__li__ext__upd-message'>#{psc.update_message}</span>".html_safe
+      return "<span class='c-challenges-list__li__ext__upd-message' title=\'Wait to update until #{psc.date_updateable.strftime('%B %d')}\'>#{psc.update_message}</span>".html_safe
     end
   end
 
