@@ -5,11 +5,12 @@ class Profiles::Settings::PrivacySettingsController < Inheritance::ProfileMatche
 
   private
   def privacy_setting_params
-    params.require(:privacy_setting).permit()
+    params.require(:privacy_setting).permit(:location, :feed, :last_name)
   end
 
   def update_privacy_setting(params)
     @privacy_setting = @profile.privacy_setting
-    binding.pry
+    @privacy_setting.update(params)
+    redirect_to profile_general_settings_path(@profile)
   end
 end

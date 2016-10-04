@@ -56,6 +56,10 @@ class Profile < ActiveRecord::Base
     first_name_changed? || last_name_changed?
   end
 
+  def abbrev_name
+    return "#{self.first_name.capitalize} #{self.last_name[0].upcase}."
+  end
+
   def start_date
     return self.created_at.strftime("%B %Y")
   end

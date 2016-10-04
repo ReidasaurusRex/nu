@@ -1,27 +1,39 @@
 <%= form_for(privacy_setting, url: profile_privacy_setting_path(profile_id: privacy_setting.profile.id, id: privacy_setting.id)) do |f| %>
 
-  <ul class="o-inline-list">
+  <ul class="o-inline-list c-settings-section__form__line">
     <li class="o-inline-list__li">Who can see my feed?</li>
     <li class="o-inline-list__li">
-      <%= f.label "Only my followers" %>
+      <%= f.label :feed_followers, "Only my followers" %>
       <%= f.radio_button(:feed, "followers") %>    
     </li>
     <li class="o-inline-list__li">
-      <%= f.label "Everyone" %>
+      <%= f.label :feed_all, "Everyone" %>
       <%= f.radio_button(:feed, "everyone") %>
     </li>
   </ul>
 
-  <ul class="o-inline-list">
-    <li class="o-inline-list">Who can see my location?</li>
-    <li class="o-inline-list"></li>
-    <li class="o-inline-list"></li>
+  <ul class="o-inline-list c-settings-section__form__line">
+    <li class="o-inline-list__li">Who can see my location?</li>
+    <li class="o-inline-list__li">
+      <%= f.label :location_all, "Only my followers" %>
+      <%= f.radio_button(:location, "followers") %>
+    </li>
+    <li class="o-inline-list__li">
+      <%= f.label :location_all, "Everyone" %>
+      <%= f.radio_button(:location, "everone") %>
+    </li>
   </ul>
 
-  <ul class="o-inline-list">
-    <li class="o-inline-list">Show my last name?</li>
-    <li class="o-inline-list"></li>
-    <li class="o-inline-list"></li>
+  <ul class="o-inline-list c-settings-section__form__line">
+    <li class="o-inline-list__li">Show my last name?</li>
+    <li class="o-inline-list__li">
+      <%= f.label :last_name_full, "#{privacy_setting.profile.full_name}" %>
+      <%= f.radio_button(:last_name, true) %>
+    </li>
+    <li class="o-inline-list__li">
+      <%= f.label :last_name_abbrev, "#{privacy_setting.profile.abbrev_name}" %>
+      <%= f.radio_button(:last_name, false) %>
+    </li>
   </ul>
   
   <%= f.submit "Save" %>
