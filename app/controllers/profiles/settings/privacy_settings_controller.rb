@@ -5,7 +5,7 @@ class Profiles::Settings::PrivacySettingsController < Inheritance::ProfileMatche
 
   private
   def privacy_setting_params
-
+    params.require(:privacy_setting).permit()
   end
 
   def update_privacy_setting(params)
