@@ -7,7 +7,7 @@
         <% @profile_blocked_profiles.each do |pbp| %>
           <li>
             <%= image_tag pbp.blocked_profile.profile_photo, class: "profile-photo" %>
-            <%= pbp.blocked_profile.full_name %>
+            <%= pbp.blocked_profile.full_or_abbrev_name %>
             <%= button_to('X', profile_profile_blocked_profile_path(profile_id: @profile.id, id: pbp.id), method: :delete, data: {confirm: "Unblock #{pbp.blocked_profile.first_name}?"}) %>
           </li>
         <% end %>

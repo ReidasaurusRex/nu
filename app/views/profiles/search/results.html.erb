@@ -9,7 +9,7 @@
         <% @results[:profiles].each do |profile| %>
           <div class="c-profile-summary">
             <%= link_to(image_tag(profile.profile_photo, class: "o-img--large o-img--round c-profile-summary__el").html_safe, profile_path(profile))  %>
-            <h3 class="c-profile-summary__el"><%= profile.full_name %></h3>
+            <h3 class="c-profile-summary__el"><%= profile.full_or_abbrev_name %></h3>
             <p class="c-profile-summary__el"><%= subscription_link(@profile, profile) %></p>
           </div> <!-- c-profile-summary -->
         <% end %> <!-- profiles each -->

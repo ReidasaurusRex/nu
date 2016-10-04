@@ -9,7 +9,7 @@
           <%= image_tag pending_follow.pending_follower.profile_photo, class: "o-img--round o-img--tiny" %>
         </div>
         <div class="o-media__bd c-noti-dropdown__li__bd">
-          <%= pending_follow.pending_follower.full_name %> wants to follow you
+          <%= pending_follow.pending_follower.full_or_abbrev_name %> wants to follow you
         </div>
         <div class="o-media__ext">
           <%= link_to "<i class='fa fa-times'></i>".html_safe, profile_pending_follow_path(profile_id: @profile.id, id: pending_follow.id), method: :delete, class: "c-noti-dropdown__li__pf-resp u-text--apricot"%>

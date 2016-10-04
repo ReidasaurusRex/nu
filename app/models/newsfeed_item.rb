@@ -54,7 +54,7 @@ class NewsfeedItem < ActiveRecord::Base
     if self.source == profile
       return "You"
     else
-      return self.source.full_name
+      return self.source.full_or_abbrev_name
     end
   end
 

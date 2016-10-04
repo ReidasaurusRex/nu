@@ -2,7 +2,7 @@
   <%= image_tag item.source.profile_photo, class: "o-media__img o-img--small o-img--round c-newsfeed-item__media__img" %>
   <div class="o-media__bd c-newsfeed-list__item__bd">
     <p class="c-newsfeed-list__item__text">
-      <%= item.source.full_name %> <span class="c-newsfeed-list__item__pd"><%= item.time_since_creation %></span>
+      <%= item.source.full_or_abbrev_name %> <span class="c-newsfeed-list__item__pd"><%= item.time_since_creation %></span>
     </p>
     <p class="c-newsfeed-list__item__text">
       <%= item.content %>

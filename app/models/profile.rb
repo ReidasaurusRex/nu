@@ -60,6 +60,11 @@ class Profile < ActiveRecord::Base
     return "#{self.first_name.capitalize} #{self.last_name[0].upcase}."
   end
 
+  def full_or_abbrev_name
+    return self.full_name if self.privacy_setting.last_name
+    return self.abbrev_name
+  end
+
   def start_date
     return self.created_at.strftime("%B %Y")
   end
