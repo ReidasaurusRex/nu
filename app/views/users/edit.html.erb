@@ -11,14 +11,14 @@
 
       <%= f.password_field :password, placeholder: "Password" %>
       
-      <div class="submit-or-password">
-        <div class="submit-form">
+      <ul class="o-inline-list">
+        <li class="o-inline-list__li">
           <%= f.submit "Edit email" %>
-        </div>
-        <div class="change-password-link">
+        </li>
+        <li class="o-inline-list__li">
           <%= link_to "Edit password", user_edit_password_path(@user) %>
-        </div>
-      </div>
+        </li>
+      </ul>
     <% end %> <!-- form -->
     </div>
   </div> <!-- o-bubble o-bubble--full -->
