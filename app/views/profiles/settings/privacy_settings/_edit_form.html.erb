@@ -1,0 +1,4 @@
+<%= form_for(privacy_setting, url: profile_privacy_setting_path(profile_id: privacy_setting.profile.id, id: privacy_setting.id)) do |f| %>
+  
+  <%= f.submit "Save" %>
+<% end %>
