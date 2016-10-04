@@ -1,4 +1,28 @@
 <%= form_for(privacy_setting, url: profile_privacy_setting_path(profile_id: privacy_setting.profile.id, id: privacy_setting.id)) do |f| %>
+
+  <ul class="o-inline-list">
+    <li class="o-inline-list__li">Who can see my feed?</li>
+    <li class="o-inline-list__li">
+      <%= f.label "Only my followers" %>
+      <%= f.radio_button(:feed, "followers") %>    
+    </li>
+    <li class="o-inline-list__li">
+      <%= f.label "Everyone" %>
+      <%= f.radio_button(:feed, "everyone") %>
+    </li>
+  </ul>
+
+  <ul class="o-inline-list">
+    <li class="o-inline-list">Who can see my location?</li>
+    <li class="o-inline-list"></li>
+    <li class="o-inline-list"></li>
+  </ul>
+
+  <ul class="o-inline-list">
+    <li class="o-inline-list">Show my last name?</li>
+    <li class="o-inline-list"></li>
+    <li class="o-inline-list"></li>
+  </ul>
   
   <%= f.submit "Save" %>
 <% end %>
