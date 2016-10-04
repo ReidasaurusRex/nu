@@ -9,10 +9,13 @@
     <div class="c-profile-heading__info__wrapper">
       <div class="c-profile-heading__info__nlj">
         <h2 class="c-profile-heading__info__text"><%= @target_profile.full_or_abbrev_name %></h2>
-        <p class="c-profile-heading__info__text">
-          <i class="fa fa-map-marker fa-lg u-text--apricot"></i>
-          <%= @target_profile.state.upcase %>
-        </p>
+        <% if @target_profile == @profile || @target_profile.followers.include?(@profile) || @target_profile.privacy_setting.location == "everyone" %>
+          <p class="c-profile-heading__info__text">
+            <i class="fa fa-map-marker fa-lg u-text--apricot"></i>
+            <%= @target_profile.state.upcase %>
+          </p>
+        <% end %>
+
         <h6 class="c-profile-heading__info__text">
           <i class="fa fa-clock-o fa-lg u-text--flax"></i>
           Joined <%= @target_profile.start_date %>
