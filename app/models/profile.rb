@@ -65,7 +65,7 @@ class Profile < ActiveRecord::Base
   end
 
   def add_default_settings
-    PrivacySetting.create(profile_id: self.id, display_location: "me", display_stats: "public", display_feed: "followers")
+    PrivacySetting.create(profile_id: self.id, location: "everyone", feed: "followers", last_name: true)
     SharingSetting.create(profile_id: self.id, improvements: true, follow: true, footprint: true)
   end
 
