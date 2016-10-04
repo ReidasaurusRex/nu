@@ -9,8 +9,7 @@
   <div class="o-bubble c-settings-section">
     <h2 class="c-settings-section__heading">Privacy</h1>
     <p class="section-description">Who gets to see what?</p>
-    <%= render partial: "profiles/settings/privacy_settings/overview_list", locals: {privacy: @settings[:privacy]} %>
-    <%= link_to "Edit privacy settings", edit_profile_privacy_setting_path(profile_id: @profile.id, id: @profile.privacy_setting.id) %>
+    <%= render partial: "profiles/settings/privacy_settings/edit_form", locals: {privacy_setting: @settings[:privacy]} %>
   </div>
 
   <div class="o-bubble c-settings-section">
