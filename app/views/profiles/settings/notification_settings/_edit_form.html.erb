@@ -1,1 +1,21 @@
-<h3>Aloha</h3>
+<%= form_for(notification_setting, url: profile_notification_setting_path(profile_id: notification_setting.profile.id, id: notification_setting.id)) do |f| %>
+
+  <p>
+    <%= f.label :likes, "Notify me when a post is liked" %>
+    <%= f.check_box :likes %>
+  </p>
+  <p>
+    <%= f.label :comments, "Notify me when a post is commented on" %>
+    <%= f.check_box :comments %>
+  </p>
+  <p>
+    <%= f.label :challenge_reminders, "Notify me to check in for a challenge" %>
+    <%= f.check_box :challenge_reminders %>
+  </p>
+  <p>
+    <%= f.label :new_challenges, "Notify me of new challenges" %>
+    <%= f.check_box :new_challenges %>
+  </p>
+  
+  <%= f.submit "Save" %>
+<% end %>
