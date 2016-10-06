@@ -13,8 +13,7 @@
 
   <div class="o-bubble c-settings-section">
     <h2 class="c-settings-section__heading">Sharing</h1>
-    <p class="section-description">What do you post to your followers?</p>
-    <%= render partial: "profiles/settings/sharing_settings/overview_list", locals: {sharing: @settings[:sharing]} %>
+    <%= render partial: "profiles/settings/sharing_settings/edit_form", locals: {sharing_setting: @settings[:sharing]} %>
   </div>
 
   <div class="o-bubble c-settings-section">
