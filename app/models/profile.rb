@@ -23,7 +23,7 @@ class Profile < ActiveRecord::Base
 
   # Setting relations
   has_one :privacy_setting, dependent: :destroy
-  has_one :sharing_setting, dependent: :destroy
+  has_one :notification_setting, dependent: :destroy
 
   # Misc relations
   has_many :footprints, dependent: :destroy
