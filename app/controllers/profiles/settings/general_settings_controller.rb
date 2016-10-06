@@ -7,7 +7,7 @@ class Profiles::Settings::GeneralSettingsController < Inheritance::ProfileMatche
   private
   def get_settings
     @settings = Hash.new
-    @settings[:sharing] = @profile.sharing_setting
+    @settings[:notification] = @profile.notification_setting
     @settings[:privacy] = @profile.privacy_setting
     return @settings
   end
