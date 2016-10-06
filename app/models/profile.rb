@@ -71,6 +71,7 @@ class Profile < ActiveRecord::Base
 
   def add_default_settings
     PrivacySetting.create(profile_id: self.id, location: "everyone", feed: "followers", last_name: true)
+    NotificationSetting.create(profile_id: self.id, likes: true, comments: true, challenge_reminders: true, new_challenges: true)
   end
 
   def add_point_overview
