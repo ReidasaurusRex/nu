@@ -52,7 +52,7 @@
       resources :profile_feeds, except: [:edit, :update, :new]
       scope module: 'settings' do 
         resources :general_settings, only: :index
-        resources :sharing_settings, :privacy_settings, only: :update
+        resources :notification_settings, :privacy_settings, only: :update
       end # settings module
       scope module: 'follow_system' do
        resources :pending_follows, :pending_subscriptions, only: [:index, :create, :destroy]
