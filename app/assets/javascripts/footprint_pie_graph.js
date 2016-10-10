@@ -13,6 +13,7 @@ function drawFootprintPieGraphs() {
 
 function drawPieGraph(footprintDiv) {
   var footprintData = $(footprintDiv).data('footprintOverview');
+  var chartColors = ['#B1D276', '#FFB907', '#8BD1CA', '#E64D7D', '#F1613A'];
   new Highcharts.Chart({
     chart: {
       animation: false,
@@ -28,7 +29,15 @@ function drawPieGraph(footprintDiv) {
         },
         text: $(footprintDiv).data('creationDate')
       },
-    colors: ['#B1D276', '#FFB907', '#8BD1CA', '#E64D7D', '#F1613A'],
+    colors: chartColors.map(function(color) {
+      return {
+        radialGradient: {cx: 0.5, cy: 0.5, r: 0.7},
+        stops: [
+          [0, color],
+          [1, Highcharts.Color(color).brighten(0.3).get('rgb')]
+        ]
+      };
+    }),
     credits: {
       enabled: false
     },
