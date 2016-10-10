@@ -1,7 +1,7 @@
 .c-search-bar {
   border: 2px solid $color-wild-willow;
   border-radius: 45px;
-  height: 32px;
+  height: 25px;
   vertical-align: middle;
   width: 220px;
 }
@@ -9,7 +9,7 @@
 .c-search-bar__input {
   border: none;
   float: left;
-  margin: 3px 0 0 10px;
+  margin: 0px 0 0 10px;
   outline: none;
   width: 140px !important;
 }
@@ -18,7 +18,7 @@
   background: none;
   color: $color-sirocco;
   float: right;
-  margin-top: -3px;
+  margin-top: -7px;
   &:hover {
     cursor: pointer;
   }
