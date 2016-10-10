@@ -7,15 +7,15 @@
         <ul class="o-inline-list">
 
           <li class="o-inline-list__li">
-            <%= link_to "<i class='fa fa-list fa-lg c-top-nav__nav-section__text-link__icon'></i>Feed".html_safe, profile_newsfeed_items_path(@user.profile), class: "c-top-nav__nav-section__text-link" %>  
+            <%= link_to "<i class='fa fa-list c-top-nav__nav-section__text-link__icon'></i>Feed".html_safe, profile_newsfeed_items_path(@user.profile), class: "c-top-nav__nav-section__text-link" %>  
           </li>
 
           <li class="o-inline-list__li">
-            <%= link_to "<i class='fa fa-signal fa-lg c-top-nav__nav-section__text-link__icon'></i>Stats".html_safe, profile_stats_path(@user.profile), class: "c-top-nav__nav-section__text-link" %>
+            <%= link_to "<i class='fa fa-signal c-top-nav__nav-section__text-link__icon'></i>Stats".html_safe, profile_stats_path(@user.profile), class: "c-top-nav__nav-section__text-link" %>
           </li>
 
           <li class="o-inline-list__li">
-            <%= link_to "<i class='fa fa-trophy fa-lg c-top-nav__nav-section__text-link__icon'></i>Challenges".html_safe, profile_profile_started_challenges_path(@user.profile), class: "c-top-nav__nav-section__text-link" %>    
+            <%= link_to "<i class='fa fa-trophy c-top-nav__nav-section__text-link__icon'></i>Challenges".html_safe, profile_profile_started_challenges_path(@user.profile), class: "c-top-nav__nav-section__text-link" %>    
           </li>
 
         </ul>
@@ -46,7 +46,7 @@
           <li class="o-inline-list__li c-top-nav__nav-section__right-section jsDropdownButton" id="jsProfDropdownButton">
             <%= button_tag(class: "c-top-nav__nav-section__icon-link c-top-nav__nav-section__icon-link--no-pad") do %>
               <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %>
-              <i class='fa fa-caret-down fa-lg c-top-nav__nav-section__icon-link__caret'></i>
+              <i class='fa fa-caret-down fa c-top-nav__nav-section__icon-link__caret'></i>
             <% end %>
           </li> <!-- dropdown-menu -->
 
