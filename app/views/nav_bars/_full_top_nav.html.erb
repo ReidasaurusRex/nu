@@ -32,21 +32,21 @@
         
         <ul class="o-inline-list">
 
-          <li class="o-inline-list__li c-search-bar">
+          <li class="o-inline-list__li c-top-nav__nav-section__right-section c-search-bar">
             <%= render partial: "profiles/search/search_bar", locals: {profile: @user.profile} %>
           </li>  <!-- search-form -->
           
-          <li class="o-inline-list__li jsDropdownButton" id="jsNotiDropdownButton">
+          <li class="o-inline-list__li c-top-nav__nav-section__right-section jsDropdownButton" id="jsNotiDropdownButton">
             <%= button_tag("<i class='fa fa-bell fa-2x'></i>".html_safe, class: "c-top-nav__nav-section__icon-link") %>
             <div 
               class="c-top-nav__nav-section__icon-link__noti-dot <%= pending_follows_color(@user.profile) %>"
             ></div>
           </li> <!-- notifications -->
 
-          <li class="o-inline-list__li jsDropdownButton" id="jsProfDropdownButton">
-            <%= button_tag(class: "c-top-nav__nav-section__icon-link") do %>
+          <li class="o-inline-list__li c-top-nav__nav-section__right-section jsDropdownButton" id="jsProfDropdownButton">
+            <%= button_tag(class: "c-top-nav__nav-section__icon-link c-top-nav__nav-section__icon-link--no-pad") do %>
               <%= image_tag @user.profile.profile_photo, class: "c-top-nav__nav-section__img" %>
-              <i class='fa fa-caret-down fa-lg'></i>
+              <i class='fa fa-caret-down fa-lg c-top-nav__nav-section__icon-link__caret'></i>
             <% end %>
           </li> <!-- dropdown-menu -->
 
