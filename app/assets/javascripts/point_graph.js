@@ -15,7 +15,8 @@ function drawPointGraph(data) {
         renderTo: 'jsPointOverviewGraph',
         type: 'pie'
       }, 
-      colors: ['#B1D276', '#FFB907', '#8BD1CA', '#E64D7D', '#F1613A', '#B17FCE'],
+      colors: ['#B1D276', '#FFB907', '#8BD1CA', '#E64D7D', '#F1613A', '#B17FCE'], 
+      //      [Travel green, energy yellow, water blue, waste pink, food orange, social purple]
       credits: {
         enabled: false
       },
