@@ -13,7 +13,7 @@ class Utility < ActiveRecord::Base
     when "electricity"
       errors.add(:input_type, "Please select kWh") unless input_type == "kWh"
     when "natural_gas"
-      errors.add(:input_type, "Please select therms, hundred cubic feet, or dollars") unless ["therms, 100cft, dollars"].include?(input_type)
+      errors.add(:input_type, "Please select therms, hundred cubic feet, or dollars") unless ["therms", "100cft", "dollars"].include?(input_type)
     end
   end
 

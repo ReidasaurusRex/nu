@@ -6,7 +6,6 @@ class Profiles::StatsController < Inheritance::ProfileMatchesUserController
 
   private
   def leaders_around_profile(profile_id, range, category=:total)
-    binding.pry
     leader_ids = PointOverview.order(category => :desc).pluck(:profile_id)
     index = leader_ids.index(profile_id)
     target_length = range * 2 + 1
