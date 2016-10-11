@@ -1,5 +1,5 @@
 class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
-  layout "calculator", except: :index
+  layout "calculator", except: [:new, :index]
 
   before_action :get_footprint, only: [:show, :destroy]
   before_action :ensure_footprint_belongs_to_user, except: [:index, :new, :create]
@@ -10,6 +10,7 @@ class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
   end
 
   def new
+    @footprint = Footprint.new
   end
 
   def create
