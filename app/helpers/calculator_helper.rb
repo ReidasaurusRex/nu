@@ -1,4 +1,13 @@
 module CalculatorHelper
+  def new_footprint_or_complete_path(profile)
+    
+    if  profile.footprints.empty? || profile.footprints.last.complete?
+      return new_profile_footprint_path(profile)
+    else
+      return profile_footprint_path(profile_id: profile.id, id: profile.footprints.last.id)
+    end
+  end
+
   def diet_link(footprint)
     if footprint.diet
       return link_to(image_tag(footprint.diet.image_path), footprint_diet_path(footprint_id: footprint.id, id: footprint.diet.id)).html_safe

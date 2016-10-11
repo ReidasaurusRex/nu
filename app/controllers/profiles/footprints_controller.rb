@@ -2,11 +2,14 @@ class Profiles::FootprintsController < Inheritance::ProfileMatchesUserController
   layout "calculator", except: :index
 
   before_action :get_footprint, only: [:show, :destroy]
-  before_action :ensure_footprint_belongs_to_user, except: [:index, :create]
+  before_action :ensure_footprint_belongs_to_user, except: [:index, :new, :create]
   before_action :redirect_if_incomplete, only: :show
 
   def index
     @footprints = @profile.footprints.order(created_at: :desc)
+  end
+
+  def new
   end
 
   def create

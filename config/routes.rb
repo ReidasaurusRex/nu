@@ -47,7 +47,7 @@
       resources :challenges, only: [:index, :show]
       resources :newsfeed_items, except: :new
       resources :profile_blocked_profiles, only: [:index, :create, :destroy]
-      resources :footprints, except: [:new, :update, :edit]
+      resources :footprints, except: [:update, :edit]
       resources :feeds, only: :create
       resources :profile_feeds, except: [:edit, :update, :new]
       scope module: 'settings' do 
