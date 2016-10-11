@@ -23,7 +23,7 @@ class Profiles::StatsController < Inheritance::ProfileMatchesUserController
   end
 
   def min_or_3
-    prof_length = Profile.all.length
+    prof_length = Profile.count
     if prof_length > 7
       return 3
     else
