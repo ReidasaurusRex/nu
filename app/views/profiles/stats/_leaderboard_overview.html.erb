@@ -5,7 +5,7 @@
     <p class="c-leaderboard__li__p">
       <span class="c-leaderboard__li__p__place"><%= leader[:place] %></span>
       <%= image_tag(leader[:prof].profile_photo, class: "o-img--round o-img--med c-leaderboard__li__p__img") %>
-      <span class="c-leaderboard__li__p__name"><%= leader[:prof].full_or_abbrev_name %></span>
+      <%= link_to leader[:prof].full_or_abbrev_name, profile_path(leader[:prof]), class: "c-leaderboard__li__p__name" %>
       <span class="c-leaderboard__li__p__points"><%= leader[:prof].point_overview.total %></span>
     </p>
   </li>

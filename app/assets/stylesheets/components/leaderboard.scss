@@ -46,6 +46,9 @@
   max-width: 100px;
   overflow: hidden;
   padding-left: $spacing-unit / 4;
+  &:hover {
+    color: $color-monte-carlo;
+  }
 }
 
 .c-leaderboard__li__p__points {
