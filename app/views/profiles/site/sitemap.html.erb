@@ -10,13 +10,7 @@
             <li><%= link_to "Challenges", profile_profile_started_challenges_path(@profile) %></li>
             <li><%= link_to "Emissions", profile_footprints_path(@profile) %></li>
             <li><%= link_to "Newsfeed", profile_newsfeed_items_path(@profile) %></li>
-            <li>
-              <%= link_to "Settings", profile_general_settings_path(@profile) %>
-              <ul class="sitemap-subsections">
-                <li><%= link_to "Privacy", edit_profile_privacy_setting_path(profile_id: @profile.id, id: @profile.privacy_setting.id) %></li>
-                <li><%= link_to "Sharing", edit_profile_sharing_setting_path(profile_id: @profile, id: @profile.sharing_setting.id) %></li>
-              </ul>
-            </li>
+            <li><%= link_to "Settings", profile_general_settings_path(@profile) %></li>
           </ul>
         </li>
         <li><%= link_to "Feedback", new_feedback_path %></li>
