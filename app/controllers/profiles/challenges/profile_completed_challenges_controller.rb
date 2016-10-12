@@ -11,9 +11,7 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
   end
 
   def create
-    # create_profile_completed_challenge(new_profile_completed_challenge_params)
-    binding.pry
-    render :new
+    create_profile_completed_challenge(new_profile_completed_challenge_params, params[:share])
   end
 
   def show
@@ -56,11 +54,10 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
 
   def create_profile_completed_challenge(params, share_param)
     @profile_completed_challenge = ProfileCompletedChallenge.new(params)
-    binding.pry
     if @profile_completed_challenge.save
       @profile_started_challenge.destroy
       if share_param
-
+        @profile.post_to_followers("Finsihed the challenge #{@profile_completed_challenge.challenge.title}! #{params[:entry]}")
       end
       redirect_to profile_profile_completed_challenge_path(profile_id: @profile.id, id: @profile_completed_challenge.id)
     else
