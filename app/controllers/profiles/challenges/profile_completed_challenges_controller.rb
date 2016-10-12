@@ -34,7 +34,7 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
     if !@profile.profile_started_challenges.include?(@profile_started_challenge)
       flash[:error] = "Unauthorized"
       redirect_to profile_profile_started_challenges_path(@profile)
-    elsif @profile_started_challenge.started_challenge_updates.length < 4
+    elsif @profile_started_challenge.started_challenge_updates.length < @profile_started_challenge.challenge.update_num - 1
       flash[:error] = "Incomplete"
       redirect_to new_profile_started_challenge_started_challenge_update_path(@profile_started_challenge)
     end
