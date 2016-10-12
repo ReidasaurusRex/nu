@@ -11,7 +11,9 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
   end
 
   def create
-    create_profile_completed_challenge(new_profile_completed_challenge_params)
+    # create_profile_completed_challenge(new_profile_completed_challenge_params)
+    binding.pry
+    render :new
   end
 
   def show
@@ -52,11 +54,14 @@ class Profiles::Challenges::ProfileCompletedChallengesController < Inheritance::
     params.require(:profile_completed_challenge).permit(:entry)
   end
 
-  def create_profile_completed_challenge(params)
+  def create_profile_completed_challenge(params, share_param)
     @profile_completed_challenge = ProfileCompletedChallenge.new(params)
+    binding.pry
     if @profile_completed_challenge.save
-      flash[:success] = "Great work!"
       @profile_started_challenge.destroy
+      if share_param
+
+      end
       redirect_to profile_profile_completed_challenge_path(profile_id: @profile.id, id: @profile_completed_challenge.id)
     else
       render :new

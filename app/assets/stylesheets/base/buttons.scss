@@ -1,7 +1,11 @@
 button {
   background: $color-monte-carlo;
   border: none;
+  border-radius: 100px;
   color: $color-white;
   outline: none;
   padding: $spacing-unit / 2;
+  &:hover {
+    cursor: pointer;
+  }
 }

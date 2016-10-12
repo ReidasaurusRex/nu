@@ -25,7 +25,11 @@
         <%= f.text_area :entry, rows: 5, placeholder: "Thoughts?", class: "c-challenge-update__text-entry" %>
         
         <p>
-          <%= f.submit "Complete Challenge"  %>  
+          <ul class="o-inline-list">
+            <li class="o-inline-list__li"><%= f.submit "Complete" %></li>
+            <li class="o-inline-list__li"><%= f.button "Complete and share", name: "share", value: true %></li>
+          </ul>
+          
         </p>
         
       <% end %>
