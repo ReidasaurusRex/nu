@@ -60,6 +60,9 @@
 </div>
 
 <div class="c-footprint-results__section c-footprint-results__text">
+  <p class="c-footprint-results__text__sub-section">
+    <%= button_to "Share reults", profile_newsfeed_items_path(profile_id: @profile.id, newsfeed_item: {content: "Completed an emissions assessment! This past month I emitted #{footprint.total_emissions}, #{footprint.percent_of_us_allotment}\% of the US share!"}) %>
+  </p>
   <div class="c-footprint-results__text__sub-section">
     <p class="u-text--monte-carlo">Overall Emissions</p>
     <p><%= footprint.total_emissions %> lbs of CO2<sub>e</sub></p>
