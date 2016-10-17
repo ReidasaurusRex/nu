@@ -72,9 +72,17 @@
   }
 }
 
+.c-challenges-list__li__ext__upd-link {
+  margin-bottom: 0;
+}
+
 .c-challenges-list__li__ext__upd-message {
-  color: $color-monte-carlo;
-  cursor: default;
+  color: $color-selective-yellow;
+  margin-bottom: 0;
+}
+
+.c-challenges-list__li__ext__view-link {
+  margin-top: -10px;
 }
 
 .c-challenges-list__li__ext__upd-num {

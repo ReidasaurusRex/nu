@@ -14,7 +14,8 @@
       </div>
       <div class="o-media__ext c-challenges-list__li__ext">
         <%= challenge_complete_or_check_in_link(profile_started_challenge) %>
-        <h5>
+        <h6 class="c-challenges-list__li__ext__upd-message">Rec update time: <%= profile_started_challenge.challenge.reccommended_time_message %></h6>
+        <h5 class="c-challenges-list__li__ext__view-link">
           <%= link_to "View", profile_profile_started_challenge_path(profile_id: profile.id, id: profile_started_challenge.id), class: "u-text--apricot" %>
         </h5>
         

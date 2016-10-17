@@ -1,9 +1,9 @@
 module ProfileStartedChallengesHelper
   def challenge_complete_or_check_in_link(psc)
     if psc.started_challenge_updates.length < psc.challenge.update_num - 1
-      return  button_to("Check in", new_profile_started_challenge_started_challenge_update_path(psc.id), method: :get).html_safe
+      return  button_to("Check in", new_profile_started_challenge_started_challenge_update_path(psc.id), method: :get, class: "c-challenges-list__li__ext__upd-link").html_safe
     else
-      return  button_to("Complete", new_profile_started_challenge_profile_completed_challenge_path(profile_started_challenge_id: psc.id), method: :get).html_safe
+      return  button_to("Complete", new_profile_started_challenge_profile_completed_challenge_path(profile_started_challenge_id: psc.id), method: :get, class: "c-challenges-list__li__ext__upd-link").html_safe
     end
   end
 
