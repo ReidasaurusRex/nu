@@ -10,17 +10,17 @@ class Vehicle < ActiveRecord::Base
     message: "Please select a vehicle type"}, if: :have
   validates :fuel_type, inclusion: {in: @@fuel_types,
     message: "Please select a fuel type"}, if: :have
-  validates :mmonth, numericality: {message: "Please enter a number"}, if: :have
+  validates :mweek, numericality: {message: "Please enter a number"}, if: :have
   validates :mpg, numericality: {message: "Please enter a number"}, if: :have
 
   def calculate_emissions
     if self.have
-      ie = 0.163 * self.mmonth
+      ie = 0.163 * self.mweek
       unless has_electricity?(self.fuel_type)
-        gmonth = (self.mmonth / self.mpg)
+        gmonth = (self.mweek / self.mpg)
         return (ie + (gmonth * fuel_conversion(self.fuel_type))).round
       else
-        return (ie + (self.mmonth * fuel_conversion(self.fuel_type))).round
+        return (ie + (self.mweek * fuel_conversion(self.fuel_type))).round
       end
     else
       return 0
