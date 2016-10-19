@@ -45,4 +45,8 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
       NewsfeedItemProfile.create(newsfeed_item_id: feed_item.id, profile_id: profile_feed.profile_id)
     end
   end
+
+  def destroy_profile_feed
+    # TODO: remove old newsfeed items from profile
+  end
 end

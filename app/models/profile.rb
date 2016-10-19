@@ -79,7 +79,6 @@ class Profile < ActiveRecord::Base
   end
 
   def add_default_feeds
-    ProfileFeed.create(profile_id: self.id, feed_id: 1)
     ProfileFeed.create(profile_id: self.id, feed_id: 2)
     ProfileFeed.create(profile_id: self.id, feed_id: 3)
     ProfileFeed.create(profile_id: self.id, feed_id: 4)
