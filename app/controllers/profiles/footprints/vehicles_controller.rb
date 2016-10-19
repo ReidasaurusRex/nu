@@ -43,7 +43,7 @@ class Profiles::Footprints::VehiclesController < Inheritance::CalculatorComponen
   end
 
   def vehicle_params
-    params.fetch(:vehicle, {}).permit(:have, :vehicle_type, :fuel_type, :mmonth, :mpg).merge(transportation_id: @transportation.id)
+    params.fetch(:vehicle, {}).permit(:have, :vehicle_type, :fuel_type, :mweek, :mpg).merge(transportation_id: @transportation.id)
   end
 
   def create_vehicle(params)
