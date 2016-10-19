@@ -31,3 +31,53 @@
   vertical-align: top;
 }
 
+.c-rss-manage__section {
+  display: inline-block;
+  margin-right: $spacing-unit * 1.5;
+  max-width: 400px;
+  width: 400px;
+  vertical-align: top;
+}
+
+.c-rss-manage__section__li__left {
+  float: left;
+}
+
+.c-rss-manage__section__li__remove {
+  color: $color-apricot;
+  float: right;
+}
+
+.c-rss-manage__section__li__divider {
+  display: block;
+  height: 40px;
+}
+
+.c-rss-manage__section__li__remove__prompt {
+  float: left;
+  padding-right: $spacing-unit;
+}
+
+.c-rss-manage__section__li__button {
+  border-radius: 100px;
+  color: $color-white;
+  display: inline-block;
+  float: right;
+  height: 20px;
+  margin-top: -3px;
+  padding-top: 3px;
+  text-align: center;
+  width: 23px;
+}
+
+.c-rss-manage__section__li__button--remove {
+  background: $color-apricot;
+}
+
+.c-rss-manage__section__li__button--add {
+  background: $color-monte-carlo;
+}
+
+.c-rss-manage__section__li__add {
+  float: right;
+}
