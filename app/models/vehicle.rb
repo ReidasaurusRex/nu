@@ -15,12 +15,13 @@ class Vehicle < ActiveRecord::Base
 
   def calculate_emissions
     if self.have
-      ie = 0.163 * self.mweek * 4
+      ie = 0.163 * self.mweek
       unless has_electricity?(self.fuel_type)
-        gmonth = (self.mweek / self.mpg)
+        gweek = (self.mweek / self.mpg)
+        gmonth = gweek * 4
         return (ie + (gmonth * fuel_conversion(self.fuel_type))).round
       else
-        return (ie + (self.mweek * fuel_conversion(self.fuel_type))).round
+        return (ie + (self.mweek * 4 * fuel_conversion(self.fuel_type))).round
       end
     else
       return 0
