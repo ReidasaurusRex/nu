@@ -1,43 +1,48 @@
 <div class="o-wrapper">
-  <div class="c-rss-manage">
-  <h1>Manage RSS Feeds</h1>
-  <div class="new-feed-form">
-    <%= form_for(Feed.new, url: profile_feeds_path, method: :post) do |f| %>
-      <%= f.text_field :url, placeholder: "Post RSS Link here " %>
-      <%= f.submit "Add Feed" %>
-    <% end %>
-  </div>
-  <div class="current-profile-feeds">
-    <h2>Your Feeds</h2>
-    <ul class="profile-feeds-list">
-      <% if @profile_feeds.empty? %>
-        <li>No feeds</li>
-      <% else %>
-        <% @profile_feeds.each do |profile_feed| %>
-          <li>
-            <%= link_to(profile_feed.feed.title, profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id)) %>
-            <%= button_to "Remove", profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), method: :delete %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-  <% unless @suggested_feeds.empty? %>
-    <div class="suggested-profile-feeds">
-    <h2>Suggested Feeds</h2>
-      <ul class="profile-feeds-list suggested-feed-list">
-        <% @suggested_feeds.each do |sug_feed| %>
-          <li>
-            <h3>
-              <%= sug_feed.title %>
-              <%= button_to "Add Feed", profile_profile_feeds_path(profile_id: @profile.id, profile_feed: {profile_id: @profile.id, feed_id: sug_feed.id}), method: :post %>
-            </h3>
-            <p><%= sug_feed.description %></p>
 
-          </li>
+  <div class="c-rss-manage">
+  
+    <h1>Manage RSS Feeds</h1>
+
+    <div class="c-rss-manage__new">
+      <%= form_for(Feed.new, url: profile_feeds_path, method: :post) do |f| %>
+        <%= f.text_field :url, placeholder: "Post RSS Link here ", class: "c-rss-manage__new__field" %>
+        <%= f.submit "Add Feed", class: "c-rss-manage__new__submit" %>
+      <% end %>
+    </div>
+
+    <div class="current-profile-feeds">
+      <h2>Your Feeds</h2>
+      <ul class="profile-feeds-list">
+        <% if @profile_feeds.empty? %>
+          <li>No feeds</li>
+        <% else %>
+          <% @profile_feeds.each do |profile_feed| %>
+            <li>
+              <%= link_to(profile_feed.feed.title, profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id)) %>
+              <%= button_to "Remove", profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), method: :delete %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
-  <% end %>
+    <% unless @suggested_feeds.empty? %>
+      <div class="suggested-profile-feeds">
+      <h2>Suggested Feeds</h2>
+        <ul class="profile-feeds-list suggested-feed-list">
+          <% @suggested_feeds.each do |sug_feed| %>
+            <li>
+              <h3>
+                <%= sug_feed.title %>
+                <%= button_to "Add Feed", profile_profile_feeds_path(profile_id: @profile.id, profile_feed: {profile_id: @profile.id, feed_id: sug_feed.id}), method: :post %>
+              </h3>
+              <p><%= sug_feed.description %></p>
+
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div> <!-- c-rss-manage -->
+
 </div> <!-- wrapper -->

@@ -1,3 +1,33 @@
 .c-rss-manage {
-  margin-top: $spacing-unit * 5;
+  margin-top: $spacing-unit * 2;
 }
+
+.c-rss-manage__new {
+  height: 32px;
+  margin-bottom: $spacing-unit * 1.5;
+}
+
+.c-rss-manage__new__field {
+  border: 1px solid $color-monte-carlo;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 100px;
+  height: 30px !important;
+  outline: none;
+  padding-left: $spacing-unit !important;
+  padding-right: 0px !important;
+  vertical-align: top;
+}
+
+.c-rss-manage__new__submit {
+  border-bottom: 1px solid $color-monte-carlo;
+  border-right: 1px solid $color-monte-carlo;
+  border-top: 1px solid $color-monte-carlo;
+  border-radius: 0px !important;
+  border-bottom-right-radius: 100px !important;
+  border-top-right-radius: 100px !important;
+  height: 31px !important;
+  margin-left: -5px;
+  padding: $spacing-unit / 4 $spacing-unit !important;
+  vertical-align: top;
+}
+
