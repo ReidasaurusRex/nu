@@ -20,4 +20,8 @@ class Entry < ActiveRecord::Base
       end
     end
   end
+
+  def newsfeed_item
+    return NewsfeedItem.where("source_id = ? AND source_type = ?", self.id, "feed")[0]
+  end
 end
