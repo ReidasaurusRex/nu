@@ -40,7 +40,7 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   end
 
   def add_recent_newsfeed_items_to_profile_feed(profile_feed)
-    recent_feed_items = NewsfeedItem.where("source_id = ? AND source_type = ?", profile_feed.feed_id, "feed").last(4)
+    recent_feed_items = Feed.find(profile_feed.feed_id).recent_feed_items
     recent_feed_items.each do |feed_item|
       NewsfeedItemProfile.create(newsfeed_item_id: feed_item.id, profile_id: profile_feed.profile_id)
     end
