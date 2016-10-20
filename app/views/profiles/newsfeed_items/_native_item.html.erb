@@ -7,9 +7,11 @@
     <p class="c-newsfeed-list__item__text">
       <%= item.source.full_or_abbrev_name %> <span class="c-newsfeed-list__item__pd"><%= item.time_since_creation %></span>
     </p>
+
     <p class="c-newsfeed-list__item__text">
       <%= item.content %>
     </p>
+
     <% if item.tags.length > 0 %>
       <ul class="o-inline-list">
         <% item.tags.each do |tag| %>
@@ -19,6 +21,7 @@
         <% end %> <!-- tags each -->
       </ul>
     <% end %> <!-- tags length -->
+    
     <ul class="o-inline-list c-social-overview">
       <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
         <%= like_button(item, profile) %> <span class="u-text--edward"><%= like_number(item) %></span>

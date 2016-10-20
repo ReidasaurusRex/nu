@@ -7,4 +7,12 @@
   <p class="c-newsfeed-list__item__text"><%= item.source.title %></p>
   <p class="c-newsfeed-list__item__text"><%= item.content %></p>
   <p class="c-newsfeed-list__item__text"><%= link_to "View article", item.source.url, class: "u-text--apricot", target: "_blank" %></p>
+  <ul class="o-inline-list c-social-overview">
+      <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
+        <%= like_button(item, profile) %> <span class="u-text--edward"><%= like_number(item) %></span>
+      </li>
+      <li class="o-inline-list__li c-social-overview__comments c-social-overview__li">
+        <%= comment_button(item, profile) %> <span class="u-text--edward"><%= comment_number(item) %></span>
+      </li>
+    </ul>
 </div>
