@@ -19,4 +19,12 @@ class Feed < ActiveRecord::Base
   def self.suggested_feeds
     return self.where(suggested: true)
   end
+
+  def recent_feed_items
+    recent_entries = self.entries.last(4)
+    newsfeed_items = []
+    recent_entries.each do |entry|
+      recent_feed_items = NewsfeedItem.where("source_id = ? AND source_type = ?", profile_feed.feed_id, "feed").last(4)
+    end
+  end
 end
