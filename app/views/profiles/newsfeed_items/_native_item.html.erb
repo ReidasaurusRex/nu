@@ -1,6 +1,9 @@
 <div class="o-media c-newsfeed-item__media">
+
   <%= image_tag item.source.profile_photo, class: "o-media__img o-img--small o-img--round c-newsfeed-item__media__img" %>
+
   <div class="o-media__bd c-newsfeed-list__item__bd">
+    
     <p class="c-newsfeed-list__item__text">
       <%= item.source.full_or_abbrev_name %> <span class="c-newsfeed-list__item__pd"><%= item.time_since_creation %></span>
     </p>
@@ -13,8 +16,18 @@
           <li class="o-inline-list__li c-newsfeed-list__item__bd__tag">
             <%= link_to "\##{tag.name}", profile_search_path(profile_id: profile.id, query: tag.name), method: :post %>
           </li>
-        <% end %>
+        <% end %> <!-- tags each -->
       </ul>
-    <% end %>
-  </div>
-</div>
+    <% end %> <!-- tags length -->
+    <ul class="o-inline-list c-social-overview">
+      <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
+        <%= like_button(item, profile) %> <span class="u-text--edward"><%= like_number(item) %></span>
+      </li>
+      <li class="o-inline-list__li c-social-overview__comments c-social-overview__li">
+        <%= comment_button(item, profile) %> <span class="u-text--edward"><%= comment_number(item) %></span>
+      </li>
+    </ul>
+
+  </div> <!-- c-newsfeed-list__item__bd -->
+
+</div> <!-- c-newsfeed-item__media -->
