@@ -10,10 +10,12 @@
   <% end %>
 
   <div class="o-media__bd c-rss-newsfeed-item__media__bd">
+
     <p class="c-newsfeed-list__item__text c-rss-newsfeed-item__media__bd__text"><%= item.source.title %></p>
     <p class="c-newsfeed-list__item__text c-rss-newsfeed-item__media__bd__text"><%= item.content %></p>
     <p class="c-newsfeed-list__item__text c-rss-newsfeed-item__media__bd__text"><%= link_to "View article", item.source.url, class: "u-text--apricot", target: "_blank" %></p>
-  </div>
+
+  </div> <!-- c-rss-newsfeed-item__media__bd -->
 
 </div> <!-- o-media -->
 

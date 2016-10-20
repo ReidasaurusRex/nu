@@ -23,15 +23,15 @@
   margin-bottom: $spacing-unit / 3;
 }
 
-.c-newsfeed-list__item__bd {
-  width: 85%;
-}
-
-.c-newsfeed-list__item__bd__pd {
+.c-newsfeed-list__item__pd {
   color: $color-edward;
   display: inline-block;
-  font-size: 90%;
+  font-size: 85%;
   margin-left: $spacing-unit / 2;
+}
+
+.c-newsfeed-list__item__bd {
+  width: 85%;
 }
 
 .c-newsfeed-list__item__bd__tag {

@@ -1,16 +1,17 @@
 .c-rss-newsfeed-item__media {
   border: 1px solid $color-alto;
   border-radius: 6px;
-  height: 120px;
+  height: 75px;
   overflow: hidden;
 }
 
 .c-rss-newsfeed-item__media__img {
   height: 100%;
-  width: 120px;
+  width: 75px;
 }
 
 .c-rss-newsfeed-item__media__bd {
+  padding: $spacing-unit / 2;
   width: 70%;
 }
 
