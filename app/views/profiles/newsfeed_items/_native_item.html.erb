@@ -1,6 +1,6 @@
-<div class="o-media c-newsfeed-item__media">
+<div class="o-media">
 
-  <%= image_tag item.source.profile_photo, class: "o-media__img o-img--small o-img--round c-newsfeed-item__media__img" %>
+  <%= image_tag item.source.profile_photo, class: "o-media__img o-img--small o-img--round" %>
 
   <div class="o-media__bd c-newsfeed-list__item__bd">
     
@@ -21,7 +21,7 @@
         <% end %> <!-- tags each -->
       </ul>
     <% end %> <!-- tags length -->
-    
+
     <ul class="o-inline-list c-social-overview">
       <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
         <%= like_button(item, profile) %> <span class="u-text--edward"><%= like_number(item) %></span>
