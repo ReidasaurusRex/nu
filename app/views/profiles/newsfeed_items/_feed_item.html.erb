@@ -1,18 +1,27 @@
 <h3 class="c-newsfeed-list__item__title c-newsfeed-list__item__text"><%= item.source.feed.title %> <span class="c-newsfeed-list__item__pd"><%= item.time_since_creation %></span></h3>
 
-<div class="c-newsfeed-list__item__bd">
+<div class="o-media c-rss-newsfeed-item__media">
+
+  
   <% if item.source.image %>
-    <p><%= image_tag item.source.image, alt: "Image" %></p>
+    <div class="o-media__img">
+      <%= image_tag item.source.image, alt: "Image", class: "c-rss-newsfeed_item__media__img" %>
+    </div>
   <% end %>
-  <p class="c-newsfeed-list__item__text"><%= item.source.title %></p>
-  <p class="c-newsfeed-list__item__text"><%= item.content %></p>
-  <p class="c-newsfeed-list__item__text"><%= link_to "View article", item.source.url, class: "u-text--apricot", target: "_blank" %></p>
-  <ul class="o-inline-list c-social-overview">
-      <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
-        <%= like_button(item, profile) %> <span class="u-text--edward"><%= like_number(item) %></span>
-      </li>
-      <li class="o-inline-list__li c-social-overview__comments c-social-overview__li">
-        <%= comment_button(item, profile) %> <span class="u-text--edward"><%= comment_number(item) %></span>
-      </li>
-    </ul>
-</div>
+
+  <div class="o-media__bd c-rss-newsfeed-item__media__bd">
+    <p class="c-newsfeed-list__item__text c-rss-newsfeed-item__media__bd__text"><%= item.source.title %></p>
+    <p class="c-newsfeed-list__item__text c-rss-newsfeed-item__media__bd__text"><%= item.content %></p>
+    <p class="c-newsfeed-list__item__text c-rss-newsfeed-item__media__bd__text"><%= link_to "View article", item.source.url, class: "u-text--apricot", target: "_blank" %></p>
+  </div>
+
+</div> <!-- o-media -->
+
+<ul class="o-inline-list c-social-overview">
+  <li class="o-inline-list__li c-social-overview__likes c-social-overview__li">
+    <%= like_button(item, profile) %> <span class="u-text--edward"><%= like_number(item) %></span>
+  </li>
+  <li class="o-inline-list__li c-social-overview__comments c-social-overview__li">
+    <%= comment_button(item, profile) %> <span class="u-text--edward"><%= comment_number(item) %></span>
+  </li>
+</ul>
