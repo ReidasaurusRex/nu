@@ -21,7 +21,7 @@ namespace :sync do
 end
 
 def create_newsfeed_rss_feed_entry(entry, feed)
-  newsfeed_item = NewsfeedItem.create(source_type: "feed", source_id: entry.id, content: entry.summary)
+  newsfeed_item = NewsfeedItem.create(source_type: "feed", source_id: entry.id, content: entry.summary, updated_at: entry.published)
   post_to_feed_followers(newsfeed_item, feed)
 end
 
