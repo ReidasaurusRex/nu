@@ -23,7 +23,7 @@ class NewsfeedItem < ActiveRecord::Base
 
   def time_since_creation
     time_array = [[3153600 ,"yr"], [2592000, "mth"], [86400, "d"], [3600, "hr"], [60, "m"], [1, "s"]]
-    time_since = Time.now - self.created_at
+    time_since = Time.now - self.updated_at
     time_array.each do |time| 
       unless time[0] == 1
         if (time_since / time[0]) >= 1
