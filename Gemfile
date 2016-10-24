@@ -33,7 +33,8 @@ gem 'feedjira'
 gem 'rails_12factor', group: :production
 # Using fuzzily for searching
 gem 'fuzzily'
-# 
+# React
+gem 'react-rails', '~> 1.0'
 
 group :development, :test do
   # User letter_opener to preview mail
