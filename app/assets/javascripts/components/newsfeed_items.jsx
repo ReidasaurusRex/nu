@@ -10,8 +10,12 @@ var NewsfeedItems = React.createClass({
       cache: false,
       success: function(data) {
         this.setState({data: currentData.concat(data)});
-      }
+        console.log(this.state.data);
+      }.bind(this)
     });
+  },
+  componentDidMount: function() {
+    this.loadTenItems();
   },
   render: function() {
     return (
