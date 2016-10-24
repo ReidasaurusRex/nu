@@ -2,9 +2,15 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   before_action :get_newsfeed_item, except: [:index, :create]
 
   def index
-    @newsfeed_items = @profile.newsfeed_items.order(updated_at: :desc)
+    binding.pry
+    current_index = params[:current_index].to_i if params[:current_index]
+    @next_newsfeed_items = @profile.newsfeed_items.order(updated_at: :desc).slice(current_index, 10) if current_index
     @newsfeed_item = NewsfeedItem.new
     # TODO: style floats so odd item doesn't stack to bottom
+    respond_to do |format|
+      format.html
+      format.json {render json: @next_newsfeed_items}
+    end
   end
 
   def create
