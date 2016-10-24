@@ -9,10 +9,6 @@
   <%= render partial: "profiles/newsfeed_items/composer", locals: {item: @newsfeed_item, profile: @profile} %>
   </div> <!-- o-bubble -->
 
-  <% if @newsfeed_items.empty? %>
-    <h2>Looks like your feed is empty!</h3>
-  <% else %>
-    <%= render partial: "profiles/newsfeed_items/newsfeed_list", locals: {newsfeed_items: @newsfeed_items, profile: @profile} %>
-  <% end %>
+  <%= react_component 'NewsfeedItems', {url: profile_newsfeed_items_path(@profile)} %>
   
 </div> <!-- o-wrapper -->
