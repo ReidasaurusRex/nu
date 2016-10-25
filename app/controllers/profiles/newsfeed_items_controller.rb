@@ -2,14 +2,24 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   before_action :get_newsfeed_item, except: [:index, :create]
 
   def index
-    binding.pry
     current_index = params[:current_index].to_i if params[:current_index]
-    @next_newsfeed_items = @profile.newsfeed_items.order(updated_at: :desc).slice(current_index, 10) if current_index
+    next_newsfeed_items = @profile.newsfeed_items.order(updated_at: :desc).slice(current_index, 10) if current_index
+    @next_items_with_additional_info = next_newsfeed_items.map do |item|
+      {
+        id: item.id,
+        content: item.content,
+        image: item.image,
+        source_type: item.source_type,
+        source_id: item.source_id,
+        title: item.source_name_or_title,
+        url: item.url_or_nil
+      }
+    end
     @newsfeed_item = NewsfeedItem.new
     # TODO: style floats so odd item doesn't stack to bottom
     respond_to do |format|
       format.html
-      format.json {render json: @next_newsfeed_items}
+      format.json {render json: @next_items_with_additional_info}
     end
   end
 

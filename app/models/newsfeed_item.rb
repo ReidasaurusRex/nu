@@ -62,6 +62,22 @@ class NewsfeedItem < ActiveRecord::Base
     return self.source == profile
   end
 
+  def image
+    if self.source_type == "feed"
+      return source.image
+    else
+      return source.profile_photo
+    end
+  end
+
+  def url_or_nil
+    if self.source_type == "feed"
+      return source.url
+    else
+      return nil
+    end
+  end
+
   def add_tags(tags)
     self.tags.each{|tag| tag.destroy}
     _self = self
