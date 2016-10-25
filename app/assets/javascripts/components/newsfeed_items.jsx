@@ -26,16 +26,17 @@ var NewsfeedItems = React.createClass({
   render: function() {
     var self = this;
     var items = this.state.data.map(function(item) {
-      return (
-        <li>{item.content}</li>
-      )
+      if (item.source_type === "feed")
+      {
+        return (<FeedNewsfeedItem key={item.id} url={item.url} feed={item.feed} tsc={item.tsc} sourceName={item.source_name} image={item.image} />)
+      } else {
+        return (<NativeNewsfeedItem key={item.id} content={item.content} image={item.image} sourceName={item.source_name} tsc={item.tsc}/>)
+      }
     });
     return (
       <div className="c-newsfeed-list">
-        <ul>
-          {items}
-        </ul>
-        <a href="#" onClick={this.loadTenMoreItems}>Load ten more items</a>
+        {items}
+        <a href="#" onClick={this.loadTenMoreItems} className="c-newsfeed-list__load-more o-bubble">Load ten more items</a>
       </div>
     );
   }

@@ -1,23 +1,26 @@
 var NativeNewsfeedItem = React.createClass({
   render: function() {
     return (
-      <div className="o-media">
+      <div className="o-bubble o-bubble--no-pad c-newsfeed-list__item">
+        <div className="c-newsfeed-list__item--padding">
+          <div className="o-media">
 
-        <img src={this.props.image} alt="" className="o-media__img o-img--small o-img--round"/>
+            <img src={this.props.image} alt="" className="o-media__img o-img--small o-img--round"/>
 
-        <div className="o-media__bd c-newsfeed-list__item__bd">
-          
-          <p class="c-newsfeed-list__item__text">
-            {this.props.sourceName}
-            <span class="c-newsfeed-list__item__pd">{this.props.tsc}</span>
-          </p>
+            <div className="o-media__bd c-newsfeed-list__item__bd">
+              
+              <p className="c-newsfeed-list__item__text">
+                {this.props.sourceName}
+                <span className="c-newsfeed-list__item__pd">{this.props.tsc}</span>
+              </p>
 
-          <p class="c-newsfeed-list__item__text">
-            {this.props.content}  
-          </p>
-          
-        </div> 
-
+              <p className="c-newsfeed-list__item__text">
+                {this.props.content}  
+              </p>
+              
+            </div> 
+          </div>
+        </div>
       </div>
     );
   }

@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.c-newsfeed-list__load-more {
+  float: left;
+  margin: $spacing-unit auto;
+  text-align: center;
+  width: 94%;
+}
+
 .c-newsfeed-list__item {
   display: inline-block;
   text-align: left;
