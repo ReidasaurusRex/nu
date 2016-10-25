@@ -14,7 +14,8 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
           source_id: item.source_id,
           source_name: item.source_name_or_title(@profile),
           feed: item.feed_or_nil,
-          url: item.url_or_nil
+          url: item.url_or_nil,
+          tsc: item.time_since_creation
         }
       end
     end
