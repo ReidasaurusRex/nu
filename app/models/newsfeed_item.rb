@@ -78,6 +78,14 @@ class NewsfeedItem < ActiveRecord::Base
     end
   end
 
+  def feed_or_nil
+    if self.source_type == "feed"
+      return source.feed.title
+    else
+      return nil
+    end
+  end
+
   def add_tags(tags)
     self.tags.each{|tag| tag.destroy}
     _self = self
