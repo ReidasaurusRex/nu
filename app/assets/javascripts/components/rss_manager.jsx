@@ -1,0 +1,3 @@
+var RSSManager = React.createClass({
+  
+});
