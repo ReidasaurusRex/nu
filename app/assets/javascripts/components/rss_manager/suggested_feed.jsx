@@ -1,7 +1,7 @@
-var SuggestedFeed = React.createClass({
-  render: function() {
-    return (
-
-    );
-  }
-});
+// var SuggestedFeed = React.createClass({
+//   // render: function() {
+//   //   return (
+      
+//   //   );
+//   // }
+// });

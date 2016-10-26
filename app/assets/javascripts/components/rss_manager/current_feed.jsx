@@ -1,7 +1,7 @@
-var CurrentFeed = React.createClass({
-  render: function() {
-    return (
+// var CurrentFeed = React.createClass({
+//   render: function() {
+//     // return (
 
-    );
-  }
-});
+//     // );
+//   // }
+// });

@@ -4,6 +4,10 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   def index
     @profile_feeds = @profile.profile_feeds
     @suggested_feeds = Feed.suggested_feeds - @profile.feeds
+    respond_to do |format| 
+      format.html
+      format.json {render json: {current: @profile_feeds, suggested: @suggested_feeds}}
+    end
   end
 
   def create
