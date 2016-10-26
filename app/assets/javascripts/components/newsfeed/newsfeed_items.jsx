@@ -1,9 +1,9 @@
 var NewsfeedItems = React.createClass({
   getInitialState: function() {
-    return  {data: []};
+    return  {items: []};
   },
   loadTenItems: function() {
-    var currentData = this.state.data;
+    var currentData = this.state.items;
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -11,8 +11,8 @@ var NewsfeedItems = React.createClass({
       data: {current_index: currentData.length},
       cache: false,
       success: function(data) {
-        this.setState({data: currentData.concat(data)});
-        console.log(this.state.data);
+        this.setState({items: currentData.concat(data)});
+        console.log(this.state.items);
       }.bind(this)
     });
   },
@@ -25,7 +25,7 @@ var NewsfeedItems = React.createClass({
   },
   render: function() {
     var self = this;
-    var items = this.state.data.map(function(item) {
+    var items = this.state.items.map(function(item) {
       if (item.source_type === "feed")
       {
         return (<FeedNewsfeedItem key={item.id} url={item.url} feed={item.feed} tsc={item.tsc} sourceName={item.source_name} image={item.image} />)
