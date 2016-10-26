@@ -17,7 +17,13 @@ var RSSManager = React.createClass({
   },
   componentDidMount: function() {
     this.loadFeeds();
-  }, 
+  },
+  handleSubmit: function() {
+
+  },
+  handleDestroy: function() {
+    
+  },
   render: function() {
     return (
       <div>
