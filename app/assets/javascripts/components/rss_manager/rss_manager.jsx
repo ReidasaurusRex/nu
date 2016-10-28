@@ -30,7 +30,7 @@ var RSSManager = React.createClass({
       return (<CurrentFeed key={curFeed.id} id={curFeed.id} feedTitle={curFeed.feed_title} profileID={this.props.profileID} onFeedDestroy={self.handleFeedDestroy} />)
     });
     var suggestedFeeds = this.state.feeds.suggested.map(function(sugFeed) {
-      return (<SuggestedFeed key={sugFeed.id}  feedTitle={sugFeed.feed_title} profileID={this.props.profileID} />)
+      return (<SuggestedFeed key={sugFeed.id}  feedID={sugFeed.feed_id} feedTitle={sugFeed.feed_title} profileID={this.props.profileID} />)
     });
     return (
       <div className="c-rss-manage__lists">
