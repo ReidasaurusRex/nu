@@ -1,4 +1,8 @@
 var SuggestedFeed = React.createClass({
+  handleSubmit: function(e) {
+    e.preventDefault();
+    this.props.onFeedSubmit(this.props.feedId);
+  },
   render: function() {
     var addPrompt = "Add " + this.props.feedTitle;
     return (
