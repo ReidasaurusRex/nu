@@ -18,15 +18,16 @@ var RSSManager = React.createClass({
   componentDidMount: function() {
     this.loadFeeds();
   },
-  handleFeedSubmit: function() {
+  handleFeedSubmit: function(feed) {
 
   },
-  handleFeedDestroy: function() {
+  handleFeedDestroy: function(id) {
     
   },
   render: function() {
+    var self = this;
     var currentFeeds = this.state.feeds.current.map(function(curFeed) {
-      return (<CurrentFeed key={curFeed.id} feedTitle={curFeed.feed_title} profileID={this.props.profileID} />)
+      return (<CurrentFeed key={curFeed.id} id={curFeed.id} feedTitle={curFeed.feed_title} profileID={this.props.profileID} onFeedDestroy={self.handleFeedDestroy} />)
     });
     var suggestedFeeds = this.state.feeds.suggested.map(function(sugFeed) {
       return (<SuggestedFeed key={sugFeed.id}  feedTitle={sugFeed.feed_title} profileID={this.props.profileID} />)
