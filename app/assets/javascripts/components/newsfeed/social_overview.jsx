@@ -1,4 +1,4 @@
-var SocialOverview = React.createClass({
+// var SocialOverview = React.createClass({
   // likeButton: function() {
   //   var likeProfileIds = this.props.likes.map(function(like) {
   //     return like.profile_id;
@@ -30,4 +30,4 @@ var SocialOverview = React.createClass({
   //     </ul>
   //   );
   // }
-});
+// });

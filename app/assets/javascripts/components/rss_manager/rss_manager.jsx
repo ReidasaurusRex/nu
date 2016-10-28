@@ -1,6 +1,6 @@
 var RSSManager = React.createClass({
   getInitialState: function() {
-    return {feeds: []};
+    return {feeds: {current: [], suggested: []}};
   },
   loadFeeds: function() {
     $.ajax({

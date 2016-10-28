@@ -4,6 +4,7 @@ var CurrentFeed = React.createClass({
     this.props.onFeedDestroy(this.props.id);
   },
   render: function() {
+    var removePrompt = "Remove " + this.props.feedTitle;
     return (
       <li className="c-rss-manage__section__li">
 
@@ -12,10 +13,10 @@ var CurrentFeed = React.createClass({
         <div className="c-rss-manage__section__li__remove">
       
           <span className="c-rss-manage__section__li__remove__prompt">
-            <a className="u-text--apricot" href="#" title="Remove " + {this.props.feedTitle} onclick={this.handleDelete}>remove</a> 
+            <a className="u-text--apricot" href="#" title={removePrompt} onclick={this.handleDelete}>remove</a> 
           </span>
           
-          <a className="c-rss-manage__section__li__button c-rss-manage__section__li__button--remove" href="#" title="Remove " + {this.props.feedTitle} onclick={this.handleDelete}>-</a>
+          <a className="c-rss-manage__section__li__button c-rss-manage__section__li__button--remove" href="#" title={removePrompt} onclick={this.handleDelete}>-</a>
 
         </div>
 
