@@ -7,6 +7,7 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   end
 
   def create
+    binding.pry
     create_profile_feed(profile_feed_params)
   end
 
@@ -23,6 +24,7 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   def get_profile_feed
     @profile_feed = ProfileFeed.find(params[:id])
   end
+  
   def profile_feed_params
     params.require(:profile_feed).permit(:profile_id, :feed_id)
   end

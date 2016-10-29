@@ -10,8 +10,6 @@ var RSSManager = React.createClass({
       cache: false,
       success: function(data) {
         this.setState({feeds: {current: data.current, suggested: data.suggested}});
-        console.log(data);
-        console.log("hello");
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(this.props.url, status, err.toString());
@@ -22,10 +20,23 @@ var RSSManager = React.createClass({
     this.loadFeeds();
   },
   handleFeedSubmit: function(feed) {
-
+    console.log(feed);
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST', 
+      data: feed,
+      success: function(data) {
+        
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(this.props.url, status, err.toString());
+      }.bind(this)
+    });
   },
   handleFeedDestroy: function(id) {
-    
+    console.log(id);
+
   },
   render: function() {
     var self = this;
@@ -33,7 +44,7 @@ var RSSManager = React.createClass({
       return (<CurrentFeed key={curFeed.id} id={curFeed.id} feedTitle={curFeed.feed_title} profileID={self.props.profileID} onFeedDestroy={self.handleFeedDestroy} />)
     });
     var suggestedFeeds = this.state.feeds.suggested.map(function(sugFeed) {
-      return (<SuggestedFeed key={sugFeed.id}  id={sugFeed.id} feedTitle={sugFeed.title} profileID={self.props.profileID} />)
+      return (<SuggestedFeed key={sugFeed.id}  id={sugFeed.id} feedTitle={sugFeed.title} profileID={self.props.profileID} onFeedSubmit={self.handleFeedSubmit} />)
     });
     return (
       <div className="c-rss-manage__lists">

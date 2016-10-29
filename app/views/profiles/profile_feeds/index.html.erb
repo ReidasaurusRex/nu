@@ -13,45 +13,6 @@
 
     <%= react_component 'RSSManager', {url: profile_profile_feeds_path(@profile), profileID: @profile.id} %>
 
-    <div class="c-rss-manage__section">
-      <h2>Your Feeds</h2>
-      <ul>
-        <% if @profile_feeds.empty? %>
-          <li class="c-rss-manage__section__li">No feeds</li>
-        <% else %>
-          <% @profile_feeds.each do |profile_feed| %>
-            <li class="c-rss-manage__section__li">
-              <%= link_to(profile_feed.feed.title, profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), class: "c-rss-manage__section__li__left") %>
-              <div class="c-rss-manage__section__li__remove">
-                <span class="c-rss-manage__section__li__remove__prompt">
-                  <%= link_to("remove", profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), class: "u-text--apricot") %>
-                </span>
-                <%= link_to "-", profile_profile_feed_path(profile_id: @profile.id, id: profile_feed.id), method: :delete, class: "c-rss-manage__section__li__button
-                c-rss-manage__section__li__button--remove" %>
-              </div>
-              
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-
-    <% unless @suggested_feeds.empty? %>
-      <div class="c-rss-manage__section">
-      <h2>Suggested Feeds</h2>
-        <ul>
-          <% @suggested_feeds.each do |sug_feed| %>
-            
-            <li class="c-rss-manage__section__li">
-              <h3 class="c-rss-manage__section__li__left"><%= sug_feed.title %></h3>
-              <%= link_to "+", profile_profile_feeds_path(profile_id: @profile.id, profile_feed: {profile_id: @profile.id, feed_id: sug_feed.id}), method: :post, class: "c-rss-manage__section__li__button c-rss-manage__section__li__button--add" %>
-            </li>
-
-          <% end %> <!-- sug_feed each -->
-        </ul>
-      </div>
-    <% end %> <!-- unless empty -->
-
   </div> <!-- c-rss-manage -->
 
 </div> <!-- wrapper -->
