@@ -20,7 +20,6 @@ var RSSManager = React.createClass({
     this.loadFeeds();
   },
   handleFeedSubmit: function(feed) {
-    console.log(feed);
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -35,7 +34,6 @@ var RSSManager = React.createClass({
     });
   },
   handleFeedDestroy: function(feedId) {
-    console.log(feedId);
     var destroyUrl = this.props.url + "/" + feedId.id;
     $.ajax({
       url: destroyUrl,
