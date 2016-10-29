@@ -27,7 +27,7 @@ var RSSManager = React.createClass({
       type: 'POST', 
       data: feed,
       success: function(data) {
-        
+        this.setState({feeds: {current: data.current, suggested: data.suggested}});
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(this.props.url, status, err.toString());

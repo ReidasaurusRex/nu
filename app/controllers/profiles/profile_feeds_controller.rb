@@ -24,7 +24,7 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   def get_profile_feed
     @profile_feed = ProfileFeed.find(params[:id])
   end
-  
+
   def profile_feed_params
     params.require(:profile_feed).permit(:profile_id, :feed_id)
   end
@@ -34,7 +34,8 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
     if @profile_feed.save
       add_recent_newsfeed_items_to_profile_feed(@profile_feed)
       flash[:success] = "Added feed: #{@profile_feed.feed.title}"
-      redirect_to profile_profile_feeds_path(@profile.id)
+      @profile_feeds = @profile.profile_feeds
+      @suggested_feeds = Feed.suggested_feeds - @profile.feeds
     else
       flash[:error] = "Something went wrong"
       render :index
