@@ -1,7 +1,7 @@
 var CurrentFeed = React.createClass({
   handleDelete: function(e) {
     e.preventDefault();
-    this.props.onFeedDestroy(this.props.id);
+    this.props.onFeedDestroy({id: this.props.id});
   },
   render: function() {
     var removePrompt = "Remove " + this.props.feedTitle;

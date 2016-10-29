@@ -34,8 +34,21 @@ var RSSManager = React.createClass({
       }.bind(this)
     });
   },
-  handleFeedDestroy: function(id) {
-    console.log(id);
+  handleFeedDestroy: function(feedId) {
+    console.log(feedId);
+    var destroyUrl = this.props.url + "/" + feedId.id;
+    $.ajax({
+      url: destroyUrl,
+      dataType: 'json',
+      type: 'DELETE', 
+      data: feedId,
+      success: function(data) {
+        this.setState({feeds: {current: data.current, suggested: data.suggested}});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(this.props.url, status, err.toString());
+      }.bind(this)
+    });
 
   },
   render: function() {

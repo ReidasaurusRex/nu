@@ -7,7 +7,6 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   end
 
   def create
-    binding.pry
     create_profile_feed(profile_feed_params)
   end
 
@@ -15,6 +14,7 @@ class Profiles::ProfileFeedsController < Inheritance::ProfileMatchesUserControll
   end
 
   def destroy
+    binding.pry
     @profile_feed.destroy
     flash[:success] = "Unfollowed feed"
     redirect_to profile_profile_feeds_path(profile_id: @profile.id)
