@@ -8,15 +8,15 @@ var CurrentFeed = React.createClass({
     return (
       <li className="c-rss-manage__section__li">
 
-        <span className="c-rss-manage__section__li__left">{this.props.feedTitle}</span>
+        <span className="c-rss-manage__section__li__left u-text--monte-carlo">{this.props.feedTitle}</span>
 
         <div className="c-rss-manage__section__li__remove">
       
           <span className="c-rss-manage__section__li__remove__prompt">
-            <a className="u-text--apricot" href="#" title={removePrompt} onclick={this.handleDelete}>remove</a> 
+            <a className="u-text--apricot" href="#" title={removePrompt} onClick={this.handleDelete}>remove</a> 
           </span>
           
-          <a className="c-rss-manage__section__li__button c-rss-manage__section__li__button--remove" href="#" title={removePrompt} onclick={this.handleDelete}>-</a>
+          <a className="c-rss-manage__section__li__button c-rss-manage__section__li__button--remove" href="#" title={removePrompt} onClick={this.handleDelete}>-</a>
 
         </div>
 
