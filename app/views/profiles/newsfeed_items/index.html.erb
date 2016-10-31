@@ -9,7 +9,7 @@
   <%= render partial: "profiles/newsfeed_items/composer", locals: {item: @newsfeed_item, profile: @profile} %>
   </div> <!-- o-bubble -->
 
-  <%= react_component 'NewsfeedItems', {url: profile_newsfeed_items_path(@profile)} %>
+  <%= react_component 'NewsfeedItems', {url: profile_newsfeed_items_path(@profile), currentProfileID: @profile.id} %>
   
   
 </div> <!-- o-wrapper -->
