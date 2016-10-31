@@ -1,13 +1,11 @@
 .c-rss-newsfeed-item__media {
   border: 1px solid $color-alto;
   border-radius: 6px;
-  height: 75px;
   margin-bottom: $spacing-unit / 2;
-  overflow: hidden;
 }
 
 .c-rss-newsfeed-item__media__img {
-  height: 100%;
+  height: 75px;
   width: 75px;
 }
 

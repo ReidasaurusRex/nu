@@ -1,24 +1,25 @@
 var SocialOverview = React.createClass({
   likeButton: function() {
-    console.log(this.props.likes);
-    // var likeProfileIds = this.props.likes.map(function(like) {
-    //   return like.profile_id;
-    // });
-    // if (likeProfileIds.includes(this.props.currentProfile)) {
-    //   var profileLike = this.props.likes.find(function(like){return like.profile_id === this.props.currentProfile;});
-    //   return (
-    //     <a href="#" title="Unappreciate" onClick={this.handleLikeDestroy(profileLike)}>heart</a>
-    //   )
-    // } else {
-    //   return (
-    //     <a href="#" title="Appreciate" onClick={this.handleLikeSubmit()}>heart</a>
-    //   )
-    // }
+    var likeProfileIds = this.props.likes.map(function(like) {
+      return like.profile_id;
+    });
+    if (likeProfileIds.includes(this.props.currentProfile)) {
+      var profileLike = this.props.likes.find(function(like){return like.profile_id === this.props.currentProfile;});
+      return (
+        <a href="#" title="Unappreciate" onClick={this.handleLikeDestroy}><i className="fa fa-heart u-text--apricot"></i></a>
+      )
+    } else {
+      return (
+        <a href="#" title="Appreciate" onClick={this.handleLikeSubmit}><i className="fa fa-heart u-text--edward"></i></a>
+      )
+    }
   },
-  handleLikeDestroy: function(profileLike) {
+  handleLikeDestroy: function(e) {
+    e.preventDefault();
     console.log("Unlike!");
   },
-  handleLikeSubmit: function() {
+  handleLikeSubmit: function(e) {
+    e.preventDefault();
     console.log("Like!");
   },
   render: function() {
