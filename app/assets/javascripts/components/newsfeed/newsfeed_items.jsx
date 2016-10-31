@@ -11,7 +11,7 @@ var NewsfeedItems = React.createClass({
       data: {current_index: currentData.length},
       cache: false,
       success: function(data) {
-        this.setState({items: currentData.concat(data)});
+        this.setState({items: currentData.concat(data.items)});
         console.log(this.state.items);
       }.bind(this)
     });
