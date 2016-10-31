@@ -1,13 +1,12 @@
-@next_items_with_additional_info = next_newsfeed_items.map do |item|
-        {
-          id: item.id,
-          content: item.content,
-          image: item.image,
-          source_type: item.source_type,
-          source_id: item.source_id,
-          source_name: item.source_name_or_title(@profile),
-          feed: item.feed_or_nil,
-          url: item.url_or_nil,
-          tsc: item.time_since_creation
-        }
-      end
+json.items @next_newsfeed_items do |item|
+  json.id item.id
+  json.content item.content
+  json.image item.image
+  json.source_type item.source_type
+  json.souce_name item.source_name_or_title(@profile)
+  json.feed item.feed_or_nil
+  json.url item.url_or_nil
+  json.tsc item.time_since_creation
+  json.comments item.comments
+  json.likes item.likes
+end
