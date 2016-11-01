@@ -25,6 +25,29 @@ var SocialOverview = React.createClass({
       return "";
     }
   },
+  commentButton: function() {
+    var self = this;
+    var commentProfileIds = this.state.comments.map(function(comment) {
+      return comment.profile_id;
+    });
+    if (commentProfileIds.includes(this.props.currentProfileID)) {
+      var profileComment = this.state.comments.find(function(comment){return comment.profile_id === self.props.currentProfileID;});
+      return (
+        <i className="fa fa-reply c-social-overview__li__icon u-text--monte-carlo"></i>
+      )
+    } else {
+      return (
+        <i className="fa fa-reply c-social-overview__li__icon u-text--edward"></i>
+      )
+    }
+  },
+  commentNumber: function() {
+    if (this.state.comments.length > 0) {
+      return this.state.comments.length;
+    } else {
+      return "";
+    }
+  },
   handleLikeDestroy: function(e) {
     e.preventDefault();
     console.log("Unlike!");
@@ -36,14 +59,17 @@ var SocialOverview = React.createClass({
   render: function() {
     return (
       <ul className="o-inline-list c-social-overview">
-        <li className="o-inlin-list__li c-social-overview__li c-social-overview__likes">
+        
+        <li className="o-inline-list__li c-social-overview__li c-social-overview__comments">
+          {this.commentButton()}
+          <span className="u-text--edward">{this.commentNumber()}</span>
+        </li>
+
+        <li className="o-inline-list__li c-social-overview__li c-social-overview__likes">
           {this.likeButton()} 
           <span className="u-text--edward">{this.likeNumber()}</span>
         </li>
 
-        <li className="o-inlin-list__li c-social-overview__li c-social-overview__comments">
-        
-        </li>
       </ul>
     );
   }
