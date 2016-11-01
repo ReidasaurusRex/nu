@@ -18,7 +18,7 @@ var NativeNewsfeedItem = React.createClass({
                 {this.props.content}  
               </p>
 
-              <SocialOverview likes={this.props.likes} comments={this.props.comments} currentProfileID={this.props.currentProfileID} />
+              <SocialOverview likes={this.props.likes} comments={this.props.comments} currentProfileID={this.props.currentProfileID} newsfeedID={this.props.id} />
               
             </div> 
           </div>

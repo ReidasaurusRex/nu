@@ -28,7 +28,7 @@ var FeedNewsfeedItem = React.createClass({
               <p className="c-newsfeed-list__item__text c-rss-newsfeed-item__media__bd__text">{this.props.sourceName}</p>
               <p className="c-newsfeed-list__item__text c-rss-newsfeed-item__media__bd__text"><a href={this.props.url} className="u-text--apricot" target="_blank">View Article</a></p>
 
-              <SocialOverview likes={this.props.likes} comments={this.props.comments} currentProfileID={this.props.currentProfileID} />
+              <SocialOverview likes={this.props.likes} comments={this.props.comments} currentProfileID={this.props.currentProfileID} newsfeedID={this.props.id} />
 
             </div>
 

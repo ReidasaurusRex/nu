@@ -41,6 +41,8 @@ class Profiles::LikesController < Inheritance::CompletedProfileController
     @like = Like.find(params[:id])
     @like.destroy
     flash[:success] = "Unliked it!"
-    redirect_to profile_newsfeed_items_path(profile_id: @profile.id)
+    respond_to do |format| 
+      format.json {render json: @newsfeed_item.likes}
+    end
   end
 end

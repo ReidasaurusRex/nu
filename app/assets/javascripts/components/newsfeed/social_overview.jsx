@@ -8,7 +8,6 @@ var SocialOverview = React.createClass({
       return like.profile_id;
     });
     if (likeProfileIds.includes(this.props.currentProfileID)) {
-      var profileLike = this.state.likes.find(function(like){return like.profile_id === self.props.currentProfileID;});
       return (
         <a href="#" title="Unappreciate" onClick={this.handleLikeDestroy}><i className="fa fa-heart c-social-overview__li__icon u-text--apricot"></i></a>
       )
@@ -49,8 +48,22 @@ var SocialOverview = React.createClass({
     }
   },
   handleLikeDestroy: function(e) {
+    var self = this;
     e.preventDefault();
-    console.log("Unlike!");
+    var profileLikeID = this.state.likes.find(function(like){return like.profile_id === self.props.currentProfileID;}).id;
+    var destroyUrl = "/newsfeed_items/" + this.props.newsfeedID + "/likes/" + profileLikeID;
+    $.ajax({
+      url: destroyUrl,
+      dataType: 'json',
+      type: 'DELETE', 
+      cache: false,
+      success: function(likes) {
+        this.setState({likes: likes});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(destroyUrl, status, err.toString());
+      }.bind(this)
+    });
   },
   handleLikeSubmit: function(e) {
     e.preventDefault();
