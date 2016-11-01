@@ -66,8 +66,21 @@ var SocialOverview = React.createClass({
     });
   },
   handleLikeSubmit: function(e) {
+    var self = this;
     e.preventDefault();
-    console.log("Like!");
+    var createUrl = "/newsfeed_items/" + this.props.newsfeedID + "/likes"
+    $.ajax({
+      url: createUrl,
+      dataType: 'json',
+      type: 'POST',
+      cache: false,
+      success: function(likes) {
+        this.setState({likes: likes});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(createUrl, status, err.toString());
+      }.bind(this)
+    });
   },
   render: function() {
     return (
