@@ -8,6 +8,11 @@ json.items @next_newsfeed_items do |item|
   json.feed item.feed_or_nil
   json.url item.url_or_nil
   json.tsc item.time_since_creation
-  json.comments item.comments
   json.likes item.likes
+  json.comments item.comments do |comment| 
+    json.newsfeed_item_id comment.newsfeed_item_id
+    json.profile_id comment.profile_id
+    json.profile_photo comment.profile.profile_photo
+    json.text comment.text
+  end
 end
