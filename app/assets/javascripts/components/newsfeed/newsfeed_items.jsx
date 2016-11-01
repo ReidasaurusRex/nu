@@ -11,6 +11,7 @@ var NewsfeedItems = React.createClass({
       data: {current_index: currentData.length},
       cache: false,
       success: function(data) {
+        console.log(data.items);
         this.setState({items: currentData.concat(data.items)});
       }.bind(this)
     });
@@ -27,9 +28,9 @@ var NewsfeedItems = React.createClass({
     var items = this.state.items.map(function(item) {
       if (item.source_type === "feed")
       {
-        return (<FeedNewsfeedItem key={item.id} id={item.id} url={item.url} feed={item.feed} tsc={item.tsc} sourceName={item.source_name} image={item.image} currentProfileID={self.props.currentProfileID} likes={item.likes} comments={item.comments} />)
+        return (<FeedNewsfeedItem key={item.id} id={item.id} url={item.url} feed={item.feed} tsc={item.tsc} sourceName={item.source_name} image={item.image} currentProfileID={self.props.currentProfileID} currentProfilePhoto={self.props.currentProfilePhoto} likes={item.likes} comments={item.comments} />)
       } else {
-        return (<NativeNewsfeedItem key={item.id} id={item.id} content={item.content} image={item.image} sourceName={item.source_name} tsc={item.tsc} currentProfileID={self.props.currentProfileID} likes={item.likes} comments={item.comments} />)
+        return (<NativeNewsfeedItem key={item.id} id={item.id} content={item.content} image={item.image} sourceName={item.source_name} tsc={item.tsc} currentProfileID={self.props.currentProfileID} currentProfilePhoto={self.props.currentProfilePhoto} likes={item.likes} comments={item.comments} />)
       }
     });
     return (

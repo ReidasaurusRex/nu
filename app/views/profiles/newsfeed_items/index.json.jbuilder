@@ -10,6 +10,7 @@ json.items @next_newsfeed_items do |item|
   json.tsc item.time_since_creation
   json.likes item.likes
   json.comments item.comments do |comment| 
+    json.id comment.id
     json.newsfeed_item_id comment.newsfeed_item_id
     json.profile_id comment.profile_id
     json.profile_photo comment.profile.profile_photo
