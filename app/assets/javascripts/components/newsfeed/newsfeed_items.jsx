@@ -25,9 +25,9 @@ var NewsfeedItems = React.createClass({
   },
   properItemType: function(item) {
     if (item.source_type === "feed") {
-      return (<FeedNewsfeedItem id={item.id} url={item.url} feed={item.feed} tsc={item.tsc} sourceName={item.source_name} image={item.image} currentProfileID={this.props.currentProfileID} currentProfilePhoto={this.props.currentProfilePhoto} likes={item.likes} comments={item.comments} />)
+      return (<FeedNewsfeedItem id={item.id} url={item.url} feed={item.feed} tsc={item.tsc} sourceName={item.source_name} image={item.image} currentProfileID={this.props.currentProfileID} />)
     } else {
-      return (<NativeNewsfeedItem id={item.id} content={item.content} image={item.image} sourceName={item.source_name} tsc={item.tsc} currentProfileID={this.props.currentProfileID} currentProfilePhoto={this.props.currentProfilePhoto} likes={item.likes} comments={item.comments} />)
+      return (<NativeNewsfeedItem id={item.id} content={item.content} image={item.image} sourceName={item.source_name} tsc={item.tsc} currentProfileID={this.props.currentProfileID} />)
     }
   },
   render: function() {
