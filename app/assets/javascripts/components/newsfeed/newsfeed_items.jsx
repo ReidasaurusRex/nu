@@ -12,6 +12,9 @@ var NewsfeedItems = React.createClass({
       cache: false,
       success: function(data) {
         this.setState({items: currentData.concat(data.items)});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(this.props.url, status, err.toString());
       }.bind(this)
     });
   },

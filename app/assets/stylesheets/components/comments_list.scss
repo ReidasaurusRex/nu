@@ -5,7 +5,7 @@
 }
 
 .c-comments-list__li__img {
-  margin-top: $spacing-unit * 0.75;
+  margin-top: $spacing-unit * 0.6;
 }
 
 .c-comments-list__li__bd {
@@ -27,6 +27,7 @@
 
 .c-comments-list__new__text-field {
   border: 1px solid $color-monte-carlo;
+  margin-right: $spacing-unit / 3;
   width: 62% !important;
 }
 
