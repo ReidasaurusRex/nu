@@ -8,7 +8,7 @@ var Comment = React.createClass({
         <img className="o-media__img o-img--tiny o-img--round c-comments-list__li__img" src={this.props.profilePhoto} />
         
         <div className="o-media__bd c-comments-list__li__bd">
-          <a href={profileUrl}>{this.props.profileName}</a>
+          <a className="c-comments-list__li__bd__link" href={profileUrl}>{this.props.profileName}</a>
           {this.props.text}
         </div>
 

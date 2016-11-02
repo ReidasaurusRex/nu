@@ -5,6 +5,7 @@
 }
 
 .c-comments-list__li__img {
+  margin-right: $spacing-unit / 5;
   margin-top: $spacing-unit * 0.6;
 }
 
@@ -12,6 +13,10 @@
   margin-top: $spacing-unit;
   padding-bottom: $spacing-unit / 2;
   width: 80%;
+}
+
+.c-comments-list__li__bd__link {
+  margin-right: $spacing-unit / 4;
 }
 
 .c-comments-list__li__bd__destroy {
