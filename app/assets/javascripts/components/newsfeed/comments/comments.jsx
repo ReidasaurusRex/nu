@@ -4,14 +4,17 @@ var Comments = React.createClass({
   },
   handleCommentSubmit: function(comment) {
     var postUrl = "/newsfeed_items/" + this.props.newsfeedID + "/comments";
+    console.log(this.state.comments);
     $.ajax({
       url: postUrl,
       dataType: 'json',
       type: 'POST',
       data: comment,
       cache: false,
-      success: function(comments) {
-        this.setState({comments: comments});
+      success: function(data) {
+        console.log(data);
+        this.setState({comments: data.comments});
+        console.log(this.state.comments);
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(this.props.url, status, err.toString());
