@@ -25,7 +25,9 @@ class Profiles::CommentsController < Inheritance::CompletedProfileController
     else
       flash[:error] = "Couldn't comment"
     end
-    redirect_to :back
+    respond_to do |format|
+      format.json {render json: @newsfeed_item.comments}
+    end
   end
 
   def destroy_comment

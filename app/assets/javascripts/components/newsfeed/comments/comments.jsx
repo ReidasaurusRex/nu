@@ -3,7 +3,7 @@ var Comments = React.createClass({
     return {comments: this.props.comments};
   },
   handleCommentSubmit: function(comment) {
-    var postUrl = "newsfeed_items/" + this.props.newsfeedID + "/comments";
+    var postUrl = "/newsfeed_items/" + this.props.newsfeedID + "/comments";
     $.ajax({
       url: postUrl,
       dataType: 'json',
