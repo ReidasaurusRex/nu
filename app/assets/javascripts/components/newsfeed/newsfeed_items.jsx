@@ -11,7 +11,6 @@ var NewsfeedItems = React.createClass({
       data: {current_index: currentData.length},
       cache: false,
       success: function(data) {
-        console.log(data.items);
         this.setState({items: currentData.concat(data.items)});
       }.bind(this)
     });
@@ -35,15 +34,16 @@ var NewsfeedItems = React.createClass({
     var items = this.state.items.map(function(item) {
       return (
         <div key={item.id} className="o-bubble o-bubble--no-pad c-newsfeed-list__item">
+          
           <div className="c-newsfeed-list__item--padding">
             
             {self.properItemType(item)}
             
             <SocialOverview likes={item.likes} comments={item.comments} currentProfileID={self.props.currentProfileID} newsfeedID={item.id} />
-            
-            <Comments comments={item.comments} currentProfileID={self.props.currentProfileID} currentProfilePhoto={self.props.currentProfilePhoto} newsfeedID={item.id} />
 
           </div>
+            
+          <Comments comments={item.comments} currentProfileID={self.props.currentProfileID} currentProfilePhoto={self.props.currentProfilePhoto} newsfeedID={item.id} />
 
         </div>
       )

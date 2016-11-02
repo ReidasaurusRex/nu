@@ -8,6 +8,7 @@ var Comments = React.createClass({
      });
     return (
       <ul className="c-comments-list">
+        <NewCommentForm newsfeedID={this.props.newsfeedID} currentProfilePhoto={this.props.currentProfilePhoto} currentProfileID={this.props.currentProfileID} />
         {comments}
       </ul>
     );
