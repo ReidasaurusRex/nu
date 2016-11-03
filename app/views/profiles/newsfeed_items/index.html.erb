@@ -6,7 +6,7 @@
   </div>
 
   <div class="o-bubble o-bubble--full o-bubble--no-pad o-bubble--with-heading c-newsfeed-composer">
-  <%= render partial: "profiles/newsfeed_items/composer", locals: {item: @newsfeed_item, profile: @profile} %>
+    <%= render partial: "profiles/newsfeed_items/composer", locals: {item: @newsfeed_item, profile: @profile} %>
   </div> <!-- o-bubble -->
 
   <%= react_component 'NewsfeedItems', {url: profile_newsfeed_items_path(@profile), currentProfileID: @profile.id, currentProfilePhoto: @profile.profile_photo} %>
