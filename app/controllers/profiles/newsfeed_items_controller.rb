@@ -45,7 +45,6 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
       @newsfeed_item.add_tags(tags)
       NewsfeedItemProfile.create(profile_id: @profile.id, newsfeed_item_id: @newsfeed_item.id)
       @profile.followers.each{|follower| NewsfeedItemProfile.create(profile_id: follower.id, newsfeed_item_id: @newsfeed_item.id)}
-      redirect_to profile_newsfeed_items_path(profile_id: @profile.id)
     else
       render :index
     end

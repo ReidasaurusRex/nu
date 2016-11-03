@@ -32,6 +32,24 @@ var NewsfeedItems = React.createClass({
       return (<NativeNewsfeedItem id={item.id} content={item.content} image={item.image} sourceName={item.source_name} tsc={item.tsc} currentProfileID={this.props.currentProfileID} />)
     }
   },
+  handleNewsfeedItemSubmit: function(item) {
+    $.ajax({
+      url: this.props.url,
+      type: 'POST', 
+      dataType: 'json', 
+      data: item,
+      cache: false,
+      success: function(data) {
+        var items = this.state.items;
+        items.unshift(data.newsfeed_item);
+        this.setState({items: items});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(this.props.url, status, err.toString());
+      }.bind(this)
+
+    });
+  },
   render: function() {
     var self = this;
     var items = this.state.items.map(function(item) {
@@ -53,9 +71,12 @@ var NewsfeedItems = React.createClass({
       
     });
     return (
-      <div className="c-newsfeed-list">
-        {items}
-        <a href="#" onClick={this.loadTenMoreItems} className="c-newsfeed-list__load-more o-bubble">Load ten more items</a>
+      <div className="c-newsfeed">
+        <NewNewsfeedItemForm currentProfileID={this.props.currentProfileID} currentProfilePhoto={this.props.currentProfilePhoto} onNewsfeedItemSubmit={this.handleNewsfeedItemSubmit} />
+        <div className="c-newsfeed-list">
+          {items}
+          <a href="#" onClick={this.loadTenMoreItems} className="c-newsfeed-list__load-more o-bubble">Load ten more items</a>
+        </div>
       </div>
     );
   }
