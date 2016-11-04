@@ -55,9 +55,10 @@ var NewNewsfeedItemForm = React.createClass({
                 ></textarea>
             </div>
 
-          </div>
+          </div> 
 
           <div className="c-newsfeed-composer__tag-submit">
+            
             <ul className="o-inline-list c-newsfeed-composer__tag-list">
 
               <li className="o-inline-list__li c-newsfeed-composer__tag-list__prompt">
@@ -143,17 +144,17 @@ var NewNewsfeedItemForm = React.createClass({
               </li>
 
             </ul>
-          </div>
 
-          <div className="c-newsfeed-composer__submit">
-            <input 
-              type="submit" 
-              value="Post"
-            />
+            <div className="c-newsfeed-composer__submit">
+              <input 
+                type="submit" 
+                value="Post"
+              />
+            </div>
+
           </div>
 
         </form>
-
 
       </div>
     );
