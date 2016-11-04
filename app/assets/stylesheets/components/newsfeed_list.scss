@@ -37,6 +37,14 @@
   margin-left: $spacing-unit / 2;
 }
 
+.c-newsfeed-list__item__menu {
+  color: $color-edward;
+  float: right;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .c-newsfeed-list__item__bd {
   width: 85%;
 }

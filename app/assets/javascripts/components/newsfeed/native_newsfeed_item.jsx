@@ -1,4 +1,13 @@
 var NativeNewsfeedItem = React.createClass({
+  getInitialState: function() {
+    return {content: this.props.content};
+  },
+  renderEditForm: function() {
+
+  },
+  handleItemUpdate: function() {
+
+  },
   render: function() {
     return (
       <div className="o-media">
@@ -10,10 +19,11 @@ var NativeNewsfeedItem = React.createClass({
           <p className="c-newsfeed-list__item__text">
             {this.props.sourceName}
             <span className="c-newsfeed-list__item__pd">{this.props.tsc}</span>
+            <NativeNewsfeedMenu />
           </p>
 
           <p className="c-newsfeed-list__item__text">
-            {this.props.content}  
+            {this.state.content}
           </p>
 
         </div> 
