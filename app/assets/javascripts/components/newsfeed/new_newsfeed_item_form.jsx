@@ -19,7 +19,7 @@ var NewNewsfeedItemForm = React.createClass({
     e.preventDefault();
     var content = this.state.content.trim();
     var tags = this.emptyOrPresentTags();
-    if (!content) {
+    if (!content || jQuery.isEmptyObject(tags)) {
       return;
     }
     this.props.onNewsfeedItemSubmit({newsfeed_item: {source_id: this.props.currentProfileID, source_type: "profile", content: content}, tags: tags});
