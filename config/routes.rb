@@ -41,7 +41,7 @@
       get 'site/help', as: 'site_help'
       get 'site/terms', as: 'site_terms'
       get 'site/sitemap', as: 'sitemap'
-      post 'search/results', as: 'search'
+      get 'search/results', as: 'search'
       resources :notifications, only: [:index, :destroy]
       resources :stats, only: :index
       resources :challenges, only: [:index, :show]

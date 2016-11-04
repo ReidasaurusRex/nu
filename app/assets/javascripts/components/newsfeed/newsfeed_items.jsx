@@ -50,6 +50,11 @@ var NewsfeedItems = React.createClass({
 
     });
   },
+  addTagsUnlessEmpty: function(tags) {
+    if (tags.length > 0) {
+      return (<TagList tags={tags} currentProfileID={this.props.currentProfileID} />)
+    }
+  },
   render: function() {
     var self = this;
     var items = this.state.items.map(function(item) {
@@ -59,6 +64,8 @@ var NewsfeedItems = React.createClass({
           <div className="c-newsfeed-list__item--padding">
             
             {self.properItemType(item)}
+
+            {self.addTagsUnlessEmpty(item.tags)}
             
             <SocialOverview likes={item.likes} comments={item.comments} currentProfileID={self.props.currentProfileID} newsfeedID={item.id} />
 
