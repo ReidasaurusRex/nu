@@ -1,6 +1,5 @@
 class Profiles::SearchController < Inheritance::CompletedProfileController
   def results
-    binding.pry
     @query = params[:query]
     @results = get_results(params[:query])
   end
