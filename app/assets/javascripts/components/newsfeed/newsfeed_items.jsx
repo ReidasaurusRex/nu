@@ -32,12 +32,12 @@ var NewsfeedItems = React.createClass({
       return (<NativeNewsfeedItem id={item.id} content={item.content} image={item.image} sourceName={item.source_name} tsc={item.tsc} currentProfileID={this.props.currentProfileID} />)
     }
   },
-  handleNewsfeedItemSubmit: function(item) {
+  handleNewsfeedItemSubmit: function(itemAndTags) {
     $.ajax({
       url: this.props.url,
       type: 'POST', 
       dataType: 'json', 
-      data: item,
+      data: itemAndTags,
       cache: false,
       success: function(data) {
         var items = this.state.items;
