@@ -9,6 +9,7 @@ json.items @next_newsfeed_items do |item|
   json.url item.url_or_nil
   json.tsc item.time_since_creation
   json.likes item.likes
+  json.tags item.tags
   json.comments item.comments do |comment| 
     json.id comment.id
     json.newsfeed_item_id comment.newsfeed_item_id
