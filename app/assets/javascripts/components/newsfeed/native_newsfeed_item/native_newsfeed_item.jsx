@@ -8,7 +8,6 @@ var NativeNewsfeedItem = React.createClass({
     } else {
       this.setState({displayMenu: false});
     }
-    console.log(this.state.displayMenu);
   },
   renderEditForm: function() {
 
