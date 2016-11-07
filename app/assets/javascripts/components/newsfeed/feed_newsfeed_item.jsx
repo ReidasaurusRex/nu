@@ -1,4 +1,7 @@
 var FeedNewsfeedItem = React.createClass({
+  getInitialState: function() {
+    return {displayMenu: false};
+  },
   imageOrNot: function() {
     if (this.props.image) {
       return (
@@ -7,8 +10,16 @@ var FeedNewsfeedItem = React.createClass({
         </div>
       )
     } else {
-      return false
+      return false;
     }
+  },
+  handleMenuClick: function() {
+    if (!this.state.displayMenu) {
+      this.setState({displayMenu: true});
+    } else {
+      this.setState({displayMenu: false});
+    }
+    console.log(this.state.displayMenu);
   },
   render: function() {
     return (
@@ -16,6 +27,7 @@ var FeedNewsfeedItem = React.createClass({
         <h3 className="c-newsfeed-list__item__title c-newsfeed-list__item__text">
           {this.props.feed}
           <span className="c-newsfeed-list__item__pd">RSS • {this.props.tsc}</span>
+          <span onClick={this.handleMenuClick}><i className="fa fa-angle-down c-newsfeed-list__item__menu-prompt"></i></span>
         </h3>
 
         <div className="o-media c-rss-newsfeed-item__media">

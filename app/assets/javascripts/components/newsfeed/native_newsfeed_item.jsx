@@ -1,6 +1,14 @@
 var NativeNewsfeedItem = React.createClass({
   getInitialState: function() {
-    return {content: this.props.content};
+    return {content: this.props.content, displayMenu: false};
+  },
+  handleMenuClick: function() {
+    if (!this.state.displayMenu) {
+      this.setState({displayMenu: true});
+    } else {
+      this.setState({displayMenu: false});
+    }
+    console.log(this.state.displayMenu);
   },
   renderEditForm: function() {
 
@@ -19,7 +27,7 @@ var NativeNewsfeedItem = React.createClass({
           <p className="c-newsfeed-list__item__text">
             {this.props.sourceName}
             <span className="c-newsfeed-list__item__pd">{this.props.tsc}</span>
-            <NativeNewsfeedMenu />
+            <span onClick={this.handleMenuClick}><i className="fa fa-angle-down c-newsfeed-list__item__menu-prompt"></i></span>
           </p>
 
           <p className="c-newsfeed-list__item__text">

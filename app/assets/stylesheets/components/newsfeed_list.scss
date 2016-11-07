@@ -37,9 +37,10 @@
   margin-left: $spacing-unit / 2;
 }
 
-.c-newsfeed-list__item__menu {
+.c-newsfeed-list__item__menu-prompt {
   color: $color-edward;
   float: right;
+  font-size: 20px;
   &:hover {
     cursor: pointer;
   }
