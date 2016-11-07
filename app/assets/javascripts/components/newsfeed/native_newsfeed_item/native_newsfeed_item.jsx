@@ -11,12 +11,25 @@ var NativeNewsfeedItem = React.createClass({
   },
   handleEditClick: function(e) {
     e.preventDefault();
-    this.setState({editContent: true});
+    this.setState({editContent: true, displayMenu: false});
     console.log("Clicked edit and shit!");
     console.log(e.target);
   },
-  handleItemUpdate: function() {
-
+  handleNewsfeedItemUpdate: function(content) {
+    console.log("New content: " + content);
+    var updateUrl = "/profiles/" + this.props.currentProfileID + "/newsfeed_items/" + this.props.id;
+    $.ajax({
+      url: updateUrl,
+      dataType: 'json',
+      type: 'PUT', 
+      cache: false,
+      success: function(content) {
+        this.setState({content: content});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(this.props.url, status, err.toString());
+      }.bind(this)
+    });
   },
   handleUnfollow: function(e) {
     e.preventDefault();
@@ -31,12 +44,9 @@ var NativeNewsfeedItem = React.createClass({
       menu = null;
     }
     if (this.state.editContent) {
-      contentOrForm = (<form onSubmit={this.handleItemUpdate}>
-        <input type="text" value={this.state.content} />
-        <input type="submit" />
-      </form>)
+      contentOrForm = <EditNewsfeedForm content={this.state.content} newsfeedItemID={this.props.id} currentProfileID={this.props.currentProfileID} onNewsfeedItemUpdate={this.handleNewsfeedItemUpdate}/>
     } else {
-      contentOrForm = this.state.content
+      contentOrForm = <p className="c-newsfeed-list__item__text">{this.state.content}</p>
     }
     return (
       <div className="o-media c-newsfeed-list__item__media">
@@ -51,9 +61,7 @@ var NativeNewsfeedItem = React.createClass({
             <span onClick={this.handleMenuClick}><i className="fa fa-angle-down c-newsfeed-list__item__menu-prompt"></i></span>
           </p>
 
-          <p className="c-newsfeed-list__item__text">
-            {contentOrForm}
-          </p>
+          {contentOrForm}
 
           {menu}
 
