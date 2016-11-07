@@ -11,7 +11,7 @@ var EditNewsfeedForm = React.createClass({
     if (!content) {
       return;
     }
-    this.props.onNewsfeedItemUpdate({content: content});
+    this.props.onNewsfeedItemUpdate({newsfeed_item: {content: content}});
   },
   render: function() {
     return (

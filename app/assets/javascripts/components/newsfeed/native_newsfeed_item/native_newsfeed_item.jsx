@@ -16,7 +16,6 @@ var NativeNewsfeedItem = React.createClass({
     console.log(e.target);
   },
   handleNewsfeedItemUpdate: function(content) {
-    console.log("New content: " + content);
     var updateUrl = "/profiles/" + this.props.currentProfileID + "/newsfeed_items/" + this.props.id;
     $.ajax({
       url: updateUrl,
@@ -24,8 +23,8 @@ var NativeNewsfeedItem = React.createClass({
       type: 'PUT',
       data: content, 
       cache: false,
-      success: function(content) {
-        this.setState({content: content, editContent: false});
+      success: function(data) {
+        this.setState({content: data.content, editContent: false});
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(this.props.url, status, err.toString());

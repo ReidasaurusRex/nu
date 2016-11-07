@@ -21,7 +21,7 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   end
 
   def update
-    binding.pry
+    update_newsfeed_item(newsfeed_item_params)
   end
 
   def destroy
@@ -49,5 +49,9 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
     else
       render :index
     end
+  end
+
+  def update_newsfeed_item(params)
+    @newsfeed_item.update(params)
   end
 end
