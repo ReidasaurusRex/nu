@@ -25,6 +25,7 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   end
 
   def destroy
+    @newsfeed_item.destroy
   end
 
   private

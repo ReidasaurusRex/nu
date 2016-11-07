@@ -31,6 +31,13 @@ var NativeNewsfeedItem = React.createClass({
       }.bind(this)
     });
   },
+  sendDelete: function(e) {
+    e.preventDefault();
+    this.setState({displayMenu: false});
+    if (confirm("Delete this post?")) {
+      this.props.onDelete(this.props.id);
+    }
+  },
   handleUnfollow: function(e) {
     e.preventDefault();
     console.log("Clicked unfollow and shit!");
@@ -39,7 +46,8 @@ var NativeNewsfeedItem = React.createClass({
   render: function() {
     var menu, contentOrForm;
     if (this.state.displayMenu) {
-      menu = <NativeNewsfeedMenu newsfeedItemID={this.props.id} currentProfileID={this.props.currentProfileID}  sourceID={this.props.sourceID} onEditClick={this.handleEditClick} onUnfollow={this.handleUnfollow}/>;
+      menu = <NativeNewsfeedMenu newsfeedItemID={this.props.id} currentProfileID={this.props.currentProfileID}  sourceID={this.props.sourceID} 
+              onEditClick={this.handleEditClick} onUnfollow={this.handleUnfollow} onDeleteClick={this.sendDelete} />;
     } else {
       menu = null;
     }

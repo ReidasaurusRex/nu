@@ -25,11 +25,36 @@ var NewsfeedItems = React.createClass({
   componentDidMount: function() {
     this.loadTenItems();
   },
+  handleDelete: function(id) {
+    var destroyUrl = this.props.url + "/" + id;
+    $.ajax({
+      url: destroyUrl,
+      dataType: 'json', 
+      type: 'DELETE',
+      success: function() {
+        var items = this.state.items;
+        var index = -1;
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].id === id) {
+            index = i;
+            break;
+          }
+        }
+        if (index > -1) {
+          items.splice(index, 1);
+          this.setState({items: items});
+        }
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
   properItemType: function(item) {
     if (item.source_type === "feed") {
       return (<FeedNewsfeedItem id={item.id} url={item.url} feed={item.feed} tsc={item.tsc} sourceName={item.source_name} image={item.image} currentProfileID={this.props.currentProfileID} />)
     } else {
-      return (<NativeNewsfeedItem id={item.id} content={item.content} image={item.image} sourceName={item.source_name} sourceID={item.source_id} tsc={item.tsc} currentProfileID={this.props.currentProfileID} />)
+      return (<NativeNewsfeedItem id={item.id} content={item.content} image={item.image} sourceName={item.source_name} sourceID={item.source_id} tsc={item.tsc} currentProfileID={this.props.currentProfileID} onDelete={this.handleDelete} />)
     }
   },
   handleNewsfeedItemSubmit: function(itemAndTags) {

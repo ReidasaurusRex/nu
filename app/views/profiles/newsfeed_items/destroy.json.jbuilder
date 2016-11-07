@@ -1,0 +1,1 @@
+json.id @newsfeed_item.id

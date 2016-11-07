@@ -2,7 +2,7 @@ class NewsfeedItem < ActiveRecord::Base
   has_many :newsfeed_item_profiles, dependent: :destroy
   has_many :profiles, through: :newsfeed_item_profiles
   has_many :comments, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :tags, as: :taggable
 
   validates :content, presence: {message: "Please add some content"}

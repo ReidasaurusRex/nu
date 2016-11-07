@@ -6,6 +6,13 @@ var NativeNewsfeedMenu = React.createClass({
       return (<a className="u-text--edward" href="#" onClick={this.props.onUnfollow}>Unfollow</a>)
     }
   },
+  deleteOrNot: function() {
+    if (this.props.currentProfileID === this.props.sourceID) {
+      return (<li className="c-newsfeed-menu__li"><a className="u-text--edward" href="#" onClick={this.props.onDeleteClick}>Delete</a></li>)
+    } else {
+      return null;
+    }
+  },
   render: function() {
     var profileUrl = "/profiles/" + this.props.sourceID;
     return (
@@ -16,6 +23,7 @@ var NativeNewsfeedMenu = React.createClass({
         <li className="c-newsfeed-menu__li">
           {this.editOrUnfollow()}
         </li>
+        {this.deleteOrNot()}
       </ul>
     );
   }
