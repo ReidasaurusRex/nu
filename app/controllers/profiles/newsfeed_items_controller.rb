@@ -21,6 +21,7 @@ class Profiles::NewsfeedItemsController < Inheritance::ProfileMatchesUserControl
   end
 
   def update
+    binding.pry
   end
 
   def destroy

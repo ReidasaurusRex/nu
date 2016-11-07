@@ -21,10 +21,11 @@ var NativeNewsfeedItem = React.createClass({
     $.ajax({
       url: updateUrl,
       dataType: 'json',
-      type: 'PUT', 
+      type: 'PUT',
+      data: content, 
       cache: false,
       success: function(content) {
-        this.setState({content: content});
+        this.setState({content: content, editContent: false});
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(this.props.url, status, err.toString());
