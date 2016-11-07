@@ -18,7 +18,7 @@ var NativeNewsfeedItem = React.createClass({
   render: function() {
     var menu;
     if (this.state.displayMenu) {
-      menu = <NativeNewsfeedMenu />;
+      menu = <NativeNewsfeedMenu newsfeedItemID={this.props.id} currentProfileID={this.props.currentProfileID}  sourceID={this.props.sourceID}/>;
     } else {
       menu = null;
     }
