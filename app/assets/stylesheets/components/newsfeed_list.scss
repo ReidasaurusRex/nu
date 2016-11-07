@@ -28,6 +28,11 @@
 .c-newsfeed-list__item__text {
   color: $color-black;
   margin-bottom: $spacing-unit / 3;
+  overflow-x: hidden;
+}
+
+.c-newsfeed-list__item__media {
+  overflow: visible;
 }
 
 .c-newsfeed-list__item__pd {
@@ -47,6 +52,8 @@
 }
 
 .c-newsfeed-list__item__bd {
+  overflow: visible;
+  position: relative;
   width: 85%;
 }
 

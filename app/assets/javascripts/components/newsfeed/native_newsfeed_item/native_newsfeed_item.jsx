@@ -23,7 +23,7 @@ var NativeNewsfeedItem = React.createClass({
       menu = null;
     }
     return (
-      <div className="o-media">
+      <div className="o-media c-newsfeed-list__item__media">
 
         <img src={this.props.image} alt="" className="o-media__img o-img--small o-img--round"/>
 

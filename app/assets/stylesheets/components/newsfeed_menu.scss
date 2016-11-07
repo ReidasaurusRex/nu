@@ -1,0 +1,19 @@
+.c-newsfeed-menu {
+  background: $color-white;
+  border: 1px solid $color-edward;
+  right: 0px;
+  top: 20px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.c-newsfeed-menu__li {
+  color: $color-edward;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  &:not(:last-child) {
+    border-bottom: 1px solid $color-edward;
+  }
+}
