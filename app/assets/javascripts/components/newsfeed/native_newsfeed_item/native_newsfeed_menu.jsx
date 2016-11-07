@@ -1,9 +1,14 @@
 var NativeNewsfeedMenu = React.createClass({
   render: function() {
     return (
-      <span className="c-newsfeed-list__item__menu">
-        <i className="fa fa-lg fa-angle-down"></i>
-      </span>
+      <ul className="c-newsfeed-list__item__menu">
+        <li className="c-newsfeed-list__item__menu__li">
+          View Profile
+        </li>
+        <li className="c-newsfeed-list__item__menu__li">
+          Unfollow
+        </li>
+      </ul>
     );
   }
 });

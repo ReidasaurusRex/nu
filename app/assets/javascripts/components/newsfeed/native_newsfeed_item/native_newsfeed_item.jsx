@@ -17,6 +17,12 @@ var NativeNewsfeedItem = React.createClass({
 
   },
   render: function() {
+    var menu;
+    if (this.state.displayMenu) {
+      menu = <NativeNewsfeedMenu />;
+    } else {
+      menu = null;
+    }
     return (
       <div className="o-media">
 
@@ -33,6 +39,8 @@ var NativeNewsfeedItem = React.createClass({
           <p className="c-newsfeed-list__item__text">
             {this.state.content}
           </p>
+
+          {menu}
 
         </div> 
 
