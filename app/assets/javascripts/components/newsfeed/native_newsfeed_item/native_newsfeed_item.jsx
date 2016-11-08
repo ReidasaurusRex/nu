@@ -1,6 +1,6 @@
 var NativeNewsfeedItem = React.createClass({
   getInitialState: function() {
-    return {content: this.props.content, displayMenu: false, editContent: false};
+    return {content: this.props.content, displayMenu: false, editContent: false, following: true};
   },
   handleMenuClick: function() {
     if (!this.state.displayMenu) {
@@ -41,12 +41,25 @@ var NativeNewsfeedItem = React.createClass({
   handleUnfollow: function(e) {
     e.preventDefault();
     this.setState({displayMenu: false});
-    console.log("Clicked unfollow");
+    var destroyUrl = "/profiles/" + this.currentProfileID + "/subscriptions/" + this.props.sourceID;
+    $.ajax({
+      url: destroyUrl,
+      dataType: 'json',
+      type: 'DELETE',
+      cache: false,
+      success: function() {
+        this.setState({following: false});
+        alert("Unfollowed " + this.props.sourceName);
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(this.props.url, status, err.toString());
+      }.bind(this)
+    });
   },
   render: function() {
     var menu, contentOrForm;
     if (this.state.displayMenu) {
-      menu = <NativeNewsfeedMenu newsfeedItemID={this.props.id} currentProfileID={this.props.currentProfileID}  sourceID={this.props.sourceID} 
+      menu = <NativeNewsfeedMenu newsfeedItemID={this.props.id} currentProfileID={this.props.currentProfileID}  sourceID={this.props.sourceID} following={this.state.following}  
               onEditClick={this.handleEditClick} onUnfollow={this.handleUnfollow} onDeleteClick={this.sendDelete} />;
     } else {
       menu = null;

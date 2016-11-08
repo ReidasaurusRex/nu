@@ -4,7 +4,7 @@ class Subscription < ActiveRecord::Base
 
   def self.subscription_for_profile(profile, following_id)
     subscription_ids = profile.subscriptions.pluck(:following_id)
-    if subscription_ids.include?(following_id)
+    if subscription_ids.include?(following_id.to_i)
       return profile.subscriptions.where(following_id: following_id)[0]
     else
       raise 'Subscription not found'

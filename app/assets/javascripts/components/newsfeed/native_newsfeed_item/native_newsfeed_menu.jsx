@@ -3,7 +3,12 @@ var NativeNewsfeedMenu = React.createClass({
     if (this.props.currentProfileID === this.props.sourceID) {
       return (<a className="u-text--edward" href="#" onClick={this.props.onEditClick}>Edit</a>)
     } else {
-      return (<a className="u-text--edward" href="#" onClick={this.props.onUnfollow}>Unfollow</a>)
+      if (this.props.following) {
+        return (<a className="u-text--edward" href="#" onClick={this.props.onUnfollow}>Unfollow</a>)  
+      } else {
+        return (<span className="u-text--apricot">Unfollowed</span>)
+      }
+      
     }
   },
   deleteOrNot: function() {

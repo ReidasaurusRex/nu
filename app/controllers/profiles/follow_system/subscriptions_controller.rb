@@ -33,14 +33,13 @@ class Profiles::FollowSystem::SubscriptionsController < Inheritance::ProfileMatc
 
   def delete_subscription
     @subscription = Subscription.subscription_for_profile(@profile, params[:id])
+    @following = @subscription.following
     if @profile.subscriptions.include?(@subscription)
       delete_subscription_follow
       @subscription.destroy
       flash[:success] = "Unfollowed #{@subscription.following.first_name}"
-      redirect_to :back
     else
       flash[:error] = "Couldn't unfollow"
-      redirect_to :back
     end
   end
 
