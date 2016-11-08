@@ -1,10 +1,5 @@
-<!-- 
-<div class="c-newsfeed-composer">
-  <%= render partial: "profiles/newsfeed_items/composer", locals: {item: NewsfeedItem.new, profile: profile} %>
-</div>
- -->
 <% if profile.newsfeed_items.empty? %>
   <h3>Looks like your feed is empty!</h3>
 <% else %>
-  <%= render partial: "profiles/newsfeed_items/newsfeed_list", locals: {newsfeed_items: profile.newsfeed_items, profile: profile} %>
+  <%= react_component 'NewsfeedItems', {url: profile_newsfeed_items_path(profile), currentProfileID: profile.id, currentProfilePhoto: profile.profile_photo} %>
 <% end %>
