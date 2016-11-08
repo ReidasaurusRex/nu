@@ -40,8 +40,7 @@ var NativeNewsfeedItem = React.createClass({
   },
   handleUnfollow: function(e) {
     e.preventDefault();
-    console.log("Clicked unfollow and shit!");
-    console.log(e.target);
+    this.setState({displayMenu: false});
   },
   render: function() {
     var menu, contentOrForm;
