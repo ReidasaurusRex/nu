@@ -24,7 +24,7 @@ var NewsfeedItems = React.createClass({
     this.loadTenItems();
     var self = this;
     $(window).scroll(function() {
-     if (($(window).scrollTop() + $(window).height() > $(document).height() - 100) && (!self.state.loading)) {
+     if (($(window).scrollTop() + $(window).height() > $(document).height()) && (!self.state.loading)) {
          self.loadTenItems();
      }
     });
