@@ -1,9 +1,10 @@
 var NewsfeedItems = React.createClass({
   getInitialState: function() {
-    return  {items: []};
+    return  {items: [], loading: false};
   },
   loadTenItems: function() {
     var currentData = this.state.items;
+    this.setState({loading: true});
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -11,19 +12,22 @@ var NewsfeedItems = React.createClass({
       data: {current_index: currentData.length},
       cache: false,
       success: function(data) {
-        this.setState({items: currentData.concat(data.items)});
+        this.setState({items: currentData.concat(data.items), loading: false});
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(this.props.url, status, err.toString());
+        this.setState({loading: false});
       }.bind(this)
     });
   },
-  loadTenMoreItems: function(e) {
-    e.preventDefault();
-    this.loadTenItems();
-  },
   componentDidMount: function() {
     this.loadTenItems();
+    var self = this;
+    $(window).scroll(function() {
+     if (($(window).scrollTop() + $(window).height() > $(document).height() - 100) && (!self.state.loading)) {
+         self.loadTenItems();
+     }
+    });
   },
   handleDelete: function(id) {
     var destroyUrl = this.props.url + "/" + id;
@@ -107,7 +111,6 @@ var NewsfeedItems = React.createClass({
         <NewNewsfeedItemForm currentProfileID={this.props.currentProfileID} currentProfilePhoto={this.props.currentProfilePhoto} onNewsfeedItemSubmit={this.handleNewsfeedItemSubmit} />
         <div className="c-newsfeed-list">
           {items}
-          <a href="#" onClick={this.loadTenMoreItems} className="c-newsfeed-list__load-more o-bubble">Load ten more items</a>
         </div>
       </div>
     );
