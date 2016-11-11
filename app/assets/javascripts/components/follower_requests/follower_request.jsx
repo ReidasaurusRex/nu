@@ -4,9 +4,21 @@ var FollowerRequest = React.createClass({
   },
   handleAccept: function(e) {
     e.preventDefault();
+    console.log("Accepted");
   },
   handleDestroy: function(e) {
     e.preventDefault();
+    console.log("Rejected");
+  },
+  properPrompt: function() {
+    switch (this.state.status) {
+      case "pending":
+        return "wants to follow you";
+      case "accepted":
+        return "is following you";
+      case "rejected":
+        return "follow request deleted";
+    }
   },
   render: function() {
     return(
@@ -21,7 +33,7 @@ var FollowerRequest = React.createClass({
         </div>
 
         <div className="o-media__ext">
-          <a className="c-noti-dropdown__li__pf-resp u-text--apricot" href="#" onClick={this.handleDestroy}>
+          <a className="c-noti-dropdown__li__pf-resp u-text--apricot" href="#" onClick={this.handleReject}>
             <i className="fa fa-times"></i>
           </a>
           <a className="c-noti-dropdown__li__pf-resp u-text--wild-willow" href="#" onClick={this.handleAccept}>
