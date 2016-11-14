@@ -4,8 +4,5 @@
     <span class="c-noti-dropdown__li--header__right"><%= link_to "Settings", profile_general_settings_path(profile_id: profile.id), class: "u-text--apricot" %></span>
   </li>
   <%= render partial: "notifications_menu/notifications_list", locals: {notifications: profile.notifications, profile: profile} %>
-  <li class="o-dropdown__li c-noti-dropdown__li c-noti-dropdown__li--header">
-    Follower Requests <span class="c-noti-dropdown__li--header__right c-noti-dropdown__li--header__right--req-num"><%= profile.pending_follows.length %></span>
-  </li>
   <%= react_component 'FollowerRequestsMenuList', {url: profile_pending_follows_path(profile), currentProfileID: profile.id} %>  
 </ul>

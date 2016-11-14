@@ -10,7 +10,7 @@ var FollowerRequestsMenuList = React.createClass({
       cache: false,
       success: function(data) {
         console.log(data);
-        this.setState({pendingFollows: data.pending_follows});
+        this.setState({pendingFollows: data.pending_follows, loaded: true});
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(xhr, this.props.url, status, err.toString());
@@ -21,13 +21,28 @@ var FollowerRequestsMenuList = React.createClass({
     console.log(this.props);
     this.loadPendingFollows();
   },
+  followerRequestsHeader: function() {
+    var followerNumber;
+    if (this.state.loaded) {
+      followerNumber = this.state.pendingFollows.length;
+    } else {
+      followerNumber = "";
+    }
+    return (
+      <li className="o-dropdown__li c-noti-dropdown__li c-noti-dropdown__li--header">
+        Follower Requests <span className="c-noti-dropdown__li--header__right c-noti-dropdown__li--header__right--req-num">{followerNumber}</span>
+      </li>
+    );
+  },
   pendingFollowsOrLoading: function() {
     var self = this;
-    if (this.state.loaded) {
+    if (!this.state.loaded) {
       return (<li className="o-dropdown__li c-noti-dropdown__li">Loading</li>)
     } else {
       var pendingFollows = this.state.pendingFollows.map(function(pF) {
-        return (<FollowerRequest id={pF.id} key={pF.id} followerName={pF.follower_name} currentProfileID={self.props.currentProfileID} followerID={pF.follower_id} followerPic={pF.follower_pic} />)
+        return (
+          <FollowerRequest id={pF.id} key={pF.id} followerName={pF.follower_name} currentProfileID={self.props.currentProfileID} followerID={pF.follower_id} followerPic={pF.follower_pic} />
+        )
       });
       return pendingFollows;
     }
@@ -36,6 +51,7 @@ var FollowerRequestsMenuList = React.createClass({
     var self = this;   
     return (
       <div className="c-noti-dropdown__pf-list">
+        {this.followerRequestsHeader()}
         {this.pendingFollowsOrLoading()}
       </div>
     );

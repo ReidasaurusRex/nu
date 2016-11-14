@@ -20,6 +20,5 @@ class Profiles::FollowSystem::PendingFollowsController < Inheritance::ProfileMat
     @pending_subscription = @pending_follow.pending_follower.pending_subscriptions.where(pending_following_id: @profile.id)[0]
     @pending_follow.destroy
     @pending_subscription.destroy
-    redirect_to profile_path(@profile)
   end
 end

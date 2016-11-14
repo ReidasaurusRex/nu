@@ -9,6 +9,21 @@ var FollowerRequest = React.createClass({
   handleReject: function(e) {
     e.preventDefault();
     console.log("Rejected");
+    var url = "/profiles/" + this.props.currentProfileID + "/pending_follows/" + this.props.id;
+    console.log(url);
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'DELETE',
+      cache: false,
+      success: function(data) {
+        console.log(data);
+        this.setState({status: "rejected"});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(xhr, url, status, err.toString());
+      }.bind(this)
+    });
   },
   properPrompt: function() {
     switch (this.state.status) {
