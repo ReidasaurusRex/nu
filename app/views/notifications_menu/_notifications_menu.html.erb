@@ -7,5 +7,5 @@
   <li class="o-dropdown__li c-noti-dropdown__li c-noti-dropdown__li--header">
     Follower Requests <span class="c-noti-dropdown__li--header__right c-noti-dropdown__li--header__right--req-num"><%= profile.pending_follows.length %></span>
   </li>
-  <%= render partial: "notifications_menu/pending_followers_list.html.erb", locals: {pending_follows: profile.pending_follows, profile: profile} %>  
+  <%= react_component 'FollowerRequestsMenuList', {url: profile_pending_follows_path(profile), currentProfileID: profile.id} %>  
 </ul>

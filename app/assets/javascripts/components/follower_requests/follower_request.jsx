@@ -6,7 +6,7 @@ var FollowerRequest = React.createClass({
     e.preventDefault();
     console.log("Accepted");
   },
-  handleDestroy: function(e) {
+  handleReject: function(e) {
     e.preventDefault();
     console.log("Rejected");
   },
@@ -20,18 +20,9 @@ var FollowerRequest = React.createClass({
         return "follow request deleted";
     }
   },
-  render: function() {
-    return(
-      <li className="o-dropdown__li c-noti-dropdown__li">
-        
-        <div className="o-media__img c-noti-dropdown__li__img">
-          <img className="o-img--round o-img--tiny" src={this.props.followerImage} />
-        </div>
-
-        <div className="o-media__bd c-noti-dropdown__li__bd">
-          {this.props.followerName} {this.properPrompt}
-        </div>
-
+  linksOrNot: function() {
+    if (this.state.status === "pending") {
+      return (
         <div className="o-media__ext">
           <a className="c-noti-dropdown__li__pf-resp u-text--apricot" href="#" onClick={this.handleReject}>
             <i className="fa fa-times"></i>
@@ -40,6 +31,24 @@ var FollowerRequest = React.createClass({
             <i className="fa fa-check"></i>
           </a>
         </div>
+      );
+    } else {
+      return null;
+    }
+  },
+  render: function() {
+    return(
+      <li className="o-dropdown__li c-noti-dropdown__li">
+        
+        <div className="o-media__img c-noti-dropdown__li__img">
+          <img className="o-img--round o-img--tiny" src={this.props.followerPic} />
+        </div>
+
+        <div className="o-media__bd c-noti-dropdown__li__bd">
+          {this.props.followerName} {this.properPrompt()}
+        </div>
+
+        {this.linksOrNot()}        
 
       </li>
     );
