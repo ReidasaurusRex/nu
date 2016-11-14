@@ -4,13 +4,25 @@ var FollowerRequest = React.createClass({
   },
   handleAccept: function(e) {
     e.preventDefault();
-    console.log("Accepted");
+    var url = "/profiles/" + this.props.currentProfileID + "/follows";
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'POST',
+      data: {follower_id: this.props.followerID},
+      cache: false,
+      succes: function(data) {
+        console.log(data);
+        this.setState({status: "accepted"});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(xhr, url, status, err.toString());
+      }.bind(this)
+    });
   },
   handleReject: function(e) {
     e.preventDefault();
-    console.log("Rejected");
     var url = "/profiles/" + this.props.currentProfileID + "/pending_follows/" + this.props.id;
-    console.log(url);
     $.ajax({
       url: url,
       dataType: 'json',
