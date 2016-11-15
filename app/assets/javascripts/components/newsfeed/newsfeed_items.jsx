@@ -1,6 +1,6 @@
 var NewsfeedItems = React.createClass({
   getInitialState: function() {
-    return  {items: [], loading: false};
+    return  {items: [], loading: false, isMounted: false};
   },
   loadTenItems: function() {
     var currentData = this.state.items;
@@ -20,14 +20,22 @@ var NewsfeedItems = React.createClass({
       }.bind(this)
     });
   },
+  componentWillMount: function() {
+    this.setState({isMounted: true});
+  },
   componentDidMount: function() {
     this.loadTenItems();
     var self = this;
-    $(window).scroll(function() {
-     if (($(window).scrollTop() + $(window).height() > $(document).height() - 50) && (!self.state.loading)) {
+    if (this.state.isMounted) {
+      $(window).scroll(function() {
+        if (($(window).scrollTop() + $(window).height() > $(document).height() - 50) && (!self.state.loading)) {
          self.loadTenItems();
-     }
-    });
+        }
+      });
+    }
+  },
+  componentWillUnmount: function() {
+    this.setState({isMounted: false});
   },
   handleDelete: function(id) {
     var destroyUrl = this.props.url + "/" + id;
