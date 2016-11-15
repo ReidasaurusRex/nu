@@ -1,6 +1,6 @@
 var FollowerRequestsMenuList = React.createClass({
   getInitialState: function() {
-    return {pendingFollows: [], loaded: false};
+    return {pendingFollows: [], loaded: false, length: null};
   },
   loadPendingFollows: function() {
     $.ajax({
@@ -9,8 +9,7 @@ var FollowerRequestsMenuList = React.createClass({
       type: 'GET',
       cache: false,
       success: function(data) {
-        console.log(data);
-        this.setState({pendingFollows: data.pending_follows, loaded: true});
+        this.setState({pendingFollows: data.pending_follows, loaded: true, length: data.pending_follows.length});
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(xhr, this.props.url, status, err.toString());
@@ -18,19 +17,16 @@ var FollowerRequestsMenuList = React.createClass({
     });
   },
   componentDidMount: function() {
-    console.log(this.props);
     this.loadPendingFollows();
   },
+  handleResolve: function() {
+    var newLength = this.state.length - 1;
+    this.setState({length: newLength});
+  },
   followerRequestsHeader: function() {
-    var followerNumber;
-    if (this.state.loaded) {
-      followerNumber = this.state.pendingFollows.length;
-    } else {
-      followerNumber = "";
-    }
     return (
       <li className="o-dropdown__li c-noti-dropdown__li c-noti-dropdown__li--header">
-        Follower Requests <span className="c-noti-dropdown__li--header__right c-noti-dropdown__li--header__right--req-num">{followerNumber}</span>
+        Follower Requests <span className="c-noti-dropdown__li--header__right c-noti-dropdown__li--header__right--req-num">{this.state.length}</span>
       </li>
     );
   },
@@ -41,7 +37,7 @@ var FollowerRequestsMenuList = React.createClass({
     } else {
       var pendingFollows = this.state.pendingFollows.map(function(pF) {
         return (
-          <FollowerRequest id={pF.id} key={pF.id} followerName={pF.follower_name} currentProfileID={self.props.currentProfileID} followerID={pF.follower_id} followerPic={pF.follower_pic} />
+          <FollowerRequest id={pF.id} key={pF.id} followerName={pF.follower_name} currentProfileID={self.props.currentProfileID} followerID={pF.follower_id} followerPic={pF.follower_pic} onResolve={self.handleResolve}/>
         )
       });
       return pendingFollows;

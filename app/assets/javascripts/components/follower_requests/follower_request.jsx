@@ -12,8 +12,8 @@ var FollowerRequest = React.createClass({
       data: {follower_id: this.props.followerID},
       cache: false,
       succes: function(data) {
-        console.log(data);
         this.setState({status: "accepted"});
+        this.props.onResolve();
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(xhr, url, status, err.toString());
@@ -29,8 +29,8 @@ var FollowerRequest = React.createClass({
       type: 'DELETE',
       cache: false,
       success: function(data) {
-        console.log(data);
         this.setState({status: "rejected"});
+        this.props.onResolve();
       }.bind(this),
       error: function(xhr, status, err) {
         console.log(xhr, url, status, err.toString());
