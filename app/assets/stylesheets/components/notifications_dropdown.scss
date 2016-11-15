@@ -13,6 +13,10 @@
 
 .c-noti-dropdown__li__bd {
   font-size: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 180px;
 }
 
 .c-noti-dropdown__li--header__right {
