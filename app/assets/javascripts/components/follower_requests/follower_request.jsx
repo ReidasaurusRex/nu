@@ -11,7 +11,7 @@ var FollowerRequest = React.createClass({
       type: 'POST',
       data: {follower_id: this.props.followerID},
       cache: false,
-      succes: function(data) {
+      success: function(data) {
         this.setState({status: "accepted"});
         this.props.onResolve();
       }.bind(this),
