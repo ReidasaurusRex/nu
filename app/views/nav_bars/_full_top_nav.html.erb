@@ -63,4 +63,4 @@
 <%= render partial: "dropdown_menu/dropdown_menu", locals: {user: @user} %>
 
 <!-- notifications-menu -->
-<%= render partial: "notifications_menu/notifications_menu", locals: {profile: @user.profile} %>
+<%= react_component 'NotificationsMenu', {profileID: @user.profile.id} %>
