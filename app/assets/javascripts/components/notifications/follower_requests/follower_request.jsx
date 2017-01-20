@@ -1,8 +1,13 @@
-var FollowerRequest = React.createClass({
-  getInitialState: function() {
-    return {status: "pending"};
-  },
-  handleAccept: function(e) {
+class FollowerRequest extends React.Component {
+  constructor() {
+    super();
+    this.handleAccept = this.handleAccept.bind(this);
+    this.handleReject = this.handleReject.bind(this);
+    this.state = {
+      status: 'pending'
+    }
+  }
+  handleAccept(e) {
     e.preventDefault();
     var url = "/profiles/" + this.props.currentProfileID + "/follows";
     $.ajax({
@@ -19,8 +24,8 @@ var FollowerRequest = React.createClass({
         console.log(xhr, url, status, err.toString());
       }.bind(this)
     });
-  },
-  handleReject: function(e) {
+  }
+  handleReject(e) {
     e.preventDefault();
     var url = "/profiles/" + this.props.currentProfileID + "/pending_follows/" + this.props.id;
     $.ajax({
@@ -36,8 +41,8 @@ var FollowerRequest = React.createClass({
         console.log(xhr, url, status, err.toString());
       }.bind(this)
     });
-  },
-  properPrompt: function() {
+  }
+  properPrompt() {
     switch (this.state.status) {
       case "pending":
         return "wants to follow you";
@@ -46,8 +51,8 @@ var FollowerRequest = React.createClass({
       case "rejected":
         return "follow request deleted";
     }
-  },
-  linksOrNot: function() {
+  }
+  linksOrNot() {
     if (this.state.status === "pending") {
       return (
         <div className="o-media__ext">
@@ -62,8 +67,8 @@ var FollowerRequest = React.createClass({
     } else {
       return null;
     }
-  },
-  render: function() {
+  }
+  render() {
     return(
       <li className="o-dropdown__li c-noti-dropdown__li">
         
@@ -80,4 +85,4 @@ var FollowerRequest = React.createClass({
       </li>
     );
   }
-});
+}
