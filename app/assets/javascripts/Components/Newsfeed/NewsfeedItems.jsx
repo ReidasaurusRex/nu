@@ -24,18 +24,20 @@ var NewsfeedItems = React.createClass({
     this.setState({isMounted: true});
   },
   componentDidMount: function() {
+    this.setState({isMounted: true});
     this.loadTenItems();
-    var self = this;
-    if (this.state.isMounted) {
-      $(window).scroll(function() {
-        if (($(window).scrollTop() + $(window).height() > $(document).height() - 50) && (!self.state.loading)) {
-         self.loadTenItems();
-        }
-      });
-    }
+    window.addEventListener('scroll', this.handleScroll);
+    
   },
   componentWillUnmount: function() {
+    window.removeEventListener('scroll', this.handleScroll);
     this.setState({isMounted: false});
+  },
+  handleScroll: function() {
+    var self = this;  
+    if (($(window).scrollTop() + $(window).height() > $(document).height() - 50) && (!self.state.loading)) {
+     self.loadTenItems();
+    }
   },
   handleDelete: function(id) {
     var destroyUrl = this.props.url + "/" + id;
