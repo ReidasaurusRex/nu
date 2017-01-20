@@ -1,8 +1,10 @@
-var NotificationsMenu = React.createClass({
-  getInitialState: function() {
-    return {empty: true}
-  }, 
-  render: function() {
+class NotificationsMenu extends React.Component {
+  construcotr() {
+    this.state = {
+      empty: true
+    }
+  }
+  render() {
     var pendingFollowsUrl = "/profiles/" + this.props.profileID + "/pending_follows"
     return(
       <ul className="o-dropdown c-noti-dropdown">
@@ -11,4 +13,4 @@ var NotificationsMenu = React.createClass({
       </ul>
     )
   }
-})
+}
