@@ -1,5 +1,5 @@
 class NotificationsMenu extends React.Component {
-  construcotr() {
+  constructor() {
     this.state = {
       empty: true
     }
