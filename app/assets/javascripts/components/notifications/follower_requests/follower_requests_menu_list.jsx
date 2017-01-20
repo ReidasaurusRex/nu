@@ -1,8 +1,18 @@
-var FollowerRequestsMenuList = React.createClass({
-  getInitialState: function() {
-    return {pendingFollows: [], loaded: false, length: null};
-  },
-  loadPendingFollows: function() {
+class FollowerRequestsMenuList extends React.Component {
+  constructor() {
+    super();
+    this.loadPendingFollows = this.loadPendingFollows.bind(this);
+    this.handleResolve = this.handleResolve.bind(this);
+    this.state = {
+      pendingFollows: [],
+      loaded: false,
+      length: null
+    }
+  }
+  componentDidMount() {
+    this.loadPendingFollows();
+  }
+  loadPendingFollows() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -15,22 +25,19 @@ var FollowerRequestsMenuList = React.createClass({
         console.log(xhr, this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
-  componentDidMount: function() {
-    this.loadPendingFollows();
-  },
-  handleResolve: function() {
+  }
+  handleResolve() {
     var newLength = this.state.length - 1;
     this.setState({length: newLength});
-  },
-  followerRequestsHeader: function() {
+  }
+  followerRequestsHeader() {
     return (
       <li className="o-dropdown__li c-noti-dropdown__li c-noti-dropdown__li--header">
         Follower Requests <span className="c-noti-dropdown__li--header__right c-noti-dropdown__li--header__right--req-num">{this.state.length}</span>
       </li>
     );
-  },
-  pendingFollowsOrLoading: function() {
+  }
+  pendingFollowsOrLoading() {
     var self = this;
     if (!this.state.loaded) {
       return (<li className="o-dropdown__li c-noti-dropdown__li">Loading</li>)
@@ -42,8 +49,8 @@ var FollowerRequestsMenuList = React.createClass({
       });
       return pendingFollows;
     }
-  },
-  render: function() {
+  }
+  render() {
     var self = this;   
     return (
       <div className="c-noti-dropdown__pf-list">
@@ -52,4 +59,4 @@ var FollowerRequestsMenuList = React.createClass({
       </div>
     );
   }  
-});
+}
