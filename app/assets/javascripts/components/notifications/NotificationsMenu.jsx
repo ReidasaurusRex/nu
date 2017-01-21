@@ -6,10 +6,11 @@ class NotificationsMenu extends React.Component {
     }
   }
   render() {
-    var pendingFollowsUrl = "/profiles/" + this.props.profileID + "/pending_follows"
-    return(
+    var pendingFollowsUrl = "/profiles/" + this.props.profileID + "/pending_follows";
+    var notificationsUrl = "/profiles/" + this.props.profileID + "/notifications";
+    return (
       <ul className="o-dropdown c-noti-dropdown">
-        <li>Notifications</li>
+        <Notifications currentProfileID={this.props.currentProfileID} url={notificationsUrl} />
         <FollowerRequestsMenuList currentProfileID={this.props.currentProfileID} url={pendingFollowsUrl} />
       </ul>
     )

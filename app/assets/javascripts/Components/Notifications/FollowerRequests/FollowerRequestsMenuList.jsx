@@ -53,10 +53,10 @@ class FollowerRequestsMenuList extends React.Component {
   render() {
     var self = this;   
     return (
-      <div className="c-noti-dropdown__pf-list">
+      <ul className="c-noti-dropdown__pf-list">
         {this.followerRequestsHeader()}
         {this.pendingFollowsOrLoading()}
-      </div>
+      </ul>
     );
   }  
 }
