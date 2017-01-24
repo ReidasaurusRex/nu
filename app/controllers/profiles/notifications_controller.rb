@@ -1,6 +1,6 @@
 class Profiles::NotificationsController < Inheritance::CompletedProfileController
   def index
-    @notifications = @profile.notifications
+    @notifications = @profile.notifications.last(params[:num])
   end
 
   def destroy
