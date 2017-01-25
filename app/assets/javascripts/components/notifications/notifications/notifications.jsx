@@ -33,7 +33,7 @@ class Notifications extends React.Component {
     } else if (this.state.notifications.length !== 0) {
       var notifications = this.state.notifications.map(function(noti) {
         return (
-          <Notification id={noti.id} key={noti.id} image={noti.image} text={noti.text} link={noti.link} profileID={self.props.currentProfileID} />
+          <Notification id={noti.id} key={noti.id} image={noti.image} text={noti.text} link={noti.link} profileID={self.props.currentProfileID} unseen={noti.unseen}/>
         );
       });
       return notifications;
