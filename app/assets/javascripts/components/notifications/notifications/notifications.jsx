@@ -36,6 +36,7 @@ class Notifications extends React.Component {
           <Notification id={noti.id} key={noti.id} image={noti.image} text={noti.text} link={noti.link} profileID={self.props.currentProfileID} />
         );
       });
+      return notifications;
     } else {
       return (<li classNmae="o-dropdown__li c-noti-dropwdown__li">No notifications</li>);
     }
