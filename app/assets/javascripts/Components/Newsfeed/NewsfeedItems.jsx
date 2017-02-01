@@ -1,8 +1,18 @@
-var NewsfeedItems = React.createClass({
-  getInitialState: function() {
-    return  {items: [], loading: false, isMounted: false};
-  },
-  loadTenItems: function() {
+class NewsfeedItems extends React.Component {
+  constructor() {
+    super();
+    this.loadTenItems = this.loadTenItems.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.properItemType = this.properItemType.bind(this);
+    this.handleNewsfeedItemSubmit = this.handleNewsfeedItemSubmit.bind(this);
+    this.addTagsUnlessEmpty = this.addTagsUnlessEmpty.bind(this);
+    this.state = {
+      items: [],
+      loading: false
+    }
+  }
+  loadTenItems() {
     var currentData = this.state.items;
     this.setState({loading: true});
     $.ajax({
@@ -19,27 +29,21 @@ var NewsfeedItems = React.createClass({
         this.setState({loading: false});
       }.bind(this)
     });
-  },
-  componentWillMount: function() {
-    this.setState({isMounted: true});
-  },
-  componentDidMount: function() {
-    this.setState({isMounted: true});
+  }
+  componentDidMount() {
     this.loadTenItems();
     window.addEventListener('scroll', this.handleScroll);
-    
-  },
-  componentWillUnmount: function() {
+  }
+  componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
-    this.setState({isMounted: false});
-  },
-  handleScroll: function() {
+  }
+  handleScroll() {
     var self = this;  
     if (($(window).scrollTop() + $(window).height() > $(document).height() - 50) && (!self.state.loading)) {
      self.loadTenItems();
     }
-  },
-  handleDelete: function(id) {
+  }
+  handleDelete(id) {
     var destroyUrl = this.props.url + "/" + id;
     $.ajax({
       url: destroyUrl,
@@ -63,15 +67,15 @@ var NewsfeedItems = React.createClass({
         console.log(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
-  properItemType: function(item) {
+  }
+  properItemType(item) {
     if (item.source_type === "feed") {
       return (<FeedNewsfeedItem id={item.id} url={item.url} feed={item.feed} tsc={item.tsc} sourceName={item.source_name} image={item.image} currentProfileID={this.props.currentProfileID} />)
     } else {
       return (<NativeNewsfeedItem id={item.id} content={item.content} image={item.image} sourceName={item.source_name} sourceID={item.source_id} tsc={item.tsc} currentProfileID={this.props.currentProfileID} onDelete={this.handleDelete} />)
     }
-  },
-  handleNewsfeedItemSubmit: function(itemAndTags) {
+  }
+  handleNewsfeedItemSubmit(itemAndTags) {
     $.ajax({
       url: this.props.url,
       type: 'POST', 
@@ -88,13 +92,13 @@ var NewsfeedItems = React.createClass({
       }.bind(this)
 
     });
-  },
-  addTagsUnlessEmpty: function(tags) {
+  }
+  addTagsUnlessEmpty(tags) {
     if (tags.length > 0) {
       return (<TagList tags={tags} currentProfileID={this.props.currentProfileID} />)
     }
-  },
-  render: function() {
+  }
+  render() {
     var self = this;
     var items = this.state.items.map(function(item) {
       return (
@@ -125,4 +129,4 @@ var NewsfeedItems = React.createClass({
       </div>
     );
   }
-});
+}
