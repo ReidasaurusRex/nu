@@ -1,8 +1,17 @@
-var RSSManager = React.createClass({
-  getInitialState: function() {
-    return {feeds: {current: [], suggested: []}};
-  },
-  loadFeeds: function() {
+class RSSManager extends React.Component {
+  constructor() {
+    super();
+    this.loadFeeds = this.loadFeeds.bind(this);
+    this.handleFeedSubmit = this.handleFeedSubmit.bind(this);
+    this.handleFeedDestroy = this.handleFeedDestroy.bind(this);
+    this.state = {
+      feeds: {
+        current: [],
+        suggested: []
+      }
+    }
+  }
+  loadFeeds() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -15,11 +24,11 @@ var RSSManager = React.createClass({
         console.log(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
-  componentDidMount: function() {
+  }
+  componentDidMount() {
     this.loadFeeds();
-  },
-  handleFeedSubmit: function(feed) {
+  }
+  handleFeedSubmit(feed) {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -32,8 +41,8 @@ var RSSManager = React.createClass({
         console.log(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
-  handleFeedDestroy: function(feedId) {
+  }
+  handleFeedDestroy(feedId) {
     var destroyUrl = this.props.url + "/" + feedId.id;
     $.ajax({
       url: destroyUrl,
@@ -47,9 +56,8 @@ var RSSManager = React.createClass({
         console.log(this.props.url, status, err.toString());
       }.bind(this)
     });
-
-  },
-  render: function() {
+  }
+  render() {
     var self = this;
     var currentFeeds = this.state.feeds.current.map(function(curFeed) {
       return (<CurrentFeed key={curFeed.id} id={curFeed.id} feedTitle={curFeed.feed_title} profileID={self.props.profileID} onFeedDestroy={self.handleFeedDestroy} />)
@@ -75,6 +83,6 @@ var RSSManager = React.createClass({
         </div>
 
       </div>
-    )
+    );
   }
-});
+}
