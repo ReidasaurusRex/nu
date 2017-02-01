@@ -1,5 +1,5 @@
-var TagList = React.createClass({
-  render: function() {
+class TagList extends React.Component {
+  render() {
     var self = this;
     var tagLinks = this.props.tags.map(function(tag) {
       var searchUrl = "/profiles/" + self.props.currentProfileID + "/search/results?query=" + tag.name;
@@ -15,4 +15,4 @@ var TagList = React.createClass({
       </ul>
     );
   }
-});
+}
