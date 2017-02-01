@@ -1,8 +1,18 @@
-var SocialOverview = React.createClass({
-  getInitialState: function() {
-    return {likes: this.props.likes, comments: this.props.comments};
-  },
-  likeButton: function() {
+class SocialOverview extends React.Component {
+  constructor(props) {
+    super(props);
+    this.likeButton = this.likeButton.bind(this);
+    this.likeNumber = this.likeNumber.bind(this);
+    this.commentButton = this.commentButton.bind(this);
+    this.commentNumber = this.commentNumber.bind(this);
+    this.handleLikeDestroy = this.handleLikeDestroy.bind(this);
+    this.handleLikeSubmit = this.handleLikeSubmit.bind(this);
+    this.state = {
+      likes: this.props.likes,
+      comments: this.props.comments
+    }
+  }
+  likeButton() {
     var self = this;
     var likeProfileIds = this.state.likes.map(function(like) {
       return like.profile_id;
@@ -16,15 +26,15 @@ var SocialOverview = React.createClass({
         <a href="#" title="Appreciate" onClick={this.handleLikeSubmit}><i className="fa fa-heart c-social-overview__li__icon u-text--edward"></i></a>
       )
     }
-  },
-  likeNumber: function() {
+  }
+  likeNumber() {
     if (this.state.likes.length > 0) {
       return this.state.likes.length;
     } else {
       return "";
     }
-  },
-  commentButton: function() {
+  }
+  commentButton() {
     var self = this;
     var commentProfileIds = this.state.comments.map(function(comment) {
       return comment.profile_id;
@@ -39,15 +49,15 @@ var SocialOverview = React.createClass({
         <i className="fa fa-reply c-social-overview__li__icon u-text--edward"></i>
       )
     }
-  },
-  commentNumber: function() {
+  }
+  commentNumber() {
     if (this.state.comments.length > 0) {
       return this.state.comments.length;
     } else {
       return "";
     }
-  },
-  handleLikeDestroy: function(e) {
+  }
+  handleLikeDestroy(e) {
     var self = this;
     e.preventDefault();
     var profileLikeID = this.state.likes.find(function(like){return like.profile_id === self.props.currentProfileID;}).id;
@@ -64,8 +74,8 @@ var SocialOverview = React.createClass({
         console.log(destroyUrl, status, err.toString());
       }.bind(this)
     });
-  },
-  handleLikeSubmit: function(e) {
+  }
+  handleLikeSubmit(e) {
     var self = this;
     e.preventDefault();
     var createUrl = "/newsfeed_items/" + this.props.newsfeedID + "/likes"
@@ -81,8 +91,8 @@ var SocialOverview = React.createClass({
         console.log(createUrl, status, err.toString());
       }.bind(this)
     });
-  },
-  render: function() {
+  }
+  render() {
     return (
       <ul className="o-inline-list c-social-overview">
         
@@ -99,4 +109,4 @@ var SocialOverview = React.createClass({
       </ul>
     );
   }
-});
+}
