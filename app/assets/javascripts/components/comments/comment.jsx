@@ -4,7 +4,6 @@ class Comment extends React.Component {
   }
   render() {
     var profileUrl = "/profiles/" + this.props.profileID;
-    console.log(this.props.profilePhoto);
     return (
       <li className="o-media c-comments-list__li c-comments-list__comment">
         

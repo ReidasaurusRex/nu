@@ -1,11 +1,16 @@
-var NewCommentForm = React.createClass({
-  getInitialState: function() {
-    return {comment: ''};
-  },
-  handleCommentChange: function(e) {
+class NewCommentForm extends React.Component {
+  constructor() {
+    super();
+    this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      comment: ''
+    }
+  }
+  handleCommentChange(e) {
     this.setState({comment: e.target.value});
-  },
-  handleSubmit: function(e) {
+  }
+  handleSubmit(e) {
     e.preventDefault();
     var comment = this.state.comment.trim();
     if (!comment) {
@@ -13,8 +18,8 @@ var NewCommentForm = React.createClass({
     }
     this.props.onCommentSubmit({comment: {newsfeed_item_id: this.props.newsfeedID, profile_id: this.props.currentProfileID, text: comment}});
     this.setState({comment: ''});
-  },
-  render: function() {
+  }
+  render() {
     return (
       <li className="o-media c-comments-list__li c-comments-list__new">
 
@@ -30,8 +35,7 @@ var NewCommentForm = React.createClass({
           />
           <input className="u-narrow-button" type="submit" value="Reply" />
         </form>
-
       </li>
     );
   }
-});
+}
