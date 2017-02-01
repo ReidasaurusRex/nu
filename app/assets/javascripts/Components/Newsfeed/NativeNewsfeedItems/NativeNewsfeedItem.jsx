@@ -1,21 +1,30 @@
-var NativeNewsfeedItem = React.createClass({
-  getInitialState: function() {
-    return {content: this.props.content, displayMenu: false, editContent: false, following: true};
-  },
-  handleMenuClick: function() {
+class NativeNewsfeedItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMenuClick = this.handleMenuClick.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleNewsfeedItemUpdate = this.handleNewsfeedItemUpdate.bind(this);
+    this.sendDelete = this.sendDelete.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
+    this.state = {
+      content: this.props.content,
+      displayMenu: false,
+      editContent: false,
+      following: true
+    }
+  }
+  handleMenuClick() {
     if (!this.state.displayMenu) {
       this.setState({displayMenu: true});
     } else {
       this.setState({displayMenu: false});
     }
-  },
-  handleEditClick: function(e) {
+  }
+  handleEditClick(e) {
     e.preventDefault();
     this.setState({editContent: true, displayMenu: false});
-    console.log("Clicked edit and shit!");
-    console.log(e.target);
-  },
-  handleNewsfeedItemUpdate: function(content) {
+  }
+  handleNewsfeedItemUpdate(content) {
     var updateUrl = "/profiles/" + this.props.currentProfileID + "/newsfeed_items/" + this.props.id;
     $.ajax({
       url: updateUrl,
@@ -30,15 +39,15 @@ var NativeNewsfeedItem = React.createClass({
         console.log(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
-  sendDelete: function(e) {
+  }
+  sendDelete(e) {
     e.preventDefault();
     this.setState({displayMenu: false});
     if (confirm("Delete this post?")) {
       this.props.onDelete(this.props.id);
     }
-  },
-  handleUnfollow: function(e) {
+  }
+  handleUnfollow(e) {
     e.preventDefault();
     this.setState({displayMenu: false});
     var destroyUrl = "/profiles/" + this.currentProfileID + "/subscriptions/" + this.props.sourceID;
@@ -55,8 +64,8 @@ var NativeNewsfeedItem = React.createClass({
         console.log(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
-  render: function() {
+  }
+  render() {
     var menu, contentOrForm;
     if (this.state.displayMenu) {
       menu = <NativeNewsfeedMenu newsfeedItemID={this.props.id} currentProfileID={this.props.currentProfileID}  sourceID={this.props.sourceID} following={this.state.following}  
@@ -91,4 +100,4 @@ var NativeNewsfeedItem = React.createClass({
       </div>
     );
   }
-});
+}
