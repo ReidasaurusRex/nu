@@ -1,9 +1,13 @@
-var CurrentFeed = React.createClass({
-  handleDelete: function(e) {
+class CurrentFeed extends React.Component {
+  constructor() {
+    super();
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  handleDelete(e) {
     e.preventDefault();
     this.props.onFeedDestroy({id: this.props.id});
-  },
-  render: function() {
+  }
+  render() {
     var removePrompt = "Remove " + this.props.feedTitle;
     return (
       <li className="c-rss-manage__section__li">
@@ -23,4 +27,4 @@ var CurrentFeed = React.createClass({
       </li>
     );
   }
-});
+}
