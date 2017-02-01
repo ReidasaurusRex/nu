@@ -1,11 +1,26 @@
-var NewNewsfeedItemForm = React.createClass({
-  getInitialState: function() {
-    return {content: '', tags: {water: false, waste: false, diet: false, travel: false, social: false, energy: false}};
-  },
-  handleContentChange: function(e) {
+class NewNewsfeedItemForm extends React.Component {
+  constructor() {
+    super();
+    this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.emptyOrPresentTags = this.emptyOrPresentTags.bind(this);
+    this.state = {
+      content: '', 
+      tags: {
+        water: false, 
+        waste: false,
+        diet: false,
+        travel: false,
+        social: false,
+        energy: false
+      }
+    }
+  }
+  handleContentChange(e) {
     this.setState({content: e.target.value});
-  },
-  handleCheckboxChange: function(e) {
+  }
+  handleCheckboxChange(e) {
     var value = e.target.value;
     var tags = Object.assign({}, this.state.tags);
     if (!tags[value]) {
@@ -14,8 +29,8 @@ var NewNewsfeedItemForm = React.createClass({
       tags[value] = false;
     }
     this.setState({tags: tags});
-  },
-  handleSubmit: function(e) {
+  }
+  handleSubmit(e) {
     e.preventDefault();
     var content = this.state.content.trim();
     var tags = this.emptyOrPresentTags();
@@ -24,8 +39,8 @@ var NewNewsfeedItemForm = React.createClass({
     }
     this.props.onNewsfeedItemSubmit({newsfeed_item: {source_id: this.props.currentProfileID, source_type: "profile", content: content}, tags: tags});
     this.setState({content: '', tags: {water: false, waste: false, diet: false, travel: false, social: false, energy: false}});
-  },
-  emptyOrPresentTags: function() {
+  }
+  emptyOrPresentTags() {
     var tags = this.state.tags;
     var returnedTags = {};
     for (var key in tags) {
@@ -34,8 +49,8 @@ var NewNewsfeedItemForm = React.createClass({
       }
     }
     return returnedTags;
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div className="o-bubble o-bubble--full o-bubble--no-pad o-bubble--with-heading c-newsfeed-composer">
 
@@ -158,6 +173,5 @@ var NewNewsfeedItemForm = React.createClass({
 
       </div>
     );
-    
   }
-});
+}

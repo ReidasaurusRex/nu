@@ -1,8 +1,13 @@
-var FeedNewsfeedItem = React.createClass({
-  getInitialState: function() {
-    return {displayMenu: false};
-  },
-  imageOrNot: function() {
+class FeedNewsfeedItem extends React.Component {
+  constructor() {
+    super();
+    this.imageOrNot = this.imageOrNot.bind(this);
+    this.handleMenuClick = this.handleMenuClick.bind(this);
+    this.state = {
+      displayMenu: false
+    }
+  }
+  imageOrNot() {
     if (this.props.image) {
       return (
         <div className="o-media__img">
@@ -12,16 +17,15 @@ var FeedNewsfeedItem = React.createClass({
     } else {
       return false;
     }
-  },
-  handleMenuClick: function() {
+  }
+  handleMenuClick() {
     if (!this.state.displayMenu) {
       this.setState({displayMenu: true});
     } else {
       this.setState({displayMenu: false});
     }
-    console.log(this.state.displayMenu);
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div>
         <h3 className="c-newsfeed-list__item__title c-newsfeed-list__item__text">
@@ -45,4 +49,4 @@ var FeedNewsfeedItem = React.createClass({
       </div>
     );
   }
-});
+};
