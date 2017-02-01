@@ -1,5 +1,8 @@
-var Comment = React.createClass({
-  render: function() {
+class Comment extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
     var profileUrl = "/profiles/" + this.props.profileID;
     console.log(this.props.profilePhoto);
     return (
@@ -19,4 +22,4 @@ var Comment = React.createClass({
       </li>
     );
   }
-});
+};
