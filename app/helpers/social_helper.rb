@@ -1,4 +1,16 @@
 module SocialHelper
+  def subscription_summary(user_profile, review_profile)
+    subscription_ids = user_profile.subscriptions.pluck(:following_id)
+    if subscription_ids.include?(review_profile.id)
+      return 'following'
+    elsif user_profile.pending_followings.include?(following_profile)
+      return 'pending'
+    elsif user_profile == following_profile
+      return 'owned'
+    else
+      return 'notFollowing'
+    end
+  end
   def subscription_link(user_profile, following_profile, profile_show=false)
     subscription_ids = user_profile.subscriptions.map {|subscrip| subscrip.following_id}
     if subscription_ids.include?(following_profile.id)
