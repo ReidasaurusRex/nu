@@ -11,22 +11,35 @@ class ProfileOverview extends React.Component {
   subscriptionLink() {
     switch (this.state.subscriptionSummary) {
       case 'following':
-        return <a className="c-profile-summary__fol-link c-profile-summary__fol-link--unfollow" onClick={this.handleUnfollow}>Following</a>
+        return <a className="c-profile-summary__fol-link c-profile-summary__fol-link--unfollow c-profile-summary__fol-link--pointer" onClick={this.handleUnfollow}>Following</a>
       case 'pending': 
         return <span className="c-profile-summary__fol-link c-profile-summary__fol-link--unfollow">Pending</span>
       case 'owned': 
-        return <a href={this.props.profilePath} className="c-profile-summary__fol-link c-profile-summary__fol-link--unfollow">View Profile</a>
+        return <a href={this.props.profilePath} className="c-profile-summary__fol-link c-profile-summary__fol-link--unfollow c-profile-summary__fol-link--pointer">View Profile</a>
       case 'notFollowing': 
-        return <a className="c-profile-summary__fol-link c-profile-summary__fol-link--follow" onClick={this.handleFollow}>Follow</a>
+        return <a className="c-profile-summary__fol-link c-profile-summary__fol-link--follow c-profile-summary__fol-link--pointer" onClick={this.handleFollow}>Follow</a>
     }
   }
   handleFollow(e) {
     e.preventDefault();
-    console.log(e.target)
+    console.log(this.props);
   }
   handleUnfollow(e) {
     e.preventDefault();
-    console.log(e.target)
+    console.log(this.props);
+    var unfollowUrl = "/profiles/" + this.props.currentProfileID + "/subscriptions/" + this.props.targetProfileID;
+    $.ajax({
+      url: unfollowUrl,
+      type: 'DELETE',
+      cache: false,
+      dataType: 'json',
+      success: function(data){
+        this.setState({subscriptionSummary: 'notFollowing'})
+      }.bind(this),
+      error: function(status, xhr, err) {
+        console.log(status, xhr, err);
+      }.bind(this)
+    })
   }
   render() {
     return (
@@ -35,7 +48,7 @@ class ProfileOverview extends React.Component {
           <img src={this.props.profileImg} className="o-img--large o-img--round c-profile-summary__el"/>
         </a>
         <h3 className="c-profile-summary__el">{this.props.profileName}</h3>
-        <p className="c-profile-summary__el"></p>
+        <p className="c-profile-summary__el">{this.subscriptionLink()}</p>
       </div>
     );
   }

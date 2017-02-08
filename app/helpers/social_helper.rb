@@ -3,9 +3,9 @@ module SocialHelper
     subscription_ids = user_profile.subscriptions.pluck(:following_id)
     if subscription_ids.include?(review_profile.id)
       return 'following'
-    elsif user_profile.pending_followings.include?(following_profile)
+    elsif user_profile.pending_followings.include?(review_profile)
       return 'pending'
-    elsif user_profile == following_profile
+    elsif user_profile == review_profile
       return 'owned'
     else
       return 'notFollowing'
