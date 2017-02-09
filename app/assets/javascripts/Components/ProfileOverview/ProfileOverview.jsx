@@ -22,11 +22,23 @@ class ProfileOverview extends React.Component {
   }
   handleFollow(e) {
     e.preventDefault();
-    console.log(this.props);
+    var followUrl = "/profiles/" + this.props.currentProfileID + "/pending_subscriptions"
+    $.ajax({
+      url: followUrl,
+      type: 'POST',
+      data: {pending_subscription: {profile_id: this.props.currentProfileID, pending_following_id: this.props.targetProfileID}},
+      cache: false,
+      dataType: 'json', 
+      success: function(data) {
+        this.setState({subscriptionSummary: 'pending'})
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(xhr, status, err.toString());
+      }.bind(this)
+    })
   }
   handleUnfollow(e) {
     e.preventDefault();
-    console.log(this.props);
     var unfollowUrl = "/profiles/" + this.props.currentProfileID + "/subscriptions/" + this.props.targetProfileID;
     $.ajax({
       url: unfollowUrl,
