@@ -4,7 +4,6 @@ class Profiles::FollowSystem::PendingSubscriptionsController < Inheritance::Prof
   end
 
   def create
-    binding.pry
     create_pending_subscription(pending_subscription_params)
   end
 
@@ -19,7 +18,6 @@ class Profiles::FollowSystem::PendingSubscriptionsController < Inheritance::Prof
 
   def create_pending_subscription(params)
     @pending_subscription = PendingSubscription.new(params)
-    binding.pry
     if @pending_subscription.save
       @pfollowing_profile = Profile.find(@pending_subscription.pending_following.id)
       @pfollowing_profile.pending_follows.create(pending_follower_id: @profile.id)
