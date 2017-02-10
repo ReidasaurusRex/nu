@@ -7,7 +7,7 @@
       <div class="c-search-results__sec">
         
         <% @results[:profiles].each do |profile| %>
-          <%= react_component 'ProfileOverview', profilePath: profile_path(profile), profileImg: profile.profile_photo, subscriptionSummary: subscription_summary(@profile, profile), profileName: profile.full_or_abbrev_name, currentProfileID: @profile.id, targetProfileID: profile.id %>
+          <%= react_component 'ProfileOverview', {profilePath: profile_path(profile), profileImg: profile.profile_photo, subscriptionSummary: subscription_summary(@profile, profile), profileName: profile.full_or_abbrev_name, currentProfileID: @profile.id, targetProfileID: profile.id}, {class: 'c-profile-summary'} %>
         <% end %> <!-- profiles each -->
 
       </div> <!-- c-search-results__sec -->

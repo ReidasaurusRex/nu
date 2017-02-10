@@ -40,22 +40,24 @@ class ProfileOverview extends React.Component {
   handleUnfollow(e) {
     e.preventDefault();
     var unfollowUrl = "/profiles/" + this.props.currentProfileID + "/subscriptions/" + this.props.targetProfileID;
-    $.ajax({
-      url: unfollowUrl,
-      type: 'DELETE',
-      cache: false,
-      dataType: 'json',
-      success: function(data){
-        this.setState({subscriptionSummary: 'notFollowing'})
-      }.bind(this),
-      error: function(status, xhr, err) {
-        console.log(status, xhr, err);
-      }.bind(this)
-    })
+    if (confirm("Unfollow " + this.props.profileName + "?")) {
+      $.ajax({
+        url: unfollowUrl,
+        type: 'DELETE',
+        cache: false,
+        dataType: 'json',
+        success: function(data){
+          this.setState({subscriptionSummary: 'notFollowing'})
+        }.bind(this),
+        error: function(status, xhr, err) {
+          console.log(status, xhr, err);
+        }.bind(this)
+      })  
+    }
   }
   render() {
     return (
-      <div className="c-profile-summary">
+      <div>
         <a href={this.props.profilePath}>
           <img src={this.props.profileImg} className="o-img--large o-img--round c-profile-summary__el"/>
         </a>

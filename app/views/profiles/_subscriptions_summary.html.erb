@@ -1,7 +1,7 @@
 <% unless subscriptions.empty? %>
   
   <% subscriptions.each do |subscription| %>
-    <%= react_component 'ProfileOverview', profilePath: profile_path(subscription.following), profileImg: subscription.following.profile_photo, subscriptionSummary: subscription_summary(@profile, subscription.following), profileName: subscription.following.full_or_abbrev_name, currentProfileID: @profile.id, targetProfileID: subscription.following_id %>
+    <%= react_component 'ProfileOverview', {profilePath: profile_path(subscription.following), profileImg: subscription.following.profile_photo, subscriptionSummary: subscription_summary(@profile, subscription.following), profileName: subscription.following.full_or_abbrev_name, currentProfileID: @profile.id, targetProfileID: subscription.following_id}, {class: 'c-profile-summary'} %>
   <% end %>
 
 <% else %>
